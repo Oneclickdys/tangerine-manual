@@ -1,0 +1,185 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Tangerine LMS - Manual de Usuario",
+  "logo": {
+    "dark": "/assets/logo-dark.svg",
+    "light": "/assets/logo-light.svg"
+  },
+  "favicon": "/assets/favicon.svg",
+  "colors": {
+    "primary": "#FF6B35",
+    "light": "#FF8C5A",
+    "dark": "#E55A2B",
+    "anchors": {
+      "from": "#FF6B35",
+      "to": "#FF8C5A"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Soporte",
+      "url": "mailto:soporte@tangerine.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Acceder",
+    "url": "https://tangerine.stn-neds.com"
+  },
+  "tabs": [
+    {
+      "name": "Backoffice",
+      "url": "backoffice"
+    },
+    {
+      "name": "Docentes",
+      "url": "docentes"
+    },
+    {
+      "name": "Estudiantes",
+      "url": "estudiantes"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Novedades",
+      "icon": "newspaper",
+      "url": "novedades"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Introduccion",
+      "pages": [
+        "introduccion/que-es-tangerine",
+        "introduccion/primeros-pasos"
+      ]
+    },
+    {
+      "group": "Backoffice",
+      "pages": [
+        {
+          "group": "Usuarios",
+          "pages": [
+            "backoffice/usuarios/gestion-usuarios",
+            "backoffice/usuarios/roles-permisos"
+          ]
+        },
+        {
+          "group": "Licencias",
+          "pages": [
+            "backoffice/licencias/asignacion",
+            "backoffice/licencias/lotes"
+          ]
+        },
+        {
+          "group": "Contenidos",
+          "pages": [
+            "backoffice/contenidos/biblioteca",
+            "backoffice/contenidos/publicaciones"
+          ]
+        },
+        {
+          "group": "Programas",
+          "pages": [
+            "backoffice/programas/crear-programa",
+            "backoffice/programas/asignar-contenidos"
+          ]
+        },
+        {
+          "group": "Escuelas",
+          "pages": [
+            "backoffice/escuelas/gestion-escuelas",
+            "backoffice/escuelas/configuracion"
+          ]
+        },
+        {
+          "group": "Analiticas",
+          "pages": [
+            "backoffice/analiticas/reportes-uso"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Docentes",
+      "pages": [
+        {
+          "group": "Clases",
+          "pages": [
+            "docentes/clases/mis-clases",
+            "docentes/clases/estudiantes"
+          ]
+        },
+        {
+          "group": "Tareas",
+          "pages": [
+            "docentes/tareas/crear-tarea",
+            "docentes/tareas/revisar-entregas"
+          ]
+        },
+        {
+          "group": "Calificaciones",
+          "pages": [
+            "docentes/calificaciones/libro-calificaciones",
+            "docentes/calificaciones/exportar"
+          ]
+        },
+        {
+          "group": "Contenido",
+          "pages": [
+            "docentes/contenido/recursos",
+            "docentes/contenido/lecciones"
+          ]
+        },
+        {
+          "group": "Comunicacion",
+          "pages": [
+            "docentes/comunicacion/muro-social",
+            "docentes/comunicacion/mensajes"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Estudiantes",
+      "pages": [
+        {
+          "group": "Mis Clases",
+          "pages": [
+            "estudiantes/mis-clases/ver-clases"
+          ]
+        },
+        {
+          "group": "Tareas",
+          "pages": [
+            "estudiantes/tareas/ver-tareas",
+            "estudiantes/tareas/entregar-tarea"
+          ]
+        },
+        {
+          "group": "Calificaciones",
+          "pages": [
+            "estudiantes/calificaciones/mis-calificaciones"
+          ]
+        },
+        {
+          "group": "Contenido",
+          "pages": [
+            "estudiantes/contenido/acceder-recursos"
+          ]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {},
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true
+  },
+  "search": {
+    "prompt": "Buscar en el manual..."
+  },
+  "integrations": {
+    "intercom": ""
+  }
+}

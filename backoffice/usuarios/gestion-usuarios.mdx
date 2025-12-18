@@ -1,0 +1,259 @@
+---
+title: "Gestion de Usuarios"
+description: "Aprende a crear, editar y gestionar usuarios en el sistema Tangerine"
+icon: "users"
+---
+
+## Descripcion
+
+La gestion de usuarios permite a los administradores crear, editar y administrar las cuentas de todos los usuarios del sistema: estudiantes, docentes y administradores de escuela.
+
+<Info>
+  **Rol requerido:** Administrador de Backoffice
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Inicia sesion en el Backoffice">
+    Accede al panel de administracion con tus credenciales de administrador.
+  </Step>
+  <Step title="Navega a Usuarios">
+    En el menu lateral izquierdo, haz clic en el icono de **Usuarios**.
+
+    ![Lista de usuarios](/assets/screenshots/backoffice/usuarios/lista-usuarios.png)
+  </Step>
+</Steps>
+
+## Vista general de usuarios
+
+La pantalla principal de usuarios muestra una tabla con todos los usuarios del sistema.
+
+### Columnas disponibles
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre usuario** | Nombre completo y email del usuario |
+| **Rol** | Tipo de usuario (Estudiante, Docente, Admin escuela) |
+| **Centro** | Colegio al que pertenece |
+| **Grupos** | Grupos/clases asignados |
+| **Ver perfil** | Acceso rapido al perfil en frontoffice |
+| **Admin escuela** | Indica si tiene permisos de administrador |
+| **Pais** | Pais del usuario |
+| **Estado** | Activo o inactivo |
+
+### Buscar y filtrar usuarios
+
+<Steps>
+  <Step title="Busqueda rapida">
+    Utiliza el campo de busqueda para encontrar usuarios por nombre o email.
+  </Step>
+  <Step title="Filtros avanzados">
+    Haz clic en **Filtrar** para acceder a opciones avanzadas:
+    - **Pais**: Filtra por pais
+    - **Rol**: Estudiante, Docente, Admin escuela
+    - **Estado**: Activo o inactivo
+
+    ![Filtros de usuarios](/assets/screenshots/backoffice/usuarios/filtros-usuarios.png)
+  </Step>
+</Steps>
+
+---
+
+## Crear un nuevo usuario
+
+<Steps>
+  <Step title="Accede al formulario">
+    Haz clic en el boton **Anadir usuario** en la esquina superior derecha.
+
+    ![Crear usuario](/assets/screenshots/backoffice/usuarios/crear-usuario.png)
+  </Step>
+  <Step title="Completa los datos basicos">
+    Rellena los campos obligatorios:
+    - **Nombre**: Nombre del usuario
+    - **Apellidos**: Apellidos del usuario
+    - **Email**: Direccion de correo electronico (sera su nombre de usuario)
+
+    <Warning>
+      El email debe ser unico en el sistema. Si ya existe, recibiras un error.
+    </Warning>
+  </Step>
+  <Step title="Selecciona el rol">
+    Elige el tipo de usuario:
+    - **Estudiante**: Acceso a contenidos y tareas
+    - **Docente**: Puede crear clases y calificar
+    - **Admin escuela**: Gestiona usuarios de su centro
+  </Step>
+  <Step title="Asigna el pais">
+    Selecciona el pais del usuario. Esto determina el contenido disponible.
+  </Step>
+  <Step title="Asigna centro y grupo (opcional)">
+    - **Colegio**: Selecciona el centro educativo
+    - **Grupo**: Asigna a una clase o grupo especifico
+  </Step>
+  <Step title="Imagen de perfil (opcional)">
+    Sube una foto de perfil.
+    - Formatos: JPG, PNG
+    - Tamano maximo: 5 MB
+  </Step>
+  <Step title="Guarda el usuario">
+    Haz clic en **Anadir** para crear el usuario.
+  </Step>
+</Steps>
+
+---
+
+## Editar un usuario existente
+
+<Steps>
+  <Step title="Busca el usuario">
+    Localiza el usuario en la lista o usa el buscador.
+  </Step>
+  <Step title="Accede al detalle">
+    Haz clic en el nombre del usuario para abrir su ficha.
+
+    ![Editar usuario](/assets/screenshots/backoffice/usuarios/editar-usuario-detalles.png)
+  </Step>
+  <Step title="Modifica los datos">
+    La ficha de usuario tiene varias pestanas:
+
+    <Tabs>
+      <Tab title="Detalles">
+        Modifica nombre, apellidos, email, rol, pais, centro y grupo.
+      </Tab>
+      <Tab title="Contrasena">
+        Establece o restablece la contrasena del usuario.
+      </Tab>
+      <Tab title="Licencias">
+        Gestiona las licencias de contenido asignadas al usuario.
+        ![Licencias del usuario](/assets/screenshots/backoffice/usuarios/editar-usuario-licencias.png)
+      </Tab>
+      <Tab title="Programas Escuela">
+        Visualiza los programas educativos disponibles para el usuario.
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Guarda los cambios">
+    Haz clic en **Guardar** para aplicar las modificaciones.
+  </Step>
+</Steps>
+
+---
+
+## Gestionar licencias de usuario
+
+Desde la pestana **Licencias** puedes:
+
+<CardGroup cols={2}>
+  <Card title="Redimir licencia" icon="ticket">
+    Asigna una nueva licencia al usuario usando un codigo.
+  </Card>
+  <Card title="Ver historial" icon="clock">
+    Consulta todas las licencias asignadas con fechas y estados.
+  </Card>
+</CardGroup>
+
+### Redimir una licencia
+
+<Steps>
+  <Step title="Accede a la pestana Licencias">
+    En la ficha del usuario, haz clic en **Licencias**.
+  </Step>
+  <Step title="Haz clic en Redimir licencia">
+    Se abrira un dialogo para introducir el codigo.
+  </Step>
+  <Step title="Introduce el codigo">
+    Escribe el codigo de la licencia proporcionado.
+  </Step>
+  <Step title="Confirma">
+    La licencia quedara asignada al usuario.
+  </Step>
+</Steps>
+
+---
+
+## Acciones adicionales
+
+### Ver perfil en Frontoffice
+
+Desde la lista de usuarios o la ficha de detalle, puedes acceder rapidamente al perfil del usuario en la aplicacion de estudiantes/docentes haciendo clic en **Ver perfil**.
+
+### Asignar como Admin escuela
+
+Los usuarios con rol de Docente pueden ser promovidos a **Admin escuela**, lo que les permite gestionar usuarios de su centro.
+
+---
+
+## Casos de uso comunes
+
+<AccordionGroup>
+  <Accordion title="Dar de alta a estudiantes de una nueva clase">
+    1. Crea los usuarios uno a uno con rol **Estudiante**
+    2. Asignalos al mismo colegio y grupo
+    3. Proporcionales sus credenciales de acceso
+
+    <Tip>
+      Para altas masivas, considera usar la importacion por CSV desde la gestion de colegios.
+    </Tip>
+  </Accordion>
+  <Accordion title="Crear un nuevo docente">
+    1. Crea el usuario con rol **Docente**
+    2. Asignale el colegio correspondiente
+    3. Redime las licencias de contenido necesarias
+    4. El docente podra crear sus propias clases
+  </Accordion>
+  <Accordion title="Restablecer contrasena de un usuario">
+    1. Busca el usuario en la lista
+    2. Accede a su ficha
+    3. Ve a la pestana **Contrasena**
+    4. Establece una nueva contrasena temporal
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo eliminar un usuario?">
+    No es posible eliminar usuarios permanentemente. En su lugar, puedes **desactivar** al usuario cambiando su estado a inactivo.
+  </Accordion>
+  <Accordion title="Que pasa si un usuario olvida su contrasena?">
+    Como administrador, puedes restablecer su contrasena desde la pestana **Contrasena** en la ficha del usuario.
+  </Accordion>
+  <Accordion title="Puedo cambiar el rol de un usuario?">
+    Si, puedes cambiar el rol desde la pestana **Detalles**. Ten en cuenta que esto puede afectar a los permisos y accesos del usuario.
+  </Accordion>
+  <Accordion title="Como asigno licencias a multiples usuarios?">
+    Para asignaciones masivas, es mas eficiente usar la seccion de **Lotes de licencias** en el menu de Licencias.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** El email ya existe en el sistema.
+
+  **Solucion:** Cada usuario debe tener un email unico. Verifica si el usuario ya existe buscandolo en la lista, o usa un email diferente.
+</Warning>
+
+<Warning>
+  **Problema:** El usuario no puede acceder a los contenidos.
+
+  **Solucion:** Verifica que el usuario tenga licencias activas asignadas en la pestana **Licencias** de su ficha.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de Colegios" icon="school" href="/backoffice/escuelas/gestion-escuelas">
+    Administra los centros educativos del sistema.
+  </Card>
+  <Card title="Gestion de Licencias" icon="key" href="/backoffice/licencias/asignacion">
+    Aprende a crear y asignar licencias de contenido.
+  </Card>
+</CardGroup>

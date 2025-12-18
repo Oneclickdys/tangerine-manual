@@ -1,0 +1,20 @@
+# Credentials (NEVER commit)
+.credentials.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if using mintlify CLI locally)
+node_modules/
+.mintlify/
+
+# Temp files
+*.tmp
+*.bak
