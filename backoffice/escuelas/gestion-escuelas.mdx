@@ -1,0 +1,188 @@
+---
+title: "Gestion de Escuelas"
+description: "Aprende a visualizar, buscar y gestionar las escuelas registradas en Tangerine LMS"
+icon: "school"
+---
+
+## Descripcion
+
+La seccion de **Colegios** te permite ver y gestionar todas las escuelas registradas en la plataforma. Desde aqui puedes consultar informacion importante como la cantidad de grupos, usuarios, integraciones LTI y el estado de cada colegio.
+
+<Info>
+  **Rol requerido:** Administrador
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Iniciar sesion en el Backoffice">
+    Accede al Backoffice de Tangerine con tus credenciales de administrador.
+  </Step>
+  <Step title="Navegar a la seccion de Colegios">
+    En el menu lateral izquierdo, haz clic en el icono de usuarios. Esto desplegara un submenu con las opciones **Usuarios**, **Colegios** y **Mensajes**.
+
+    ![Menu de navegacion](/assets/screenshots/backoffice/listar-escuelas/menu-navegacion.png)
+  </Step>
+  <Step title="Seleccionar Colegios">
+    Haz clic en **Colegios** para acceder al listado completo de escuelas.
+
+    ![Listado principal de colegios](/assets/screenshots/backoffice/listar-escuelas/listado-principal.png)
+  </Step>
+</Steps>
+
+## Informacion mostrada en el listado
+
+La tabla de colegios muestra las siguientes columnas:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre del colegio** | Nombre de la escuela junto con su direccion (codigo postal, ciudad, provincia y pais) |
+| **Codigo** | Identificador unico del colegio |
+| **Grupos** | Numero de grupos/clases creados en el colegio |
+| **Usuarios** | Cantidad total de usuarios registrados |
+| **LTI** | Identificador de integracion LTI (si aplica) |
+| **Admin escuela** | Indica si el colegio tiene habilitado el acceso de administrador escolar |
+| **Pais** | Pais donde se encuentra el colegio |
+| **Estado** | Estado actual del colegio (Activo/Inactivo) |
+
+<Tip>
+  Puedes hacer clic en el nombre de cualquier colegio para acceder a su ficha de detalle y editar su informacion.
+</Tip>
+
+## Guia paso a paso
+
+### Buscar un colegio
+
+<Steps>
+  <Step title="Usar el campo de busqueda">
+    En la parte superior de la tabla, encontraras un campo de texto con el placeholder "Buscar".
+  </Step>
+  <Step title="Escribir el termino de busqueda">
+    Escribe el nombre o parte del nombre del colegio que deseas encontrar.
+
+    ![Busqueda de colegios](/assets/screenshots/backoffice/listar-escuelas/busqueda.png)
+  </Step>
+  <Step title="Ver resultados">
+    Presiona Enter o espera un momento. La tabla se actualizara mostrando solo los colegios que coincidan con tu busqueda.
+  </Step>
+</Steps>
+
+### Filtrar colegios
+
+<Steps>
+  <Step title="Abrir panel de filtros">
+    Haz clic en el boton **Filtrar** ubicado junto al campo de busqueda.
+
+    ![Panel de filtros](/assets/screenshots/backoffice/listar-escuelas/filtros.png)
+  </Step>
+  <Step title="Seleccionar criterios">
+    Puedes filtrar por:
+    - **Pais**: Selecciona un pais especifico para ver solo los colegios de esa ubicacion
+    - **Estado**: Filtra por colegios activos o inactivos
+
+    ![Filtro por pais](/assets/screenshots/backoffice/listar-escuelas/filtro-pais.png)
+  </Step>
+  <Step title="Aplicar filtros">
+    Haz clic en **Aplicar filtros** para ver los resultados. Si deseas eliminar los filtros, haz clic en **Limpiar todo**.
+  </Step>
+</Steps>
+
+### Personalizar la tabla
+
+<Steps>
+  <Step title="Abrir opciones de personalizacion">
+    En la parte inferior derecha de la tabla, haz clic en el boton **Customizar tabla**.
+
+    ![Opciones de personalizacion](/assets/screenshots/backoffice/listar-escuelas/customizar-tabla.png)
+  </Step>
+  <Step title="Seleccionar columnas">
+    Marca o desmarca las casillas para mostrar u ocultar las columnas que necesites:
+    - Codigo
+    - Grupos
+    - Usuarios
+    - LTI
+    - Admin escuela
+    - Pais
+    - Estado
+  </Step>
+  <Step title="Guardar preferencias">
+    Las preferencias se guardan automaticamente y se mantendran en tu proxima visita.
+  </Step>
+</Steps>
+
+### Navegar entre paginas
+
+Si tienes muchos colegios registrados, la lista se divide en paginas. Usa los controles de paginacion en la parte inferior de la tabla para:
+- Ir a la pagina anterior o siguiente
+- Saltar a una pagina especifica
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Verificar la cantidad de usuarios en un colegio">
+    Cuando necesites saber cuantos usuarios tiene registrado un colegio especifico, simplemente localiza el colegio en la lista y consulta la columna **Usuarios**. Si necesitas mas detalle, haz clic en el nombre del colegio para ver el desglose completo.
+  </Accordion>
+  <Accordion title="Encontrar colegios de un pais especifico">
+    Usa el filtro de **Pais** para ver rapidamente todos los colegios de una ubicacion geografica. Esto es util cuando necesitas hacer comunicaciones o cambios que afectan a todos los colegios de un pais.
+  </Accordion>
+  <Accordion title="Verificar integraciones LTI">
+    La columna **LTI** te permite identificar rapidamente que colegios tienen configurada una integracion LTI. Si la columna muestra un valor, significa que el colegio esta integrado con un sistema externo.
+  </Accordion>
+  <Accordion title="Revisar colegios con Admin Escuela habilitado">
+    La columna **Admin escuela** muestra con un check los colegios que tienen habilitada esta funcionalidad, permitiendo que un administrador del colegio gestione sus propios usuarios y grupos.
+  </Accordion>
+</AccordionGroup>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="No encuentro un colegio en la lista, que hago?">
+    Verifica que no tengas filtros activos que puedan estar ocultando el colegio. Haz clic en **Limpiar todo** en el panel de filtros. Tambien asegurate de escribir correctamente el nombre en el campo de busqueda.
+  </Accordion>
+  <Accordion title="Puedo exportar el listado de colegios?">
+    Actualmente la exportacion directa no esta disponible desde esta pantalla. Si necesitas exportar datos, contacta al equipo de soporte tecnico.
+  </Accordion>
+  <Accordion title="Que significa cuando un colegio esta inactivo?">
+    Un colegio inactivo mantiene su informacion en el sistema pero sus usuarios no pueden acceder a la plataforma. Esto es util cuando un colegio termina su contrato pero se desea conservar los datos historicos.
+  </Accordion>
+  <Accordion title="Como agrego un nuevo colegio?">
+    Haz clic en el boton **Anadir colegio** ubicado en la parte superior derecha. Esto te llevara al formulario de creacion de un nuevo colegio.
+  </Accordion>
+</AccordionGroup>
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** La lista de colegios tarda mucho en cargar.
+
+  **Solucion:** Esto puede ocurrir si hay muchos colegios registrados. Intenta usar los filtros para reducir la cantidad de resultados mostrados, o verifica tu conexion a internet.
+</Warning>
+
+<Warning>
+  **Problema:** No veo algunas columnas en la tabla.
+
+  **Solucion:** Es posible que esten ocultas. Haz clic en **Customizar tabla** y verifica que las columnas que necesitas esten marcadas.
+</Warning>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Configuracion de escuelas" icon="gear" href="/backoffice/escuelas/configuracion">
+    Aprende a configurar los ajustes especificos de cada escuela.
+  </Card>
+  <Card title="Gestion de usuarios" icon="users" href="/backoffice/usuarios/gestion-usuarios">
+    Administra los usuarios de las escuelas.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: backoffice
+  - Seccion UI: /schools
+  - Archivos de codigo relacionados:
+    - frontend: tangerine-backoffice/src/app/pages/schools/SchoolsPage/SchoolsPage.jsx
+    - hook: tangerine-backoffice/src/app/pages/schools/SchoolsPage/useSchoolsPage.js
+    - crud: tangerine-backoffice/src/app/crud/schools.crud.js
+  - Ultima revision: 2025-12-18
+*/}
