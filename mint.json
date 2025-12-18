@@ -67,8 +67,7 @@
         {
           "group": "Licencias",
           "pages": [
-            "backoffice/licencias/asignacion",
-            "backoffice/licencias/lotes"
+            "backoffice/licencias/gestion-licencias"
           ]
         },
         {

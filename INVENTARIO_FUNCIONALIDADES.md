@@ -32,11 +32,11 @@ Este documento lista todas las funcionalidades de Tangerine que requieren docume
 
 | Funcionalidad | Ruta | Prioridad | Estado | Archivo |
 |--------------|------|-----------|--------|---------|
-| Listar licencias | `/licenses` | P1 | [ ] | |
-| Crear licencia | `/license/create` | P1 | [ ] | |
-| Detalle licencia | `/license/:guid` | P2 | [ ] | |
-| Lotes de licencias | `/licenses-batch` | P2 | [ ] | |
-| Crear lote | `/license-batch/create` | P2 | [ ] | |
+| Listar licencias | `/licenses` | P1 | [x] | `backoffice/licencias/gestion-licencias.mdx` |
+| Crear licencia | `/license/create` | P1 | [x] | `backoffice/licencias/gestion-licencias.mdx` |
+| Detalle licencia | `/license/:guid` | P2 | [x] | `backoffice/licencias/gestion-licencias.mdx` |
+| Lotes de licencias | `/licenses-batch` | P2 | [x] | `backoffice/licencias/gestion-licencias.mdx` |
+| Crear lote | `/license-batch/create` | P2 | [x] | `backoffice/licencias/gestion-licencias.mdx` |
 
 ### Escuelas
 
