@@ -178,8 +178,5 @@
   },
   "search": {
     "prompt": "Buscar en el manual..."
-  },
-  "integrations": {
-    "intercom": ""
   }
 }
