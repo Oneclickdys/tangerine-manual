@@ -28,7 +28,7 @@
     },
     {
       "name": "Docentes",
-      "url": "docentes"
+      "url": "frontoffice-docentes"
     },
     {
       "name": "Estudiantes",
@@ -85,7 +85,14 @@
           "pages": [
             "backoffice/escuelas/gestion-escuelas",
             "backoffice/escuelas/crear-escuela",
+            "backoffice/escuelas/detalle-escuela",
             "backoffice/escuelas/configuracion"
+          ]
+        },
+        {
+          "group": "Usuarios Backoffice",
+          "pages": [
+            "backoffice/usuarios-backoffice/gestion-usuarios-backoffice"
           ]
         },
         {
@@ -97,8 +104,15 @@
       ]
     },
     {
-      "group": "Docentes",
+      "group": "Frontoffice Docentes",
       "pages": [
+        {
+          "group": "Gestion de Aulas",
+          "pages": [
+            "frontoffice-docentes/gestion-aula/crear-aula",
+            "frontoffice-docentes/gestion-aula/ver-estudiantes"
+          ]
+        },
         {
           "group": "Clases",
           "pages": [
