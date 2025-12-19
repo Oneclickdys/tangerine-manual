@@ -75,10 +75,9 @@
           ]
         },
         {
-          "group": "Programas",
+          "group": "Programas Digitales",
           "pages": [
-            "backoffice/programas/crear-programa",
-            "backoffice/programas/asignar-contenidos"
+            "backoffice/programas-digitales/crear-programa"
           ]
         },
         {

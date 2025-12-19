@@ -331,18 +331,18 @@
       "section": "Programas Digitales",
       "route": "/program/create",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "multi-step-form",
-      "docFile": null,
+      "docFile": "backoffice/programas-digitales/crear-programa.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/programs/ProgramCreatePage/"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": [],
+      "featureFlags": ["enablePowerLesson", "showStructureLevels"],
       "relatedFeatures": ["programs/list"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2025-12-19",
+      "notes": "Formulario con selectores en cascada (pais > asignatura > etapa > ano), opciones Accesible, Power Lesson, Tangerine AI"
     },
     "programs/detail": {
       "name": "Detalle programa",

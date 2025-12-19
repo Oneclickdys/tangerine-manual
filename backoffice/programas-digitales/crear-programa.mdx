@@ -1,0 +1,320 @@
+---
+title: "Crear Programa Digital"
+description: "Aprende a crear un nuevo programa digital en Tangerine LMS paso a paso"
+icon: "plus"
+---
+
+## Descripcion
+
+La funcionalidad de **Crear Programa Digital** te permite registrar nuevos programas educativos en la plataforma Tangerine LMS. Un programa digital es la estructura que contiene los contenidos, modulos y lecciones que los estudiantes y docentes utilizaran durante el ciclo escolar.
+
+<Info>
+  **Rol requerido:** Administrador o Gestor de contenidos
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Navegar a la seccion de Programas Digitales">
+    En el menu lateral izquierdo, haz clic en el icono de programas y selecciona **Programas Digitales**.
+  </Step>
+  <Step title="Hacer clic en Crear programa">
+    En la parte superior derecha de la lista de programas, haz clic en el boton **Crear programa**.
+
+    ![Formulario crear programa](/assets/backoffice/programas-digitales/crear-programa-formulario.png)
+  </Step>
+</Steps>
+
+## Campos del formulario
+
+El formulario de creacion de programa digital esta organizado en una seccion de **Detalles** con los siguientes campos:
+
+### Campos obligatorios
+
+| Campo | Tipo | Descripcion |
+|-------|------|-------------|
+| **Nombre del Programa** | Texto | Nombre identificativo del programa (minimo 3, maximo 250 caracteres) |
+| **Pais** | Selector | Pais para el cual se crea el programa |
+| **Asignaturas** | Selector | Disciplina o materia del programa |
+| **Etapa** | Selector | Nivel educativo (Primaria, Secundaria, etc.) |
+| **Ano / serie** | Selector | Ano escolar dentro de la etapa seleccionada |
+| **Periodo evaluacion** | Selector | Frecuencia de evaluacion (Anual, Trimestral, etc.) |
+| **Publicacion** | Selector | Publicacion base asociada al programa |
+
+### Campos opcionales
+
+| Campo | Tipo | Descripcion |
+|-------|------|-------------|
+| **Idioma / Version** | Selector | Idioma del contenido del programa |
+| **ISBN alumno** | Texto | Codigo ISBN del libro del alumno (maximo 80 caracteres) |
+| **ISBN profesor** | Texto | Codigo ISBN del libro del profesor (maximo 80 caracteres) |
+| **Plantilla** | Selector | Plantilla visual del programa |
+| **Estructura editorial** | Selector | Organizacion del contenido (Modulos o Modulos y submodulos) |
+
+### Opciones adicionales
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Accesible** | Habilita caracteristicas de accesibilidad para el programa |
+| **Habilitar experiencia power lesson** | Activa la experiencia mejorada de lecciones |
+| **Activar Tangerine AI** | Habilita funcionalidades de inteligencia artificial |
+
+## Guia paso a paso
+
+### Crear un programa digital basico
+
+<Steps>
+  <Step title="Ingresar el nombre del programa">
+    Escribe el nombre completo del programa en el campo **Nombre del Programa**. Este nombre sera visible para docentes y estudiantes.
+
+    <Tip>
+      Usa un nombre descriptivo que incluya la asignatura y el nivel, por ejemplo: "Matematicas 1o Primaria - Curso 2024".
+    </Tip>
+  </Step>
+  <Step title="Seleccionar el pais">
+    Haz clic en el campo **Pais** y selecciona el pais correspondiente de la lista desplegable.
+
+    ![Selector de pais](/assets/backoffice/programas-digitales/crear-programa-selector-pais.png)
+  </Step>
+  <Step title="Seleccionar la asignatura">
+    Haz clic en el campo **Asignaturas** y selecciona la disciplina o materia del programa.
+
+    ![Selector de asignatura](/assets/backoffice/programas-digitales/crear-programa-selector-asignatura.png)
+
+    <Info>
+      Las asignaturas disponibles dependen de la configuracion de la organizacion.
+    </Info>
+  </Step>
+  <Step title="Seleccionar la etapa educativa">
+    Haz clic en el campo **Etapa** y selecciona el nivel educativo correspondiente.
+
+    ![Selector de etapa](/assets/backoffice/programas-digitales/crear-programa-selector-etapa.png)
+
+    Opciones tipicas incluyen:
+    - Primaria
+    - Secundaria
+  </Step>
+  <Step title="Seleccionar el ano escolar">
+    Una vez seleccionada la etapa, el campo **Ano / serie** se habilitara. Selecciona el ano correspondiente.
+
+    ![Selector de ano](/assets/backoffice/programas-digitales/crear-programa-selector-anio.png)
+
+    <Note>
+      Las opciones de ano dependen de la etapa seleccionada. Por ejemplo, para Primaria podrias ver "Primaria: 1o", "Primaria: 2o", etc.
+    </Note>
+  </Step>
+  <Step title="Seleccionar el periodo de evaluacion">
+    Haz clic en el campo **Periodo evaluacion** y selecciona la frecuencia de evaluacion del programa.
+
+    ![Selector de periodo](/assets/backoffice/programas-digitales/crear-programa-selector-periodo.png)
+
+    Opciones disponibles:
+    - **Anual**: Evaluacion al final del ano
+    - **Semestral**: Dos evaluaciones por ano
+    - **Cuatrimestral**: Tres evaluaciones por ano
+    - **Trimestral**: Cuatro evaluaciones por ano
+    - **Bimestral**: Seis evaluaciones por ano
+  </Step>
+  <Step title="Configurar opciones de plantilla">
+    Selecciona la plantilla visual que determinara la apariencia del programa.
+
+    ![Selector de plantilla](/assets/backoffice/programas-digitales/crear-programa-selector-plantilla.png)
+
+    Plantillas disponibles:
+    - **Standard template of Tangerine** (predeterminada)
+    - **Components template**
+    - **Personalizable**
+    - **Template for i2cv1 books**
+    - **Steam template**
+  </Step>
+  <Step title="Seleccionar estructura editorial">
+    Define como se organizara el contenido del programa.
+
+    ![Selector de estructura](/assets/backoffice/programas-digitales/crear-programa-selector-estructura.png)
+
+    Opciones:
+    - **Solo modulos**: Organizacion en un solo nivel
+    - **Modulos y submodulos**: Organizacion jerarquica en dos niveles
+  </Step>
+  <Step title="Configurar opciones adicionales (opcional)">
+    Activa las opciones adicionales segun las necesidades del programa:
+
+    ![Opciones avanzadas](/assets/backoffice/programas-digitales/crear-programa-opciones-avanzadas.png)
+
+    - **Accesible**: Marca esta opcion si el programa requiere caracteristicas de accesibilidad
+    - **Habilitar experiencia power lesson**: Activa funcionalidades mejoradas de lecciones
+    - **Activar Tangerine AI**: Habilita asistencia de inteligencia artificial
+  </Step>
+  <Step title="Anadir publicacion">
+    Haz clic en el boton **Anadir publicacion** para asociar una publicacion base al programa.
+
+    ![Dialogo de publicacion](/assets/backoffice/programas-digitales/crear-programa-dialogo-publicacion.png)
+
+    En el dialogo:
+    1. Usa el campo de busqueda para encontrar la publicacion
+    2. Haz clic en **Filtrar** para aplicar filtros adicionales
+    3. Selecciona la publicacion de la lista
+    4. Haz clic en **Anadir** para confirmar
+
+    <Warning>
+      La publicacion es un campo obligatorio. El boton **Crear** permanecera deshabilitado hasta que se seleccione una publicacion.
+    </Warning>
+  </Step>
+  <Step title="Crear el programa">
+    Una vez completados todos los campos obligatorios, haz clic en el boton **Crear** para guardar el programa.
+
+    Seras redirigido automaticamente a la pagina de detalle del programa donde podras:
+    - Agregar contenidos y modulos
+    - Configurar la programacion
+    - Personalizar la apariencia
+  </Step>
+</Steps>
+
+## Selectores en cascada
+
+El formulario utiliza selectores en cascada, lo que significa que algunas opciones dependen de selecciones previas:
+
+```
+Pais → Asignaturas (se filtran por pais)
+     → Etapa → Ano/serie (se filtran por etapa)
+```
+
+<Note>
+  Cuando cambias un selector padre, los selectores dependientes se reinician automaticamente.
+</Note>
+
+## Validaciones
+
+El formulario incluye las siguientes validaciones:
+
+- **Nombre del Programa**: Obligatorio, minimo 3 caracteres, maximo 250 caracteres
+- **Pais**: Obligatorio (si la organizacion es multi-pais)
+- **Asignaturas**: Obligatorio
+- **Etapa**: Obligatorio
+- **Ano / serie**: Obligatorio
+- **Periodo evaluacion**: Obligatorio (si esta configurado en el sistema)
+- **Publicacion**: Obligatorio
+- **ISBN alumno/profesor**: Maximo 80 caracteres cada uno
+
+<Warning>
+  El boton **Crear** permanece deshabilitado hasta que todos los campos obligatorios esten completos y validos.
+</Warning>
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Crear un programa de Matematicas para Primaria">
+    1. Nombre: "Matematicas 1o Primaria - Curso 2024-2025"
+    2. Pais: Espana
+    3. Asignatura: Matematicas
+    4. Etapa: Primaria
+    5. Ano/serie: Primaria: 1o
+    6. Periodo evaluacion: Trimestral
+    7. Plantilla: Standard template of Tangerine
+    8. Estructura: Modulos y submodulos
+    9. Seleccionar publicacion base
+    10. Crear
+  </Accordion>
+  <Accordion title="Crear un programa accesible">
+    Si necesitas crear un programa con caracteristicas de accesibilidad:
+    1. Completa todos los campos basicos
+    2. Marca la casilla **Accesible**
+    3. Esto habilitara funcionalidades como:
+       - Mayor contraste en colores
+       - Compatibilidad con lectores de pantalla
+       - Navegacion mejorada por teclado
+  </Accordion>
+  <Accordion title="Crear un programa con Tangerine AI">
+    Para aprovechar las capacidades de inteligencia artificial:
+    1. Completa todos los campos basicos
+    2. Marca la casilla **Activar Tangerine AI**
+    3. Esto habilitara:
+       - Sugerencias de contenido
+       - Generacion automatica de recursos
+       - Asistencia en la creacion de evaluaciones
+  </Accordion>
+</AccordionGroup>
+
+## Despues de crear el programa
+
+Una vez creado el programa, seras redirigido a la pagina de detalle donde podras:
+
+1. **Agregar contenidos**: Crear modulos, submodulos y lecciones
+2. **Configurar programacion**: Establecer fechas y duracion de unidades
+3. **Personalizar apariencia**: Modificar colores, tipografias y portada
+4. **Gestionar recursos**: Agregar materiales complementarios
+5. **Configurar toolbox**: Agregar herramientas adicionales
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo editar el programa despues de crearlo?">
+    Si, todos los campos del programa pueden ser editados posteriormente desde la pagina de detalle, excepto algunos campos que se bloquean una vez que el programa tiene contenidos asociados (como el periodo de evaluacion y la estructura editorial).
+  </Accordion>
+  <Accordion title="Que pasa si no encuentro mi publicacion?">
+    Si la publicacion no aparece en el buscador:
+    1. Verifica que la publicacion este creada en el sistema
+    2. Asegurate de que la publicacion tenga las mismas etapas y asignaturas que el programa
+    3. Contacta al administrador si el problema persiste
+  </Accordion>
+  <Accordion title="Puedo duplicar un programa existente?">
+    Si, desde la lista de programas digitales puedes usar la opcion de **Clonar** para crear una copia de un programa existente con todos sus contenidos.
+  </Accordion>
+  <Accordion title="Cual es la diferencia entre las plantillas?">
+    - **Standard template**: Plantilla basica con diseno limpio
+    - **Components template**: Plantilla con componentes modulares
+    - **Personalizable**: Permite mayor personalizacion de estilos
+    - **i2cv1 books**: Para migracion de libros i2c version 1
+    - **Steam template**: Diseno orientado a metodologia STEAM
+  </Accordion>
+</AccordionGroup>
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** El boton Crear esta deshabilitado.
+
+  **Solucion:** Verifica que todos los campos obligatorios esten completos:
+  - Nombre del programa
+  - Asignatura, Etapa y Ano seleccionados
+  - Periodo de evaluacion seleccionado
+  - Publicacion anadida
+</Warning>
+
+<Warning>
+  **Problema:** No aparecen opciones en el selector de Ano/serie.
+
+  **Solucion:** Primero debes seleccionar una Etapa. El selector de Ano/serie solo se habilita despues de elegir la etapa educativa.
+</Warning>
+
+<Warning>
+  **Problema:** Error "ISBN ya existe" al crear el programa.
+
+  **Solucion:** El ISBN ingresado ya esta asociado a otro programa. Verifica el codigo o dejalo vacio si no es necesario.
+</Warning>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de programas digitales" icon="list" href="/backoffice/programas-digitales/gestion-programas-digitales">
+    Aprende a listar, buscar y filtrar programas existentes.
+  </Card>
+  <Card title="Detalle de programa" icon="info" href="/backoffice/programas-digitales/detalle-programa">
+    Configura contenidos, modulos y apariencia del programa.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: backoffice
+  - Seccion UI: /program/create
+  - Archivos de codigo relacionados:
+    - frontend: tangerine-backoffice/src/app/pages/programs/ProgramCreatePage/ProgramCreatePage.jsx
+    - hook: tangerine-backoffice/src/app/pages/programs/ProgramCreatePage/useProgramCreatePage.js
+    - form: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramForm.jsx
+    - form-data: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormData/ProgramFormData.jsx
+    - model: tangerine-backoffice/src/app/models/program.js
+    - service: tangerine-backoffice/src/app/services/programs.service.js
+  - Ultima revision: 2025-12-19
+*/}
