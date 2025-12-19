@@ -1,0 +1,107 @@
+{
+  "$schema": "./schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-18",
+  "description": "Inventario de funcionalidades de Tangerine LMS para documentacion",
+  "config": {
+    "currentPhase": 1,
+    "focusApp": "backoffice",
+    "priorities": {
+      "P1": "Critica - funcionalidad core, usada diariamente",
+      "P2": "Alta - funcionalidad importante, uso frecuente",
+      "P3": "Media - funcionalidad complementaria",
+      "P4": "Baja - funcionalidad avanzada o poco usada"
+    },
+    "statuses": {
+      "pending": "Pendiente de documentar",
+      "in_progress": "Documentacion en progreso",
+      "documented": "Documentacion completada",
+      "needs_review": "Requiere revision o actualizacion",
+      "blocked": "Bloqueado por dependencia o falta de informacion"
+    },
+    "complexities": {
+      "simple-list": "Listado simple con filtros y busqueda",
+      "simple-form": "Formulario de creacion/edicion simple",
+      "crud-complete": "CRUD completo (listar, crear, editar, eliminar)",
+      "multi-step-form": "Formulario con multiples pasos o tabs",
+      "complex-workflow": "Flujo complejo con multiples estados o acciones",
+      "interactive-view": "Vista interactiva con multiples componentes",
+      "dashboard": "Dashboard con graficos y metricas",
+      "editor": "Editor especializado (contenido, programas, etc.)"
+    }
+  },
+  "apps": {
+    "backoffice": {
+      "name": "Backoffice",
+      "description": "Panel de administracion para gestores de contenido y administradores",
+      "baseUrl": "https://backoffice.tangerine-qa1.oneclicklabs.es",
+      "codebase": "/tangerine-backoffice",
+      "roles": ["admin", "content_manager"],
+      "featuresFile": "./backoffice.json"
+    },
+    "frontoffice-teacher": {
+      "name": "Frontoffice Docentes",
+      "description": "Plataforma para docentes - gestion de clases, calificaciones, contenido",
+      "baseUrl": "https://qa.stn-neds.com",
+      "codebase": "/tangerine-frontoffice",
+      "roles": ["teacher"],
+      "featuresFile": "./frontoffice-teacher.json"
+    },
+    "frontoffice-student": {
+      "name": "Frontoffice Estudiantes",
+      "description": "Plataforma para estudiantes - acceso a clases, tareas, evaluaciones",
+      "baseUrl": "https://qa.stn-neds.com",
+      "codebase": "/tangerine-frontoffice",
+      "roles": ["student"],
+      "featuresFile": "./frontoffice-student.json"
+    },
+    "admin-school": {
+      "name": "Admin Escuela",
+      "description": "Panel de administracion para administradores de escuela",
+      "baseUrl": "https://admin-school-qa.stn-neds.com",
+      "codebase": "/tangerine-frontoffice",
+      "roles": ["school_admin"],
+      "featuresFile": "./admin-school.json"
+    }
+  },
+  "stats": {
+    "total": 74,
+    "byApp": {
+      "backoffice": 45,
+      "frontoffice-teacher": 17,
+      "frontoffice-student": 9,
+      "admin-school": 3
+    },
+    "byPriority": {
+      "P1": 37,
+      "P2": 26,
+      "P3": 8,
+      "P4": 3
+    },
+    "byStatus": {
+      "documented": 16,
+      "pending": 58,
+      "in_progress": 0,
+      "needs_review": 0,
+      "blocked": 0
+    },
+    "lastCalculated": "2025-12-19"
+  },
+  "knownTenants": [
+    {
+      "id": "unoi-mx",
+      "name": "UNOi Mexico",
+      "notes": "Usa Panel en lugar de Stream, tiene configuraciones especiales"
+    },
+    {
+      "id": "richmond",
+      "name": "Richmond",
+      "notes": "Permisos especiales en gradebook"
+    },
+    {
+      "id": "santillana",
+      "name": "Santillana",
+      "notes": "Configuracion estandar"
+    }
+  ]
+}

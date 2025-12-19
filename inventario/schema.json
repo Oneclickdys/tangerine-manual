@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Feature Inventory Schema",
+  "description": "Schema for Tangerine LMS feature inventory files",
+  "definitions": {
+    "feature": {
+      "type": "object",
+      "required": ["name", "description", "section", "route", "priority", "status", "complexity"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable name of the feature"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of what the feature does"
+        },
+        "section": {
+          "type": "string",
+          "description": "Category/section in the app navigation"
+        },
+        "route": {
+          "type": "string",
+          "description": "URL route to access the feature"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["P1", "P2", "P3", "P4"],
+          "description": "Documentation priority (P1=critical, P4=low)"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in_progress", "documented", "needs_review", "blocked"],
+          "description": "Current documentation status"
+        },
+        "complexity": {
+          "type": "string",
+          "enum": ["simple-list", "simple-form", "crud-complete", "multi-step-form", "complex-workflow", "interactive-view", "dashboard", "editor"],
+          "description": "Complexity level of the feature"
+        },
+        "docFile": {
+          "type": ["string", "null"],
+          "description": "Path to the documentation file (relative to /manual/)"
+        },
+        "codeFiles": {
+          "type": "object",
+          "properties": {
+            "frontend": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Frontend code paths"
+            },
+            "backend": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Backend code paths"
+            }
+          }
+        },
+        "tenantVariations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Tenant-specific variations to document"
+        },
+        "featureFlags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Feature flags that control this feature"
+        },
+        "relatedFeatures": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Related feature IDs"
+        },
+        "lastDocumented": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "Date when feature was last documented"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes for documentation"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "required": ["app", "lastUpdated", "features"],
+  "properties": {
+    "app": {
+      "type": "string",
+      "enum": ["backoffice", "frontoffice-teacher", "frontoffice-student", "admin-school"],
+      "description": "Application identifier"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date",
+      "description": "Last update date"
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/feature" }
+    }
+  }
+}

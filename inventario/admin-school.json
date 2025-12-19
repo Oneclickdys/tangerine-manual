@@ -1,0 +1,63 @@
+{
+  "app": "admin-school",
+  "lastUpdated": "2025-12-18",
+  "features": {
+    "dashboard": {
+      "name": "Dashboard de la escuela",
+      "description": "Panel principal con metricas y estadisticas de la escuela",
+      "section": "Dashboard",
+      "route": "/dashboard",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "dashboard",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/DashboardView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "users/list": {
+      "name": "Gestion de usuarios de la escuela",
+      "description": "Ver y gestionar usuarios (docentes y estudiantes) de la escuela",
+      "section": "Usuarios",
+      "route": "/users",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "crud-complete",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/UsersView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "reports/view": {
+      "name": "Reportes de la escuela",
+      "description": "Ver reportes de uso y rendimiento de la escuela",
+      "section": "Reportes",
+      "route": "/reports",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "dashboard",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/ReportsView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    }
+  }
+}

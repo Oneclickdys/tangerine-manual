@@ -1,0 +1,443 @@
+{
+  "app": "backoffice",
+  "lastUpdated": "2025-12-18",
+  "features": {
+    "users/list": {
+      "name": "Listar usuarios",
+      "description": "Ver listado de todos los usuarios del sistema con filtros y busqueda",
+      "section": "Usuarios y Permisos",
+      "route": "/users",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "backoffice/usuarios/gestion-usuarios.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/users/UsersPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["users/create", "users/edit"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "users/create": {
+      "name": "Crear usuario",
+      "description": "Formulario para crear un nuevo usuario en el sistema",
+      "section": "Usuarios y Permisos",
+      "route": "/user/create",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "backoffice/usuarios/gestion-usuarios.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/users/UserCreatePage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["users/list"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "users/edit": {
+      "name": "Editar usuario",
+      "description": "Formulario para editar un usuario existente",
+      "section": "Usuarios y Permisos",
+      "route": "/user/:guid",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "backoffice/usuarios/gestion-usuarios.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/users/UserDetailPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["users/list"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "users-admin/list": {
+      "name": "Usuarios backoffice",
+      "description": "Listado de usuarios administradores del backoffice",
+      "section": "Usuarios y Permisos",
+      "route": "/users-admin",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/users-admin/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["users-admin/create"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "users-admin/create": {
+      "name": "Crear usuario admin",
+      "description": "Formulario para crear un usuario administrador del backoffice",
+      "section": "Usuarios y Permisos",
+      "route": "/user/create-admin",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/users-admin/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["users-admin/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "licenses/list": {
+      "name": "Listar licencias",
+      "description": "Ver listado de todas las licencias con filtros y busqueda",
+      "section": "Licencias",
+      "route": "/licenses",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "backoffice/licencias/gestion-licencias.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/licenses/LicensesPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["licenses/create", "licenses/detail", "licenses-batch/list"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "licenses/create": {
+      "name": "Crear licencia",
+      "description": "Formulario para crear una nueva licencia",
+      "section": "Licencias",
+      "route": "/license/create",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "backoffice/licencias/gestion-licencias.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/licenses/LicenseCreatePage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["licenses/list"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "licenses/detail": {
+      "name": "Detalle licencia",
+      "description": "Ver y editar detalles de una licencia",
+      "section": "Licencias",
+      "route": "/license/:guid",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "backoffice/licencias/gestion-licencias.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/licenses/LicenseDetailPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["licenses/list"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "licenses-batch/list": {
+      "name": "Lotes de licencias",
+      "description": "Ver listado de lotes de licencias",
+      "section": "Licencias",
+      "route": "/licenses-batch",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "backoffice/licencias/gestion-licencias.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/licenses-batch/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["licenses-batch/create"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "licenses-batch/create": {
+      "name": "Crear lote de licencias",
+      "description": "Formulario para crear un lote de licencias",
+      "section": "Licencias",
+      "route": "/license-batch/create",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "backoffice/licencias/gestion-licencias.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/licenses-batch/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["licenses-batch/list"],
+      "lastDocumented": "2025-12-18",
+      "notes": ""
+    },
+    "schools/list": {
+      "name": "Listar escuelas",
+      "description": "Ver listado de todas las escuelas con filtros por pais y estado",
+      "section": "Escuelas",
+      "route": "/schools",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "backoffice/escuelas/gestion-escuelas.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/schools/SchoolsPage/"],
+        "backend": ["i2c_v2/apps/schools/"]
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["schools/create", "schools/detail"],
+      "lastDocumented": "2025-12-18",
+      "notes": "Documentado con screenshots de listado, filtros, busqueda y personalizacion de tabla"
+    },
+    "schools/create": {
+      "name": "Crear escuela",
+      "description": "Formulario para crear una nueva escuela",
+      "section": "Escuelas",
+      "route": "/school/create",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "backoffice/escuelas/crear-escuela.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/schools/SchoolCreatePage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["schools/list"],
+      "lastDocumented": "2025-12-19",
+      "notes": "Formulario con selectores en cascada (pais > estado > localidad), opcion Admin Escuela"
+    },
+    "schools/detail": {
+      "name": "Detalle escuela",
+      "description": "Ver y editar detalles de una escuela",
+      "section": "Escuelas",
+      "route": "/school/:guid",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/schools/SchoolDetailPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["schools/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "contents/list": {
+      "name": "Listar contenidos",
+      "description": "Ver listado de todos los contenidos educativos",
+      "section": "Contenidos",
+      "route": "/contents",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "backoffice/contenidos/gestion-contenidos.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/contents/ContentsPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/create", "contents/detail"],
+      "lastDocumented": "2025-12-19",
+      "notes": "Documentado con listado, filtros avanzados, busqueda, acciones (clonar, editar, eliminar)"
+    },
+    "contents/create": {
+      "name": "Crear contenido",
+      "description": "Formulario para crear un nuevo contenido educativo",
+      "section": "Contenidos",
+      "route": "/contents/create",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/contents/ContentCreatePage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "contents/detail": {
+      "name": "Detalle contenido",
+      "description": "Ver y editar detalles de un contenido",
+      "section": "Contenidos",
+      "route": "/content/:guid",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "editor",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/contents/ContentDetailPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "programs/list": {
+      "name": "Listar programas",
+      "description": "Ver listado de programas digitales",
+      "section": "Programas Digitales",
+      "route": "/programs",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "backoffice/programas-digitales/gestion-programas-digitales.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/programs/ProgramsPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["programs/create", "programs/detail"],
+      "lastDocumented": "2025-12-19",
+      "notes": "Documentado con listado, filtros avanzados, busqueda, personalizacion de tabla, clonacion de programas"
+    },
+    "programs/create": {
+      "name": "Crear programa",
+      "description": "Formulario para crear un nuevo programa digital",
+      "section": "Programas Digitales",
+      "route": "/program/create",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/programs/ProgramCreatePage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["programs/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "programs/detail": {
+      "name": "Detalle programa",
+      "description": "Ver y editar detalles de un programa digital",
+      "section": "Programas Digitales",
+      "route": "/program/:guid",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "editor",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/programs/ProgramDetailPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["programs/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "settings/periods": {
+      "name": "Periodos de evaluacion",
+      "description": "Configuracion de periodos academicos",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-periods",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "crud-complete",
+      "docFile": "backoffice/configuracion/periodos-evaluacion.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsEvaluationPeriodsPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["showEvaluationOptions"],
+      "relatedFeatures": [],
+      "lastDocumented": "2025-12-19",
+      "notes": "CRUD completo con dialogo modal, eliminacion bloqueada para anos activos"
+    },
+    "analytics/programs": {
+      "name": "Analytics de programas",
+      "description": "Metricas y estadisticas de uso de programas",
+      "section": "Analiticas",
+      "route": "/analytic/programs",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "dashboard",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/analytics/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "analytics/licenses": {
+      "name": "Analytics de licencias",
+      "description": "Metricas de uso de licencias",
+      "section": "Analiticas",
+      "route": "/analytic/licenses",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "dashboard",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/analytics/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "analytics/usage": {
+      "name": "Analytics de uso",
+      "description": "Metricas generales de uso de la plataforma",
+      "section": "Analiticas",
+      "route": "/analytic/usage",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "dashboard",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/analytics/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    }
+  }
+}

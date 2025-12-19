@@ -1,0 +1,177 @@
+{
+  "app": "frontoffice-student",
+  "lastUpdated": "2025-12-18",
+  "features": {
+    "home/classrooms": {
+      "name": "Ver mis clases",
+      "description": "Pantalla principal con todas las clases/cursos del estudiante",
+      "section": "Mis Clases",
+      "route": "/home",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/HomeView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view"],
+      "lastDocumented": null,
+      "notes": "Misma vista que docentes pero con funcionalidades reducidas"
+    },
+    "course/view": {
+      "name": "Vista del curso",
+      "description": "Vista principal del curso con tabs (Stream, Program, Grades)",
+      "section": "Curso",
+      "route": "/course/:guid",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/"],
+        "backend": []
+      },
+      "tenantVariations": ["UNOi tiene Panel en lugar de Stream"],
+      "featureFlags": [],
+      "relatedFeatures": ["course/stream", "course/grades"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "course/stream": {
+      "name": "Stream (muro social)",
+      "description": "Muro social del curso - ver y participar en comunicaciones",
+      "section": "Curso",
+      "route": "/course/:guid (tab Stream)",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/Stream/"],
+        "backend": []
+      },
+      "tenantVariations": ["UNOi usa Panel en lugar de Stream"],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "course/grades": {
+      "name": "Ver mis calificaciones",
+      "description": "Ver calificaciones propias del curso",
+      "section": "Curso",
+      "route": "/course/:guid (tab Grades)",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/Grades/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view"],
+      "lastDocumented": null,
+      "notes": "Vista reducida comparada con la de docentes"
+    },
+    "lesson/view": {
+      "name": "Vista de leccion",
+      "description": "Ver y completar contenido de una leccion",
+      "section": "Lecciones",
+      "route": "/course/:courseGuid/lesson/:lessonGuid",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/LessonView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "assessment/answer": {
+      "name": "Responder evaluacion",
+      "description": "Interfaz para responder evaluaciones y tareas",
+      "section": "Evaluaciones",
+      "route": "/assessment/:guid",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "complex-workflow",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/AssessmentView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": "Flujo critico - documentar con detalle"
+    },
+    "tasks/list": {
+      "name": "Ver mis tareas pendientes",
+      "description": "Listado de tareas y evaluaciones pendientes",
+      "section": "Tareas",
+      "route": "/tasks",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/TasksView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "calendar/view": {
+      "name": "Calendario",
+      "description": "Ver calendario con eventos y fechas de entrega",
+      "section": "Calendario",
+      "route": "/calendar",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CalendarView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "profile/view": {
+      "name": "Ver mi perfil",
+      "description": "Ver y editar perfil de usuario",
+      "section": "Perfil",
+      "route": "/profile",
+      "priority": "P3",
+      "status": "pending",
+      "complexity": "simple-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/ProfileView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    }
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "app": "frontoffice-teacher",
+  "lastUpdated": "2025-12-18",
+  "features": {
+    "home/classrooms": {
+      "name": "Ver mis aulas",
+      "description": "Pantalla principal con todas las aulas/cursos del docente",
+      "section": "Mis Aulas",
+      "route": "/home",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/HomeView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["classroom/create"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "classroom/create": {
+      "name": "Crear nueva aula",
+      "description": "Formulario para crear una nueva aula/clase",
+      "section": "Mis Aulas",
+      "route": "/new-classroom",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/NewClassroomView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["settings.lms_can_create_group"],
+      "relatedFeatures": ["home/classrooms"],
+      "lastDocumented": null,
+      "notes": "Controlado por feature flag - no todos los tenants lo tienen"
+    },
+    "course/view": {
+      "name": "Vista del curso",
+      "description": "Vista principal del curso con tabs (Stream, Program, Resources, Grades)",
+      "section": "Curso/Aula",
+      "route": "/course/:guid",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/"],
+        "backend": []
+      },
+      "tenantVariations": ["UNOi tiene Panel en lugar de Stream"],
+      "featureFlags": [],
+      "relatedFeatures": ["course/stream", "course/program", "course/grades"],
+      "lastDocumented": null,
+      "notes": "Vista compleja con multiples tabs y funcionalidades"
+    },
+    "course/stream": {
+      "name": "Stream (muro social)",
+      "description": "Muro social del curso para comunicacion con estudiantes",
+      "section": "Curso/Aula",
+      "route": "/course/:guid (tab Stream)",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/Stream/"],
+        "backend": []
+      },
+      "tenantVariations": ["UNOi usa Panel en lugar de Stream"],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "course/program": {
+      "name": "Programa del curso",
+      "description": "Vista del programa/contenido del curso organizado por unidades y lecciones",
+      "section": "Curso/Aula",
+      "route": "/course/:guid (tab Program)",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/Program/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view", "lesson/view"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "course/resources": {
+      "name": "Recursos del curso",
+      "description": "Biblioteca de recursos adicionales del curso",
+      "section": "Curso/Aula",
+      "route": "/course/:guid (tab Resources)",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/Resources/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "course/grades": {
+      "name": "Calificaciones del curso",
+      "description": "Libro de calificaciones del curso",
+      "section": "Curso/Aula",
+      "route": "/course/:guid (tab Grades)",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "complex-workflow",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CourseView/Grades/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["course/view", "gradebook/main"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "lesson/view": {
+      "name": "Vista de leccion",
+      "description": "Vista detallada de una leccion con sus contenidos",
+      "section": "Lecciones",
+      "route": "/course/:courseGuid/lesson/:lessonGuid",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/LessonView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["course/program"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "lesson/power-view": {
+      "name": "Vista Power (presentacion)",
+      "description": "Vista de presentacion para proyectar en clase",
+      "section": "Lecciones",
+      "route": "/course/:courseGuid/lesson/:lessonGuid/power",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/PowerView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["lesson/view"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "assessment/create": {
+      "name": "Crear evaluacion",
+      "description": "Formulario para crear una nueva evaluacion/tarea",
+      "section": "Evaluaciones",
+      "route": "/new-assessment",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/NewAssessmentView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["assessment/results"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "assessment/results": {
+      "name": "Ver resultados evaluacion",
+      "description": "Ver resultados y entregas de una evaluacion",
+      "section": "Evaluaciones",
+      "route": "/assessment-results/:guid",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "complex-workflow",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/AssessmentResultsView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["assessment/create"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "gradebook/main": {
+      "name": "Libro de calificaciones",
+      "description": "Gestion completa del libro de calificaciones",
+      "section": "Libro de Calificaciones",
+      "route": "/course/:guid/grades",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "complex-workflow",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/GradebookView/"],
+        "backend": []
+      },
+      "tenantVariations": ["Richmond tiene configuracion especial de permisos"],
+      "featureFlags": [],
+      "relatedFeatures": ["course/grades"],
+      "lastDocumented": null,
+      "notes": "Funcionalidad core muy usada - documentar con detalle"
+    },
+    "students/list": {
+      "name": "Ver estudiantes del aula",
+      "description": "Listado de estudiantes matriculados en el aula",
+      "section": "Gestion de Estudiantes",
+      "route": "/classroom-users/:guid",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/ClassroomUsersView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "calendar/view": {
+      "name": "Calendario general",
+      "description": "Vista de calendario con eventos y tareas",
+      "section": "Calendario",
+      "route": "/calendar",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/CalendarView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "tasks/list": {
+      "name": "Gestor de tareas",
+      "description": "Vista de todas las tareas pendientes de revisar",
+      "section": "Tareas",
+      "route": "/tasks",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/TasksView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "ai/tools": {
+      "name": "Herramientas de IA",
+      "description": "Suite de herramientas de IA para docentes",
+      "section": "Herramientas de IA",
+      "route": "/ai/tools",
+      "priority": "P3",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/AIToolsView/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["organization.tenant.isIaEnable"],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": "Feature flag controlado - no disponible para todos los tenants"
+    }
+  }
+}
