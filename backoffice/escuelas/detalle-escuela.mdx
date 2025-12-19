@@ -1,0 +1,328 @@
+---
+title: "Detalle de Escuela"
+description: "Aprende a configurar y gestionar los detalles de una escuela: anos escolares, grupos y usuarios"
+icon: "info"
+---
+
+## Descripcion
+
+La pagina de **Detalle de Escuela** te permite ver y editar toda la configuracion de un colegio especifico. Desde aqui puedes gestionar la informacion basica, los anos escolares, los grupos/clases y los usuarios asignados.
+
+<Info>
+  **Rol requerido:** Administrador
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Navegar a la seccion de Colegios">
+    En el menu lateral izquierdo, haz clic en el icono de usuarios y selecciona **Colegios**.
+  </Step>
+  <Step title="Seleccionar un colegio">
+    En el listado de colegios, haz clic en el nombre del colegio que deseas configurar.
+
+    ![Tab de detalles](/assets/backoffice/escuelas/images/detalle-escuela-tab-detalles.png)
+  </Step>
+</Steps>
+
+## Estructura de la pagina
+
+La pagina de detalle se organiza en pestanas (tabs) que agrupan diferentes aspectos de la configuracion:
+
+| Pestana | Descripcion |
+|---------|-------------|
+| **Detalles** | Informacion basica del colegio (nombre, ubicacion, opciones) |
+| **Ano escolar** | Gestion de periodos academicos |
+| **Grupos** | Clases y grupos de estudiantes |
+| **Usuarios** | Docentes, estudiantes y administradores asignados |
+
+<Note>
+  Si la escuela tiene habilitada la opcion **LTI conexion**, la pestana de **Grupos** no estara disponible, ya que los grupos se gestionan desde el sistema externo.
+</Note>
+
+## Tab Detalles
+
+La pestana de **Detalles** muestra y permite editar la informacion basica del colegio.
+
+![Tab de detalles](/assets/backoffice/escuelas/images/detalle-escuela-tab-detalles.png)
+
+### Campos disponibles
+
+| Campo | Descripcion | Editable |
+|-------|-------------|----------|
+| **Nombre del colegio** | Nombre identificativo de la escuela | Si |
+| **Pais** | Pais donde se encuentra la escuela | Si |
+| **Estado** | Estado o provincia del pais | Si |
+| **Direccion** | Direccion fisica de la escuela | Si |
+| **Codigo postal** | Codigo postal de la ubicacion | Si |
+| **Localidad** | Ciudad o localidad | Si |
+| **LTI conexion** | Habilita integracion con sistemas externos | Si |
+| **Admin escuela** | Habilita el portal de administracion escolar | Si |
+
+### Editar informacion basica
+
+<Steps>
+  <Step title="Modificar los campos deseados">
+    Haz clic en los campos que deseas editar y realiza los cambios necesarios.
+  </Step>
+  <Step title="Guardar los cambios">
+    Haz clic en el boton **Guardar** para aplicar los cambios. El boton se habilitara automaticamente cuando detecte modificaciones.
+  </Step>
+</Steps>
+
+<Tip>
+  Los campos de ubicacion (Pais, Estado, Localidad) funcionan en cascada. Si cambias el pais, deberas volver a seleccionar el estado y la localidad.
+</Tip>
+
+## Tab Ano Escolar
+
+La pestana de **Ano escolar** permite gestionar los periodos academicos del colegio.
+
+![Tab de ano escolar](/assets/backoffice/escuelas/images/detalle-escuela-tab-ano-escolar.png)
+
+### Informacion mostrada
+
+La tabla de anos escolares muestra:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre identificativo del ano escolar |
+| **Ano escolar** | Ano del periodo academico |
+| **Fecha final** | Fecha de expiracion del ano escolar |
+| **Estado** | Estado actual (Activo, Caducada, etc.) |
+
+### Crear un ano escolar
+
+<Steps>
+  <Step title="Hacer clic en Anadir ano escolar">
+    En la parte superior de la tabla, haz clic en el boton **Anadir ano escolar**.
+
+    ![Modal de ano escolar](/assets/backoffice/escuelas/images/detalle-escuela-modal-ano-escolar.png)
+  </Step>
+  <Step title="Completar el formulario">
+    Ingresa los siguientes datos:
+    - **Titulo**: Nombre descriptivo del ano escolar (ej: "2025")
+    - **Ano escolar**: Ano del periodo academico
+    - **Fecha de expiracion**: Fecha en que finaliza el ano escolar
+  </Step>
+  <Step title="Guardar">
+    Haz clic en **Anadir** para crear el ano escolar.
+  </Step>
+</Steps>
+
+<Warning>
+  Una vez que un ano escolar tiene grupos y usuarios asignados, algunos datos pueden no ser editables. Planifica cuidadosamente los anos escolares antes de crearlos.
+</Warning>
+
+## Tab Grupos
+
+La pestana de **Grupos** permite gestionar las clases y grupos de estudiantes del colegio.
+
+![Tab de grupos](/assets/backoffice/escuelas/images/detalle-escuela-tab-grupos.png)
+
+### Informacion mostrada
+
+La tabla de grupos muestra:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Titulo** | Nombre del grupo/clase |
+| **Etapa/Ano** | Nivel educativo y grado |
+| **Codigo** | Codigo unico del grupo (usado para matriculacion) |
+| **Ano escolar** | Periodo academico al que pertenece |
+| **Profesores** | Cantidad de docentes asignados |
+| **Estudiantes** | Cantidad de estudiantes matriculados |
+| **Estado** | Estado del grupo (Activo/Inactivo) |
+
+### Buscar y filtrar grupos
+
+<Steps>
+  <Step title="Usar el campo de busqueda">
+    Escribe el nombre o codigo del grupo en el campo **Buscar** para filtrar la lista.
+  </Step>
+  <Step title="Aplicar filtros avanzados">
+    Haz clic en **Filtrar** para acceder a opciones de filtrado adicionales como ano escolar o estado.
+  </Step>
+</Steps>
+
+### Crear un grupo
+
+<Steps>
+  <Step title="Hacer clic en Anadir grupo">
+    En la parte superior de la tabla, haz clic en el boton **Anadir grupo**.
+
+    ![Modal de grupo](/assets/backoffice/escuelas/images/detalle-escuela-modal-grupo.png)
+  </Step>
+  <Step title="Completar el formulario">
+    Ingresa los siguientes datos:
+    - **Nombre del grupo**: Nombre descriptivo de la clase (ej: "Matematicas 3A")
+    - **Etapa**: Nivel educativo (Primaria, Secundaria, etc.)
+    - **Ano / serie**: Grado o ano dentro de la etapa
+    - **Ano escolar**: Periodo academico al que pertenece el grupo
+  </Step>
+  <Step title="Guardar">
+    Haz clic en **Anadir** para crear el grupo.
+  </Step>
+</Steps>
+
+<Tip>
+  El **Codigo** del grupo se genera automaticamente y es el que los estudiantes y docentes usaran para unirse al grupo.
+</Tip>
+
+## Tab Usuarios
+
+La pestana de **Usuarios** muestra todos los usuarios asignados al colegio y permite agregar nuevos.
+
+![Tab de usuarios](/assets/backoffice/escuelas/images/detalle-escuela-tab-usuarios.png)
+
+### Informacion mostrada
+
+La tabla de usuarios muestra:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre usuario** | Nombre y email del usuario |
+| **Rol** | Rol asignado (Teacher, Student, School Admin) |
+| **Grupos** | Grupos a los que pertenece el usuario |
+
+### Tipos de usuarios
+
+- **School Admin**: Administrador del colegio con acceso al portal Admin Escuela
+- **Teacher**: Docentes que imparten clases en el colegio
+- **Student**: Estudiantes matriculados en grupos del colegio
+
+### Buscar usuarios
+
+Usa el campo **Buscar** para filtrar usuarios por nombre o email.
+
+### Agregar un usuario
+
+<Steps>
+  <Step title="Hacer clic en Anadir usuario">
+    En la parte superior de la tabla, haz clic en el boton **Anadir usuario**.
+
+    ![Modal de usuario](/assets/backoffice/escuelas/images/detalle-escuela-modal-usuario.png)
+  </Step>
+  <Step title="Buscar el usuario">
+    El modal muestra un buscador donde puedes encontrar usuarios existentes en la plataforma. Escribe el nombre o email del usuario que deseas agregar.
+  </Step>
+  <Step title="Seleccionar usuarios">
+    Marca la casilla junto a los usuarios que deseas agregar al colegio.
+  </Step>
+  <Step title="Continuar">
+    Haz clic en **Siguiente** para asignar los usuarios al colegio.
+  </Step>
+</Steps>
+
+<Info>
+  Solo puedes agregar usuarios que ya existen en la plataforma. Si necesitas crear un nuevo usuario, ve primero a la seccion de **Usuarios** del Backoffice.
+</Info>
+
+## Navegacion entre pestanas
+
+Usa los botones **Anterior** y **Siguiente** en la parte inferior de la pantalla para navegar entre las pestanas, o haz clic directamente en el nombre de la pestana deseada.
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Configurar un nuevo colegio despues de crearlo">
+    Despues de crear un colegio, sigue estos pasos:
+    1. Ve a la pestana **Ano escolar** y crea el periodo academico actual
+    2. Ve a la pestana **Grupos** y crea las clases necesarias
+    3. Ve a la pestana **Usuarios** y asigna docentes y estudiantes
+  </Accordion>
+  <Accordion title="Preparar el colegio para un nuevo ano escolar">
+    Al inicio de cada ano escolar:
+    1. Crea un nuevo ano escolar con la fecha de expiracion correcta
+    2. Crea los nuevos grupos para el ano escolar
+    3. Asigna los docentes a sus respectivos grupos
+    4. Los estudiantes pueden unirse usando el codigo del grupo
+  </Accordion>
+  <Accordion title="Cambiar la ubicacion de un colegio">
+    Si un colegio cambia de direccion:
+    1. Ve a la pestana **Detalles**
+    2. Actualiza los campos de ubicacion (Direccion, Codigo postal, Localidad)
+    3. Si cambia de ciudad o estado, actualiza los selectores correspondientes
+    4. Haz clic en **Guardar**
+  </Accordion>
+  <Accordion title="Habilitar Admin Escuela">
+    Para permitir que el colegio gestione sus propios usuarios:
+    1. Ve a la pestana **Detalles**
+    2. Marca la casilla **Admin escuela**
+    3. Guarda los cambios
+    4. Ve a la pestana **Usuarios** y asigna un usuario con rol School Admin
+  </Accordion>
+</AccordionGroup>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="No veo la pestana de Grupos, por que?">
+    Si el colegio tiene habilitada la opcion **LTI conexion**, los grupos se gestionan desde el sistema externo integrado (como un LMS). En este caso, la pestana de Grupos no esta disponible en el Backoffice.
+  </Accordion>
+  <Accordion title="Puedo eliminar un ano escolar?">
+    No directamente. Si un ano escolar tiene grupos o usuarios asignados, no puede ser eliminado. Puedes desactivarlo o esperar a que expire naturalmente.
+  </Accordion>
+  <Accordion title="Como asigno un docente a un grupo?">
+    Primero asegura que el docente este agregado al colegio (pestana Usuarios). Luego, la asignacion a grupos especificos se realiza desde la gestion del grupo o desde el perfil del usuario.
+  </Accordion>
+  <Accordion title="El boton Guardar esta deshabilitado, que hago?">
+    El boton Guardar solo se habilita cuando hay cambios pendientes. Si no has modificado ningun campo, el boton permanecera deshabilitado.
+  </Accordion>
+</AccordionGroup>
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** No puedo editar los campos de ubicacion.
+
+  **Solucion:** Los campos de Estado y Localidad dependen del Pais seleccionado. Si necesitas cambiar la ubicacion, empieza seleccionando el pais correcto y luego los demas campos se habilitaran.
+</Warning>
+
+<Warning>
+  **Problema:** No puedo agregar usuarios al colegio.
+
+  **Solucion:** Solo puedes agregar usuarios que ya existen en la plataforma. Si el usuario no aparece en la busqueda, primero debes crearlo desde la seccion de Usuarios del Backoffice.
+</Warning>
+
+<Warning>
+  **Problema:** Los grupos no aparecen en la tabla.
+
+  **Solucion:** Verifica que no tengas filtros activos. Si el ano escolar ha expirado, los grupos podrian estar ocultos. Usa el filtro de ano escolar para ver grupos de periodos anteriores.
+</Warning>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de escuelas" icon="school" href="/backoffice/escuelas/gestion-escuelas">
+    Aprende a listar, buscar y filtrar escuelas existentes.
+  </Card>
+  <Card title="Crear escuela" icon="plus" href="/backoffice/escuelas/crear-escuela">
+    Registra una nueva escuela en la plataforma.
+  </Card>
+  <Card title="Gestion de usuarios" icon="users" href="/backoffice/usuarios/gestion-usuarios">
+    Administra los usuarios de la plataforma.
+  </Card>
+  <Card title="Periodos de evaluacion" icon="calendar" href="/backoffice/configuracion/periodos-evaluacion">
+    Configura los periodos de evaluacion del sistema.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: backoffice
+  - Seccion UI: /school/:guid
+  - Archivos de codigo relacionados:
+    - frontend: tangerine-backoffice/src/app/pages/schools/SchoolDetailPage/SchoolDetailPage.jsx
+    - hook: tangerine-backoffice/src/app/pages/schools/SchoolDetailPage/useSchoolDetailPage.js
+    - form: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolForm.jsx
+    - tabs:
+      - SchoolFormDetails: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormDetails/
+      - SchoolFormSchoolYear: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormSchoolYear/
+      - SchoolFormGroups: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormGroups/
+      - SchoolFormUsers: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormUsers/
+    - crud: tangerine-backoffice/src/app/crud/schools.crud.js
+    - service: tangerine-backoffice/src/app/services/schools.service.js
+  - Ultima revision: 2025-12-19
+*/}

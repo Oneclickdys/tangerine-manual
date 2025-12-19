@@ -1,0 +1,254 @@
+---
+title: "Gestion de Usuarios Backoffice"
+description: "Administra los usuarios con acceso al panel de administracion (backoffice) del sistema Tangerine"
+icon: "user-gear"
+---
+
+## Descripcion
+
+La gestion de usuarios backoffice permite administrar las cuentas de los administradores del sistema que tienen acceso al panel de administracion. Estos usuarios son diferentes a los usuarios regulares (estudiantes, docentes, admin escuela) ya que tienen permisos para gestionar contenidos, programas, licencias y configuraciones del sistema.
+
+<Info>
+  **Rol requerido:** Super Administrador o Administrador con permisos de gestion de usuarios
+</Info>
+
+<Note>
+  Los usuarios backoffice son los administradores del sistema Tangerine. No confundir con los usuarios regulares (estudiantes, docentes, admin escuela) que se gestionan en la seccion **Usuarios**.
+</Note>
+
+## Como acceder
+
+<Steps>
+  <Step title="Inicia sesion en el Backoffice">
+    Accede al panel de administracion con tus credenciales de administrador.
+  </Step>
+  <Step title="Navega a Usuarios Backoffice">
+    En el menu lateral izquierdo, haz clic en el icono de **Usuarios Backoffice** o navega a la seccion correspondiente en el menu de usuarios.
+
+    La ruta directa es: `/users-admin`
+  </Step>
+</Steps>
+
+## Vista general
+
+La pantalla principal muestra una tabla con todos los usuarios administradores del sistema.
+
+### Columnas disponibles
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre completo del administrador y su email de usuario |
+| **Rol** | Tipo de rol de administracion asignado |
+| **Licencia Mint** | Indica si el usuario tiene acceso al editor Mint |
+
+### Buscar usuarios
+
+Utiliza el campo de busqueda en la parte superior para encontrar usuarios por nombre. La busqueda es en tiempo real y filtra los resultados mientras escribes.
+
+### Filtros avanzados
+
+Haz clic en el boton **Filtrar** para acceder a las opciones de filtrado:
+
+<CardGroup cols={2}>
+  <Card title="Pais" icon="globe">
+    Filtra usuarios por pais (disponible en configuraciones multi-pais).
+  </Card>
+  <Card title="Rol" icon="user-shield">
+    Filtra por el tipo de rol de administracion asignado.
+  </Card>
+  <Card title="Estado" icon="toggle-on">
+    Muestra solo usuarios activos o inactivos.
+  </Card>
+  <Card title="Licencia Mint" icon="palette">
+    Filtra usuarios segun tengan o no acceso al editor Mint.
+  </Card>
+</CardGroup>
+
+---
+
+## Crear un nuevo usuario backoffice
+
+<Steps>
+  <Step title="Accede al formulario">
+    Haz clic en el boton **Anadir usuario** ubicado en la esquina superior derecha de la pantalla.
+  </Step>
+  <Step title="Completa los datos basicos">
+    Rellena los campos obligatorios:
+    - **Nombre**: Nombre del administrador
+    - **Apellidos**: Apellidos del administrador
+    - **Email**: Direccion de correo electronico (sera su nombre de usuario)
+
+    <Warning>
+      El email debe ser unico en el sistema. Si ya existe, recibiras un error.
+    </Warning>
+  </Step>
+  <Step title="Selecciona el rol">
+    Elige el tipo de rol de administracion. Los roles disponibles dependen de los permisos configurados en tu organizacion.
+  </Step>
+  <Step title="Configura licencia Mint (opcional)">
+    Si el usuario necesita acceso al editor de contenidos Mint, activa la opcion **Licencia Mint**.
+  </Step>
+  <Step title="Guarda el usuario">
+    Haz clic en **Guardar** para crear el nuevo administrador.
+  </Step>
+</Steps>
+
+---
+
+## Editar un usuario existente
+
+<Steps>
+  <Step title="Busca el usuario">
+    Localiza el usuario en la lista usando el buscador o los filtros.
+  </Step>
+  <Step title="Accede al detalle">
+    Haz clic en el nombre del usuario para abrir su ficha de edicion.
+  </Step>
+  <Step title="Modifica los datos">
+    Actualiza los campos necesarios:
+    - Datos personales (nombre, apellidos)
+    - Rol de administracion
+    - Estado (activo/inactivo)
+    - Licencia Mint
+  </Step>
+  <Step title="Guarda los cambios">
+    Haz clic en **Guardar** para aplicar las modificaciones.
+  </Step>
+</Steps>
+
+---
+
+## Roles de administracion
+
+Los usuarios backoffice pueden tener diferentes roles que determinan sus permisos en el sistema:
+
+<AccordionGroup>
+  <Accordion title="Super Administrador">
+    Acceso completo a todas las funcionalidades del backoffice, incluyendo:
+    - Gestion de usuarios backoffice
+    - Configuracion del sistema
+    - Todas las operaciones de contenido y programas
+  </Accordion>
+  <Accordion title="Administrador de Contenidos">
+    Permisos para gestionar contenidos educativos:
+    - Crear y editar contenidos
+    - Gestionar programas digitales
+    - Administrar recursos multimedia
+  </Accordion>
+  <Accordion title="Gestor de Licencias">
+    Permisos para administrar licencias:
+    - Crear y asignar licencias
+    - Gestionar lotes de licencias
+    - Ver reportes de uso
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Licencia Mint
+
+La licencia Mint otorga acceso al editor de contenidos educativos Mint. Esta licencia es necesaria para:
+
+- Crear y editar lecciones interactivas
+- Disenar actividades educativas
+- Importar contenidos desde InDesign
+
+<Tip>
+  Solo asigna licencias Mint a usuarios que realmente necesiten crear o editar contenido educativo.
+</Tip>
+
+---
+
+## Casos de uso comunes
+
+<AccordionGroup>
+  <Accordion title="Dar de alta a un nuevo editor de contenidos">
+    1. Crea el usuario con rol de **Administrador de Contenidos**
+    2. Activa la **Licencia Mint** para que pueda usar el editor
+    3. Proporciona las credenciales al nuevo usuario
+  </Accordion>
+  <Accordion title="Desactivar un administrador que dejo la organizacion">
+    1. Busca el usuario en la lista
+    2. Accede a su ficha de edicion
+    3. Cambia el estado a **Inactivo**
+    4. Guarda los cambios
+
+    <Note>
+      Es recomendable desactivar en lugar de eliminar para mantener el historial de acciones.
+    </Note>
+  </Accordion>
+  <Accordion title="Cambiar el rol de un administrador">
+    1. Busca el usuario y accede a su ficha
+    2. Selecciona el nuevo rol en el campo correspondiente
+    3. Guarda los cambios
+    4. El usuario tendra los nuevos permisos en su proximo inicio de sesion
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Cual es la diferencia entre Usuarios y Usuarios Backoffice?">
+    - **Usuarios** (`/users`): Estudiantes, docentes y administradores de escuela que usan la plataforma educativa
+    - **Usuarios Backoffice** (`/users-admin`): Administradores del sistema que gestionan el contenido, programas y configuraciones
+  </Accordion>
+  <Accordion title="Puedo eliminar un usuario backoffice?">
+    Si, puedes eliminar usuarios backoffice. Sin embargo, es recomendable **desactivar** al usuario en lugar de eliminarlo para mantener el historial de acciones realizadas.
+  </Accordion>
+  <Accordion title="Como puedo ver que acciones ha realizado un administrador?">
+    El sistema mantiene un registro de actividad. Consulta con el soporte tecnico para acceder a los logs de auditoria.
+  </Accordion>
+  <Accordion title="Que pasa si un usuario pierde su contrasena?">
+    Puedes restablecer la contrasena desde la ficha de edicion del usuario, en la seccion de contrasena.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** No puedo crear usuarios backoffice.
+
+  **Solucion:** Verifica que tu rol tenga permisos de gestion de usuarios backoffice. Solo ciertos roles de administracion pueden crear otros administradores.
+</Warning>
+
+<Warning>
+  **Problema:** El email ya existe en el sistema.
+
+  **Solucion:** Cada usuario debe tener un email unico. Busca si el usuario ya existe en la lista o utiliza un email diferente.
+</Warning>
+
+<Warning>
+  **Problema:** Un usuario no puede acceder al editor Mint.
+
+  **Solucion:** Verifica que el usuario tenga la **Licencia Mint** activada en su ficha de edicion.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de Usuarios" icon="users" href="/backoffice/usuarios/gestion-usuarios">
+    Administra estudiantes, docentes y admins de escuela.
+  </Card>
+  <Card title="Crear Usuario Admin" icon="user-plus" href="/backoffice/usuarios-backoffice/crear-usuario-admin">
+    Guia detallada para crear administradores.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: backoffice
+  - Seccion UI: Usuarios > Usuarios Backoffice
+  - Ruta: /users-admin
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/users/UsersBackOfficePage/
+    - filtros: src/app/modules/users/UsersFilter/UsersFilterBackOffice.jsx
+    - header: src/app/modules/users/UsersHead/UsersHeadAdmin.jsx
+  - Ultima revision: 2025-12-19
+*/}

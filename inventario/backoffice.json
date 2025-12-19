@@ -1,6 +1,6 @@
 {
   "app": "backoffice",
-  "lastUpdated": "2025-12-18",
+  "lastUpdated": "2025-12-19",
   "features": {
     "users/list": {
       "name": "Listar usuarios",
@@ -65,18 +65,18 @@
       "section": "Usuarios y Permisos",
       "route": "/users-admin",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-list",
-      "docFile": null,
+      "docFile": "backoffice/usuarios-backoffice/gestion-usuarios-backoffice.mdx",
       "codeFiles": {
-        "frontend": ["src/app/pages/users-admin/"],
+        "frontend": ["src/app/pages/users/UsersBackOfficePage/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["users-admin/create"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2025-12-19",
+      "notes": "Documentado con listado, filtros (pais, rol, estado, licencia Mint), busqueda, roles de administracion"
     },
     "users-admin/create": {
       "name": "Crear usuario admin",
@@ -236,9 +236,9 @@
       "section": "Escuelas",
       "route": "/school/:guid",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "multi-step-form",
-      "docFile": null,
+      "docFile": "backoffice/escuelas/detalle-escuela.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/schools/SchoolDetailPage/"],
         "backend": []
@@ -246,8 +246,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["schools/list"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2025-12-19",
+      "notes": "Documentado con tabs Detalles, Ano escolar, Grupos y Usuarios. Incluye modales de creacion."
     },
     "contents/list": {
       "name": "Listar contenidos",
