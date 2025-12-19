@@ -21,10 +21,6 @@
       "url": "mailto:soporte@tangerine.com"
     }
   ],
-  "topbarCtaButton": {
-    "name": "Acceder",
-    "url": "https://tangerine.stn-neds.com"
-  },
   "tabs": [
     {
       "name": "Backoffice",
