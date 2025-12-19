@@ -1,0 +1,546 @@
+---
+title: "Crear Evaluacion"
+description: "Crea evaluaciones y tareas personalizadas con diferentes tipos de preguntas para evaluar a tus estudiantes"
+icon: "clipboard-check"
+---
+
+## Descripcion
+
+La funcionalidad de **Crear Evaluacion** permite a los docentes crear evaluaciones, tareas y quizzes personalizados para sus estudiantes. El sistema ofrece una amplia variedad de tipos de preguntas (seleccion multiple, completar texto, arrastrar y soltar, matematicas, etc.) y soporta tanto evaluacion automatica como manual.
+
+<Info>
+  **Rol requerido:** Docente
+
+  **Acceso:** Desde la vista de una leccion, al agregar un nuevo item de tipo evaluacion o tarea.
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Navega a un curso">
+    Desde el Home, accede a uno de tus cursos/clases.
+  </Step>
+  <Step title="Accede al programa del curso">
+    En la vista del curso, selecciona la pestana **Programa** para ver las unidades y lecciones.
+  </Step>
+  <Step title="Entra a una leccion">
+    Haz clic en una leccion donde desees agregar la evaluacion.
+  </Step>
+  <Step title="Agrega una nueva actividad">
+    Dentro de la leccion, haz clic en el boton **Anadir** y selecciona **Tarea** o **Quiz** segun el tipo de evaluacion que desees crear.
+
+    <Frame>
+      <img src="/assets/frontoffice-docentes/evaluaciones/05-menu-anadir.png" alt="Menu para agregar contenido en una leccion" />
+    </Frame>
+  </Step>
+</Steps>
+
+---
+
+## Interfaz de creacion
+
+Al crear un Quiz, primero configuras los datos basicos y luego puedes agregar preguntas:
+
+<Frame>
+  <img src="/assets/frontoffice-docentes/evaluaciones/07-nuevo-quiz-formulario.png" alt="Formulario de creacion de Quiz" />
+</Frame>
+
+Una vez creado el quiz, veras la pantalla de gestion donde puedes agregar preguntas:
+
+<Frame>
+  <img src="/assets/frontoffice-docentes/evaluaciones/08-quiz-creado-sin-preguntas.png" alt="Quiz creado sin preguntas" />
+</Frame>
+
+La pantalla de creacion de evaluacion se divide en varias secciones:
+
+### Header (Cabecera)
+
+El header muestra informacion clave y las acciones principales:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Flecha atras** | Regresa a la leccion sin guardar cambios |
+| **Puntos totales** | Muestra los puntos actuales vs puntos totales requeridos (ej: "5 de 10 puntos") |
+| **Boton de accion** | Permite guardar como borrador, publicar o programar |
+
+### Informacion de la evaluacion
+
+Muestra los detalles configurados de la evaluacion:
+
+- **Estado**: Borrador, Publicado o Programado (con etiqueta de color)
+- **Nombre**: Titulo de la evaluacion
+- **Estudiantes asignados**: Avatares de los estudiantes que veran la evaluacion
+- **Fecha de entrega**: Si esta configurada
+- **Duracion**: Tiempo limite si aplica
+- **Entrega tardia**: Si se permite o no
+
+<Tip>
+  Puedes editar estos detalles haciendo clic en el menu de opciones (tres puntos) junto a la evaluacion.
+</Tip>
+
+---
+
+## Agregar preguntas
+
+El sistema ofrece dos formas de agregar preguntas a tu evaluacion:
+
+### Opcion 1: Crear nueva pregunta
+
+<Steps>
+  <Step title="Haz clic en el boton de agregar">
+    Si no tienes preguntas, veras un boton prominente para agregar tu primera pregunta. Si ya tienes preguntas, usa el boton flotante en la esquina.
+
+    <Frame>
+      <img src="/assets/frontoffice-docentes/evaluaciones/09-menu-anadir-pregunta.png" alt="Menu para agregar pregunta" />
+    </Frame>
+  </Step>
+  <Step title="Selecciona Nueva pregunta o Todas las plantillas">
+    Elige la opcion **Nueva pregunta** para una pregunta rapida o **Todas las plantillas** para ver todos los tipos disponibles.
+  </Step>
+  <Step title="Selecciona un template">
+    Se abrira un dialogo con todas las plantillas de preguntas disponibles organizadas por categoria.
+
+    <Frame>
+      <img src="/assets/frontoffice-docentes/evaluaciones/10-plantillas-lemonade.png" alt="Dialogo de seleccion de plantillas Lemonade" />
+    </Frame>
+  </Step>
+  <Step title="Configura la pregunta">
+    Se abrira el editor Lemonade donde podras configurar el enunciado, opciones de respuesta y puntuacion.
+
+    <Frame>
+      <img src="/assets/frontoffice-docentes/evaluaciones/12-editor-lemonade-respuesta-unica.png" alt="Editor Lemonade para pregunta de respuesta unica" />
+    </Frame>
+
+    Cada tipo de pregunta tiene su propio editor especializado. Por ejemplo, el tipo **Ordenar** permite configurar elementos que el estudiante debe organizar en secuencia:
+
+    <Frame>
+      <img src="/assets/frontoffice-docentes/evaluaciones/14-editor-ordenar.png" alt="Editor Lemonade para pregunta de tipo Ordenar" />
+    </Frame>
+  </Step>
+  <Step title="Guarda la pregunta">
+    Al confirmar, la pregunta se agregara a tu evaluacion.
+  </Step>
+</Steps>
+
+### Opcion 2: Buscar en la biblioteca
+
+<Steps>
+  <Step title="Haz clic en el boton de agregar">
+    Usa el boton para agregar preguntas.
+  </Step>
+  <Step title="Selecciona Buscar en biblioteca">
+    Elige la opcion **Buscar en biblioteca** del menu desplegable.
+  </Step>
+  <Step title="Busca y filtra">
+    Usa los filtros para encontrar preguntas existentes creadas previamente.
+  </Step>
+  <Step title="Selecciona las preguntas">
+    Marca las preguntas que deseas agregar y confirma la seleccion.
+  </Step>
+</Steps>
+
+---
+
+## Editor de texto enriquecido
+
+El editor Lemonade incluye una potente barra de herramientas para dar formato a los enunciados de las preguntas:
+
+<Frame>
+  <img src="/assets/frontoffice-docentes/evaluaciones/15-editor-barra-herramientas.png" alt="Barra de herramientas del editor de texto enriquecido" />
+</Frame>
+
+### Opciones de formato disponibles
+
+| Categoria | Herramientas |
+|-----------|--------------|
+| **Texto** | Negrita, Italica, Subrayado, Tamano de fuente, Color de texto, Color de fondo |
+| **Parrafo** | Alineacion (izquierda, centro, derecha, justificado), Listas ordenadas/desordenadas, Sangria |
+| **Insertar** | Enlaces, Imagenes, Tablas, Audio, Video, Expresiones matematicas |
+| **Avanzado** | Subindice, Superindice, Citas, Vista de codigo |
+
+<Tip>
+  Puedes insertar **expresiones matematicas** usando el editor de formulas, ideal para preguntas de matematicas y ciencias.
+</Tip>
+
+---
+
+## Tipos de preguntas disponibles
+
+El editor Lemonade ofrece una amplia variedad de tipos de preguntas:
+
+### Tipo Test (Multiple)
+
+| Tipo | Descripcion | Evaluacion |
+|------|-------------|------------|
+| **Seleccion unica** | El estudiante selecciona una respuesta correcta | Automatica |
+| **Seleccion multiple** | El estudiante puede seleccionar varias respuestas | Automatica |
+| **Verdadero/Falso** | Pregunta de verdadero o falso | Automatica |
+| **Bloque multiple** | Seleccion con opciones en formato de bloque | Automatica |
+| **Matriz tabla** | Matriz de opciones en formato tabla | Automatica |
+| **Matriz inline** | Matriz de opciones en linea | Automatica |
+
+### Completar con texto
+
+| Tipo | Descripcion | Evaluacion |
+|------|-------------|------------|
+| **Texto corto** | Respuesta de texto breve | Automatica |
+| **Cloze text** | Completar espacios en un texto | Automatica |
+| **Label image text** | Etiquetar partes de una imagen con texto | Automatica |
+
+### Arrastrar y seleccionar
+
+| Tipo | Descripcion | Evaluacion |
+|------|-------------|------------|
+| **Dropdown** | Seleccionar de un menu desplegable | Automatica |
+| **Arrastrar y soltar** | Arrastrar elementos a sus posiciones | Automatica |
+| **Label image dropdown** | Etiquetar imagen con dropdown | Automatica |
+| **Label image drag** | Etiquetar imagen arrastrando | Automatica |
+
+### Ordenar y relacionar
+
+| Tipo | Descripcion | Evaluacion |
+|------|-------------|------------|
+| **Ordenar lista** | Ordenar elementos en secuencia | Automatica |
+| **Relacionar (Match list)** | Relacionar elementos de dos columnas | Automatica |
+| **Linking lines** | Conectar elementos con lineas | Automatica |
+| **Sopa de letras** | Encontrar palabras ocultas | Automatica |
+| **Click to find** | Hacer clic para encontrar elementos | Automatica |
+| **Crucigrama** | Resolver crucigrama | Automatica |
+
+### Clasificar
+
+| Tipo | Descripcion | Evaluacion |
+|------|-------------|------------|
+| **Clasificacion** | Clasificar elementos en categorias | Automatica |
+
+### Matematicas
+
+| Tipo | Descripcion | Evaluacion |
+|------|-------------|------------|
+| **Cloze math** | Completar formulas matematicas | Automatica |
+
+### Evaluacion manual
+
+| Tipo | Descripcion | Evaluacion |
+|------|-------------|------------|
+| **Enunciado** | Solo texto informativo (sin respuesta) | - |
+| **Texto largo** | Respuesta tipo ensayo | Manual |
+| **Dibujo (Pencil)** | Dibujar a mano alzada | Manual |
+| **Subir archivo** | El estudiante sube un archivo | Manual |
+| **Grabacion de audio** | El estudiante graba audio | Manual |
+
+<Info>
+  Las preguntas con evaluacion **Automatica** se califican instantaneamente cuando el estudiante responde. Las preguntas con evaluacion **Manual** requieren que el docente revise y asigne una calificacion.
+</Info>
+
+---
+
+## Gestion de preguntas
+
+Una vez agregadas las preguntas, puedes gestionarlas de varias formas. El sistema muestra una lista con todas las preguntas, sus puntos y opciones de configuracion:
+
+<Frame>
+  <img src="/assets/frontoffice-docentes/evaluaciones/13-quiz-lista-preguntas.png" alt="Lista de preguntas en un quiz" />
+</Frame>
+
+Observa como el sistema muestra:
+- **Drag handles** (iconos de arrastre) para reordenar preguntas
+- **Puntos por pregunta** editables directamente
+- **Vista previa** del contenido de cada pregunta
+- **Boton de objetivos** de aprendizaje por pregunta
+
+Cuando agregas mas preguntas, los puntos se redistribuyen automaticamente:
+
+<Frame>
+  <img src="/assets/frontoffice-docentes/evaluaciones/16-quiz-tres-preguntas.png" alt="Quiz con tres preguntas y puntos distribuidos" />
+</Frame>
+
+<Tip>
+  Al agregar una nueva pregunta, el sistema divide automaticamente los puntos totales entre todas las preguntas. Puedes ajustar los puntos individualmente despues.
+</Tip>
+
+### Reordenar preguntas
+
+<Steps>
+  <Step title="Arrastra la pregunta">
+    Haz clic y manten presionado el icono de arrastre (tres lineas horizontales) de cualquier pregunta.
+  </Step>
+  <Step title="Mueve a la nueva posicion">
+    Arrastra la pregunta a la posicion deseada en la lista.
+  </Step>
+  <Step title="Suelta para confirmar">
+    Suelta la pregunta y el nuevo orden se guardara automaticamente.
+  </Step>
+</Steps>
+
+### Editar pregunta
+
+Haz clic en el icono de lapiz de cualquier pregunta para abrir el editor Lemonade y modificar su contenido.
+
+### Duplicar pregunta
+
+Usa el menu de opciones de la pregunta para crear una copia exacta que puedes modificar.
+
+### Eliminar pregunta
+
+Usa el menu de opciones de la pregunta para eliminarla de la evaluacion.
+
+### Modificar puntuacion
+
+Cada pregunta tiene un campo de puntuacion que puedes modificar directamente. El sistema verifica que la suma de puntos de todas las preguntas coincida con la puntuacion total esperada.
+
+<Warning>
+  **Problema:** Aparece un icono de advertencia en el header.
+
+  **Solucion:** La suma de puntos de las preguntas no coincide con el total esperado. Ajusta la puntuacion de las preguntas individuales.
+</Warning>
+
+---
+
+## Objetivos de aprendizaje
+
+Si tu tenant tiene habilitados los objetivos de aprendizaje (Learning Objectives), puedes asociarlos a las preguntas:
+
+<Steps>
+  <Step title="Haz clic en Seleccionar Objetivos">
+    En cada pregunta o en la evaluacion general, busca el boton para seleccionar objetivos.
+  </Step>
+  <Step title="Selecciona los objetivos">
+    Elige de la lista los objetivos de aprendizaje que esta pregunta evalua.
+  </Step>
+  <Step title="Confirma la seleccion">
+    Los objetivos seleccionados apareceran como etiquetas junto a la pregunta.
+  </Step>
+</Steps>
+
+<Tip>
+  Los objetivos de aprendizaje ayudan a rastrear el progreso de los estudiantes en competencias especificas.
+</Tip>
+
+---
+
+## Publicar la evaluacion
+
+Una vez configurada tu evaluacion, tienes tres opciones para publicarla:
+
+### Guardar como borrador
+
+<Steps>
+  <Step title="Selecciona Guardar cambios">
+    Haz clic en el boton de accion y selecciona **Guardar cambios**.
+  </Step>
+  <Step title="Confirma">
+    La evaluacion se guardara como borrador y podras editarla mas tarde.
+  </Step>
+</Steps>
+
+<Note>
+  Los borradores no son visibles para los estudiantes hasta que se publiquen.
+</Note>
+
+### Publicar inmediatamente
+
+<Steps>
+  <Step title="Selecciona Guardar y publicar">
+    Haz clic en el boton de accion y selecciona **Guardar y publicar**.
+  </Step>
+  <Step title="Confirma">
+    La evaluacion se publicara inmediatamente y los estudiantes podran acceder a ella.
+  </Step>
+</Steps>
+
+### Programar publicacion
+
+<Steps>
+  <Step title="Selecciona Programar">
+    Haz clic en el boton de accion y selecciona **Programar**.
+  </Step>
+  <Step title="Configura fecha y hora">
+    Aparecera un selector de fecha y hora. Elige cuando deseas que se publique.
+  </Step>
+  <Step title="Confirma">
+    La evaluacion se publicara automaticamente en la fecha y hora configuradas.
+  </Step>
+</Steps>
+
+<Warning>
+  **Problema:** No puedes publicar o programar.
+
+  **Solucion:** Verifica que:
+  - La evaluacion tenga al menos una pregunta
+  - La suma de puntos sea correcta
+  - La fecha de programacion no sea en el pasado
+</Warning>
+
+---
+
+## Variantes especiales
+
+### Videoleccion con preguntas
+
+Puedes crear evaluaciones basadas en videos donde los estudiantes responden preguntas mientras ven el contenido.
+
+### PLENO (Evaluacion grupal)
+
+PLENO es un tipo especial de evaluacion grupal donde los estudiantes responden en tiempo real, ideal para clases interactivas.
+
+<Info>
+  La disponibilidad de estas variantes depende de la configuracion de tu tenant.
+</Info>
+
+---
+
+## Generacion de preguntas con IA
+
+Si tu tenant tiene habilitada la generacion de preguntas con IA:
+
+<Steps>
+  <Step title="Selecciona el template de IA">
+    Al crear una nueva pregunta, busca la opcion marcada con el icono de IA.
+  </Step>
+  <Step title="Describe lo que necesitas">
+    Se abrira un dialogo donde puedes describir el tipo de pregunta que deseas generar.
+  </Step>
+  <Step title="Revisa y edita">
+    La IA generara una pregunta de seleccion multiple que puedes revisar y modificar antes de guardar.
+  </Step>
+</Steps>
+
+<Tip>
+  La generacion con IA es especialmente util para crear preguntas de seleccion multiple rapidamente.
+</Tip>
+
+---
+
+## Casos de uso comunes
+
+<AccordionGroup>
+  <Accordion title="Crear un quiz de repaso">
+    1. Accede a la leccion donde esta el contenido a evaluar
+    2. Crea una nueva evaluacion
+    3. Agrega preguntas de tipo test (seleccion unica/multiple)
+    4. Configura los puntos de cada pregunta
+    5. Publica como borrador para revisar antes de compartir
+  </Accordion>
+  <Accordion title="Crear una tarea con entrega de archivo">
+    1. Crea una nueva evaluacion
+    2. Agrega una pregunta tipo "Subir archivo"
+    3. Configura las instrucciones en el enunciado
+    4. Configura la fecha de entrega
+    5. Programa la publicacion para que aparezca al inicio de la clase
+  </Accordion>
+  <Accordion title="Crear un examen con preguntas variadas">
+    1. Planifica los tipos de preguntas que necesitas
+    2. Crea la evaluacion y agrega preguntas de diferentes tipos
+    3. Asigna puntuacion proporcional a la dificultad
+    4. Asocia objetivos de aprendizaje si es necesario
+    5. Configura la duracion y restricciones de entrega
+    6. Programa para la fecha del examen
+  </Accordion>
+  <Accordion title="Reutilizar preguntas de otra evaluacion">
+    1. Crea una nueva evaluacion
+    2. Selecciona "Buscar en biblioteca"
+    3. Filtra por preguntas de evaluaciones anteriores
+    4. Selecciona las preguntas que deseas reutilizar
+    5. Modifica las preguntas si es necesario
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo editar una evaluacion ya publicada?">
+    Si, pero ten en cuenta que los cambios pueden afectar a estudiantes que ya hayan respondido. Se recomienda hacer ediciones solo en evaluaciones sin respuestas.
+  </Accordion>
+  <Accordion title="Como elimino una pregunta de la evaluacion?">
+    Haz clic en el menu de opciones (tres puntos) de la pregunta y selecciona "Eliminar".
+  </Accordion>
+  <Accordion title="Puedo cambiar el orden de las preguntas?">
+    Si, arrastra las preguntas usando el icono de arrastre para reordenarlas.
+  </Accordion>
+  <Accordion title="Que pasa si la suma de puntos no coincide?">
+    El sistema mostrara una advertencia y no podras publicar hasta que ajustes los puntos de las preguntas.
+  </Accordion>
+  <Accordion title="Los estudiantes pueden ver las respuestas correctas?">
+    Depende de la configuracion. Puedes configurar si los estudiantes ven las respuestas despues de responder o solo despues de la fecha de entrega.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** El boton de publicar esta deshabilitado.
+
+  **Solucion:** Verifica que hayas agregado al menos una pregunta y que la suma de puntos sea correcta.
+</Warning>
+
+<Warning>
+  **Problema:** No aparecen los templates de preguntas.
+
+  **Solucion:** Espera a que cargue el dialogo de templates. Si persiste, recarga la pagina.
+</Warning>
+
+<Warning>
+  **Problema:** La fecha de programacion muestra error.
+
+  **Solucion:** La fecha de publicacion no puede ser en el pasado. Selecciona una fecha y hora futuras.
+</Warning>
+
+<Warning>
+  **Problema:** No puedo agregar preguntas de la biblioteca.
+
+  **Solucion:** Verifica que tienes preguntas guardadas en tu biblioteca. Si es una cuenta nueva, primero necesitas crear preguntas.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Ver Resultados de Evaluacion" icon="chart-bar" href="/frontoffice-docentes/evaluaciones/ver-resultados">
+    Revisa las respuestas y calificaciones de los estudiantes.
+  </Card>
+  <Card title="Libro de Calificaciones" icon="table" href="/frontoffice-docentes/calificaciones/gradebook">
+    Gestiona todas las calificaciones de tu curso.
+  </Card>
+  <Card title="Vista de Leccion" icon="book-open" href="/frontoffice-docentes/lecciones/vista-leccion">
+    Navega por el contenido de las lecciones.
+  </Card>
+  <Card title="Programa del Curso" icon="list" href="/frontoffice-docentes/curso/programa">
+    Organiza las unidades y lecciones de tu curso.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: Curso > Leccion > Nueva actividad > Crear evaluacion
+  - Ruta: /new-assessment (tambien usado en modo PowerLesson como componente embebido)
+  - Archivos de codigo relacionados:
+    - frontend: src/app/modules/views/NewAssessmentView/NewAssessment/NewAssessmentView.js
+    - frontend: src/app/modules/views/NewAssessmentView/NewAssessmentViewHeader/NewAssessmentViewHeader.js
+    - frontend: src/app/modules/views/NewAssessmentView/NewAssessmentViewQuestions/NewAssessmentViewQuestions.js
+    - frontend: src/app/modules/views/NewAssessmentView/NewAssessmentViewQuestions/NewAssessmentViewQuestionsButtonsAndDialogs.js
+    - frontend: src/app/modules/views/NewAssessmentView/NewAssessment/HeaderAssessment.js
+    - hook: src/core/hooks/assessment/useNewAssessment.js
+    - hook: src/core/hooks/assessment/useNewAssessmentData.js
+    - dialogs: src/core/modules/components/dialogs/DialogLemonadeTemplates/DialogLemonadeTemplates.js
+    - dialogs: src/core/modules/components/dialogs/DialogLemonadeEditor/DialogLemonadeEditor.js
+    - dialogs: src/core/modules/components/dialogs/DialogSearchQuestionsNew/DialogSearchQuestionsNew.js
+    - dialogs: src/core/modules/components/dialogs/DialogAIGeneratedActivity/DialogAIGeneratedActivity.js
+    - utils: src/core/utils/lemonade.js (LEMONADE_TEMPLATES, LEMONADE_QUESTION_TYPES)
+  - Estados de evaluacion: draft (borrador), published (publicado), scheduled (programado)
+  - Feature Flags relacionados:
+    - showAITemplate: Habilita generacion de preguntas con IA
+    - organization.tenant.isIaEnable: Controla herramientas de IA
+  - Variantes especiales:
+    - PLENO: Evaluacion grupal en tiempo real
+    - Videolesson: Evaluacion con video interactivo
+    - PowerLesson mode: Modo embebido para creacion rapida
+  - Ultima revision: 2025-12-19
+*/}

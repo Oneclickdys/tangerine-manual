@@ -179,9 +179,9 @@
       "section": "Evaluaciones",
       "route": "/new-assessment",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "multi-step-form",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/evaluaciones/crear-evaluacion.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/NewAssessmentView/"],
         "backend": []
@@ -189,8 +189,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["assessment/results"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2025-12-19",
+      "notes": "Incluye editor Lemonade con multiples tipos de preguntas. Soporta IA para generacion de preguntas (feature flag). Variantes: PLENO y Videolesson."
     },
     "assessment/results": {
       "name": "Ver resultados evaluacion",

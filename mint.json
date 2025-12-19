@@ -114,6 +114,12 @@
           ]
         },
         {
+          "group": "Evaluaciones",
+          "pages": [
+            "frontoffice-docentes/evaluaciones/crear-evaluacion"
+          ]
+        },
+        {
           "group": "Clases",
           "pages": [
             "docentes/clases/mis-clases",
