@@ -1,0 +1,325 @@
+---
+title: "Crear Nueva Aula"
+description: "Crea una nueva aula virtual para organizar a tus estudiantes y asignar contenido educativo"
+icon: "plus"
+---
+
+## Descripcion
+
+La funcionalidad de **Crear Nueva Aula** permite a los docentes crear un espacio virtual donde organizar a sus estudiantes y asignar publicaciones (libros digitales, cursos). El proceso se realiza en 3 pasos sencillos: configurar los detalles basicos de la clase, seleccionar las publicaciones y gestionar los integrantes.
+
+<Info>
+  **Rol requerido:** Docente con permiso de creacion de grupos
+
+  **Feature flag:** Esta funcionalidad esta controlada por el feature flag `settings.lms_can_create_group`. No todos los tenants tienen habilitada esta opcion.
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Inicia sesion como docente">
+    Accede a la plataforma con tus credenciales de docente.
+  </Step>
+  <Step title="Navega al Home">
+    Desde el menu principal, asegurate de estar en la seccion **Clases** del Home.
+
+    ![Pantalla de inicio con boton crear](/assets/screenshots/frontoffice-docentes/crear-aula/01-home-boton-crear.png)
+  </Step>
+  <Step title="Haz clic en el boton +">
+    En la esquina superior derecha (junto a las pestanas Clases, Programas, Mi biblioteca), haz clic en el boton naranja con el icono **+**.
+
+    ![Menu de opciones crear](/assets/screenshots/frontoffice-docentes/crear-aula/02-menu-crear-clase.png)
+  </Step>
+  <Step title="Selecciona Crear clase">
+    En el menu desplegable, selecciona la opcion **Crear clase**.
+  </Step>
+</Steps>
+
+---
+
+## Paso 1: Detalles de la clase
+
+El primer paso te permite configurar la informacion basica del aula.
+
+![Formulario de detalles de la clase](/assets/screenshots/frontoffice-docentes/crear-aula/03-paso1-detalles-clase.png)
+
+### Campos del formulario
+
+| Campo | Descripcion | Requerido |
+|-------|-------------|-----------|
+| **Nombre** | Nombre de la clase (ej: "3ro A", "Grupo Manana") | Si |
+| **Nivel educacional** | Etapa educativa (Infantil, Primaria, ESO, Bachillerato) | Si |
+| **Ano** | Curso o grado dentro del nivel educativo seleccionado | Si |
+
+### Configuracion adicional
+
+#### Modelo de ensenanza
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Dispositivos 1:1** | Marca esta casilla si los alumnos tienen dispositivos personales. Esto adapta la experiencia para clases donde cada estudiante tiene su propio dispositivo. |
+
+#### Panel (comunicacion del aula)
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Los estudiantes solo pueden comentar** | Los estudiantes pueden responder a publicaciones pero no crear nuevas (opcion por defecto). |
+| **Los estudiantes pueden comentar y publicar** | Los estudiantes tienen libertad total para crear publicaciones y comentar. |
+| **Solo el profesor puede comentar y publicar** | El panel es unidireccional: solo el docente puede publicar y comentar. |
+
+<Tip>
+  La configuracion del Panel determina el nivel de interaccion que tendran los estudiantes en el muro social de la clase. Puedes cambiar esta configuracion mas adelante si lo necesitas.
+</Tip>
+
+![Formulario completo paso 1](/assets/screenshots/frontoffice-docentes/crear-aula/04-paso1-formulario-completo.png)
+
+<Note>
+  El boton **Continuar** se habilitara cuando hayas completado todos los campos requeridos (nombre, nivel educacional y ano).
+</Note>
+
+---
+
+## Paso 2: Seleccionar publicaciones
+
+En este paso seleccionas las publicaciones (libros digitales) que deseas asociar a la clase.
+
+![Seleccion de publicaciones](/assets/screenshots/frontoffice-docentes/crear-aula/05-paso2-seleccionar-libros.png)
+
+### Biblioteca de publicaciones
+
+Se muestran todas las publicaciones disponibles en tu biblioteca:
+
+- **Publicaciones con licencia activa** se muestran disponibles para seleccionar
+- **Publicaciones editadas** (versiones personalizadas) aparecen con la etiqueta "Editado"
+- **Publicaciones proximamente** aparecen marcadas y no son seleccionables
+
+### Seleccionar publicaciones
+
+<Steps>
+  <Step title="Navega por la biblioteca">
+    Explora las publicaciones disponibles. Puedes ver el idioma y nombre de cada una.
+  </Step>
+  <Step title="Selecciona las publicaciones deseadas">
+    Haz clic sobre las publicaciones que deseas incluir en la clase. Puedes seleccionar una o varias.
+
+    ![Publicacion seleccionada](/assets/screenshots/frontoffice-docentes/crear-aula/06-paso2-libro-seleccionado.png)
+  </Step>
+  <Step title="Continua al siguiente paso">
+    Una vez seleccionadas las publicaciones, haz clic en **Crear clase**.
+  </Step>
+</Steps>
+
+### Agregar nuevas licencias
+
+Si no tienes publicaciones disponibles o necesitas agregar mas:
+
+<Steps>
+  <Step title="Haz clic en Anade una licencia">
+    En la parte superior de la pantalla, haz clic en el enlace **Anade una licencia**.
+  </Step>
+  <Step title="Introduce el codigo">
+    Se abrira un dialogo donde podras introducir un codigo de licencia proporcionado por tu centro educativo o editorial.
+  </Step>
+  <Step title="Confirma el canje">
+    Una vez canjeado el codigo, la nueva publicacion aparecera en tu biblioteca.
+  </Step>
+</Steps>
+
+<Warning>
+  Si no tienes ninguna publicacion disponible, se mostrara un mensaje indicando que no tienes libros. Necesitaras agregar una licencia antes de poder crear la clase.
+</Warning>
+
+---
+
+## Paso 3: Integrantes
+
+El tercer y ultimo paso te permite gestionar los integrantes de la clase.
+
+![Gestion de integrantes](/assets/screenshots/frontoffice-docentes/crear-aula/07-paso3-integrantes.png)
+
+### Informacion mostrada
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Titulo** | "Integrantes de [Nombre de la clase]" |
+| **Contador de alumnos** | Numero de estudiantes en la clase |
+| **Codigo de clase** | Codigo unico que los estudiantes pueden usar para unirse (ej: "3VFKa5") |
+| **Profesor** | Tu nombre como docente principal del aula |
+
+### Agregar estudiantes
+
+Existen dos formas de agregar estudiantes a la clase:
+
+#### Opcion 1: Compartir el codigo de clase
+
+<Steps>
+  <Step title="Copia el codigo de clase">
+    Anota o copia el codigo de clase mostrado en la pantalla.
+  </Step>
+  <Step title="Comparte con tus estudiantes">
+    Los estudiantes pueden usar este codigo para unirse a la clase desde su cuenta.
+  </Step>
+</Steps>
+
+#### Opcion 2: Importar desde Google Classroom
+
+<Steps>
+  <Step title="Haz clic en Importar de Classroom">
+    Haz clic en el boton **Importar de Classroom**.
+  </Step>
+  <Step title="Autoriza el acceso">
+    Se abrira una ventana para autorizar el acceso a tu cuenta de Google Classroom.
+  </Step>
+  <Step title="Selecciona los usuarios">
+    Una vez conectado, selecciona los estudiantes que deseas importar.
+  </Step>
+  <Step title="Confirma la importacion">
+    Los estudiantes seleccionados seran agregados automaticamente al aula.
+  </Step>
+</Steps>
+
+<Tip>
+  La importacion desde Google Classroom es especialmente util si ya tienes tus clases organizadas en esa plataforma.
+</Tip>
+
+### Finalizar la creacion
+
+<Steps>
+  <Step title="Revisa la informacion">
+    Verifica que el nombre de la clase y el docente asignado son correctos.
+  </Step>
+  <Step title="Haz clic en Finalizar">
+    Al hacer clic en **Finalizar**, la clase sera creada y seras redirigido al Home.
+
+    ![Clase creada exitosamente](/assets/screenshots/frontoffice-docentes/crear-aula/09-clase-creada-exito.png)
+  </Step>
+</Steps>
+
+<Note>
+  Veras un mensaje de confirmacion "Clase creada correctamente" y la nueva clase aparecera en tu lista de clases.
+</Note>
+
+---
+
+## Resultado final
+
+Una vez creada la clase:
+
+- Aparecera en la seccion **Clases** del Home
+- Mostrara el nivel educativo y ano configurados
+- Tendra el codigo de clase asignado
+- Incluira los cursos asociados a las publicaciones seleccionadas
+- Estara lista para recibir estudiantes
+
+---
+
+## Casos de uso comunes
+
+<AccordionGroup>
+  <Accordion title="Crear una clase para el nuevo ciclo escolar">
+    Al inicio del ciclo escolar:
+    1. Accede a Crear clase
+    2. Introduce un nombre descriptivo (ej: "4to A - Matematicas")
+    3. Selecciona el nivel y ano correcto
+    4. Elige las publicaciones que usaras durante el curso
+    5. Comparte el codigo con tus estudiantes el primer dia de clases
+  </Accordion>
+  <Accordion title="Crear una clase para un grupo de refuerzo">
+    Para grupos especiales o de refuerzo:
+    1. Crea una nueva clase con un nombre identificativo
+    2. Selecciona solo las publicaciones relevantes para el refuerzo
+    3. Configura el panel segun el nivel de interaccion deseado
+    4. Agrega solo a los estudiantes que participaran en el refuerzo
+  </Accordion>
+  <Accordion title="Migrar una clase existente de Google Classroom">
+    Si ya tienes clases en Google Classroom:
+    1. Crea la clase con la misma configuracion
+    2. Selecciona las publicaciones correspondientes
+    3. En el paso 3, usa "Importar de Classroom"
+    4. Autoriza y selecciona la clase de Google Classroom
+    5. Todos los estudiantes seran importados automaticamente
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo editar la clase despues de crearla?">
+    Si, puedes editar la configuracion de la clase despues de crearla accediendo a las opciones del aula desde el Home.
+  </Accordion>
+  <Accordion title="Cuantas publicaciones puedo agregar a una clase?">
+    No hay un limite definido. Puedes agregar tantas publicaciones como necesites para tu clase.
+  </Accordion>
+  <Accordion title="Puedo agregar publicaciones despues de crear la clase?">
+    Si, puedes agregar nuevas publicaciones a una clase existente desde la configuracion del aula.
+  </Accordion>
+  <Accordion title="Que pasa si no tengo publicaciones disponibles?">
+    Necesitaras agregar una licencia antes de crear la clase. Contacta a tu centro educativo para obtener codigos de licencia.
+  </Accordion>
+  <Accordion title="Los estudiantes reciben notificacion cuando creo la clase?">
+    No automaticamente. Deberas compartir el codigo de clase con ellos para que puedan unirse.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** No veo el boton + para crear clases.
+
+  **Solucion:** Tu tenant puede no tener habilitada la creacion de clases. Contacta al administrador de tu centro para verificar los permisos.
+</Warning>
+
+<Warning>
+  **Problema:** El boton Continuar esta deshabilitado en el paso 1.
+
+  **Solucion:** Asegurate de haber completado todos los campos requeridos: nombre, nivel educacional y ano.
+</Warning>
+
+<Warning>
+  **Problema:** No aparecen publicaciones en el paso 2.
+
+  **Solucion:** No tienes licencias activas. Usa la opcion "Anade una licencia" para canjear un codigo de licencia.
+</Warning>
+
+<Warning>
+  **Problema:** Error "No tienes una escuela para asociar la clase".
+
+  **Solucion:** Tu usuario no esta asociado a ninguna escuela. Contacta al administrador para que te asigne a una escuela.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Ver Estudiantes del Aula" icon="users" href="/frontoffice-docentes/gestion-aula/ver-estudiantes">
+    Gestiona los integrantes de tu aula.
+  </Card>
+  <Card title="Ver Mis Aulas" icon="home" href="/frontoffice-docentes/inicio/mis-aulas">
+    Pantalla principal con todas tus aulas.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: Home > Boton + > Crear clase
+  - Ruta: /home (modal de creacion)
+  - Feature Flag: settings.lms_can_create_group
+  - Archivos de codigo relacionados:
+    - frontend: src/core/lite/views/NewClassroomView/NewClassroomView.js
+    - frontend: src/core/lite/views/NewClassroomView/NewClassroomViewStepBasic.js
+    - frontend: src/core/lite/views/NewClassroomView/NewClassroomViewStepBooks.js
+    - frontend: src/core/lite/views/NewClassroomView/NewClassroomViewStepStudents/
+    - hook: src/core/lite/views/NewClassroomView/NewClassroom/useDataNewClassroom.js
+    - hook: src/core/lite/views/NewClassroomView/NewClassroom/useNewClassroomView.js
+    - api: src/core/crud/groups.crud.js (createGroup, updateGroup)
+    - api: src/core/crud/courses.crud.js (createCourse)
+    - api: src/core/crud/programs.crud.js (getTeacherPrograms)
+  - Ultima revision: 2025-12-19
+*/}

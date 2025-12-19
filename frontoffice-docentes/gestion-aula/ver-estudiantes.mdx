@@ -1,0 +1,243 @@
+---
+title: "Ver Estudiantes del Aula"
+description: "Visualiza y gestiona los estudiantes y docentes matriculados en tu aula virtual"
+icon: "users"
+---
+
+## Descripcion
+
+La funcionalidad de **Ver Estudiantes del Aula** permite a los docentes visualizar todos los usuarios matriculados en un aula especifica: tanto estudiantes como otros docentes. Desde esta pantalla puedes consultar informacion de cada usuario, ver los cursos en los que estan inscritos, importar usuarios desde Google Classroom y gestionar la composicion de tu aula.
+
+<Info>
+  **Rol requerido:** Docente
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Inicia sesion como docente">
+    Accede a la plataforma con tus credenciales de docente.
+  </Step>
+  <Step title="Navega a Mis Aulas">
+    Desde el menu principal, accede a la seccion **Clases** en el Home. Veras todas tus aulas organizadas por nivel educativo.
+
+    ![Pantalla de inicio con aulas](/assets/screenshots/frontoffice-docentes/gestion-aula/home-aulas.png)
+  </Step>
+  <Step title="Haz clic en los estudiantes">
+    En cada aula veras los avatares de los estudiantes matriculados. Haz clic sobre ellos para abrir el panel de integrantes.
+  </Step>
+</Steps>
+
+## Vista general
+
+Al hacer clic en los estudiantes de un aula, se abre un panel modal con la informacion completa de los integrantes:
+
+![Panel de integrantes del aula](/assets/screenshots/frontoffice-docentes/gestion-aula/dropdown-estudiantes.png)
+
+### Panel principal - Lista de Estudiantes
+
+Este panel muestra:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Titulo del aula** | Nombre de la clase (ej: "Integrantes de 1º A") |
+| **Contador de alumnos** | Numero total de estudiantes matriculados |
+| **Lista de estudiantes** | Cada estudiante con su avatar, nombre, email y cursos asignados |
+| **Cursos por estudiante** | Etiquetas (tags) mostrando los cursos en que esta inscrito cada estudiante |
+
+### Panel lateral - Informacion del Aula
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Codigo de clase** | Codigo unico del aula que los estudiantes pueden usar para unirse |
+| **Importar de Classroom** | Boton para importar usuarios desde Google Classroom |
+| **Profesor** | Nombre del docente principal del aula |
+
+<Tip>
+  El codigo de clase es util para compartir con nuevos estudiantes que necesiten unirse al aula de forma autonoma.
+</Tip>
+
+---
+
+## Acciones disponibles
+
+### Ver cursos de un estudiante
+
+<Steps>
+  <Step title="Localiza al estudiante">
+    Busca al estudiante en la lista del panel derecho.
+  </Step>
+  <Step title="Observa los cursos">
+    Cada estudiante muestra etiquetas (tags) con los nombres de los cursos en los que esta inscrito.
+
+    <Tip>
+      Si el estudiante tiene mas de 2 cursos, veras un badge con "+X" indicando cuantos cursos adicionales tiene.
+    </Tip>
+  </Step>
+  <Step title="Ver todos los cursos">
+    Haz clic en el menu de opciones (tres puntos) junto al estudiante y selecciona **Ver cursos** para ver la lista completa.
+  </Step>
+</Steps>
+
+### Eliminar un estudiante del aula
+
+<Steps>
+  <Step title="Localiza al estudiante">
+    Busca al estudiante que deseas eliminar en la lista.
+  </Step>
+  <Step title="Accede al menu de opciones">
+    Haz clic en el icono de menu (tres puntos) junto al nombre del estudiante.
+  </Step>
+  <Step title="Selecciona Eliminar">
+    Haz clic en la opcion **Eliminar**.
+  </Step>
+  <Step title="Confirma la accion">
+    En el dialogo de confirmacion, haz clic en **Eliminar de clase** para confirmar.
+
+    <Warning>
+      Esta accion eliminara al estudiante del aula. El estudiante perdera acceso a los contenidos y actividades de esta aula.
+    </Warning>
+  </Step>
+</Steps>
+
+### Eliminar un docente del aula
+
+<Steps>
+  <Step title="Localiza al docente">
+    En el panel izquierdo, busca al docente en la seccion de **Docentes**.
+  </Step>
+  <Step title="Haz clic en el icono de eliminar">
+    Si hay mas de un docente en el aula, aparecera un icono de papelera junto a cada docente (excepto tu propio usuario).
+
+    <Info>
+      No puedes eliminarte a ti mismo del aula. Siempre debe haber al menos un docente.
+    </Info>
+  </Step>
+  <Step title="Confirma la accion">
+    En el dialogo de confirmacion, confirma que deseas eliminar al docente del aula.
+  </Step>
+</Steps>
+
+### Importar usuarios desde Google Classroom
+
+<Steps>
+  <Step title="Haz clic en Importar de Classroom">
+    En el panel lateral derecho, haz clic en el boton **Importar de Classroom**.
+  </Step>
+  <Step title="Autoriza el acceso">
+    Se abrira una ventana para autorizar el acceso a tu cuenta de Google Classroom.
+  </Step>
+  <Step title="Selecciona los usuarios">
+    Una vez conectado, podras seleccionar que usuarios de tu clase de Google Classroom deseas importar.
+  </Step>
+  <Step title="Confirma la importacion">
+    Los usuarios seleccionados seran agregados al aula de Tangerine.
+
+    <Tip>
+      Esta funcionalidad es especialmente util si ya tienes tus clases organizadas en Google Classroom y quieres migrar a Tangerine.
+    </Tip>
+  </Step>
+</Steps>
+
+---
+
+## Casos de uso comunes
+
+<AccordionGroup>
+  <Accordion title="Verificar quienes estan en mi clase">
+    Al inicio del curso o cuando necesites confirmar la lista de estudiantes:
+    1. Accede a la vista de usuarios del aula
+    2. Revisa la lista de estudiantes en el panel derecho
+    3. Verifica que todos los estudiantes esperados esten presentes
+    4. Revisa que los docentes co-asignados sean los correctos
+  </Accordion>
+  <Accordion title="Dar de baja a un estudiante que cambio de clase">
+    Cuando un estudiante es transferido a otra clase:
+    1. Localiza al estudiante en la lista
+    2. Usa el menu de opciones y selecciona **Eliminar**
+    3. Confirma la eliminacion
+    4. El estudiante podra ser agregado a su nueva aula
+  </Accordion>
+  <Accordion title="Compartir el codigo de clase con nuevos estudiantes">
+    Para que estudiantes se unan de forma autonoma:
+    1. Accede a la vista de usuarios del aula
+    2. Localiza el **Codigo de clase** en el panel izquierdo
+    3. Comparte este codigo con los estudiantes
+    4. Los estudiantes podran usar este codigo para unirse al aula
+  </Accordion>
+  <Accordion title="Migrar estudiantes desde Google Classroom">
+    Si usas Google Classroom y quieres que tus estudiantes accedan a Tangerine:
+    1. Haz clic en **Iniciar sesion con Google**
+    2. Autoriza el acceso a tu cuenta
+    3. Selecciona tu clase de Google Classroom
+    4. Importa los estudiantes
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo agregar estudiantes manualmente?">
+    La agregacion manual de estudiantes se realiza desde otra seccion. Esta vista esta enfocada en visualizar y gestionar los usuarios existentes, e importar desde Google Classroom. Para agregar estudiantes individualmente, consulta con el administrador del centro o usa el codigo de clase.
+  </Accordion>
+  <Accordion title="Que pasa cuando elimino un estudiante?">
+    El estudiante pierde acceso al aula y sus contenidos. Sin embargo, su cuenta de usuario no se elimina del sistema, solo se desvincula del aula. Un administrador puede volver a agregarlo si es necesario.
+  </Accordion>
+  <Accordion title="Por que no puedo eliminar a un docente?">
+    Solo puedes eliminar a otros docentes si hay mas de un docente en el aula. No puedes eliminarte a ti mismo. Si solo hay un docente (tu), no veras la opcion de eliminar.
+  </Accordion>
+  <Accordion title="Los estudiantes importados de Google necesitan crear cuenta nueva?">
+    Depende de la configuracion del sistema. En general, los usuarios importados pueden acceder con sus credenciales de Google o se les creara una cuenta automaticamente.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** No veo el boton de eliminar junto a los docentes.
+
+  **Solucion:** El boton de eliminar solo aparece si hay mas de un docente en el aula. No puedes eliminarte a ti mismo.
+</Warning>
+
+<Warning>
+  **Problema:** La importacion de Google Classroom falla.
+
+  **Solucion:** Verifica que has autorizado correctamente el acceso a tu cuenta de Google. Si el problema persiste, intenta cerrar sesion de Google y volver a autorizar.
+</Warning>
+
+<Warning>
+  **Problema:** Un estudiante no aparece en la lista.
+
+  **Solucion:** Verifica que el estudiante esta correctamente matriculado en el aula. Si usaste el codigo de clase, asegurate de que lo introdujo correctamente.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Ver Mis Aulas" icon="home" href="/frontoffice-docentes/inicio/mis-aulas">
+    Pantalla principal con todas tus aulas.
+  </Card>
+  <Card title="Crear Nueva Aula" icon="plus" href="/frontoffice-docentes/gestion-aula/crear-aula">
+    Aprende a crear una nueva aula virtual.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: Home > Clases > Click en avatares de estudiantes
+  - Ruta: /home (modal/dropdown desde la pagina de inicio)
+  - Archivos de codigo relacionados:
+    - frontend: src/core/lite/views/ClassroomUsersView/
+    - frontend: src/core/modules/components/lists/classroom-users/
+    - hook: src/core/lite/views/ClassroomUsersView/useClassroomUsersView.js
+    - api: src/core/crud/groups.crud.js (getGroupUsers, deleteUserFromGroup, addUsersToGroup)
+  - Ultima revision: 2025-12-19
+*/}

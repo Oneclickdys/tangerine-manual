@@ -1,6 +1,6 @@
 {
   "app": "frontoffice-teacher",
-  "lastUpdated": "2025-12-18",
+  "lastUpdated": "2025-12-19",
   "features": {
     "home/classrooms": {
       "name": "Ver mis aulas",
@@ -27,9 +27,9 @@
       "section": "Mis Aulas",
       "route": "/new-classroom",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "multi-step-form",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/gestion-aula/crear-aula.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/NewClassroomView/"],
         "backend": []
@@ -37,8 +37,8 @@
       "tenantVariations": [],
       "featureFlags": ["settings.lms_can_create_group"],
       "relatedFeatures": ["home/classrooms"],
-      "lastDocumented": null,
-      "notes": "Controlado por feature flag - no todos los tenants lo tienen"
+      "lastDocumented": "2025-12-19",
+      "notes": "Controlado por feature flag - no todos los tenants lo tienen. Proceso de 3 pasos: detalles, publicaciones, integrantes."
     },
     "course/view": {
       "name": "Vista del curso",
@@ -234,20 +234,20 @@
       "name": "Ver estudiantes del aula",
       "description": "Listado de estudiantes matriculados en el aula",
       "section": "Gestion de Estudiantes",
-      "route": "/classroom-users/:guid",
+      "route": "/home (modal desde avatares de estudiantes)",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-list",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/gestion-aula/ver-estudiantes.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/ClassroomUsersView/"],
-        "backend": []
+        "frontend": ["src/core/lite/views/ClassroomUsersView/", "src/core/modules/components/lists/classroom-users/"],
+        "backend": ["src/core/crud/groups.crud.js"]
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "relatedFeatures": ["home/classrooms"],
+      "lastDocumented": "2025-12-19",
+      "notes": "Incluye funcionalidad de importar desde Google Classroom. Se accede desde el Home haciendo clic en los avatares de estudiantes."
     },
     "calendar/view": {
       "name": "Calendario general",
