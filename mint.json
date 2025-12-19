@@ -73,6 +73,7 @@
         {
           "group": "Contenidos",
           "pages": [
+            "backoffice/contenidos/gestion-contenidos",
             "backoffice/contenidos/biblioteca",
             "backoffice/contenidos/publicaciones"
           ]
@@ -88,6 +89,7 @@
           "group": "Escuelas",
           "pages": [
             "backoffice/escuelas/gestion-escuelas",
+            "backoffice/escuelas/crear-escuela",
             "backoffice/escuelas/configuracion"
           ]
         },
