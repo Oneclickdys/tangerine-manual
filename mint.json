@@ -107,6 +107,12 @@
       "group": "Frontoffice Docentes",
       "pages": [
         {
+          "group": "Mis Aulas",
+          "pages": [
+            "frontoffice-docentes/mis-aulas/ver-mis-aulas"
+          ]
+        },
+        {
           "group": "Gestion de Aulas",
           "pages": [
             "frontoffice-docentes/gestion-aula/crear-aula",
