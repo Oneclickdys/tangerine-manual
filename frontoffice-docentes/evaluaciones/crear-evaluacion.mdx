@@ -299,7 +299,7 @@ Cada pregunta tiene un campo de puntuacion que puedes modificar directamente. El
 
 ## Objetivos de aprendizaje
 
-Si tu tenant tiene habilitados los objetivos de aprendizaje (Learning Objectives), puedes asociarlos a las preguntas:
+Si la plataforma tiene habilitados los objetivos de aprendizaje (Learning Objectives), puedes asociarlos a las preguntas:
 
 <Steps>
   <Step title="Haz clic en Seleccionar Objetivos">
@@ -380,35 +380,9 @@ Una vez configurada tu evaluacion, tienes tres opciones para publicarla:
 
 Puedes crear evaluaciones basadas en videos donde los estudiantes responden preguntas mientras ven el contenido.
 
-### PLENO (Evaluacion grupal)
-
-PLENO es un tipo especial de evaluacion grupal donde los estudiantes responden en tiempo real, ideal para clases interactivas.
-
-<Info>
-  La disponibilidad de estas variantes depende de la configuracion de tu tenant.
-</Info>
-
----
-
-## Generacion de preguntas con IA
-
-Si tu tenant tiene habilitada la generacion de preguntas con IA:
-
-<Steps>
-  <Step title="Selecciona el template de IA">
-    Al crear una nueva pregunta, busca la opcion marcada con el icono de IA.
-  </Step>
-  <Step title="Describe lo que necesitas">
-    Se abrira un dialogo donde puedes describir el tipo de pregunta que deseas generar.
-  </Step>
-  <Step title="Revisa y edita">
-    La IA generara una pregunta de seleccion multiple que puedes revisar y modificar antes de guardar.
-  </Step>
-</Steps>
-
-<Tip>
-  La generacion con IA es especialmente util para crear preguntas de seleccion multiple rapidamente.
-</Tip>
+<Note>
+  La disponibilidad de esta variante depende de la configuracion de la plataforma.
+</Note>
 
 ---
 
@@ -532,15 +506,10 @@ Si tu tenant tiene habilitada la generacion de preguntas con IA:
     - dialogs: src/core/modules/components/dialogs/DialogLemonadeTemplates/DialogLemonadeTemplates.js
     - dialogs: src/core/modules/components/dialogs/DialogLemonadeEditor/DialogLemonadeEditor.js
     - dialogs: src/core/modules/components/dialogs/DialogSearchQuestionsNew/DialogSearchQuestionsNew.js
-    - dialogs: src/core/modules/components/dialogs/DialogAIGeneratedActivity/DialogAIGeneratedActivity.js
     - utils: src/core/utils/lemonade.js (LEMONADE_TEMPLATES, LEMONADE_QUESTION_TYPES)
   - Estados de evaluacion: draft (borrador), published (publicado), scheduled (programado)
-  - Feature Flags relacionados:
-    - showAITemplate: Habilita generacion de preguntas con IA
-    - organization.tenant.isIaEnable: Controla herramientas de IA
   - Variantes especiales:
-    - PLENO: Evaluacion grupal en tiempo real
     - Videolesson: Evaluacion con video interactivo
     - PowerLesson mode: Modo embebido para creacion rapida
-  - Ultima revision: 2025-12-19
+  - Ultima revision: 2025-12-22
 */}
