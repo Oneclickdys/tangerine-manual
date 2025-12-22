@@ -126,6 +126,12 @@
           ]
         },
         {
+          "group": "Curso",
+          "pages": [
+            "frontoffice-docentes/curso/vista-curso"
+          ]
+        },
+        {
           "group": "Clases",
           "pages": [
             "docentes/clases/mis-clases",

@@ -1,6 +1,6 @@
 {
   "app": "frontoffice-teacher",
-  "lastUpdated": "2025-12-19",
+  "lastUpdated": "2025-12-21",
   "features": {
     "home/classrooms": {
       "name": "Ver mis aulas",
@@ -46,9 +46,9 @@
       "section": "Curso/Aula",
       "route": "/course/:guid",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/curso/vista-curso.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/CourseView/"],
         "backend": []
@@ -56,8 +56,8 @@
       "tenantVariations": ["UNOi tiene Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/stream", "course/program", "course/grades"],
-      "lastDocumented": null,
-      "notes": "Vista compleja con multiples tabs y funcionalidades"
+      "lastDocumented": "2025-12-21",
+      "notes": "Vista compleja con multiples tabs y funcionalidades. Tabs disponibles: Programa, Panel/Stream, Recursos del aula, Calificaciones."
     },
     "course/stream": {
       "name": "Stream (muro social)",
