@@ -84,18 +84,18 @@
       "section": "Usuarios y Permisos",
       "route": "/user/create-admin",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-form",
-      "docFile": null,
+      "docFile": "backoffice/usuarios-backoffice/crear-usuario-backoffice.mdx",
       "codeFiles": {
-        "frontend": ["src/app/pages/users-admin/"],
+        "frontend": ["src/app/pages/users/UserCreatePage/", "src/app/modules/users/UserForm/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["users-admin/list"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2025-12-23",
+      "notes": "Formulario compartido con creacion de usuarios regulares pero usa ModelAdmin. Campos: nombre, apellidos, email, rol (R04-R07), pais (multi-pais), licencia Mint, avatar"
     },
     "licenses/list": {
       "name": "Listar licencias",
@@ -274,18 +274,18 @@
       "section": "Contenidos",
       "route": "/contents/create",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "multi-step-form",
-      "docFile": null,
+      "docFile": "backoffice/contenidos/crear-contenido.mdx",
       "codeFiles": {
-        "frontend": ["src/app/pages/contents/ContentCreatePage/"],
+        "frontend": ["src/app/pages/contents/ContentCreatePage/", "src/app/modules/contents/ContentForm/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["contents/list"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2025-12-24",
+      "notes": "Formulario multi-step con 4 pasos: Detalles, Clasificacion, Apariencia, Agrupacion. Soporta 21 tipos de contenido diferentes. Los pasos 2-4 solo se habilitan despues de guardar. Incluye soporte para subtitulos, transcripciones y audiodescripciones."
     },
     "contents/detail": {
       "name": "Detalle contenido",

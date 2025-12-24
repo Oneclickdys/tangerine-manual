@@ -70,6 +70,7 @@
           "group": "Contenidos",
           "pages": [
             "backoffice/contenidos/gestion-contenidos",
+            "backoffice/contenidos/crear-contenido",
             "backoffice/contenidos/biblioteca",
             "backoffice/contenidos/publicaciones"
           ]
@@ -92,7 +93,8 @@
         {
           "group": "Usuarios Backoffice",
           "pages": [
-            "backoffice/usuarios-backoffice/gestion-usuarios-backoffice"
+            "backoffice/usuarios-backoffice/gestion-usuarios-backoffice",
+            "backoffice/usuarios-backoffice/crear-usuario-backoffice"
           ]
         },
         {
@@ -128,7 +130,8 @@
         {
           "group": "Curso",
           "pages": [
-            "frontoffice-docentes/curso/vista-curso"
+            "frontoffice-docentes/curso/vista-curso",
+            "frontoffice-docentes/curso/stream"
           ]
         },
         {

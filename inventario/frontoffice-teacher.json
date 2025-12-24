@@ -65,9 +65,9 @@
       "section": "Curso/Aula",
       "route": "/course/:guid (tab Stream)",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/curso/stream.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/CourseView/Stream/"],
         "backend": []
@@ -75,8 +75,8 @@
       "tenantVariations": ["UNOi usa Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2025-12-22",
+      "notes": "Incluye configuracion de permisos (solo comentar, publicar y comentar, solo docente). Soporta publicaciones fijadas, archivos adjuntos y comentarios."
     },
     "course/program": {
       "name": "Programa del curso",

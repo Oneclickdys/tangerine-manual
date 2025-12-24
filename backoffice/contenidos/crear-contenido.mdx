@@ -1,0 +1,419 @@
+---
+title: "Crear Contenido"
+description: "Aprende a crear nuevos contenidos educativos en Tangerine: videos, documentos, actividades interactivas y mas"
+icon: "plus-circle"
+---
+
+## Descripcion
+
+La creacion de contenidos permite a los administradores y gestores de contenido agregar nuevos recursos educativos al sistema. Tangerine soporta una amplia variedad de tipos de contenido: videos, audios, documentos PDF, presentaciones, actividades interactivas, enlaces externos y mas.
+
+<Info>
+  **Rol requerido:** Administrador de Backoffice, Gestor de Contenido, Publisher
+</Info>
+
+<Note>
+  Los usuarios con rol **Help Desk** no tienen acceso a la creacion de contenidos.
+</Note>
+
+## Como acceder
+
+<Steps>
+  <Step title="Inicia sesion en el Backoffice">
+    Accede al panel de administracion con tus credenciales.
+  </Step>
+  <Step title="Navega a Contenidos">
+    En el menu lateral izquierdo, haz clic en el icono de **Contenidos**.
+  </Step>
+  <Step title="Haz clic en Crear contenido">
+    En la esquina superior derecha de la pantalla, encontraras el boton **Crear contenido**.
+
+    ![Boton Crear contenido](/assets/screenshots/backoffice/contenidos/crear-contenido-paso1-detalles.png)
+  </Step>
+</Steps>
+
+---
+
+## Estructura del formulario
+
+El formulario de creacion de contenidos se organiza en **cuatro pasos** que te guiaran a traves de toda la configuracion:
+
+| Paso | Nombre | Descripcion |
+|------|--------|-------------|
+| 1 | **Detalles** | Informacion basica del contenido y archivo adjunto |
+| 2 | **Clasificacion** | Metadatos educativos (nivel, asignatura, idioma, tags) |
+| 3 | **Apariencia** | Miniatura (thumbnail) y configuracion de privacidad |
+| 4 | **Agrupacion** | Asociacion a publicaciones, colecciones y dependencias |
+
+<Tip>
+  Durante la creacion inicial, solo el paso **Detalles** esta disponible. Los pasos adicionales (Clasificacion, Apariencia, Agrupacion) se habilitan automaticamente despues de guardar el contenido por primera vez.
+</Tip>
+
+---
+
+## Paso 1: Detalles
+
+Este es el paso principal donde defines la informacion basica del contenido y adjuntas el archivo o URL.
+
+### Campos del formulario
+
+| Campo | Requerido | Descripcion |
+|-------|-----------|-------------|
+| **Nombre del contenido** | Si | Titulo descriptivo del recurso (min. 3, max. 250 caracteres) |
+| **Tipo de contenido** | Si | Formato del recurso (Video, Audio, PDF, Link, etc.) |
+| **Disponible para** | Si | Define quien puede ver el contenido |
+| **ERP** | No | Codigo identificador externo (max. 250 caracteres) |
+| **Descripcion** | No | Descripcion breve del contenido |
+| **Estado** | No | Activo/Inactivo - Los contenidos inactivos no son visibles |
+| **Accesible offline** | No | Permite descargar el contenido para uso sin conexion |
+
+### Seleccionar tipo de contenido
+
+El tipo de contenido determina que opciones adicionales estaran disponibles y que formatos de archivo se aceptan.
+
+![Selector de tipos de contenido](/assets/screenshots/backoffice/contenidos/crear-contenido-tipos-contenido.png)
+
+<AccordionGroup>
+  <Accordion title="Tipos de contenido con archivo">
+    Estos tipos requieren subir un archivo desde tu computadora:
+
+    | Tipo | Formatos aceptados |
+    |------|-------------------|
+    | **Video** | zip, mp4, ogg |
+    | **Audio** | mp3, ogg, wav |
+    | **PDF** | pdf |
+    | **Imagen** | jpg, png, gif, svg |
+    | **OFFICE** | doc, docx, ppt, pptx, xls, xlsx |
+    | **SCORM** | zip |
+    | **ZIP** | zip |
+    | **Tin-can xApi** | zip |
+    | **HTML Interactivo** | zip |
+    | **EPUB** | epub |
+    | **App** | apk, ipa |
+  </Accordion>
+  <Accordion title="Tipos de contenido con URL">
+    Estos tipos requieren introducir una URL externa:
+
+    | Tipo | Descripcion |
+    |------|-------------|
+    | **Link** | Enlace a cualquier recurso web externo |
+    | **Video lesson** | Video de plataformas externas (YouTube, Vimeo) |
+    | **LTI** | Herramientas externas via protocolo LTI |
+  </Accordion>
+  <Accordion title="Tipos de contenido con editor">
+    Estos tipos se crean usando editores especializados de Tangerine:
+
+    | Tipo | Descripcion |
+    |------|-------------|
+    | **Question (Lemonade)** | Actividades interactivas creadas con el editor Lemonade |
+    | **Video lesson** | Videolecciones con el editor de segmentos |
+    | **Mint** | Paginas creadas con el editor Mint |
+  </Accordion>
+</AccordionGroup>
+
+### Subir archivo de contenido
+
+Cuando seleccionas un tipo de contenido que requiere archivo, aparece la seccion **Adjuntar contenido**:
+
+![Subir archivo de video](/assets/screenshots/backoffice/contenidos/crear-contenido-tipo-video.png)
+
+<Steps>
+  <Step title="Selecciona el tipo de contenido">
+    Elige el tipo adecuado del selector (ej. Video, PDF, Audio).
+  </Step>
+  <Step title="Haz clic en el area de carga">
+    Haz clic en **Seleccionar fichero** o arrastra el archivo al area indicada.
+  </Step>
+  <Step title="Espera la subida">
+    Una barra de progreso mostrara el avance de la carga. No cierres la ventana durante este proceso.
+  </Step>
+</Steps>
+
+<Warning>
+  **Importante:** El archivo se sube al crear el contenido. Asegurate de tener una conexion estable, especialmente para archivos grandes como videos.
+</Warning>
+
+### Introducir URL externa
+
+Para contenidos de tipo **Link**, aparece un campo para introducir la URL:
+
+![Contenido tipo Link](/assets/screenshots/backoffice/contenidos/crear-contenido-tipo-link.png)
+
+<Steps>
+  <Step title="Selecciona tipo Link">
+    En el selector de tipo de contenido, elige **Link**.
+  </Step>
+  <Step title="Introduce la URL">
+    Escribe o pega la URL completa del recurso externo (debe comenzar con http:// o https://).
+  </Step>
+</Steps>
+
+### Opciones de disponibilidad
+
+El campo **Disponible para** determina quien puede acceder al contenido:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Docentes y estudiantes** | Visible para todos los usuarios |
+| **Solo docentes** | Solo visible para docentes (material de apoyo, guias del profesor) |
+
+<Tip>
+  Usa **Solo docentes** para material que no debe ser visible para estudiantes, como guias didacticas, solucionarios o recursos de preparacion de clases.
+</Tip>
+
+---
+
+## Paso 2: Clasificacion
+
+Una vez guardado el contenido, puedes acceder al paso de Clasificacion para agregar metadatos educativos.
+
+![Paso de Clasificacion](/assets/screenshots/backoffice/contenidos/editar-contenido-paso2-clasificacion.png)
+
+### Campos de clasificacion
+
+| Campo | Descripcion |
+|-------|-------------|
+| **Pais** | Pais al que pertenece el contenido (en sistemas multipais) |
+| **Etapa** | Nivel educativo (Primaria, Secundaria, Bachillerato, etc.) |
+| **Ano / serie** | Grado o ano escolar especifico |
+| **Asignaturas** | Materias o disciplinas asociadas |
+| **Idioma** | Idioma del contenido |
+| **Tags** | Etiquetas para facilitar la busqueda |
+
+<Note>
+  Los selectores de **Etapa**, **Ano** y **Asignaturas** funcionan en cascada: primero selecciona el pais, luego la etapa, y asi sucesivamente.
+</Note>
+
+### Metadatos adicionales
+
+Si tu institucion tiene habilitada la funcionalidad de **Objetivos de aprendizaje**, encontraras una seccion adicional para asociar el contenido con objetivos curriculares especificos.
+
+---
+
+## Paso 3: Apariencia
+
+El paso de Apariencia permite configurar aspectos visuales y de privacidad del contenido.
+
+### Para contenidos PDF y Fixed Layout
+
+Los contenidos de tipo PDF y Libro Digital Fixed Layout permiten subir una imagen de portada (thumbnail):
+
+![Paso de Apariencia con thumbnail](/assets/screenshots/backoffice/contenidos/editar-contenido-paso3-apariencia-thumbnail.png)
+
+<Steps>
+  <Step title="Sube una imagen de portada">
+    Haz clic en **Seleccionar fichero** para subir una imagen PNG o JPG.
+  </Step>
+  <Step title="Ajusta el recorte">
+    Si es necesario, ajusta el area visible de la imagen.
+  </Step>
+</Steps>
+
+<Tip>
+  Una buena miniatura ayuda a los usuarios a identificar rapidamente el contenido. Usa imagenes representativas del tema.
+</Tip>
+
+### Configuracion de privacidad
+
+![Paso de Apariencia basico](/assets/screenshots/backoffice/contenidos/editar-contenido-paso3-apariencia.png)
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Contenido publico** | Visible para todos los usuarios de la plataforma |
+| **Contenido privado** | Solo visible para usuarios con acceso explicito |
+
+### Opciones adicionales segun tipo
+
+Para contenidos **PDF** y **OFFICE**, aparecen opciones adicionales en el paso de Detalles:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Permitir descarga** | Permite a los usuarios descargar el archivo original |
+| **Accesible offline** | El contenido puede verse sin conexion a internet |
+
+---
+
+## Paso 4: Agrupacion
+
+El ultimo paso permite asociar el contenido con estructuras organizativas del sistema.
+
+![Paso de Agrupacion](/assets/screenshots/backoffice/contenidos/editar-contenido-paso4-agrupacion.png)
+
+### Campos de agrupacion
+
+| Campo | Descripcion |
+|-------|-------------|
+| **Publicacion** | Asocia el contenido a una publicacion especifica |
+| **Coleccion** | Agrupa el contenido en una coleccion tematica |
+| **Dependencias** | Define otros contenidos necesarios para este recurso |
+
+<Info>
+  Las **dependencias** son utiles cuando un contenido requiere otro para funcionar correctamente, por ejemplo, un ejercicio que necesita una libreria JavaScript.
+</Info>
+
+---
+
+## Crear el contenido
+
+<Steps>
+  <Step title="Completa los campos requeridos">
+    Asegurate de completar al menos el **nombre**, **tipo de contenido** y **disponibilidad**.
+  </Step>
+  <Step title="Adjunta el archivo o URL">
+    Segun el tipo seleccionado, sube el archivo o introduce la URL.
+  </Step>
+  <Step title="Haz clic en Crear">
+    El boton **Crear** se habilitara cuando todos los campos requeridos esten completos.
+  </Step>
+  <Step title="Espera la confirmacion">
+    Veras una notificacion de exito y seras redirigido al detalle del contenido para completar los pasos adicionales.
+  </Step>
+</Steps>
+
+<Warning>
+  **No cierres la ventana** mientras se sube el archivo. Si la subida se interrumpe, deberas comenzar de nuevo.
+</Warning>
+
+---
+
+## Tipos de contenido especiales
+
+### Videos con accesibilidad
+
+Los contenidos de tipo **Video** permiten agregar archivos de accesibilidad despues de la creacion:
+
+| Archivo | Descripcion |
+|---------|-------------|
+| **Subtitulos** | Archivos VTT con subtitulos en diferentes idiomas |
+| **Audiodescripcion** | Pista de audio alternativa con descripciones |
+
+### Audios con transcripcion
+
+Los contenidos de tipo **Audio** permiten agregar:
+
+| Archivo | Descripcion |
+|---------|-------------|
+| **Transcripcion** | Archivo VTT con la transcripcion del audio |
+
+<Note>
+  Los archivos de transcripcion deben estar en formato **VTT** (WebVTT). El sistema valida automaticamente el formato.
+</Note>
+
+---
+
+## Casos de uso comunes
+
+<AccordionGroup>
+  <Accordion title="Subir un video educativo">
+    1. Haz clic en **Crear contenido**
+    2. Escribe un nombre descriptivo (ej. "Introduccion a las fracciones")
+    3. Selecciona tipo **Video**
+    4. Sube el archivo MP4
+    5. Define disponibilidad como **Docentes y estudiantes**
+    6. Haz clic en **Crear**
+    7. Completa la clasificacion (nivel, asignatura)
+    8. Opcionalmente, agrega subtitulos
+  </Accordion>
+  <Accordion title="Agregar un recurso externo (enlace)">
+    1. Haz clic en **Crear contenido**
+    2. Escribe el nombre del recurso
+    3. Selecciona tipo **Link**
+    4. Introduce la URL completa
+    5. Haz clic en **Crear**
+    6. Clasifica el contenido para facilitar su busqueda
+  </Accordion>
+  <Accordion title="Crear material solo para docentes">
+    1. Haz clic en **Crear contenido**
+    2. Nombra el recurso (ej. "Guia del profesor - Unidad 3")
+    3. Selecciona el tipo adecuado (PDF, Video, etc.)
+    4. Sube el archivo
+    5. En **Disponible para**, selecciona **Solo docentes**
+    6. Haz clic en **Crear**
+  </Accordion>
+  <Accordion title="Subir un PDF descargable">
+    1. Haz clic en **Crear contenido**
+    2. Nombra el documento
+    3. Selecciona tipo **PDF**
+    4. Sube el archivo PDF
+    5. Haz clic en **Crear**
+    6. En el paso de Detalles, activa **Permitir descarga**
+    7. Guarda los cambios
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Que tamano maximo puede tener un archivo?">
+    El tamano maximo depende de la configuracion del servidor. Generalmente, los videos pueden ser de hasta 2GB y otros archivos hasta 500MB. Contacta a tu administrador para conocer los limites especificos.
+  </Accordion>
+  <Accordion title="Puedo editar el tipo de contenido despues de crearlo?">
+    No, el tipo de contenido no puede modificarse una vez creado. Si necesitas cambiar el tipo, deberas crear un nuevo contenido y eliminar el anterior.
+  </Accordion>
+  <Accordion title="Por que no puedo ver todos los pasos del formulario?">
+    Los pasos Clasificacion, Apariencia y Agrupacion solo estan disponibles despues de guardar el contenido por primera vez. Completa el paso de Detalles y haz clic en **Crear**.
+  </Accordion>
+  <Accordion title="Como agrego subtitulos a un video?">
+    Los subtitulos se agregan despues de crear el contenido. Ve al detalle del video, en el paso de Detalles encontraras la seccion de subtitulos donde puedes subir archivos VTT.
+  </Accordion>
+  <Accordion title="Puedo crear contenido sin subir archivo?">
+    Solo los tipos **Link**, **Question (Lemonade)** y **Video lesson** permiten crear contenido sin archivo. Los demas tipos requieren subir un archivo en formato compatible.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** El boton Crear esta deshabilitado.
+
+  **Solucion:** Verifica que hayas completado todos los campos obligatorios: nombre (minimo 3 caracteres), tipo de contenido y disponibilidad. Si el tipo requiere archivo, asegurate de haberlo adjuntado.
+</Warning>
+
+<Warning>
+  **Problema:** El archivo no se sube correctamente.
+
+  **Solucion:** Verifica que el formato sea compatible con el tipo seleccionado. Comprueba tu conexion a internet y el tamano del archivo. Si el problema persiste, intenta con un navegador diferente.
+</Warning>
+
+<Warning>
+  **Problema:** El contenido creado no aparece en la lista.
+
+  **Solucion:** Verifica los filtros activos en la lista de contenidos. Por defecto puede estar filtrando por algun criterio. Limpia los filtros para ver todos los contenidos.
+</Warning>
+
+<Warning>
+  **Problema:** Error al validar archivo VTT de transcripcion.
+
+  **Solucion:** El archivo VTT debe comenzar con "WEBVTT" en la primera linea y seguir el formato estandar de tiempos (ej. 00:00:01.000 --> 00:00:05.000). Verifica la sintaxis del archivo.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de Contenidos" icon="list" href="/backoffice/contenidos/gestion-contenidos">
+    Ver, buscar y filtrar todos los contenidos del sistema.
+  </Card>
+  <Card title="Gestion de Programas" icon="book" href="/backoffice/programas-digitales/gestion-programas-digitales">
+    Organiza los contenidos en programas educativos.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: backoffice
+  - Seccion UI: /contents/create
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/contents/ContentCreatePage/
+    - modulos: src/app/modules/contents/ContentForm/
+    - crud: src/app/crud/contents.crud.js
+    - servicios: src/app/services/contents.service.js
+  - Feature ID: contents/create
+  - Ultima revision: 2025-12-24
+*/}

@@ -1,0 +1,240 @@
+---
+title: "Crear Usuario Backoffice"
+description: "Crea nuevos usuarios administradores con acceso al panel de administracion del sistema Tangerine"
+icon: "user-plus"
+---
+
+## Descripcion
+
+El formulario de creacion de usuarios backoffice permite dar de alta nuevos administradores del sistema que tendran acceso al panel de administracion. Estos usuarios son diferentes a los usuarios regulares (estudiantes, docentes) ya que gestionan contenidos, programas y configuraciones del sistema.
+
+<Info>
+  **Rol requerido:** Super Administrador o Administrador con permisos de gestion de usuarios backoffice
+</Info>
+
+<Note>
+  Antes de crear un nuevo usuario backoffice, asegurate de que realmente necesita acceso al panel de administracion. Para usuarios regulares (docentes, estudiantes, administradores de escuela), utiliza la seccion [Gestion de Usuarios](/backoffice/usuarios/gestion-usuarios).
+</Note>
+
+## Como acceder
+
+<Steps>
+  <Step title="Navega a Usuarios Backoffice">
+    En el menu lateral izquierdo, haz clic en **Usuarios Backoffice** para acceder al listado de administradores del sistema.
+  </Step>
+  <Step title="Haz clic en Anadir usuario">
+    En la esquina superior derecha de la pantalla, haz clic en el boton **Anadir usuario**.
+
+    Esto te llevara al formulario de creacion de usuario administrador en la ruta `/user/create-admin`.
+  </Step>
+</Steps>
+
+---
+
+## Campos del formulario
+
+El formulario de creacion se organiza en una seccion principal de **Detalles** con los siguientes campos:
+
+### Datos basicos
+
+| Campo | Descripcion | Obligatorio |
+|-------|-------------|-------------|
+| **Nombre** | Nombre del administrador | Si |
+| **Apellidos** | Apellidos del administrador | Si |
+| **Nombre de usuario / Correo electronico** | Email que usara para iniciar sesion (debe ser unico en el sistema) | Si |
+| **Rol** | Tipo de rol de administracion | Si |
+
+### Seleccion de rol
+
+Al crear un usuario backoffice, debes asignarle uno de los siguientes roles:
+
+<AccordionGroup>
+  <Accordion title="Administrador Editorial">
+    Acceso completo a todas las funcionalidades del backoffice, incluyendo:
+    - Gestion de todos los usuarios (backoffice y regulares)
+    - Configuracion del sistema
+    - Todas las operaciones de contenido y programas
+    - Gestion de licencias y escuelas
+  </Accordion>
+  <Accordion title="Soporte Tecnico">
+    Acceso orientado a resolver incidencias y dar soporte:
+    - Consulta de usuarios y licencias
+    - Acceso a logs y reportes
+    - Funcionalidades de diagnostico
+  </Accordion>
+  <Accordion title="Administrador Fixed Layout">
+    Permisos especificos para gestion de contenidos Fixed Layout:
+    - Administracion del editor Fixed Layout
+    - Gestion de publicaciones
+  </Accordion>
+  <Accordion title="Editor">
+    Permisos para gestionar contenidos educativos:
+    - Crear y editar contenidos
+    - Gestionar programas digitales
+    - Administrar recursos multimedia
+  </Accordion>
+</AccordionGroup>
+
+### Pais (solo en configuraciones multi-pais)
+
+<Note>
+  Este campo solo aparece si tu organizacion tiene habilitada la configuracion multi-pais.
+</Note>
+
+Si tu organizacion opera en multiples paises, deberas seleccionar el pais al que pertenece el nuevo administrador. Esto determinara:
+
+- El contenido y programas que podra gestionar
+- Los usuarios y escuelas a los que tendra acceso
+- Los reportes y analiticas disponibles
+
+### Licencia Mint
+
+<Card title="Habilitar editor de Mint" icon="palette">
+  Activa esta opcion si el usuario necesita acceso al editor de contenidos Mint para:
+  - Crear y editar lecciones interactivas
+  - Disenar actividades educativas
+  - Importar contenidos desde InDesign
+</Card>
+
+<Tip>
+  Solo asigna licencias Mint a usuarios que realmente necesiten crear o editar contenido educativo. Las licencias Mint tienen un limite por organizacion.
+</Tip>
+
+### Avatar (opcional)
+
+Puedes subir una imagen de perfil para el nuevo administrador. Esta imagen se mostrara en:
+- La cabecera del backoffice cuando el usuario inicie sesion
+- Las listas de usuarios donde aparezca este administrador
+
+---
+
+## Proceso de creacion
+
+<Steps>
+  <Step title="Completa los datos basicos">
+    Rellena los campos obligatorios: Nombre, Apellidos, Email y selecciona el Rol apropiado.
+
+    <Warning>
+      El email debe ser unico en el sistema. Si ya existe un usuario con ese email, recibiras un error al intentar guardar.
+    </Warning>
+  </Step>
+  <Step title="Configura opciones adicionales">
+    Si es necesario:
+    - Selecciona el pais (en configuraciones multi-pais)
+    - Activa la Licencia Mint si el usuario necesita acceso al editor
+    - Sube una imagen de avatar
+  </Step>
+  <Step title="Guarda el usuario">
+    Haz clic en el boton **Anadir** en la parte inferior del formulario para crear el nuevo administrador.
+  </Step>
+  <Step title="Verifica la creacion">
+    Tras guardar exitosamente, seras redirigido a la ficha de detalle del usuario creado. Aqui podras:
+    - Verificar que los datos sean correctos
+    - Configurar la contrasena inicial
+    - Asignar licencias adicionales si es necesario
+  </Step>
+</Steps>
+
+---
+
+## Validaciones
+
+El sistema valida los siguientes aspectos antes de permitir la creacion:
+
+| Validacion | Mensaje de error |
+|------------|------------------|
+| Nombre vacio | "Este campo es obligatorio" |
+| Apellidos vacios | "Este campo es obligatorio" |
+| Email vacio | "Este campo es obligatorio" |
+| Email duplicado | "El usuario ya existe en el sistema" |
+| Nombre muy largo | "Maximo 50 caracteres" |
+| Apellidos muy largos | "Maximo 50 caracteres" |
+| Pais no seleccionado (multi-pais) | "Este campo es obligatorio" |
+
+### Validaciones de contrasena (al editar)
+
+Cuando se establece una contrasena para el usuario, debe cumplir:
+
+- Minimo 10 caracteres
+- Al menos una letra mayuscula
+- Al menos una letra minuscula
+- Al menos un numero
+- Al menos un caracter especial (#?!@$%^&*-)
+
+---
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No tengo permisos para crear usuarios backoffice">
+    Solo los usuarios con rol de **Administrador Editorial** pueden crear otros usuarios backoffice. Si necesitas este permiso, contacta con un super administrador de tu organizacion.
+  </Accordion>
+  <Accordion title="El email ya existe en el sistema">
+    Cada usuario debe tener un email unico. Posibles soluciones:
+    1. Busca si el usuario ya existe en el listado de usuarios backoffice
+    2. Verifica si existe como usuario regular (estudiante/docente) - en ese caso, considera cambiar su rol
+    3. Utiliza una direccion de email diferente
+  </Accordion>
+  <Accordion title="No aparece la opcion de Licencia Mint">
+    La opcion de Licencia Mint solo aparece para usuarios de backoffice. Si no la ves, verifica que:
+    - Estas creando un usuario backoffice (no un usuario regular)
+    - Tu organizacion tiene licencias Mint disponibles
+  </Accordion>
+  <Accordion title="No aparece el selector de Pais">
+    El selector de pais solo se muestra si tu organizacion tiene habilitada la configuracion multi-pais. Si necesitas esta funcionalidad, contacta con el soporte tecnico.
+  </Accordion>
+  <Accordion title="Se excedio el numero de licencias Mint">
+    Si al crear el usuario con Licencia Mint activada recibes el mensaje "Se ha excedido el numero de licencias Mint", significa que tu organizacion ha alcanzado el limite. Opciones:
+    1. Desactiva la licencia Mint de usuarios que ya no la necesiten
+    2. Contacta con el area comercial para ampliar el numero de licencias
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Despues de crear el usuario
+
+Una vez creado el usuario, el sistema te redirigira automaticamente a su ficha de detalle donde podras:
+
+1. **Establecer la contrasena inicial**: Navega a la pestana "Contrasena" para configurar las credenciales de acceso
+2. **Verificar las licencias**: En la pestana "Licencias" podras ver y gestionar las licencias asignadas
+3. **Comunicar las credenciales**: Proporciona al nuevo usuario su email y contrasena para que pueda acceder al backoffice
+
+<Tip>
+  Recomendamos solicitar al nuevo usuario que cambie su contrasena en el primer inicio de sesion.
+</Tip>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de Usuarios Backoffice" icon="users-gear" href="/backoffice/usuarios-backoffice/gestion-usuarios-backoffice">
+    Listado completo de administradores y opciones de filtrado.
+  </Card>
+  <Card title="Gestion de Usuarios" icon="users" href="/backoffice/usuarios/gestion-usuarios">
+    Administra usuarios regulares (estudiantes, docentes, admin escuela).
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: backoffice
+  - Seccion UI: Usuarios > Usuarios Backoffice > Crear
+  - Ruta: /user/create-admin
+  - Archivos de codigo relacionados:
+    - frontend page: src/app/pages/users/UserCreatePage/
+    - frontend form: src/app/modules/users/UserForm/
+    - frontend details: src/app/modules/users/UserForm/UserFormDetailsGeneral/
+    - modelo: src/app/models/user.js
+    - service: src/app/services/users.service.js
+    - roles service: src/app/services/usersRoles.service.js
+  - Roles disponibles:
+    - R04: Administrador Editorial
+    - R05: Soporte Tecnico
+    - R06: Administrador Fixed Layout
+    - R07: Editor
+  - Feature flags: ninguno
+  - Ultima revision: 2025-12-23
+*/}
