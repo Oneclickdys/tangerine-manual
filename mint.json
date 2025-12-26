@@ -136,6 +136,12 @@
           ]
         },
         {
+          "group": "Lecciones",
+          "pages": [
+            "frontoffice-docentes/lecciones/vista-leccion"
+          ]
+        },
+        {
           "group": "Clases",
           "pages": [
             "docentes/clases/mis-clases",
