@@ -131,6 +131,7 @@
           "group": "Curso",
           "pages": [
             "frontoffice-docentes/curso/vista-curso",
+            "frontoffice-docentes/curso/programa",
             "frontoffice-docentes/curso/stream"
           ]
         },
