@@ -1,5 +1,6 @@
-# Credentials (NEVER commit)
+# Credentials and test data (NEVER commit)
 .credentials.json
+.test-scenarios.json
 
 # OS files
 .DS_Store
