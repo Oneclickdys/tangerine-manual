@@ -169,6 +169,65 @@ Cada página debe incluir una sección **"Situaciones especiales"** que cubra:
 
 ---
 
+## 1b. Capas de documentación de producto
+
+Además de los flujos procedurales, cada página incluye —cuando sea relevante— información que un manual de usuario no tendría. Esto es lo que hace esta documentación útil para los equipos de implantación de las editoriales y para Service Desk.
+
+### Configurabilidad
+
+Si la funcionalidad tiene settings o feature flags que la afectan, indicar cuáles y qué cambian:
+
+```markdown
+<Note>
+  Esta funcionalidad está disponible cuando el setting **cuaderno_evaluacion**
+  está activado. Sin este setting, el sistema muestra un cuaderno de calificaciones simplificado.
+</Note>
+```
+
+**Variantes principales conocidas:**
+
+| Variante | Qué cambia |
+|----------|-----------|
+| **Planeador Avanzado vs Essential** | El Avanzado define atómicamente el contenido de cada sesión. El Essential solo define el número de sesiones. |
+| **Cuaderno de calificaciones vs Cuaderno de evaluación** | El de evaluación activa escalas, modelos de evaluación y calificaciones completas. |
+
+### Comportamiento condicional
+
+Cuando la misma funcionalidad se comporta diferente según la configuración del publisher, usar Tabs para documentar las variantes:
+
+```markdown
+<Tabs>
+  <Tab title="Planeador Avanzado">
+    El programa muestra el contenido detallado de cada sesión...
+  </Tab>
+  <Tab title="Planeador Essential">
+    El programa muestra únicamente el número de sesiones...
+  </Tab>
+</Tabs>
+```
+
+### Limitaciones conocidas
+
+La sección "Situaciones especiales" cubre edge cases del usuario. Además, indicar explícitamente:
+- Qué **no** hace la funcionalidad (evita que la editorial prometa algo que no existe)
+- Comportamientos que pueden confundir al equipo de soporte
+
+### Cuándo incluir estas capas
+
+- **Siempre:** si la feature tiene `featureFlags` o `tenantVariations` en el inventario
+- **Cuando aplique:** si hay comportamiento condicional verificado en el código o la UI
+- **No forzar:** si la funcionalidad se comporta igual para todos los tenants, no añadir secciones vacías
+
+### Elementos renombrables por tenant
+
+Cuando un término de la UI es configurable por tenant, indicarlo:
+
+```markdown
+El botón se muestra con el texto configurado por el publisher (por defecto: "Asignar actividad").
+```
+
+---
+
 ## 2. Templates por complexity
 
 ### `simple-list`

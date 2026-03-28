@@ -148,7 +148,26 @@ Si necesitas verificar comportamientos, el código está en el monorepo padre:
 
 - **Tercera persona descriptiva**: "El docente accede al dashboard..." en vez de "Haz clic en..."
 - **Profesional pero no académico** — referencia: documentación de Stripe o Twilio
-- **Audiencia**: editoriales, Product Managers, Service Desk internos
+- **Audiencia**: equipos de implantación y formación de editoriales, Product Managers, Service Desk internos
+
+### Contexto white-label
+
+Tangerine es un producto **white-label**: ningún profesor ni alumno sabe que "Tangerine" existe. Las editoriales (Santillana, Edelvives, UNOi, Macmillan) redistribuyen el producto con su propia marca y crean sus propios materiales de formación. La documentación debe:
+
+- Usar la **terminología genérica de Tangerine** (no la de ninguna editorial)
+- Indicar qué **elementos son renombrables** por tenant cuando sea relevante
+- Screenshots con **branding genérico** de Tangerine
+
+### Variantes principales por configuración
+
+Hay dos configuraciones que cambian significativamente la experiencia:
+
+| Variante | Qué cambia |
+|----------|-----------|
+| **Planeador Avanzado vs Essential** | El Avanzado permite que los programas digitales definan atómicamente el contenido de cada sesión (no solo el número). Afecta al calendario y la planificación. |
+| **Cuaderno de calificaciones vs Cuaderno de evaluación** | El de evaluación activa escalas, modelos de evaluación y calificaciones completas. |
+
+Cuando una funcionalidad se comporta diferente según estas variantes, documentarlo explícitamente. Puede haber otras variantes menores — documentar conforme se descubran.
 
 ## Reglas
 
