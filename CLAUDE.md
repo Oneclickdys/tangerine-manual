@@ -126,6 +126,28 @@ manual/
 - Nombres descriptivos en kebab-case: `lista-usuarios.png`, `formulario-crear.png`
 - Solo incluir screenshots cuando aporten valor (ver guidelines)
 
+## Herramientas de autor
+
+Tangerine incluye dos herramientas de autor integradas que son transversales a la plataforma:
+
+### Lemonade (Editor de Actividades)
+
+Editor para crear actividades evaluativas con múltiples tipos de preguntas (selección, arrastrar y soltar, completar texto, matemáticas, etc.). Accesible desde:
+- **Backoffice**: al crear contenidos de tipo actividad
+- **Frontoffice docente**: al crear evaluaciones/quizzes dentro de una lección
+
+Repositorio: `lemonade2-editor-builder/` (editor en `src/editor/`, tipos de preguntas en `src/questions/`)
+
+### Mint (Editor de Páginas HTML)
+
+Editor para construir páginas HTML interactivas (similar a Articulate Rise). Permite crear contenido educativo con componentes visuales. Accesible desde:
+- **Backoffice**: al crear contenidos de tipo página
+- **Frontoffice docente**: al editar contenido de lecciones
+
+Repositorios: `mint-components/` (librería de componentes) y `mint-viewer/` (visualizador)
+
+**Ambas herramientas deben documentarse** como parte de la documentación de producto, cubriendo tanto la perspectiva del editor en backoffice como la del docente en frontoffice.
+
 ## Código fuente del LMS
 
 Si necesitas verificar comportamientos, el código está en el monorepo padre (`/Users/camilolopez/DEVS/repos/tangerine-global/`):
@@ -138,8 +160,9 @@ Si necesitas verificar comportamientos, el código está en el monorepo padre (`
 | Backend API v3 | `tangerine-api-v3/` | API principal |
 | Backend i2c | `i2c_v2/` | Backend legacy (escuelas, etc.) |
 | Tangerine AI | `tangerine-ai/` | Tutor AI y herramientas IA |
-| Editor Lemonade | `lemonade2-editor-builder/` | Editor de preguntas para evaluaciones |
-| Componentes Mint | `mint-components/` | Componentes del viewer de programas |
+| Editor Lemonade | `lemonade2-editor-builder/` | Herramienta de autor para actividades (preguntas, quizzes) |
+| Mint componentes | `mint-components/` | Herramienta de autor para páginas HTML (tipo Rise) |
+| Mint viewer | `mint-viewer/` | Visualizador de páginas Mint |
 | Viewer | `tangerine-viewer/` | Viewer de contenidos |
 
 ## Comandos disponibles

@@ -381,6 +381,42 @@
       "relatedFeatures": [],
       "lastDocumented": "2025-12-19",
       "notes": "CRUD completo con dialogo modal, eliminacion bloqueada para anos activos"
+    },
+    "authoring/lemonade": {
+      "name": "Editor Lemonade (Actividades)",
+      "description": "Herramienta de autor para crear actividades con multiples tipos de preguntas",
+      "section": "Herramientas de Autor",
+      "route": "Embebido en creacion de contenido y evaluaciones",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "editor",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["lemonade2-editor-builder/src/editor/", "lemonade2-editor-builder/src/questions/"]
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/create", "authoring/mint"],
+      "lastDocumented": null,
+      "notes": "Transversal: accesible desde backoffice (crear contenido) y frontoffice docente (crear evaluaciones). Incluye 25+ tipos de preguntas organizados por categoria."
+    },
+    "authoring/mint": {
+      "name": "Editor Mint (Paginas HTML)",
+      "description": "Herramienta de autor para construir paginas HTML interactivas tipo Rise",
+      "section": "Herramientas de Autor",
+      "route": "Embebido en creacion de contenido y programas",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "editor",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["mint-components/", "mint-viewer/src/"]
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/create", "programs/detail", "authoring/lemonade"],
+      "lastDocumented": null,
+      "notes": "Transversal: accesible desde backoffice (crear contenido/programas) y frontoffice docente (editar lecciones). Componentes visuales para construir paginas educativas."
     }
   }
 }
