@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual -type f -name .*)"
+    ]
+  }
+}

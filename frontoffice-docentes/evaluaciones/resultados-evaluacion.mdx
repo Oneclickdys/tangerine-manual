@@ -1,0 +1,390 @@
+---
+title: "Ver Resultados de Evaluacion"
+description: "Revisa las entregas de tus estudiantes, califica sus respuestas y publica las notas finales"
+icon: "chart-bar"
+---
+
+## Descripcion
+
+La funcionalidad de **Ver Resultados de Evaluacion** permite a los docentes revisar las entregas de los estudiantes, calificar respuestas de preguntas manuales, dar retroalimentacion y publicar las calificaciones finales. Es el complemento esencial de [Crear Evaluacion](/frontoffice-docentes/evaluaciones/crear-evaluacion) para cerrar el ciclo de evaluacion.
+
+<Info>
+  **Rol requerido:** Docente
+
+  **Acceso:** Desde la vista de leccion, haciendo clic en "Ver detalle" de cualquier evaluacion publicada.
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Navega a un curso">
+    Desde el Home, accede a uno de tus cursos/clases.
+  </Step>
+  <Step title="Accede al programa del curso">
+    En la vista del curso, selecciona la pestana **Programa** para ver las unidades y lecciones.
+  </Step>
+  <Step title="Entra a una leccion">
+    Haz clic en una leccion que contenga una evaluacion publicada.
+  </Step>
+  <Step title="Abre los resultados">
+    Localiza la evaluacion y haz clic en el boton **Ver detalle**. Esto te llevara a la vista de resultados de esa evaluacion.
+
+    <Frame>
+      <img src="/assets/screenshots/frontoffice-docente/resultados-evaluacion/01-vista-resultados-principal.png" alt="Vista principal de resultados de evaluacion" />
+    </Frame>
+  </Step>
+</Steps>
+
+---
+
+## Interfaz de resultados
+
+La pantalla de resultados se organiza en dos pestanas principales:
+
+### Pestana Instrucciones
+
+Muestra las preguntas de la evaluacion tal como las ven los estudiantes. Util para:
+- Revisar el contenido de las preguntas
+- Verificar las respuestas correctas
+- Preparar la revision de entregas
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/resultados-evaluacion/02-vista-instrucciones.png" alt="Vista de instrucciones de la evaluacion" />
+</Frame>
+
+En esta pestana puedes:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Mostrar respuestas correctas** | Activa o desactiva la visualizacion de soluciones |
+| **Lista de preguntas** | Navega por todas las preguntas de la evaluacion |
+| **Notas del docente** | Tus notas privadas sobre la evaluacion (si las agregaste) |
+
+<Tip>
+  Usa la opcion "Mostrar respuestas correctas" antes de revisar las entregas para familiarizarte con las soluciones esperadas.
+</Tip>
+
+### Pestana Resultados
+
+Es la vista principal para gestionar las entregas y calificaciones:
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/resultados-evaluacion/05-vista-resultados-estados.png" alt="Vista de resultados con diferentes estados" />
+</Frame>
+
+La interfaz se divide en dos paneles:
+
+**Panel izquierdo - Lista de estudiantes:**
+- Organizada por estado de entrega
+- Busqueda por nombre o correo
+- Seleccion multiple para acciones en lote
+
+**Panel derecho - Resumen estadistico:**
+- Grafico circular de distribucion de estados
+- Promedio de calificaciones
+- Entregas a tiempo
+- Tarjeta de atencion con acciones sugeridas
+
+---
+
+## Estados de entrega
+
+Los estudiantes pueden estar en diferentes estados segun el progreso de su entrega:
+
+| Estado | Icono | Descripcion | Accion del docente |
+|--------|-------|-------------|-------------------|
+| **No publicado** | Circulo naranja | Estudiante entrego pero la nota no se ha publicado | Revisar y publicar |
+| **Pendiente de correccion** | Circulo amarillo | Tiene preguntas manuales sin calificar | Revisar y calificar |
+| **No entregado** | Circulo gris | El estudiante no ha enviado su trabajo | Esperar o contactar |
+| **Rehacer** | Circulo azul | Se le asigno la tarea para rehacer | Esperar nueva entrega |
+| **Publicado** | Check verde | La calificacion ya fue publicada | Ninguna requerida |
+
+<Note>
+  Los estados **No publicado** y **Pendiente de correccion** requieren tu atencion antes de poder cerrar el ciclo de evaluacion.
+</Note>
+
+---
+
+## Revisar entregas individuales
+
+Para revisar la entrega de un estudiante especifico:
+
+<Steps>
+  <Step title="Selecciona el estudiante">
+    En el panel izquierdo, haz clic en el nombre del estudiante que deseas revisar.
+  </Step>
+  <Step title="Revisa las respuestas">
+    Se abrira la vista individual mostrando cada pregunta con la respuesta del estudiante.
+
+    <Frame>
+      <img src="/assets/screenshots/frontoffice-docente/resultados-evaluacion/06-revision-individual-estudiante.png" alt="Revision individual de estudiante" />
+    </Frame>
+  </Step>
+  <Step title="Califica preguntas manuales">
+    Para preguntas de tipo texto largo, dibujo o subir archivo:
+    - Ingresa la puntuacion en el campo correspondiente
+    - Opcionalmente, agrega comentarios de retroalimentacion
+  </Step>
+  <Step title="Guarda los cambios">
+    Haz clic en **Guardar** para registrar la calificacion sin publicarla aun.
+  </Step>
+</Steps>
+
+### Indicadores de respuesta
+
+En la revision individual, cada respuesta muestra indicadores visuales:
+
+- **Check verde**: Respuesta correcta (evaluacion automatica)
+- **X roja**: Respuesta incorrecta (evaluacion automatica)
+- **Campo de puntuacion**: Para preguntas de evaluacion manual
+
+<Tip>
+  En preguntas de evaluacion automatica, puedes ajustar la puntuacion manualmente si consideras que la respuesta merece parcial o total credito.
+</Tip>
+
+---
+
+## Publicar calificaciones
+
+### Publicar individualmente
+
+Desde la vista de revision individual:
+
+<Steps>
+  <Step title="Completa la revision">
+    Asegurate de haber calificado todas las preguntas manuales.
+  </Step>
+  <Step title="Haz clic en Publicar">
+    El boton **Publicar** guardara la calificacion y la hara visible para el estudiante.
+  </Step>
+</Steps>
+
+### Publicar en lote
+
+Para publicar multiples calificaciones a la vez:
+
+<Steps>
+  <Step title="Ve a la pestana Resultados">
+    Asegurate de estar en la vista principal de resultados.
+  </Step>
+  <Step title="Usa la tarjeta de atencion">
+    Si hay estudiantes con notas listas para publicar, la tarjeta de atencion mostrara un boton **Publicar notas**.
+  </Step>
+  <Step title="Confirma la publicacion">
+    Se abrira un dialogo de confirmacion. Verifica la lista de estudiantes y confirma.
+  </Step>
+</Steps>
+
+<Warning>
+  **Importante:** Una vez publicada, la calificacion es visible para el estudiante. Asegurate de haber revisado correctamente antes de publicar.
+</Warning>
+
+---
+
+## Solicitar rehacer tarea
+
+Si un estudiante necesita intentar nuevamente la evaluacion:
+
+<Steps>
+  <Step title="Abre la revision individual">
+    Selecciona al estudiante desde el panel izquierdo.
+  </Step>
+  <Step title="Haz clic en Rehacer tarea">
+    Busca el boton **Rehacer tarea** en la parte superior de la revision.
+  </Step>
+  <Step title="Confirma la accion">
+    El estudiante recibira la evaluacion nuevamente y podra enviar una nueva entrega.
+  </Step>
+</Steps>
+
+<Note>
+  Cuando asignas "Rehacer tarea", la entrega anterior del estudiante se mantiene en el historial pero no se considera para la calificacion final.
+</Note>
+
+---
+
+## Resumen estadistico
+
+El panel derecho muestra estadisticas utiles:
+
+### Grafico de distribucion
+
+Un grafico circular (donut) que muestra:
+- Cuantos estudiantes han entregado
+- Cuantos estan pendientes
+- Cuantos tienen notas publicadas
+
+### Metricas clave
+
+| Metrica | Descripcion |
+|---------|-------------|
+| **Promedio** | Calificacion promedio de todas las entregas evaluadas |
+| **Entregas a tiempo** | Porcentaje de estudiantes que entregaron antes de la fecha limite |
+
+### Tarjeta de atencion
+
+Muestra acciones sugeridas basadas en el estado actual:
+
+- **"Revisar evaluacion"**: Cuando hay entregas pendientes de revision
+- **"Publicar notas"**: Cuando hay calificaciones listas para publicar
+- **"Todo al dia"**: Cuando no hay acciones pendientes
+
+---
+
+## Exportar resultados
+
+Puedes descargar los resultados en formato de hoja de calculo:
+
+<Steps>
+  <Step title="Accede al menu de opciones">
+    Busca el icono de descarga o menu de tres puntos en la cabecera.
+  </Step>
+  <Step title="Selecciona Exportar">
+    Elige el formato de exportacion (generalmente Excel o CSV).
+  </Step>
+  <Step title="Descarga el archivo">
+    El archivo incluira: nombre del estudiante, fecha de entrega, calificacion y estado.
+  </Step>
+</Steps>
+
+---
+
+## Integracion con plataformas externas
+
+Si tu institucion tiene habilitada la integracion con Google Classroom o Microsoft Teams:
+
+<Note>
+  Esta funcionalidad puede variar segun la configuracion de tu institucion.
+  Contacta a tu administrador si no ves estas opciones.
+</Note>
+
+### Google Classroom
+
+Las calificaciones publicadas pueden sincronizarse automaticamente con el libro de calificaciones de Google Classroom.
+
+### Microsoft Teams
+
+Similar a Google Classroom, las notas pueden exportarse al sistema de calificaciones de Teams.
+
+---
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Un estudiante no puede entregar despues de la fecha limite">
+    Si configuraste la evaluacion sin permitir entregas tardias:
+    1. Puedes usar "Rehacer tarea" para darle una nueva oportunidad
+    2. O editar la configuracion de la evaluacion para permitir entregas tardias
+  </Accordion>
+  <Accordion title="Necesito cambiar una calificacion ya publicada">
+    1. Abre la revision individual del estudiante
+    2. Modifica la puntuacion
+    3. Guarda los cambios - la nueva calificacion se actualizara automaticamente
+  </Accordion>
+  <Accordion title="El promedio no se actualiza">
+    El promedio solo considera entregas con calificaciones publicadas. Verifica que hayas publicado todas las notas que deseas incluir.
+  </Accordion>
+  <Accordion title="No veo algunos estudiantes en la lista">
+    Verifica que:
+    - Los estudiantes esten matriculados en el curso
+    - La evaluacion este asignada a todos los estudiantes (no solo a un grupo especifico)
+  </Accordion>
+  <Accordion title="Las preguntas automaticas se calificaron incorrectamente">
+    En raros casos, puedes ajustar manualmente:
+    1. Abre la revision individual
+    2. Modifica el puntaje de la pregunta especifica
+    3. Guarda los cambios
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo ver las respuestas antes de que el estudiante termine?">
+    No, solo puedes ver las respuestas una vez que el estudiante haya enviado su entrega haciendo clic en "Entregar".
+  </Accordion>
+  <Accordion title="Como se que un estudiante esta trabajando en la evaluacion?">
+    Los estudiantes que han iniciado pero no entregado aparecen con estado "En progreso" si la evaluacion tiene seguimiento de progreso activo.
+  </Accordion>
+  <Accordion title="Puedo agregar comentarios generales a toda la clase?">
+    Si, desde la pestana de Instrucciones puedes agregar comentarios que todos los estudiantes veran al revisar sus resultados.
+  </Accordion>
+  <Accordion title="Que pasa si publico por error una calificacion incorrecta?">
+    Puedes modificarla en cualquier momento. El estudiante vera la calificacion actualizada.
+  </Accordion>
+  <Accordion title="Como funciona el promedio si algunos estudiantes no han entregado?">
+    El promedio solo incluye estudiantes con calificaciones publicadas. Los que no han entregado no afectan el promedio.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** No aparece el boton "Publicar notas" en la tarjeta de atencion.
+
+  **Solucion:** Verifica que todas las preguntas manuales esten calificadas. No puedes publicar una nota si hay preguntas sin calificar.
+</Warning>
+
+<Warning>
+  **Problema:** Un estudiante dice que no ve su calificacion.
+
+  **Solucion:** Verifica en tu panel que el estado sea "Publicado" (check verde). Si dice "No publicado", haz clic en publicar.
+</Warning>
+
+<Warning>
+  **Problema:** El estudiante entrego pero aparece como "No entregado".
+
+  **Solucion:** El estudiante puede haber guardado sin entregar. Contactalo para que haga clic en el boton "Entregar" en su vista.
+</Warning>
+
+<Warning>
+  **Problema:** No puedo modificar una calificacion de pregunta automatica.
+
+  **Solucion:** Abre la revision individual del estudiante. Aunque la pregunta sea automatica, puedes sobrescribir el puntaje manualmente.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear Evaluacion" icon="clipboard-check" href="/frontoffice-docentes/evaluaciones/crear-evaluacion">
+    Crea evaluaciones y tareas personalizadas con diferentes tipos de preguntas.
+  </Card>
+  <Card title="Calificaciones del Curso" icon="table" href="/frontoffice-docentes/curso/calificaciones">
+    Gestiona todas las calificaciones de tu curso en un solo lugar.
+  </Card>
+  <Card title="Vista de Leccion" icon="book-open" href="/frontoffice-docentes/lecciones/vista-leccion">
+    Navega por el contenido de las lecciones.
+  </Card>
+  <Card title="Programa del Curso" icon="list" href="/frontoffice-docentes/curso/programa">
+    Organiza las unidades y lecciones de tu curso.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: Evaluaciones > Ver resultados
+  - Ruta: /assessment-results/:guid (vista principal)
+  - Ruta secundaria: /results-assesment-individual/course/:courseGuid/:assessmentGuid/user/:userGuid (revision individual)
+  - Archivos de codigo relacionados:
+    - frontend: src/core/lite/views/AssessmentResultsView/AssessmentResultsView.js
+    - frontend: src/core/lite/views/AssessmentResultsView/AssessmentResultsViewOverview.js
+    - frontend: src/core/lite/views/AssessmentResultsView/AssessmentResultsViewUsers.js
+    - frontend: src/core/lite/views/AssessmentResultsView/AssessmentInstructionsView.js
+    - frontend: src/core/lite/views/AssessmentResultsView/AssessmentInstructionsHeader.js
+    - frontend: src/core/lite/views/AssessmentStudentResultView/AssessmentResultIndividual.js
+    - hook: src/core/lite/views/AssessmentResultsView/useAssessmentResultView.js
+    - hook: src/core/lite/views/AssessmentResultsView/useAssessmentResultData.js
+  - Estados de job: pending, delivered, evaluated, reassigned
+  - Funciones clave: getNeedsReviewJobs, getNotPublishedJobs, getPendingJobs, getReassignJobs, getPublishedJobs
+  - Acciones disponibles: onPublish, onReassign, updateScore, onChangeShowSolutions
+  - Integraciones: Google Classroom (publishToGoogleClassroom), MS Teams (publishToMicrosoftClassroom)
+  - Ultima revision: 2025-12-27
+*/}
