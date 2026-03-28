@@ -381,63 +381,6 @@
       "relatedFeatures": [],
       "lastDocumented": "2025-12-19",
       "notes": "CRUD completo con dialogo modal, eliminacion bloqueada para anos activos"
-    },
-    "analytics/programs": {
-      "name": "Analytics de programas",
-      "description": "Metricas y estadisticas de uso de programas",
-      "section": "Analiticas",
-      "route": "/analytic/programs",
-      "priority": "P2",
-      "status": "pending",
-      "complexity": "dashboard",
-      "docFile": null,
-      "codeFiles": {
-        "frontend": ["src/app/pages/analytics/"],
-        "backend": []
-      },
-      "tenantVariations": [],
-      "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
-    },
-    "analytics/licenses": {
-      "name": "Analytics de licencias",
-      "description": "Metricas de uso de licencias",
-      "section": "Analiticas",
-      "route": "/analytic/licenses",
-      "priority": "P2",
-      "status": "pending",
-      "complexity": "dashboard",
-      "docFile": null,
-      "codeFiles": {
-        "frontend": ["src/app/pages/analytics/"],
-        "backend": []
-      },
-      "tenantVariations": [],
-      "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
-    },
-    "analytics/usage": {
-      "name": "Analytics de uso",
-      "description": "Metricas generales de uso de la plataforma",
-      "section": "Analiticas",
-      "route": "/analytic/usage",
-      "priority": "P2",
-      "status": "pending",
-      "complexity": "dashboard",
-      "docFile": null,
-      "codeFiles": {
-        "frontend": ["src/app/pages/analytics/"],
-        "backend": []
-      },
-      "tenantVariations": [],
-      "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
     }
   }
 }

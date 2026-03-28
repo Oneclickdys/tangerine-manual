@@ -65,22 +65,22 @@
     }
   },
   "stats": {
-    "total": 74,
+    "total": 71,
     "byApp": {
-      "backoffice": 45,
+      "backoffice": 42,
       "frontoffice-teacher": 17,
       "frontoffice-student": 9,
       "admin-school": 3
     },
     "byPriority": {
       "P1": 37,
-      "P2": 26,
+      "P2": 23,
       "P3": 8,
       "P4": 3
     },
     "byStatus": {
       "documented": 22,
-      "pending": 52,
+      "pending": 49,
       "in_progress": 0,
       "needs_review": 0,
       "blocked": 0
