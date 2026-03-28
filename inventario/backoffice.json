@@ -1,6 +1,6 @@
 {
   "app": "backoffice",
-  "lastUpdated": "2025-12-19",
+  "lastUpdated": "2026-03-28",
   "features": {
     "users/list": {
       "name": "Listar usuarios",
@@ -381,6 +381,272 @@
       "relatedFeatures": [],
       "lastDocumented": "2025-12-19",
       "notes": "CRUD completo con dialogo modal, eliminacion bloqueada para anos activos"
+    },
+    "publications/list": {
+      "name": "Listar publicaciones",
+      "description": "Ver listado de todas las publicaciones con filtros y busqueda",
+      "section": "Publicaciones",
+      "route": "/publications",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/publications/PublicationsPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["publications/create", "publications/detail", "licenses/detail"],
+      "lastDocumented": null,
+      "notes": "Las publicaciones vinculan contenidos con licencias y programas digitales. Submenu dentro de Contenidos."
+    },
+    "publications/create": {
+      "name": "Crear publicacion",
+      "description": "Formulario para crear una nueva publicacion",
+      "section": "Publicaciones",
+      "route": "/publication/create",
+      "priority": "P1",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/publications/PublicationCreatePage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["publications/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "publications/detail": {
+      "name": "Detalle publicacion",
+      "description": "Ver y editar detalles de una publicacion",
+      "section": "Publicaciones",
+      "route": "/publication/:guid",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/publications/PublicationDetailPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["publications/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "collections/list": {
+      "name": "Listar colecciones",
+      "description": "Ver listado de todas las colecciones de contenido",
+      "section": "Colecciones",
+      "route": "/collections",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-list",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/collections/CollectionsPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["collections/create", "collections/detail"],
+      "lastDocumented": null,
+      "notes": "Submenu dentro de Contenidos. Agrupacion logica de contenidos."
+    },
+    "collections/create": {
+      "name": "Crear coleccion",
+      "description": "Formulario para crear una nueva coleccion",
+      "section": "Colecciones",
+      "route": "/collection/create",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/collections/CollectionCreatePage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["collections/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "collections/detail": {
+      "name": "Detalle coleccion",
+      "description": "Ver y editar detalles de una coleccion",
+      "section": "Colecciones",
+      "route": "/collection/:guid",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/collections/CollectionDetailPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["collections/list"],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "library/browse": {
+      "name": "Biblioteca",
+      "description": "Explorar y gestionar la biblioteca de contenidos",
+      "section": "Biblioteca",
+      "route": "/library",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/library/LibraryPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/list"],
+      "lastDocumented": null,
+      "notes": "Submenu dentro de Contenidos."
+    },
+    "contents/batch-upload": {
+      "name": "Subida en lote de contenidos",
+      "description": "Carga masiva de multiples contenidos educativos",
+      "section": "Contenidos",
+      "route": "/contents/batch-upload",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/contents/ContentBatchUploadPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/list", "contents/create"],
+      "lastDocumented": null,
+      "notes": "Accesible desde boton 'Subida en lote' en la pagina de contenidos."
+    },
+    "messages/list": {
+      "name": "Mensajes",
+      "description": "Sistema de mensajeria interna",
+      "section": "Mensajes",
+      "route": "/messages",
+      "priority": "P3",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/messages/MessagesPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": "Submenu dentro de Usuarios."
+    },
+    "settings/general": {
+      "name": "Configuracion general",
+      "description": "Permisos de docentes y configuracion de lenguas/versiones",
+      "section": "Configuracion del Sistema",
+      "route": "/settings",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsGeneralPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/periods", "settings/countries"],
+      "lastDocumented": null,
+      "notes": "Incluye toggles de permisos docente (administrar clase, personalizar programas) y gestion de lenguas."
+    },
+    "settings/countries": {
+      "name": "Paises",
+      "description": "Configuracion de paises, niveles educativos y asignaturas",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-countries",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "crud-complete",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsCountriesPage/", "src/app/pages/settings/SettingsCountryPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/general"],
+      "lastDocumented": null,
+      "notes": "Incluye detalle por pais con configuracion de niveles educativos, asignaturas y disciplinas."
+    },
+    "settings/learning-objectives": {
+      "name": "Objetivos de aprendizaje",
+      "description": "Gestion de objetivos de aprendizaje vinculables a contenidos y evaluaciones",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-learning-objectives",
+      "priority": "P3",
+      "status": "pending",
+      "complexity": "crud-complete",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsLearningObjectivesPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": [],
+      "lastDocumented": null,
+      "notes": ""
+    },
+    "settings/scales": {
+      "name": "Escalas de calificacion",
+      "description": "Configuracion de escalas de calificacion para evaluaciones",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-scales",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "crud-complete",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsEvaluationScalesPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/categories", "settings/periods"],
+      "lastDocumented": null,
+      "notes": "Relacionado con la variante Cuaderno de evaluacion."
+    },
+    "settings/categories": {
+      "name": "Categorias evaluables",
+      "description": "Configuracion de categorias para evaluaciones",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-categories",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "crud-complete",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsEvaluationCategoriesPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/scales", "settings/periods"],
+      "lastDocumented": null,
+      "notes": "Relacionado con la variante Cuaderno de evaluacion."
     },
     "authoring/lemonade": {
       "name": "Editor Lemonade (Actividades)",
