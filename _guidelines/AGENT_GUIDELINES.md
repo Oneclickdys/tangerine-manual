@@ -99,13 +99,18 @@ El agente recibe como input una o más features del inventario ubicado en `/manu
 - No está claro qué validaciones o restricciones aplican
 - Necesitas los textos exactos de botones, labels o mensajes de error
 
-**Rutas del código fuente:**
+**Rutas del código fuente (monorepo en `/Users/camilolopez/DEVS/repos/tangerine-global/`):**
 
 | Aplicación | Ruta base |
 |------------|-----------|
-| Backoffice frontend | `/tangerine-backoffice/src/app/pages/` |
-| Frontoffice frontend | `/tangerine-frontoffice/src/core/lite/views/` |
-| Backend APIs | `/tangerine-api-v3/` y `/i2c_v2/` |
+| Backoffice frontend | `tangerine-backoffice/src/app/pages/` |
+| Frontoffice frontend | `tangerine-frontoffice/src/core/lite/views/` |
+| Admin School frontend | `tangerine-admin-school/` |
+| Backend API v3 | `tangerine-api-v3/` |
+| Backend i2c | `i2c_v2/` |
+| Tangerine AI | `tangerine-ai/` |
+| Editor Lemonade | `lemonade2-editor-builder/` |
+| Componentes Mint | `mint-components/` |
 
 **Archivos relacionados a buscar:**
 - Hooks: `use*.js`

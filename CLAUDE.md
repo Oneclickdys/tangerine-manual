@@ -128,13 +128,19 @@ manual/
 
 ## Código fuente del LMS
 
-Si necesitas verificar comportamientos, el código está en el monorepo padre:
+Si necesitas verificar comportamientos, el código está en el monorepo padre (`/Users/camilolopez/DEVS/repos/tangerine-global/`):
 
-| App | Ruta |
-|-----|------|
-| Backoffice frontend | `/tangerine-backoffice/src/app/pages/` |
-| Frontoffice frontend | `/tangerine-frontoffice/src/core/lite/views/` |
-| Backend APIs | `/tangerine-api-v3/` y `/i2c_v2/` |
+| App | Ruta | Notas |
+|-----|------|-------|
+| Backoffice frontend | `tangerine-backoffice/src/app/pages/` | Panel de administración editorial |
+| Frontoffice frontend | `tangerine-frontoffice/src/core/lite/views/` | App de docentes y estudiantes |
+| Admin School frontend | `tangerine-admin-school/` | Panel de administrador de escuela |
+| Backend API v3 | `tangerine-api-v3/` | API principal |
+| Backend i2c | `i2c_v2/` | Backend legacy (escuelas, etc.) |
+| Tangerine AI | `tangerine-ai/` | Tutor AI y herramientas IA |
+| Editor Lemonade | `lemonade2-editor-builder/` | Editor de preguntas para evaluaciones |
+| Componentes Mint | `mint-components/` | Componentes del viewer de programas |
+| Viewer | `tangerine-viewer/` | Viewer de contenidos |
 
 ## Comandos disponibles
 
