@@ -1,81 +1,97 @@
 ---
 title: "[Nombre de la Funcionalidad]"
-description: "Breve descripcion de que hace esta funcionalidad"
+description: "Breve descripción de qué hace esta funcionalidad"
 icon: "icon-name"
 ---
 
 {/*
-  PLANTILLA ESTANDAR PARA DOCUMENTACION DE USUARIO
+  PLANTILLA ESTÁNDAR PARA DOCUMENTACIÓN DE PRODUCTO
 
   Instrucciones:
   1. Copiar este archivo al directorio correspondiente
   2. Renombrar con slug descriptivo (ej: crear-tarea.mdx)
   3. Completar todas las secciones
   4. Agregar screenshots en assets/screenshots/[app]/[feature]/
+  5. Tono: tercera persona descriptiva ("El docente accede...", "El sistema muestra...")
 */}
 
-## Descripcion
+## Descripción
 
-Explica brevemente que hace esta funcionalidad y para quien esta pensada.
+Explicación breve de qué hace esta funcionalidad, para quién está pensada y en qué contexto se utiliza.
 
 <Info>
-  **Rol requerido:** [Administrador / Docente / Estudiante]
+  **Rol requerido:** [Administrador / Docente / Estudiante / Admin Escuela]
 </Info>
 
-## Como acceder
+## Cómo acceder
 
 <Steps>
   <Step title="Paso 1">
-    Descripcion del primer paso para llegar a esta funcionalidad.
+    Descripción del primer paso para llegar a esta funcionalidad.
 
-    ![Navegacion](/assets/screenshots/[app]/[feature]/paso-1.png)
+    ![Navegación](/assets/screenshots/[app]/[feature]/paso-1.png)
   </Step>
   <Step title="Paso 2">
-    Descripcion del segundo paso.
+    Descripción del segundo paso.
   </Step>
 </Steps>
 
-## Guia paso a paso
+## Guía de uso
 
-### [Accion principal 1]
+### [Acción principal 1]
 
 <Steps>
   <Step title="[Nombre del paso]">
-    Descripcion detallada de que hacer.
+    Descripción detallada de lo que ocurre en este paso.
 
     <Tip>
-      Consejo util para el usuario.
+      Consejo útil relacionado con la práctica educativa.
     </Tip>
   </Step>
   <Step title="[Nombre del paso]">
-    Descripcion del paso.
+    Descripción del paso.
 
     ![Captura](/assets/screenshots/[app]/[feature]/accion-paso.png)
   </Step>
 </Steps>
 
-### [Accion principal 2]
+### [Acción principal 2]
 
-Repite el patron de Steps para cada accion principal.
+Repetir el patrón de Steps para cada acción principal.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Qué ocurre si se edita después de publicar?">
+    Descripción del comportamiento y posibles consecuencias.
+  </Accordion>
+  <Accordion title="¿Se puede deshacer esta acción?">
+    Explicación sobre reversibilidad.
+  </Accordion>
+  <Accordion title="¿Cómo afecta a otros usuarios?">
+    Impacto en estudiantes, otros docentes o administradores.
+  </Accordion>
+</AccordionGroup>
 
 ## Casos de uso
 
 <AccordionGroup>
   <Accordion title="Caso de uso 1">
-    Descripcion de un escenario comun donde esta funcionalidad es util.
+    Descripción de un escenario común donde esta funcionalidad es útil,
+    conectado con la práctica docente real.
   </Accordion>
   <Accordion title="Caso de uso 2">
-    Otro escenario practico.
+    Otro escenario práctico.
   </Accordion>
 </AccordionGroup>
 
 ## Preguntas frecuentes
 
 <AccordionGroup>
-  <Accordion title="Pregunta frecuente 1?">
+  <Accordion title="¿Pregunta frecuente 1?">
     Respuesta a la pregunta.
   </Accordion>
-  <Accordion title="Pregunta frecuente 2?">
+  <Accordion title="¿Pregunta frecuente 2?">
     Respuesta a la pregunta.
   </Accordion>
 </AccordionGroup>
@@ -83,29 +99,29 @@ Repite el patron de Steps para cada accion principal.
 ## Problemas comunes
 
 <Warning>
-  **Problema:** Descripcion del problema comun.
+  **Problema:** Descripción del problema común.
 
-  **Solucion:** Como resolverlo.
+  **Solución:** Cómo resolverlo.
 </Warning>
 
 ## Relacionado
 
 <CardGroup cols={2}>
   <Card title="Funcionalidad relacionada 1" icon="link" href="/ruta/funcionalidad-1">
-    Breve descripcion.
+    Breve descripción.
   </Card>
   <Card title="Funcionalidad relacionada 2" icon="link" href="/ruta/funcionalidad-2">
-    Breve descripcion.
+    Breve descripción.
   </Card>
 </CardGroup>
 
 {/*
   METADATOS INTERNOS (no se muestran al usuario)
 
-  - Aplicacion: [backoffice|frontoffice-docente|frontoffice-estudiante]
-  - Seccion UI: [ruta en el menu de la app]
-  - Archivos de codigo relacionados:
+  - Aplicación: [backoffice|frontoffice-docente|frontoffice-estudiante|admin-escuela]
+  - Sección UI: [ruta en el menú de la app]
+  - Archivos de código relacionados:
     - frontend: [ruta/al/componente]
     - backend: [endpoint o servicio]
-  - Ultima revision: YYYY-MM-DD
+  - Última revisión: YYYY-MM-DD
 */}

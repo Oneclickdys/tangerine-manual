@@ -1,8 +1,8 @@
-# Manual de Usuario - Tangerine LMS
+# Documentación de Producto - Tangerine LMS
 
 ## Qué es este proyecto
 
-Manual de usuario de Tangerine LMS construido con [Mintlify](https://mintlify.com/). El objetivo es documentar todas las funcionalidades del LMS con screenshots reales y escenarios realistas.
+Documentación de producto de Tangerine LMS construida con [Mintlify](https://mintlify.com/). Dirigida a editoriales (para formar a sus equipos), Product Managers y Service Desk internos. El objetivo es documentar todas las funcionalidades del LMS con screenshots reales y escenarios realistas.
 
 ## Archivos clave
 
@@ -13,7 +13,6 @@ Manual de usuario de Tangerine LMS construido con [Mintlify](https://mintlify.co
 | `_guidelines/AGENT_GUIDELINES.md` | Directrices completas para generar documentación |
 | `_templates/PLANTILLA.mdx` | Template base para páginas MDX |
 | `mint.json` | Configuración de Mintlify (navegación, tabs, colores) |
-| `INVENTARIO_FUNCIONALIDADES.md` | Tracking visual del progreso de documentación |
 | `inventario/*.json` | Inventario de features por aplicación |
 
 ## Entornos
@@ -41,7 +40,7 @@ Tangerine tiene **dos modos** de funcionamiento para docentes y estudiantes. Est
 - Los usuarios no necesitan códigos ni auto-registrarse
 - Se usa la app **Admin School** (`admin-school-qa.stn-neds.com`)
 
-El manual debe documentar ambos flujos donde aplique.
+La documentación debe cubrir ambos flujos donde aplique.
 
 ## Usuarios y escenarios de prueba
 
@@ -116,6 +115,7 @@ manual/
 │   ├── mis-clases/
 │   ├── tareas/
 │   └── calificaciones/
+├── admin-escuela/         # Administración de escuela
 └── assets/screenshots/    # Screenshots organizados por app/feature
 ```
 
@@ -143,6 +143,12 @@ Si necesitas verificar comportamientos, el código está en el monorepo padre:
 - `/document-next` — Documenta la siguiente feature pendiente
 - `/generar-manual funcionalidad` — Genera documentación de una funcionalidad
 - `/inventory-status` — Ver progreso del inventario
+
+## Tono y audiencia
+
+- **Tercera persona descriptiva**: "El docente accede al dashboard..." en vez de "Haz clic en..."
+- **Profesional pero no académico** — referencia: documentación de Stripe o Twilio
+- **Audiencia**: editoriales, Product Managers, Service Desk internos
 
 ## Reglas
 

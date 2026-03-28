@@ -1,4 +1,4 @@
-# Directrices para Generación de Documentación Funcional
+# Directrices para Generación de Documentación de Producto
 
 Este documento define las reglas que el agente debe seguir al generar o actualizar documentación funcional de Tangerine LMS.
 
@@ -146,9 +146,9 @@ Haz clic en Guardar como borrador.
 
 **Correcto:**
 ```
-Usa Guardar como borrador cuando quieras revisar la evaluación antes
-de que los estudiantes la vean, o si planeas terminarla más tarde.
-Es la opción más segura si es tu primera evaluación.
+La opción **Guardar como borrador** permite revisar la evaluación antes
+de que los estudiantes la vean, o completarla más tarde.
+Es la opción recomendada para evaluaciones nuevas.
 ```
 
 ### Termina con casos edge, no los omitas
@@ -350,37 +350,49 @@ estudiantes en [Ver resultados de evaluación](/evaluaciones/ver-resultados).
 
 **Incorrecto:**
 ```
-1. Navega a un curso
+1. El docente navega a un curso.
 ```
 
 **Correcto:**
 ```
-1. Desde el Home (la pantalla inicial después de iniciar sesión),
-   selecciona uno de tus cursos en la sección "Mis clases"
+1. Desde el Home (la pantalla inicial tras iniciar sesión),
+   el docente selecciona uno de sus cursos en la sección "Mis clases".
 ```
 
 ---
 
 ## 8. Formato y tono
 
-### Usa voz activa y segunda persona
+### Audiencia
+
+Esta documentación está dirigida a:
+- **Editoriales**: Para formar a sus equipos comerciales y de soporte
+- **Product Managers**: Como referencia de funcionalidades y flujos
+- **Service Desk**: Para resolver dudas y tickets de soporte
+
+El tono debe ser profesional pero no académico — referencia: documentación de Stripe o Twilio.
+
+### Usa tercera persona descriptiva
 
 ```
-❌ "La evaluación puede ser guardada como borrador"
-✅ "Guarda la evaluación como borrador"
+❌ "Haz clic en Guardar como borrador"
+✅ "El docente selecciona **Guardar como borrador** para conservar el trabajo sin publicarlo"
+
+❌ "La evaluación puede ser guardada como borrador" (voz pasiva)
+✅ "El sistema permite guardar la evaluación como borrador antes de publicarla"
 
 ❌ "El usuario debe hacer clic en el botón"
-✅ "Haz clic en el botón"
+✅ "El botón **Publicar** confirma la acción y notifica a los estudiantes"
 ```
 
-### Sé específico en las instrucciones
+### Sé específico en las descripciones
 
 ```
-❌ "Haz clic en el botón de la esquina"
-✅ "Haz clic en el botón azul 'Publicar' en la esquina superior derecha"
+❌ "Se hace clic en el botón de la esquina"
+✅ "El botón **Publicar** (esquina superior derecha) confirma la acción"
 
-❌ "Completa el formulario"
-✅ "Completa los campos obligatorios: Nombre (máx. 100 caracteres) y Fecha de entrega"
+❌ "El formulario se completa"
+✅ "El formulario incluye los campos obligatorios: Nombre (máx. 100 caracteres) y Fecha de entrega"
 ```
 
 ### Usa callouts para información importante
@@ -559,7 +571,7 @@ Las credenciales para acceder a los entornos de QA están en `/manual/.credentia
   "environments": {
     "qa": {
       "backoffice": {
-        "url": "https://backoffice.tangerine-qa1.oneclicklabs.es",
+        "url": "https://publisher.tangerine-latest.oneclick.es",
         "users": {
           "admin": { "username": "...", "password": "..." }
         }
@@ -602,7 +614,6 @@ Después de documentar una feature, actualizar el JSON correspondiente:
 }
 ```
 
-También actualizar `/manual/INVENTARIO_FUNCIONALIDADES.md` para mantener sincronizado el tracking visual.
 
 ---
 
@@ -631,7 +642,7 @@ También actualizar `/manual/INVENTARIO_FUNCIONALIDADES.md` para mantener sincro
 1. **Análisis:** `complexity: "crud-complete"` → documentación media
 2. **Código:** Revisar componentes para entender filtros y acciones
 3. **Screenshots:**
-   - Navegar a `https://backoffice.tangerine-qa1.oneclicklabs.es/users`
+   - Navegar a `https://publisher.tangerine-latest.oneclick.es/users`
    - Capturar: lista, filtros, detalle
 4. **Documentación:** Crear `/manual/backoffice/usuarios/gestion-usuarios.mdx`
 5. **Actualización:**

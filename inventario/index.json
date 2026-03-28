@@ -1,8 +1,8 @@
 {
   "$schema": "./schema.json",
   "version": "1.0.0",
-  "lastUpdated": "2025-12-19",
-  "description": "Inventario de funcionalidades de Tangerine LMS para documentacion",
+  "lastUpdated": "2026-03-28",
+  "description": "Inventario de funcionalidades de Tangerine LMS para documentación de producto",
   "config": {
     "currentPhase": 1,
     "focusApp": "backoffice",
@@ -34,7 +34,7 @@
     "backoffice": {
       "name": "Backoffice",
       "description": "Panel de administracion para gestores de contenido y administradores",
-      "baseUrl": "https://backoffice.tangerine-qa1.oneclicklabs.es",
+      "baseUrl": "https://publisher.tangerine-latest.oneclick.es",
       "codebase": "/tangerine-backoffice",
       "roles": ["admin", "content_manager"],
       "featuresFile": "./backoffice.json"
@@ -42,7 +42,7 @@
     "frontoffice-teacher": {
       "name": "Frontoffice Docentes",
       "description": "Plataforma para docentes - gestion de clases, calificaciones, contenido",
-      "baseUrl": "https://qa.stn-neds.com",
+      "baseUrl": "https://tangerine-latest.oneclick.es",
       "codebase": "/tangerine-frontoffice",
       "roles": ["teacher"],
       "featuresFile": "./frontoffice-teacher.json"
@@ -50,7 +50,7 @@
     "frontoffice-student": {
       "name": "Frontoffice Estudiantes",
       "description": "Plataforma para estudiantes - acceso a clases, tareas, evaluaciones",
-      "baseUrl": "https://qa.stn-neds.com",
+      "baseUrl": "https://tangerine-latest.oneclick.es",
       "codebase": "/tangerine-frontoffice",
       "roles": ["student"],
       "featuresFile": "./frontoffice-student.json"
@@ -85,7 +85,7 @@
       "needs_review": 0,
       "blocked": 0
     },
-    "lastCalculated": "2025-12-19"
+    "lastCalculated": "2026-03-28"
   },
   "knownTenants": [
     {

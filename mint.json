@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Tangerine LMS - Manual de Usuario",
+  "name": "Tangerine LMS - Documentación de Producto",
   "logo": {
     "dark": "/assets/logo.png",
     "light": "/assets/logo.png"
@@ -33,6 +33,10 @@
     {
       "name": "Estudiantes",
       "url": "estudiantes"
+    },
+    {
+      "name": "Admin Escuela",
+      "url": "admin-escuela"
     }
   ],
   "anchors": [
@@ -44,10 +48,9 @@
   ],
   "navigation": [
     {
-      "group": "Introduccion",
+      "group": "Introducción",
       "pages": [
-        "introduccion/que-es-tangerine",
-        "introduccion/primeros-pasos"
+        "introduccion/que-es-tangerine"
       ]
     },
     {
@@ -56,8 +59,7 @@
         {
           "group": "Usuarios",
           "pages": [
-            "backoffice/usuarios/gestion-usuarios",
-            "backoffice/usuarios/roles-permisos"
+            "backoffice/usuarios/gestion-usuarios"
           ]
         },
         {
@@ -70,9 +72,7 @@
           "group": "Contenidos",
           "pages": [
             "backoffice/contenidos/gestion-contenidos",
-            "backoffice/contenidos/crear-contenido",
-            "backoffice/contenidos/biblioteca",
-            "backoffice/contenidos/publicaciones"
+            "backoffice/contenidos/crear-contenido"
           ]
         },
         {
@@ -86,8 +86,7 @@
           "pages": [
             "backoffice/escuelas/gestion-escuelas",
             "backoffice/escuelas/crear-escuela",
-            "backoffice/escuelas/detalle-escuela",
-            "backoffice/escuelas/configuracion"
+            "backoffice/escuelas/detalle-escuela"
           ]
         },
         {
@@ -95,12 +94,6 @@
           "pages": [
             "backoffice/usuarios-backoffice/gestion-usuarios-backoffice",
             "backoffice/usuarios-backoffice/crear-usuario-backoffice"
-          ]
-        },
-        {
-          "group": "Analiticas",
-          "pages": [
-            "backoffice/analiticas/reportes-uso"
           ]
         }
       ]
@@ -115,7 +108,7 @@
           ]
         },
         {
-          "group": "Gestion de Aulas",
+          "group": "Gestión de Aulas",
           "pages": [
             "frontoffice-docentes/gestion-aula/crear-aula",
             "frontoffice-docentes/gestion-aula/ver-estudiantes"
@@ -142,41 +135,6 @@
           "pages": [
             "frontoffice-docentes/lecciones/vista-leccion"
           ]
-        },
-        {
-          "group": "Clases",
-          "pages": [
-            "docentes/clases/mis-clases",
-            "docentes/clases/estudiantes"
-          ]
-        },
-        {
-          "group": "Tareas",
-          "pages": [
-            "docentes/tareas/crear-tarea",
-            "docentes/tareas/revisar-entregas"
-          ]
-        },
-        {
-          "group": "Calificaciones",
-          "pages": [
-            "docentes/calificaciones/libro-calificaciones",
-            "docentes/calificaciones/exportar"
-          ]
-        },
-        {
-          "group": "Contenido",
-          "pages": [
-            "docentes/contenido/recursos",
-            "docentes/contenido/lecciones"
-          ]
-        },
-        {
-          "group": "Comunicacion",
-          "pages": [
-            "docentes/comunicacion/muro-social",
-            "docentes/comunicacion/mensajes"
-          ]
         }
       ]
     },
@@ -189,26 +147,13 @@
             "estudiantes/mis-clases/ver-clases",
             "estudiantes/mis-clases/unirse-grupo"
           ]
-        },
-        {
-          "group": "Tareas",
-          "pages": [
-            "estudiantes/tareas/ver-tareas",
-            "estudiantes/tareas/entregar-tarea"
-          ]
-        },
-        {
-          "group": "Calificaciones",
-          "pages": [
-            "estudiantes/calificaciones/mis-calificaciones"
-          ]
-        },
-        {
-          "group": "Contenido",
-          "pages": [
-            "estudiantes/contenido/acceder-recursos"
-          ]
         }
+      ]
+    },
+    {
+      "group": "Admin Escuela",
+      "pages": [
+        "admin-escuela/introduccion"
       ]
     }
   ],
@@ -218,6 +163,6 @@
     "suggestEdit": true
   },
   "search": {
-    "prompt": "Buscar en el manual..."
+    "prompt": "Buscar en la documentación..."
   }
 }
