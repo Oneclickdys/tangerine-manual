@@ -7,161 +7,137 @@
     "light": "#FF8C5A",
     "dark": "#E55A2B"
   },
+  "logo": {
+    "light": "/assets/logo.png",
+    "dark": "/assets/logo.png"
+  },
   "favicon": "/assets/favicon.svg",
   "navigation": {
-    "anchors": [
+    "groups": [
       {
-        "anchor": "Documentation",
-        "icon": "book-open",
-        "tabs": [
+        "group": "Introducción",
+        "pages": [
+          "introduccion/que-es-tangerine"
+        ]
+      }
+    ],
+    "tabs": [
+      {
+        "tab": "Backoffice",
+        "groups": [
           {
-            "tab": "Documentation",
-            "groups": [
-              {
-                "group": "Introducción",
-                "pages": [
-                  "introduccion/que-es-tangerine"
-                ]
-              }
+            "group": "Usuarios",
+            "pages": [
+              "backoffice/usuarios/gestion-usuarios"
             ]
           },
           {
-            "tab": "Backoffice",
-            "groups": [
-              {
-                "group": "Backoffice",
-                "pages": [
-                  {
-                    "group": "Usuarios",
-                    "pages": [
-                      "backoffice/usuarios/gestion-usuarios"
-                    ]
-                  },
-                  {
-                    "group": "Licencias",
-                    "pages": [
-                      "backoffice/licencias/gestion-licencias"
-                    ]
-                  },
-                  {
-                    "group": "Contenidos",
-                    "pages": [
-                      "backoffice/contenidos/gestion-contenidos",
-                      "backoffice/contenidos/crear-contenido"
-                    ]
-                  },
-                  {
-                    "group": "Publicaciones",
-                    "pages": [
-                      "backoffice/publicaciones/gestion-publicaciones",
-                      "backoffice/publicaciones/crear-publicacion"
-                    ]
-                  },
-                  {
-                    "group": "Programas Digitales",
-                    "pages": [
-                      "backoffice/programas-digitales/crear-programa"
-                    ]
-                  },
-                  {
-                    "group": "Escuelas",
-                    "pages": [
-                      "backoffice/escuelas/gestion-escuelas",
-                      "backoffice/escuelas/crear-escuela",
-                      "backoffice/escuelas/detalle-escuela"
-                    ]
-                  },
-                  {
-                    "group": "Usuarios Backoffice",
-                    "pages": [
-                      "backoffice/usuarios-backoffice/gestion-usuarios-backoffice",
-                      "backoffice/usuarios-backoffice/crear-usuario-backoffice"
-                    ]
-                  }
-                ]
-              }
+            "group": "Licencias",
+            "pages": [
+              "backoffice/licencias/gestion-licencias"
             ]
           },
           {
-            "tab": "Docentes",
-            "groups": [
-              {
-                "group": "Frontoffice Docentes",
-                "pages": [
-                  {
-                    "group": "Mis Aulas",
-                    "pages": [
-                      "frontoffice-docentes/mis-aulas/ver-mis-aulas"
-                    ]
-                  },
-                  {
-                    "group": "Gestión de Aulas",
-                    "pages": [
-                      "frontoffice-docentes/gestion-aula/crear-aula",
-                      "frontoffice-docentes/gestion-aula/ver-estudiantes"
-                    ]
-                  },
-                  {
-                    "group": "Evaluaciones",
-                    "pages": [
-                      "frontoffice-docentes/evaluaciones/crear-evaluacion",
-                      "frontoffice-docentes/evaluaciones/resultados-evaluacion"
-                    ]
-                  },
-                  {
-                    "group": "Curso",
-                    "pages": [
-                      "frontoffice-docentes/curso/vista-curso",
-                      "frontoffice-docentes/curso/programa",
-                      "frontoffice-docentes/curso/stream",
-                      "frontoffice-docentes/curso/calificaciones"
-                    ]
-                  },
-                  {
-                    "group": "Lecciones",
-                    "pages": [
-                      "frontoffice-docentes/lecciones/vista-leccion"
-                    ]
-                  }
-                ]
-              }
+            "group": "Contenidos",
+            "pages": [
+              "backoffice/contenidos/gestion-contenidos",
+              "backoffice/contenidos/crear-contenido"
             ]
           },
           {
-            "tab": "Estudiantes",
-            "groups": [
-              {
-                "group": "Estudiantes",
-                "pages": [
-                  {
-                    "group": "Mis Clases",
-                    "pages": [
-                      "estudiantes/mis-clases/ver-clases",
-                      "estudiantes/mis-clases/unirse-grupo"
-                    ]
-                  }
-                ]
-              }
+            "group": "Publicaciones",
+            "pages": [
+              "backoffice/publicaciones/gestion-publicaciones",
+              "backoffice/publicaciones/crear-publicacion"
             ]
           },
           {
-            "tab": "Admin Escuela",
-            "groups": [
-              {
-                "group": "Admin Escuela",
-                "pages": [
-                  "admin-escuela/introduccion"
-                ]
-              }
+            "group": "Programas Digitales",
+            "pages": [
+              "backoffice/programas-digitales/crear-programa"
+            ]
+          },
+          {
+            "group": "Escuelas",
+            "pages": [
+              "backoffice/escuelas/gestion-escuelas",
+              "backoffice/escuelas/crear-escuela",
+              "backoffice/escuelas/detalle-escuela"
+            ]
+          },
+          {
+            "group": "Usuarios Backoffice",
+            "pages": [
+              "backoffice/usuarios-backoffice/gestion-usuarios-backoffice",
+              "backoffice/usuarios-backoffice/crear-usuario-backoffice"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Docentes",
+        "groups": [
+          {
+            "group": "Mis Aulas",
+            "pages": [
+              "frontoffice-docentes/mis-aulas/ver-mis-aulas"
+            ]
+          },
+          {
+            "group": "Gestión de Aulas",
+            "pages": [
+              "frontoffice-docentes/gestion-aula/crear-aula",
+              "frontoffice-docentes/gestion-aula/ver-estudiantes"
+            ]
+          },
+          {
+            "group": "Evaluaciones",
+            "pages": [
+              "frontoffice-docentes/evaluaciones/crear-evaluacion",
+              "frontoffice-docentes/evaluaciones/resultados-evaluacion"
+            ]
+          },
+          {
+            "group": "Curso",
+            "pages": [
+              "frontoffice-docentes/curso/vista-curso",
+              "frontoffice-docentes/curso/programa",
+              "frontoffice-docentes/curso/stream",
+              "frontoffice-docentes/curso/calificaciones"
+            ]
+          },
+          {
+            "group": "Lecciones",
+            "pages": [
+              "frontoffice-docentes/lecciones/vista-leccion"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Estudiantes",
+        "groups": [
+          {
+            "group": "Mis Clases",
+            "pages": [
+              "estudiantes/mis-clases/ver-clases",
+              "estudiantes/mis-clases/unirse-grupo"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Admin Escuela",
+        "groups": [
+          {
+            "group": "Admin Escuela",
+            "pages": [
+              "admin-escuela/introduccion"
             ]
           }
         ]
       }
     ]
-  },
-  "logo": {
-    "light": "/assets/logo.png",
-    "dark": "/assets/logo.png"
   },
   "navbar": {
     "links": [
