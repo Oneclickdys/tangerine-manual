@@ -1,0 +1,180 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Tangerine LMS - Documentación de Producto",
+  "colors": {
+    "primary": "#FF6B35",
+    "light": "#FF8C5A",
+    "dark": "#E55A2B"
+  },
+  "favicon": "/assets/favicon.svg",
+  "navigation": {
+    "anchors": [
+      {
+        "anchor": "Documentation",
+        "icon": "book-open",
+        "tabs": [
+          {
+            "tab": "Documentation",
+            "groups": [
+              {
+                "group": "Introducción",
+                "pages": [
+                  "introduccion/que-es-tangerine"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Backoffice",
+            "groups": [
+              {
+                "group": "Backoffice",
+                "pages": [
+                  {
+                    "group": "Usuarios",
+                    "pages": [
+                      "backoffice/usuarios/gestion-usuarios"
+                    ]
+                  },
+                  {
+                    "group": "Licencias",
+                    "pages": [
+                      "backoffice/licencias/gestion-licencias"
+                    ]
+                  },
+                  {
+                    "group": "Contenidos",
+                    "pages": [
+                      "backoffice/contenidos/gestion-contenidos",
+                      "backoffice/contenidos/crear-contenido"
+                    ]
+                  },
+                  {
+                    "group": "Publicaciones",
+                    "pages": [
+                      "backoffice/publicaciones/gestion-publicaciones",
+                      "backoffice/publicaciones/crear-publicacion"
+                    ]
+                  },
+                  {
+                    "group": "Programas Digitales",
+                    "pages": [
+                      "backoffice/programas-digitales/crear-programa"
+                    ]
+                  },
+                  {
+                    "group": "Escuelas",
+                    "pages": [
+                      "backoffice/escuelas/gestion-escuelas",
+                      "backoffice/escuelas/crear-escuela",
+                      "backoffice/escuelas/detalle-escuela"
+                    ]
+                  },
+                  {
+                    "group": "Usuarios Backoffice",
+                    "pages": [
+                      "backoffice/usuarios-backoffice/gestion-usuarios-backoffice",
+                      "backoffice/usuarios-backoffice/crear-usuario-backoffice"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Docentes",
+            "groups": [
+              {
+                "group": "Frontoffice Docentes",
+                "pages": [
+                  {
+                    "group": "Mis Aulas",
+                    "pages": [
+                      "frontoffice-docentes/mis-aulas/ver-mis-aulas"
+                    ]
+                  },
+                  {
+                    "group": "Gestión de Aulas",
+                    "pages": [
+                      "frontoffice-docentes/gestion-aula/crear-aula",
+                      "frontoffice-docentes/gestion-aula/ver-estudiantes"
+                    ]
+                  },
+                  {
+                    "group": "Evaluaciones",
+                    "pages": [
+                      "frontoffice-docentes/evaluaciones/crear-evaluacion",
+                      "frontoffice-docentes/evaluaciones/resultados-evaluacion"
+                    ]
+                  },
+                  {
+                    "group": "Curso",
+                    "pages": [
+                      "frontoffice-docentes/curso/vista-curso",
+                      "frontoffice-docentes/curso/programa",
+                      "frontoffice-docentes/curso/stream",
+                      "frontoffice-docentes/curso/calificaciones"
+                    ]
+                  },
+                  {
+                    "group": "Lecciones",
+                    "pages": [
+                      "frontoffice-docentes/lecciones/vista-leccion"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Estudiantes",
+            "groups": [
+              {
+                "group": "Estudiantes",
+                "pages": [
+                  {
+                    "group": "Mis Clases",
+                    "pages": [
+                      "estudiantes/mis-clases/ver-clases",
+                      "estudiantes/mis-clases/unirse-grupo"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Admin Escuela",
+            "groups": [
+              {
+                "group": "Admin Escuela",
+                "pages": [
+                  "admin-escuela/introduccion"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/assets/logo.png",
+    "dark": "/assets/logo.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Soporte",
+        "href": "mailto:soporte@tangerine.com"
+      }
+    ]
+  },
+  "search": {
+    "prompt": "Buscar en la documentación..."
+  },
+  "footer": {
+    "socials": {}
+  }
+}
