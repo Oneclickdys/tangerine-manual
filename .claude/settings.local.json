@@ -13,7 +13,8 @@
       "mcp__chrome-devtools__click",
       "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/tangerine-backoffice/src/app -path *publication*service* -o -path *publication*route*)",
       "mcp__chrome-devtools__take_screenshot",
-      "mcp__plugin_oneclick_context7__query-docs"
+      "mcp__plugin_oneclick_context7__query-docs",
+      "mcp__plugin_oneclick_context7__resolve-library-id"
     ]
   }
 }
