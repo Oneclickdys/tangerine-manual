@@ -1,0 +1,198 @@
+---
+title: "Editar Programa Digital"
+description: "Configuración completa de un programa digital: pestañas, contenidos, apariencia y herramientas"
+icon: "pen-to-square"
+---
+
+## Descripción
+
+Una vez creado un programa digital, el sistema redirige automáticamente a la vista de **Configurar programa digital**. Esta vista organiza toda la configuración del programa en pestañas que permiten definir sus datos generales, poblar su estructura de contenidos, configurar la programación docente, personalizar la apariencia visual y gestionar recursos complementarios.
+
+<Info>
+  **Rol requerido:** Administrador o Gestor de contenidos
+</Info>
+
+## Cómo acceder
+
+<Steps>
+  <Step title="Navegar a Programas Digitales">
+    Desde el menú superior, el usuario selecciona **Contenidos** > **Programas digitales** para acceder al listado.
+  </Step>
+  <Step title="Seleccionar un programa">
+    El usuario hace clic sobre el nombre del programa en la tabla. El sistema carga la vista de configuración con la pestaña **Datos** seleccionada por defecto.
+
+    ![Vista de datos del programa](/assets/screenshots/backoffice/programas-digitales/detalle-english26-datos.png)
+  </Step>
+</Steps>
+
+## Estructura de pestañas
+
+La vista de edición se organiza en pestañas laterales. Las pestañas disponibles dependen de la configuración de la plataforma para cada editorial.
+
+### Pestañas fijas (siempre visibles)
+
+| Pestaña | Propósito |
+|---------|-----------|
+| **Datos** | Información general del programa: nombre, país, asignatura, etapa, año, período de evaluación, publicación asociada y opciones adicionales |
+| **Contenidos** | Estructura editorial del programa: módulos, submódulos y materiales de cada lección |
+| **Apariencia** | Personalización visual: colores, tipografía, bordes, portada y cabecera |
+
+### Pestañas condicionales
+
+Las siguientes pestañas pueden estar disponibles según la configuración de la plataforma:
+
+| Pestaña | Condición | Propósito |
+|---------|-----------|-----------|
+| **Programación** | Plataforma con programación activada | Creación de programaciones docentes con distribución temporal de sesiones |
+| **Carga docente** | Plataforma con carga docente activada | Calendario de planificación con distribución semanal de sesiones |
+| **Recursos anuales** | Plataforma con recursos anuales activados | Recursos complementarios organizados por período de evaluación |
+| **Caja de herramientas** | Visible si **Recursos anuales** no está activo | Biblioteca de recursos agrupados en secciones |
+| **Inicio** | Plataforma con personalización de inicio activada + plantilla compatible | Personalización de la página de inicio del programa con bloques configurables |
+
+<Note>
+  La disponibilidad de estas pestañas varía según la configuración de cada editorial. Si una pestaña esperada no aparece, contactar con el equipo de soporte de Tangerine para verificar la configuración.
+</Note>
+
+## Pestaña Datos
+
+La pestaña **Datos** presenta los mismos campos del formulario de creación, pero en modo edición. Permite modificar:
+
+- **Nombre del programa**, país, asignatura, etapa y año
+- **Período de evaluación** y estructura editorial (pueden tener restricciones si ya existe contenido)
+- **ISBN** de alumno y profesor
+- **Idioma/versión** del programa
+- **Opciones adicionales**: Accesible, Power Lesson, Tangerine AI
+- **Publicación asociada**: el botón **Actualizar publicación** permite cambiar la publicación base
+
+<Warning>
+  **Campos que se bloquean tras añadir contenido:** El período de evaluación y la estructura editorial no pueden modificarse una vez que el programa tiene módulos o submódulos creados, ya que estos campos determinan cómo se organiza el contenido.
+</Warning>
+
+El botón **Guardar** en esta pestaña solo se habilita cuando hay cambios pendientes. La navegación entre pestañas no requiere guardar previamente los cambios de datos — el sistema muestra un diálogo de confirmación si se intenta salir con cambios sin guardar.
+
+## Pestaña Contenidos
+
+Esta es la pestaña central del programa digital, donde se construye toda la estructura de contenido educativo. Dada su complejidad, se documenta en detalle en la página [Contenidos del programa](/backoffice/programas-digitales/contenidos-programa).
+
+## Pestaña Programación
+
+La pestaña de Programación permite crear una planificación temporal que distribuye los contenidos del programa en sesiones a lo largo del calendario escolar.
+
+![Programación vacía](/assets/screenshots/backoffice/programas-digitales/programacion-vacia.png)
+
+La cabecera muestra los metadatos del programa (período de evaluación, nivel educativo, asignatura y publicación). El botón **Crear programación** inicia el proceso de planificación.
+
+<Note>
+  El botón **Crear programación** solo está disponible si el programa tiene un período de evaluación configurado en la pestaña Datos.
+</Note>
+
+Existen dos modalidades de programación según la configuración de la plataforma:
+
+- **Programación Essential**: permite definir el número de sesiones por módulo y submódulo, distribuyéndolas a lo largo del calendario.
+- **Programación Avanzada**: si la plataforma tiene activada la Programación Avanzada, permite definir atómicamente el contenido de cada sesión, asignando recursos específicos y guías docentes a cada una.
+
+<Info>
+  La Programación es una funcionalidad compleja que se documenta en detalle en su propia sección. Consulta [Programación del programa](/backoffice/programas-digitales/programacion-programa) para la guía completa.
+</Info>
+
+## Pestaña Apariencia
+
+La pestaña de Apariencia controla el aspecto visual del programa en el frontoffice.
+
+![Pestaña Apariencia](/assets/screenshots/backoffice/programas-digitales/apariencia-avanzada.png)
+
+La pestaña se organiza en cuatro secciones:
+
+**Tipografía**
+- **Encabezados**: selector de tipografía para títulos (ej. Dosis, Roboto)
+- **Cuerpo de texto**: selector de tipografía para texto general (ej. Lato, Open Sans)
+- Botón de **previsualización** para ver el resultado
+- Botón de **restablecer** para volver a los valores por defecto
+
+**Colores**
+- **Color primario**: selector de color con valor hexadecimal
+- **Color secundario**: puede ser **Sólido** (un color) o **Degradado** (dos colores que forman un gradiente)
+- Botón de **restablecer** para volver a los colores corporativos de la editorial
+
+<Note>
+  Los colores por defecto son los corporativos de la editorial. Cada programa puede personalizar sus colores, pero al restablecer se vuelve a los valores definidos por el tenant.
+</Note>
+
+**Bordes**
+- Selector del radio de borde con opciones predefinidas: **0%, 25%, 50%, 75%, 100%**
+- Determina el redondeo de los elementos del programa en el frontoffice
+
+**Imágenes**
+- **Portada del programa**: imagen que se muestra como portada
+- **Cabecera del programa**: imagen que se muestra en la parte superior
+
+El botón **Guardar** se habilita solo cuando hay cambios pendientes en esta pestaña.
+
+## Pestaña Caja de herramientas
+
+La Caja de herramientas es una biblioteca de recursos complementarios que los docentes pueden consultar desde el frontoffice. Se organiza en **secciones** que contienen **grupos** de materiales.
+
+![Caja de herramientas vacía](/assets/screenshots/backoffice/programas-digitales/caja-herramientas-vacia.png)
+
+### Crear contenido en la caja de herramientas
+
+<Steps>
+  <Step title="Crear una sección">
+    El botón **Añadir sección** abre un diálogo para definir el nombre de la sección y, opcionalmente, los grupos que contendrá.
+  </Step>
+  <Step title="Añadir grupos y materiales">
+    Dentro de cada sección, se pueden crear grupos y agregar materiales (archivos, enlaces, multimedia) a cada grupo.
+  </Step>
+  <Step title="Reordenar">
+    Las secciones y grupos se reordenan mediante arrastrar y soltar (drag-and-drop).
+  </Step>
+</Steps>
+
+La cabecera muestra contadores de secciones, grupos y materiales. El botón **Copiar caja de herramientas** permite copiar toda la estructura a otro programa.
+
+## Navegación entre pestañas
+
+- Los botones **Anterior** y **Siguiente** en la parte inferior permiten navegar secuencialmente entre pestañas
+- El botón **Previsualizar** (esquina superior derecha) abre una vista previa del programa tal como se verá en el frontoffice
+- Si hay cambios sin guardar en la pestaña Datos o Apariencia, el sistema solicita confirmación antes de cambiar de pestaña
+
+<Note>
+  Las pestañas **Contenidos**, **Programación**, **Carga docente**, **Recursos anuales**, **Caja de herramientas** e **Inicio** gestionan su propio guardado automático: cada acción (crear módulo, añadir material, reordenar) se persiste inmediatamente sin necesidad de pulsar un botón Guardar.
+</Note>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede editar un programa que ya está publicado y en uso?">
+    Sí. Los cambios en los datos generales y la apariencia se reflejan inmediatamente. Los cambios en el contenido (añadir/eliminar módulos o materiales) también se aplican en tiempo real. Sin embargo, si los docentes ya han creado programaciones basadas en el programa, los cambios estructurales pueden afectar esas programaciones.
+  </Accordion>
+  <Accordion title="¿Qué ocurre al cambiar la estructura editorial de un programa con contenido?">
+    El sistema no permite cambiar la estructura editorial (Solo módulos / Módulos y submódulos) una vez que el programa tiene contenido creado. Este campo se deshabilita automáticamente.
+  </Accordion>
+  <Accordion title="¿Se puede duplicar un programa completo con todo su contenido?">
+    Sí. Desde la lista de programas digitales, la opción **Clonar** crea una copia completa del programa incluyendo toda su estructura de contenido, materiales y configuración de apariencia.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear programa digital" icon="plus" href="/backoffice/programas-digitales/crear-programa">
+    Formulario inicial para registrar un nuevo programa digital.
+  </Card>
+  <Card title="Contenidos del programa" icon="folder-tree" href="/backoffice/programas-digitales/contenidos-programa">
+    Guía detallada para construir la estructura de contenido: módulos, submódulos y materiales.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: backoffice
+  - Sección UI: /program/:guid/:step
+  - Archivos de código relacionados:
+    - frontend: tangerine-backoffice/src/app/pages/programs/ProgramDetailPage/ProgramDetailPage.jsx
+    - form: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramForm.jsx
+    - hook: tangerine-backoffice/src/app/modules/programs/ProgramForm/useProgramForm.js
+  - Última revisión: 2026-03-29
+*/}

@@ -23,7 +23,13 @@
       "Bash(grep -rn -E \"\\\\b\\(gestion|administracion|creacion|configuracion|calificacion|informacion|navegacion|seccion|opcion|seleccion|accion|funcion|descripcion|pagina|numero|codigo|unico|automatico|ano|leccion|evaluacion|nino|tamano|ensenanza|companero|diseno\\)\\\\b\" *.mdx backoffice/**/*.mdx frontoffice-docentes/**/*.mdx estudiantes/**/*.mdx admin-escuela/**/*.mdx _templates/**/*.mdx)",
       "mcp__chrome-devtools__wait_for",
       "Bash(grep -rn \"\\\\b\\(creacion|configuracion|administracion|gestion|calificacion|informacion|seccion|opcion|seleccion|accion|funcion|leccion|evaluacion|ano|pagina|numero|codigo|unico|tamano|diseno|navegacion\\)\\\\b\" /Users/camilolopez/DEVS/repos/tangerine-global/manual --include=*.mdx)",
-      "mcp__chrome-devtools__press_key"
+      "mcp__chrome-devtools__press_key",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/tangerine-backoffice/src -type d -name *plan* -o -name *calendar* -o -name *session*)",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual/assets/screenshots -name *.png -o -name *.jpg)",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual/assets/screenshots/frontoffice-docente/stream -name *.png)",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual/assets/screenshots/backoffice -name *.png)",
+      "Bash(git checkout:*)",
+      "Bash(python3:*)"
     ]
   }
 }

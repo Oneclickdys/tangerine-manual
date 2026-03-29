@@ -340,7 +340,7 @@
       },
       "tenantVariations": [],
       "featureFlags": ["enablePowerLesson", "showStructureLevels"],
-      "relatedFeatures": ["programs/list"],
+      "relatedFeatures": ["programs/list", "programs/detail"],
       "lastDocumented": "2025-12-19",
       "notes": "Formulario con selectores en cascada (pais > asignatura > etapa > ano), opciones Accesible, Power Lesson, Tangerine AI"
     },
@@ -350,18 +350,37 @@
       "section": "Programas Digitales",
       "route": "/program/:guid",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "editor",
-      "docFile": null,
+      "docFile": "backoffice/programas-digitales/editar-programa.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/programs/ProgramDetailPage/"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": [],
-      "relatedFeatures": ["programs/list"],
+      "featureFlags": ["showProgramming", "showProgrammingAdvanced", "showProgrammingTeachingLoad", "showProgramResources", "showProgramLookAdvanced", "showProgramHomeCustomization", "showExportXapi"],
+      "relatedFeatures": ["programs/list", "programs/create"],
+      "lastDocumented": "2026-03-29",
+      "notes": "Documentado con dos paginas: editar-programa.mdx (vista general de pestanas) y contenidos-programa.mdx (gestion de modulos, submodulos y materiales)."
+    },
+    "programs/programming": {
+      "name": "Programacion del programa",
+      "description": "Crear y gestionar la programacion docente de un programa digital (basica y avanzada)",
+      "section": "Programas Digitales",
+      "route": "/program/:guid/3",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "complex-workflow",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/modules/programs/ProgramForm/ProgramFormProgramming/", "src/app/modules/programs/ProgramForm/ProgramFormProgrammingAdvanced/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["showProgramming", "showProgrammingAdvanced"],
+      "relatedFeatures": ["programs/detail"],
       "lastDocumented": null,
-      "notes": ""
+      "notes": "Dos modalidades: Essential (sesiones por modulo, disponible en latest) y Avanzada (contenido atomico por sesion con recursos y guias, no disponible en latest). La Essential se puede documentar con el entorno actual. Documentar en su propia seccion."
     },
     "settings/periods": {
       "name": "Periodos de evaluacion",
@@ -391,7 +410,6 @@
       "status": "documented",
       "docFile": "backoffice/publicaciones/gestion-publicaciones.mdx",
       "complexity": "simple-list",
-      "docFile": null,
       "codeFiles": {
         "frontend": ["src/app/pages/publications/PublicationsPage/"],
         "backend": []
@@ -411,7 +429,6 @@
       "status": "documented",
       "docFile": "backoffice/publicaciones/crear-publicacion.mdx",
       "complexity": "multi-step-form",
-      "docFile": null,
       "codeFiles": {
         "frontend": ["src/app/pages/publications/PublicationCreatePage/"],
         "backend": []
@@ -431,7 +448,6 @@
       "status": "documented",
       "docFile": "backoffice/publicaciones/crear-publicacion.mdx",
       "complexity": "multi-step-form",
-      "docFile": null,
       "codeFiles": {
         "frontend": ["src/app/pages/publications/PublicationDetailPage/"],
         "backend": []

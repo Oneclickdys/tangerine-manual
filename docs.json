@@ -54,7 +54,9 @@
           {
             "group": "Programas Digitales",
             "pages": [
-              "backoffice/programas-digitales/crear-programa"
+              "backoffice/programas-digitales/crear-programa",
+              "backoffice/programas-digitales/editar-programa",
+              "backoffice/programas-digitales/contenidos-programa"
             ]
           },
           {

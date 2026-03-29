@@ -1,0 +1,324 @@
+---
+title: "Contenidos del Programa"
+description: "Cómo construir la estructura de contenido de un programa digital: módulos, submódulos, lecciones y materiales"
+icon: "folder-tree"
+---
+
+## Descripción
+
+La pestaña **Contenidos** es el núcleo de un programa digital. En ella se construye toda la jerarquía de contenido educativo que los docentes y estudiantes consumirán en el frontoffice. Dependiendo de la configuración del programa, el contenido se organiza en una o dos capas jerárquicas, opcionalmente agrupadas por periodos de evaluación.
+
+<Info>
+  **Rol requerido:** Administrador o Gestor de contenidos
+</Info>
+
+## Estructura del contenido
+
+La organización del contenido depende de dos parámetros configurados al crear el programa:
+
+### Estructura editorial
+
+| Estructura | Jerarquía | Ejemplo |
+|------------|-----------|---------|
+| **Módulos y submódulos** | Período > Módulo > Submódulo > Materiales | Semestre 1 > Unit 1: Grammar > Lesson 1.1: Nouns > [Página HTML, PDF, Vídeo...] |
+| **Solo módulos** | Período > Módulo > Materiales | Semestre 1 > Unit 1: Grammar > [Página HTML, PDF, Vídeo...] |
+
+### Período de evaluación
+
+Cuando el programa tiene un período de evaluación configurado (Semestral, Trimestral, etc.), los módulos se agrupan dentro de acordeones que representan cada período. Sin período de evaluación, todos los módulos aparecen en una lista plana.
+
+![Vista general de contenidos con periodos](/assets/screenshots/backoffice/programas-digitales/contenidos-vista-general.png)
+
+<Note>
+  En la imagen se observa el programa "English 26" con período **Semestral**: los módulos se distribuyen entre "Semestral 1" y "Semestral 2". La cabecera muestra los contadores globales de **Módulos** y **Submódulos**.
+</Note>
+
+## Panel de resumen
+
+En la parte superior de la pestaña, el sistema muestra contadores que reflejan el estado actual del programa:
+
+| Contador | Descripción |
+|----------|-------------|
+| **Módulos** | Número total de módulos (unidades) en el programa |
+| **Submódulos** | Número total de submódulos (lecciones). Solo visible en estructura de dos niveles |
+| **Recursos** | Número total de materiales agregados en todos los submódulos |
+
+### Acciones del panel
+
+- **Exportar xAPI**: genera un archivo con los identificadores xAPI del programa. Disponible si el feature flag `showExportXapi` está activo
+- **Mapear programa**: asocia el programa con un identificador externo. Abre un diálogo de confirmación antes de procesar
+
+## Gestión de módulos
+
+Los módulos representan la primera capa de organización del contenido (equivalentes a "unidades" o "temas" según la terminología de cada editorial).
+
+### Crear un módulo
+
+<Steps>
+  <Step title="Localizar el botón Añadir módulo">
+    Al final de la lista de módulos de cada período, aparece el enlace **+ Añadir módulo**. Si el programa tiene periodos, este enlace aparece dentro de cada acordeón de período.
+
+    <Tip>
+      Si el programa está vacío y no se ven módulos, el sistema muestra un estado vacío con un botón **Añadir módulo** centrado en la pantalla.
+    </Tip>
+  </Step>
+  <Step title="Introducir el nombre del módulo">
+    El diálogo de creación presenta un editor de texto enriquecido donde se introduce el nombre del módulo. El nombre admite formato básico (negrita, cursiva).
+
+    **Validaciones:**
+    - Mínimo 2 caracteres
+    - Máximo 65.535 caracteres
+  </Step>
+  <Step title="Confirmar la creación">
+    El botón **Añadir** crea el módulo y lo posiciona al final de la lista del período correspondiente. El módulo se numera automáticamente de forma secuencial.
+  </Step>
+</Steps>
+
+### Acciones sobre un módulo
+
+Cada módulo muestra un menú de opciones accesible desde su cabecera:
+
+| Acción | Descripción |
+|--------|-------------|
+| **Mover arriba / abajo** | Cambia la posición del módulo dentro del período. No disponible si es el primer o último módulo |
+| **Mover módulo a** | Reasigna el módulo a un período de evaluación diferente (solo en programas con periodos) |
+| **Copiar/Mover módulo** | Copia o mueve el módulo completo a otro programa digital |
+| **Foto** | Asigna una imagen representativa al módulo (solo plantillas vanilla) |
+| **Mapear** | Asocia un identificador externo al módulo |
+
+### Reordenar módulos con drag-and-drop
+
+Los módulos se reordenan arrastrando el icono de arrastre (seis puntos) a la izquierda de cada módulo. Para arrastrar:
+
+1. El módulo debe estar **colapsado** (no expandido) — el icono de arrastre se deshabilita cuando un módulo está expandido
+2. Hacer clic sostenido sobre el icono de arrastre
+3. Mover a la posición deseada y soltar
+
+<Warning>
+  El reordenamiento se persiste automáticamente en el servidor. No hay botón "Guardar" ni opción de deshacer para esta acción.
+</Warning>
+
+### Eliminar un módulo
+
+La opción de eliminar abre un diálogo de confirmación. Al eliminar un módulo, se eliminan también todos sus submódulos y materiales contenidos.
+
+## Gestión de submódulos
+
+Los submódulos (lecciones) son la segunda capa de organización, dentro de cada módulo. Solo están disponibles cuando la estructura editorial del programa es **Módulos y submódulos**.
+
+### Crear un submódulo
+
+<Steps>
+  <Step title="Expandir el módulo padre">
+    El usuario hace clic en la cabecera del módulo para expandirlo y ver sus submódulos existentes. Al final de la lista de submódulos, aparece el botón **Añadir submódulo**.
+  </Step>
+  <Step title="Introducir el nombre">
+    El diálogo de creación presenta un editor de texto enriquecido donde se introduce el nombre del submódulo. Las mismas validaciones de módulo aplican (2-65.535 caracteres).
+  </Step>
+  <Step title="Configurar opciones adicionales">
+    - **Duración en sesiones**: número de sesiones previstas para el submódulo (visible si el feature flag `showProgramming` no está activo, ya que con programación activa las sesiones se gestionan desde esa pestaña)
+    - **Objetivos de aprendizaje**: si el sistema tiene activada la funcionalidad de objetivos de aprendizaje, aparece un botón para asociarlos al submódulo
+  </Step>
+  <Step title="Confirmar la creación">
+    El botón **Añadir** crea el submódulo y lo posiciona al final de la lista dentro del módulo. Una vez creado, se le añade contenido mediante el botón **+ Añadir**.
+  </Step>
+</Steps>
+
+![Módulo expandido mostrando submódulos](/assets/screenshots/backoffice/programas-digitales/contenidos-modulo-expandido.png)
+
+### Acciones sobre un submódulo
+
+La cabecera de cada submódulo muestra su nombre, tipo (ej. "Clásico") y el botón **+ Añadir** para agregar contenido. Las acciones disponibles incluyen:
+
+| Acción | Descripción |
+|--------|-------------|
+| **+ Añadir** | Abre el menú para agregar materiales, tareas y otros contenidos al submódulo |
+| **Añadir imagen** | Asigna una imagen representativa al submódulo |
+| **Copiar/Mover** | Copia o mueve el submódulo a otro módulo o programa |
+| **Mapear** | Asocia un identificador externo |
+| **Eliminar** | Elimina el submódulo y todo su contenido |
+
+### Reordenar submódulos
+
+Los submódulos se reordenan con drag-and-drop dentro de su módulo padre, siguiendo la misma mecánica que los módulos: el submódulo debe estar colapsado para poder arrastrarlo.
+
+## Añadir contenido a un submódulo
+
+El botón **+ Añadir** en la cabecera de cada submódulo despliega un menú con los tipos de contenido disponibles:
+
+![Menú Añadir contenido](/assets/screenshots/backoffice/programas-digitales/contenidos-menu-anadir.png)
+
+| Tipo | Descripción | Uso recomendado |
+|------|-------------|-----------------|
+| **Material** | Archivos, multimedia, enlaces o contenidos de la biblioteca | Recursos de lectura, imágenes, PDFs, enlaces a herramientas externas |
+| **Quiz** | Grupo de actividades evaluativas creadas con el editor Lemonade | Evaluaciones formativas o sumativas con preguntas interactivas |
+| **Tarea** | Actividad individual que el estudiante debe completar | Ejercicios, trabajos o entregas |
+| **Página html** | Página interactiva creada con el editor Mint | Contenido educativo enriquecido con elementos interactivos |
+| **Videolecciones** | Actividad basada en vídeo | Lecciones en formato vídeo con seguimiento de visualización |
+| **Sección** | Separador organizativo dentro del submódulo | Agrupar contenidos temáticamente dentro de una misma lección |
+
+### Añadir un Material
+
+El diálogo de Material es el más completo y se presenta en dos pasos:
+
+<Steps>
+  <Step title="Paso 1: Metadatos del material">
+    - **Visible para estudiantes** (switch): determina si los estudiantes pueden ver el material o solo los docentes
+    - **Título** (obligatorio): nombre descriptivo del material (2 a 65.535 caracteres)
+    - **Sección**: si el submódulo tiene secciones creadas, permite asignar el material a una sección específica
+    - **Incluir en cuaderno de calificaciones**: marca el material como evaluable
+    - **Descripción** (opcional): texto descriptivo del material
+    - **Notas del profesor**: campo de texto enriquecido visible solo para docentes
+  </Step>
+  <Step title="Paso 2: Seleccionar contenido">
+    El diálogo ofrece tres pestañas para vincular el contenido:
+
+    **Buscar**: navega por la biblioteca de contenidos existente, permite filtrar por tipo y seleccionar un contenido ya subido al sistema.
+
+    **Archivo**: sube un archivo nuevo directamente. Soporta múltiples tipos de archivo (documentos, imágenes, audio, vídeo) y muestra una barra de progreso durante la carga.
+
+    **Enlace**: introduce una URL externa. Permite elegir entre incrustar (embed) el contenido o mostrarlo como enlace.
+  </Step>
+</Steps>
+
+### Añadir una Tarea
+
+El diálogo de Tarea permite crear una actividad con los siguientes campos:
+
+- **Título** (obligatorio): nombre de la tarea (mínimo 2 caracteres)
+- **Sección**: asigna la tarea a una sección del submódulo
+- **Evaluable**: indica si la tarea es evaluable o formativa
+- **Incluir en cuaderno de calificaciones**: marca la tarea para seguimiento
+- **Descripción**: instrucciones o contexto de la tarea
+- **Smartlinks**: permite vincular la tarea con otro contenido del programa
+
+### Añadir una Página html
+
+Abre directamente el editor Mint, la herramienta de autor para crear páginas interactivas con componentes visuales (similar a Articulate Rise). La página se crea dentro del submódulo y puede editarse posteriormente.
+
+### Añadir un Quiz
+
+Abre el editor Lemonade, la herramienta de autor para crear actividades evaluativas con múltiples tipos de preguntas (selección múltiple, arrastrar y soltar, completar texto, etc.).
+
+## Vista de contenido dentro del submódulo
+
+Al expandir un submódulo, el sistema muestra todos los materiales y actividades que contiene. Cada ítem se visualiza como una fila con:
+
+- **Icono de tipo**: indica visualmente el tipo de contenido (Página html, Imagen, PDF, Videolección, etc.)
+- **Título del contenido**
+- **Icono de arrastre**: para reordenar ítems dentro del submódulo
+- **Acciones**: botón para expandir detalles o editar el ítem
+
+![Submódulo expandido con contenido](/assets/screenshots/backoffice/programas-digitales/contenidos-submodulo-expandido.png)
+
+<Note>
+  En la imagen se observa el submódulo "1.1 The Structure of Words" expandido con cuatro contenidos: una Página html, una Imagen, un PDF y una Videolección formativa. Cada tipo se distingue por su icono.
+</Note>
+
+### Reordenar contenidos
+
+Los ítems dentro de un submódulo se reordenan con drag-and-drop. El orden determina cómo se presentan los contenidos al estudiante en el frontoffice.
+
+## Secciones dentro de un submódulo
+
+Las secciones son separadores organizativos opcionales que permiten agrupar contenidos dentro de un mismo submódulo. Se crean desde el menú **+ Añadir** > **Sección**.
+
+Una vez creada, una sección funciona como un contenedor: los materiales y tareas añadidos posteriormente pueden asignarse a una sección específica. Las secciones se reordenan con drag-and-drop y pueden anidarse visualmente para organizar el contenido de forma lógica.
+
+## Indicadores de estado
+
+Los módulos y submódulos pueden mostrar indicadores visuales de estado:
+
+| Indicador | Significado |
+|-----------|-------------|
+| **Borrador** | El módulo o submódulo ha sido creado pero no tiene contenido publicado |
+| **Número de submódulos** | Contador de submódulos dentro de cada módulo (ej. "2 submódulos") |
+| **Número de contenidos** | Cantidad de materiales y actividades dentro del submódulo |
+
+## Configuración y variantes
+
+### Programas con periodos de evaluación
+
+Cuando el programa tiene un período de evaluación (Semestral, Trimestral, etc.), la pestaña Contenidos organiza los módulos dentro de **acordeones por período**. Cada acordeón muestra:
+
+- Nombre del período (ej. "Semestral 1")
+- Contador de módulos y submódulos del período
+- Los módulos se pueden mover entre periodos mediante la opción **Mover módulo a**
+
+### Programas sin periodos
+
+Sin período de evaluación, los módulos se presentan en una lista plana sin agrupación por período.
+
+### Programas con estructura de un nivel
+
+En programas configurados con **Solo módulos** (un nivel), no existen submódulos. Los materiales y actividades se añaden directamente dentro de cada módulo. El menú **+ Añadir** aparece en la cabecera del módulo en lugar de en un submódulo.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Cómo afecta añadir o eliminar contenido a los estudiantes activos?">
+    Los cambios en el contenido se reflejan en tiempo real en el frontoffice. Si se elimina un material que un estudiante ya ha visualizado, el registro de progreso se mantiene pero el contenido deja de estar accesible. Se recomienda precaución al eliminar contenido en programas que ya están en uso.
+  </Accordion>
+  <Accordion title="¿Se puede copiar un módulo completo a otro programa?">
+    Sí. Desde el menú de opciones del módulo, la acción **Copiar/Mover módulo** permite seleccionar el programa destino. Se copia toda la estructura del módulo incluyendo submódulos y materiales.
+  </Accordion>
+  <Accordion title="¿Qué ocurre si se reordena un módulo que tiene programación asociada?">
+    El reordenamiento de módulos puede afectar la distribución de sesiones en la programación docente. Si el programa tiene una programación publicada, se recomienda revisar la distribución de sesiones después de reordenar.
+  </Accordion>
+  <Accordion title="¿Cuál es el límite de contenidos por submódulo?">
+    No existe un límite técnico en el número de materiales o actividades por submódulo. Sin embargo, para mantener una buena experiencia de usuario en el frontoffice, se recomienda no superar los 15-20 ítems por submódulo.
+  </Accordion>
+  <Accordion title="¿Por qué el icono de arrastre aparece deshabilitado?">
+    El icono de arrastre se deshabilita automáticamente cuando un módulo o submódulo está expandido (mostrando su contenido). Para arrastrarlo, es necesario colapsarlo primero haciendo clic en su cabecera.
+  </Accordion>
+</AccordionGroup>
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** No aparece el botón "Añadir submódulo" dentro de un módulo.
+
+  **Solución:** El botón se muestra al final de la lista de submódulos dentro de un módulo expandido. Si no aparece, verificar que la estructura editorial del programa sea "Módulos y submódulos" (configurable en la pestaña Datos). Si la estructura es "Solo módulos", los contenidos se añaden directamente con el botón "+ Añadir" en la cabecera del módulo.
+</Warning>
+
+<Warning>
+  **Problema:** No se puede arrastrar un módulo o submódulo para reordenarlo.
+
+  **Solución:** El módulo o submódulo debe estar colapsado para poder arrastrarlo. Si está expandido mostrando su contenido, el icono de arrastre se deshabilita automáticamente. Hacer clic en la cabecera para colapsar y luego arrastrar.
+</Warning>
+
+<Warning>
+  **Problema:** El botón "Añadir submódulo" aparece deshabilitado.
+
+  **Solución:** Este botón se deshabilita cuando hay submódulos expandidos dentro del mismo módulo. Colapsar todos los submódulos expandidos antes de intentar añadir uno nuevo.
+</Warning>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Editar programa digital" icon="pen-to-square" href="/backoffice/programas-digitales/editar-programa">
+    Vista general de todas las pestañas de configuración del programa.
+  </Card>
+  <Card title="Crear programa digital" icon="plus" href="/backoffice/programas-digitales/crear-programa">
+    Formulario inicial donde se definen la estructura editorial y el período de evaluación que determinan cómo se organiza el contenido.
+  </Card>
+  <Card title="Editor Lemonade" icon="clipboard-check" href="/backoffice/herramientas-autor/editor-lemonade">
+    Herramienta de autor para crear actividades evaluativas (Quizzes).
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: backoffice
+  - Sección UI: /program/:guid/2
+  - Archivos de código relacionados:
+    - frontend: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormContents/ProgramFormContents.jsx
+    - variants: ProgramFormContentsOriginal.jsx, ProgramFormContentsPeriods.jsx, ProgramFormContentsOriginalOneLevel.jsx, ProgramFormContentsPeriodsOneLevel.jsx
+    - units: ProgramFormContentsUnits/ProgramFormContentsUnits.jsx
+    - lessons: ProgramFormContentsLessons/ProgramFormContentsLessons.jsx
+    - lesson-detail: ProgramFormContentsLessonsDetail/ProgramFormContentsLessonsDetailVanilla.jsx
+    - dialogs: DialogUnit/DialogUnitRichText.jsx, DialogLesson/DialogLessonRichText.jsx, DialogLessonItem.jsx, DialogMaterial.jsx
+    - crud: tangerine-backoffice/src/app/crud/programsContents.crud.js
+  - Última revisión: 2026-03-29
+*/}
