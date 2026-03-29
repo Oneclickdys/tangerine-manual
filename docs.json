@@ -71,6 +71,12 @@
               "backoffice/usuarios-backoffice/gestion-usuarios-backoffice",
               "backoffice/usuarios-backoffice/crear-usuario-backoffice"
             ]
+          },
+          {
+            "group": "Herramientas de Autor",
+            "pages": [
+              "backoffice/herramientas-autor/editor-lemonade"
+            ]
           }
         ]
       },

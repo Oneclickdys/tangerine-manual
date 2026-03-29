@@ -1,6 +1,6 @@
 {
   "app": "backoffice",
-  "lastUpdated": "2026-03-28",
+  "lastUpdated": "2026-03-29",
   "features": {
     "users/list": {
       "name": "Listar usuarios",
@@ -657,17 +657,17 @@
       "section": "Herramientas de Autor",
       "route": "Embebido en creacion de contenido y evaluaciones",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "editor",
-      "docFile": null,
+      "docFile": "backoffice/herramientas-autor/editor-lemonade.mdx",
       "codeFiles": {
         "frontend": ["lemonade2-editor-builder/src/editor/", "lemonade2-editor-builder/src/questions/"]
       },
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["contents/create", "authoring/mint"],
-      "lastDocumented": null,
-      "notes": "Transversal: accesible desde backoffice (crear contenido) y frontoffice docente (crear evaluaciones). Incluye 25+ tipos de preguntas organizados por categoria."
+      "lastDocumented": "2026-03-29",
+      "notes": "Transversal: accesible desde backoffice (crear contenido tipo Question) y frontoffice docente (crear evaluaciones). 7 categorias con 26 plantillas en el selector del backoffice. Documentado con screenshots del selector por categoria y del editor completo."
     },
     "authoring/mint": {
       "name": "Editor Mint (Paginas HTML)",

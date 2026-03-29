@@ -14,7 +14,16 @@
       "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/tangerine-backoffice/src/app -path *publication*service* -o -path *publication*route*)",
       "mcp__chrome-devtools__take_screenshot",
       "mcp__plugin_oneclick_context7__query-docs",
-      "mcp__plugin_oneclick_context7__resolve-library-id"
+      "mcp__plugin_oneclick_context7__resolve-library-id",
+      "WebFetch(domain:www.mintlify.com)",
+      "Bash(git push:*)",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/lemonade2-editor-builder -name *.json -path */locales/* -o -name *.json -path */i18n/* -o -name *.json -path */translations/*)",
+      "Bash(xargs ls:*)",
+      "mcp__chrome-devtools__list_pages",
+      "Bash(grep -rn -E \"\\\\b\\(gestion|administracion|creacion|configuracion|calificacion|informacion|navegacion|seccion|opcion|seleccion|accion|funcion|descripcion|pagina|numero|codigo|unico|automatico|ano|leccion|evaluacion|nino|tamano|ensenanza|companero|diseno\\)\\\\b\" *.mdx backoffice/**/*.mdx frontoffice-docentes/**/*.mdx estudiantes/**/*.mdx admin-escuela/**/*.mdx _templates/**/*.mdx)",
+      "mcp__chrome-devtools__wait_for",
+      "Bash(grep -rn \"\\\\b\\(creacion|configuracion|administracion|gestion|calificacion|informacion|seccion|opcion|seleccion|accion|funcion|leccion|evaluacion|ano|pagina|numero|codigo|unico|tamano|diseno|navegacion\\)\\\\b\" /Users/camilolopez/DEVS/repos/tangerine-global/manual --include=*.mdx)",
+      "mcp__chrome-devtools__press_key"
     ]
   }
 }

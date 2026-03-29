@@ -1,0 +1,311 @@
+---
+title: "Editor Lemonade"
+description: "Herramienta de autor para crear actividades evaluativas con múltiples tipos de preguntas"
+icon: "puzzle-piece"
+---
+
+## Descripción
+
+**Lemonade** es el editor de actividades integrado en Tangerine. Permite crear preguntas evaluativas de diversos tipos — desde selección múltiple hasta fórmulas matemáticas — que luego se utilizan como contenidos educativos dentro de programas digitales o como evaluaciones directas en el aula.
+
+El editor se presenta en dos contextos:
+
+| Contexto | Dónde aparece | Quién lo usa |
+|----------|---------------|--------------|
+| **Backoffice** | Al crear un contenido de tipo **Question** | Administradores y editores de contenido |
+| **Frontoffice** | Al crear un **Quiz** o **Tarea** dentro de una lección | Docentes |
+
+<Info>
+  **Rol requerido:** Administrador (backoffice) o Docente (frontoffice)
+</Info>
+
+<Note>
+  Los docentes acceden a una versión del editor con las mismas plantillas pero integrada dentro del flujo de [creación de evaluaciones](/frontoffice-docentes/evaluaciones/crear-evaluacion). Esta página documenta el editor desde el backoffice; la interfaz del editor es idéntica en ambos contextos.
+</Note>
+
+## Cómo acceder desde el backoffice
+
+<Steps>
+  <Step title="Crear un nuevo contenido">
+    Desde el menú lateral, el administrador accede a **Contenidos** y selecciona el botón **Crear contenido**.
+  </Step>
+  <Step title="Seleccionar tipo Question">
+    En el formulario de creación, el campo **Tipo de contenido** se establece en **Question**. Este es el tipo que activa el editor Lemonade.
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/tipos-contenido-dropdown.png" alt="Selector de tipo de contenido mostrando la opción Question" />
+    </Frame>
+  </Step>
+  <Step title="Guardar y acceder al editor">
+    Tras completar los campos obligatorios (nombre y tipo) y pulsar **Crear**, el sistema redirige a la página de configuración del contenido. La pestaña **Editor** contiene el editor Lemonade con el selector de plantillas.
+  </Step>
+</Steps>
+
+---
+
+## Selector de plantillas
+
+Al acceder a la pestaña **Editor**, Lemonade presenta un selector visual organizado en **7 categorías**. Cada categoría agrupa plantillas de preguntas por su mecánica de interacción.
+
+<Frame>
+  <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-tipo-test.png" alt="Selector de plantillas Lemonade mostrando la categoría Tipo test" />
+</Frame>
+
+### Categorías y plantillas disponibles
+
+<AccordionGroup>
+  <Accordion title="Tipo test — 6 plantillas">
+    Preguntas de selección donde el estudiante elige entre opciones predefinidas.
+
+    | Plantilla | Descripción | Caso de uso |
+    |-----------|-------------|-------------|
+    | **Respuesta única** | Selección múltiple con una sola respuesta correcta | Preguntas de test rápidas, verificación de comprensión lectora |
+    | **Selección múltiple** | Permite marcar varias respuestas correctas | Preguntas donde hay más de una respuesta válida |
+    | **Verdadero o Falso** | Dos opciones fijas: verdadero y falso | Verificación de hechos, comprensión de conceptos |
+    | **Selección múltiple numerada** | Opciones con etiqueta numérica o alfabética en bloque | Cuando el orden visual de las opciones importa |
+    | **Tabla de selección** | Matriz de filas y columnas donde se marca la intersección | Relacionar múltiples afirmaciones con categorías (ej: verdadero/falso/no dice) |
+    | **Lista de selección** | Matriz en disposición lineal | Variante compacta de la tabla de selección |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-tipo-test.png" alt="Plantillas de la categoría Tipo test" />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Completar con texto — 3 plantillas">
+    El estudiante escribe texto para completar huecos o campos.
+
+    | Plantilla | Descripción | Caso de uso |
+    |-----------|-------------|-------------|
+    | **Texto corto** | Campo de texto libre de una línea | Respuestas breves: vocabulario, definiciones cortas |
+    | **Completar huecos con texto** | Texto con espacios en blanco que el estudiante rellena | Cloze tests, conjugaciones verbales, completar fórmulas |
+    | **Completar imagen con texto** | Imagen con campos de texto posicionados sobre ella | Etiquetar partes de un diagrama, mapa o ilustración |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-completar-texto.png" alt="Plantillas de la categoría Completar con texto" />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Arrastrar y seleccionar — 4 plantillas">
+    El estudiante arrastra elementos o selecciona de desplegables para completar contenido.
+
+    | Plantilla | Descripción | Caso de uso |
+    |-----------|-------------|-------------|
+    | **Completar huecos con desplegable** | Texto con huecos que se completan seleccionando de un desplegable | Ejercicios de gramática, completar oraciones |
+    | **Completar huecos con arrastrar y soltar** | Texto con huecos donde se arrastran palabras desde un banco | Vocabulario en contexto, completar párrafos |
+    | **Completar imagen con desplegable** | Imagen con zonas seleccionables mediante desplegable | Etiquetar diagramas con opciones cerradas |
+    | **Completar imagen con arrastrar y soltar** | Imagen con zonas donde se arrastran etiquetas | Anatomía, mapas, esquemas técnicos |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-arrastrar.png" alt="Plantillas de la categoría Arrastrar y seleccionar" />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Ordenar, identificar y relacionar — 6 plantillas">
+    Actividades donde el estudiante organiza, conecta o descubre elementos.
+
+    | Plantilla | Descripción | Caso de uso |
+    |-----------|-------------|-------------|
+    | **Ordenar** | Arrastrar elementos para colocarlos en la secuencia correcta | Cronologías históricas, pasos de un proceso, algoritmos |
+    | **Emparejar** | Relacionar elementos de dos columnas | Vocabulario-definición, causa-efecto |
+    | **Unir** | Conectar elementos con líneas | Relacionar conceptos visualmente |
+    | **Sopa de letras** | Buscar palabras ocultas en una cuadrícula | Vocabulario, repaso lúdico de términos |
+    | **Selecciona para descubrir** | Hacer clic en zonas de una imagen para identificar elementos | Localizar elementos en mapas, diagramas o fotografías |
+    | **Crossword** | Crucigrama con pistas | Vocabulario, definiciones, repaso de conceptos |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-ordenar.png" alt="Plantillas de la categoría Ordenar, identificar y relacionar" />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Clasificar — 1 plantilla">
+    | Plantilla | Descripción | Caso de uso |
+    |-----------|-------------|-------------|
+    | **Clasificar** | Arrastrar elementos a categorías definidas | Clasificar organismos, tipos de palabras, períodos históricos |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-clasificar.png" alt="Plantilla de la categoría Clasificar" />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Matemáticas — 1 plantilla">
+    | Plantilla | Descripción | Caso de uso |
+    |-----------|-------------|-------------|
+    | **Completar huecos con fórmulas matemáticas** | Texto con huecos que aceptan expresiones matemáticas mediante un editor de fórmulas | Ecuaciones, operaciones algebraicas, cálculo |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-matematicas.png" alt="Plantilla de la categoría Matemáticas" />
+    </Frame>
+
+    <Tip>
+      El editor de fórmulas utiliza notación matemática visual (similar a LaTeX) que permite al estudiante introducir fracciones, raíces, potencias y otros símbolos sin necesidad de escribir código.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Evaluación manual — 5 plantillas">
+    Actividades que requieren corrección manual por parte del docente. No se evalúan automáticamente.
+
+    | Plantilla | Descripción | Caso de uso |
+    |-----------|-------------|-------------|
+    | **Enunciado** | Bloque de texto informativo sin interacción | Instrucciones, contexto previo a otras preguntas |
+    | **Respuesta abierta compleja** | Editor de texto enriquecido para respuestas largas | Ensayos, análisis de texto, argumentaciones |
+    | **Pintar** | Lienzo de dibujo libre | Diagramas a mano alzada, esquemas, arte |
+    | **Subir fichero** | El estudiante sube un archivo como respuesta | Trabajos en formato externo (PDF, imagen, documento) |
+    | **Audio Recorder** | El estudiante graba una respuesta de audio | Ejercicios de pronunciación, presentaciones orales |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-selector-evaluacion-manual.png" alt="Plantillas de la categoría Evaluación manual" />
+    </Frame>
+
+    <Warning>
+      Las actividades de evaluación manual no generan calificación automática. El docente debe revisar y puntuar cada entrega individualmente desde [Resultados de evaluación](/frontoffice-docentes/evaluaciones/resultados-evaluacion).
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Interfaz del editor
+
+Una vez seleccionada una plantilla, el editor se divide en dos áreas principales:
+
+- **Panel izquierdo (editor):** Configuración de la actividad
+- **Panel derecho (vista previa):** Previsualización en tiempo real de cómo verá el estudiante la actividad
+
+<Frame>
+  <img src="/assets/screenshots/backoffice/herramientas-autor/lemonade-editor-respuesta-unica.png" alt="Editor Lemonade con una actividad de respuesta única" />
+</Frame>
+
+### Secciones del editor
+
+El editor presenta las siguientes secciones, que varían ligeramente según el tipo de plantilla seleccionada:
+
+#### Nombre interno
+
+Campo de texto con el nombre de la actividad. Se utiliza como identificador interno y no es visible para el estudiante.
+
+#### Enunciado de la actividad
+
+Editor de texto enriquecido donde se redacta la pregunta o instrucciones que verá el estudiante. Soporta formato (negrita, cursiva, listas), imágenes y fórmulas matemáticas.
+
+#### Opciones de respuesta
+
+Área específica de cada tipo de plantilla. En el caso de selección múltiple, muestra las opciones que el estudiante podrá elegir. Cada opción:
+
+- Se puede **editar** con texto enriquecido
+- Se puede **reordenar** arrastrando el asa lateral
+- Se puede **eliminar** con el botón de papelera
+- Se pueden **añadir** más opciones con el botón **Añadir**
+
+#### Soluciones
+
+Configura cuál es la respuesta correcta y el tipo de evaluación:
+
+| Tipo de evaluación | Descripción |
+|-------------------|-------------|
+| **Corrección exacta** | El estudiante debe contestar la actividad completamente bien para recibir la puntuación |
+| **Corrección parcial** | Cada respuesta correcta otorga una fracción proporcional de la puntuación total |
+
+El campo de puntuación permite asignar un peso porcentual a la pregunta (por defecto 100%).
+
+#### Tratamiento del error
+
+Cuando se activa, permite configurar un mensaje de **feedback** que el estudiante recibe al responder incorrectamente. Se puede configurar un mensaje general o un mensaje específico por cada opción de respuesta.
+
+<Tip>
+  El tratamiento del error es especialmente útil en actividades formativas (no sumativas), ya que orienta al estudiante sobre por qué su respuesta es incorrecta y le ayuda a aprender del error.
+</Tip>
+
+#### Tratamiento del acierto
+
+Similar al tratamiento del error, pero se muestra cuando el estudiante responde correctamente. Permite reforzar el aprendizaje confirmando por qué la respuesta es correcta.
+
+#### Pista
+
+Permite añadir una pista que el estudiante puede consultar opcionalmente antes de responder. Útil para proporcionar ayuda sin dar la respuesta directa.
+
+#### Ajustes
+
+Opciones de configuración visual y comportamental de la actividad:
+
+| Ajuste | Descripción |
+|--------|-------------|
+| **Orden aleatorio** | Las opciones de respuesta se presentan en orden diferente para cada estudiante |
+| **Botón de opción** | Muestra radio buttons/checkboxes visibles. Si se desactiva, las opciones funcionan como bloques clicables |
+| **Estilo de lista** | Etiquetado de opciones: ninguno, numérico (1, 2, 3) o alfabético (A, B, C) |
+| **Columnas** | Distribución visual de las opciones en 1 a 6 columnas |
+| **Imagen de fondo** | Permite subir una imagen como fondo del ejercicio |
+
+#### Borrar todo
+
+El botón **Borrar todo** al final del editor reinicia la actividad a su estado por defecto, eliminando todo el contenido configurado.
+
+<Warning>
+  La acción de **Borrar todo** no se puede deshacer. Se recomienda guardar antes de utilizarla.
+</Warning>
+
+---
+
+## Guardar la actividad
+
+Tras configurar la actividad, se utiliza el botón **Guardar** en la parte inferior de la página. El sistema valida que la actividad tenga al menos un enunciado y las opciones de respuesta mínimas según el tipo de plantilla.
+
+<Note>
+  El botón **Guardar** solo se habilita cuando hay cambios pendientes. Si no se han modificado datos desde la última vez que se guardó, el botón permanece deshabilitado.
+</Note>
+
+---
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede cambiar el tipo de plantilla después de crearla?">
+    No directamente. Para cambiar el tipo de pregunta, es necesario usar el botón **Borrar todo** y seleccionar una nueva plantilla desde el selector. Esto elimina toda la configuración previa de la actividad.
+  </Accordion>
+
+  <Accordion title="¿Cómo se usa la misma actividad en un programa digital?">
+    Una vez creado el contenido de tipo Question en el backoffice, se puede asociar a publicaciones y programas digitales como cualquier otro contenido. Los programas referencian contenidos por ID, por lo que cualquier modificación al contenido se refleja automáticamente en todos los programas que lo utilicen.
+  </Accordion>
+
+  <Accordion title="¿Las actividades creadas desde el backoffice son diferentes a las del frontoffice?">
+    No. El editor Lemonade es idéntico en ambos contextos. La diferencia está en el flujo: desde el backoffice se crea un contenido reutilizable; desde el frontoffice, el docente crea una evaluación puntual para su clase. El formato interno de la actividad es el mismo.
+  </Accordion>
+
+  <Accordion title="¿Qué formatos de imagen se admiten como fondo?">
+    Se admiten imágenes en formato JPG, PNG, GIF y HEIC. El tamaño máximo por defecto es de 10 MB.
+  </Accordion>
+
+  <Accordion title="¿Las fórmulas matemáticas se renderizan correctamente en todos los dispositivos?">
+    Sí. El editor utiliza KaTeX como motor de renderizado de fórmulas, que es compatible con todos los navegadores modernos y dispositivos móviles.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear contenido" icon="file-plus" href="/backoffice/contenidos/crear-contenido">
+    Flujo completo para crear cualquier tipo de contenido en el backoffice.
+  </Card>
+  <Card title="Crear evaluación (docentes)" icon="clipboard-check" href="/frontoffice-docentes/evaluaciones/crear-evaluacion">
+    Cómo los docentes crean evaluaciones con Lemonade desde el frontoffice.
+  </Card>
+  <Card title="Resultados de evaluación" icon="chart-bar" href="/frontoffice-docentes/evaluaciones/resultados-evaluacion">
+    Revisión de entregas y calificación de actividades manuales.
+  </Card>
+  <Card title="Gestión de contenidos" icon="folder-open" href="/backoffice/contenidos/gestion-contenidos">
+    Listado y administración de todos los contenidos del backoffice.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: backoffice (transversal con frontoffice-docente)
+  - Sección UI: Contenidos > Crear contenido > Editor (tipo Question)
+  - Archivos de código relacionados:
+    - frontend: lemonade2-editor-builder/src/editor/, lemonade2-editor-builder/src/questions/
+    - integración backoffice: tangerine-backoffice/src/app/pages/contents/ContentDetailPage/
+    - integración frontoffice: tangerine-frontoffice/src/core/lite/views/NewAssessmentView/
+  - Última revisión: 2026-03-29
+*/}
