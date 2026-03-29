@@ -167,11 +167,9 @@ Si necesitas verificar comportamientos, el código está en el monorepo padre (`
 
 ## Comandos disponibles
 
+- `/document-feature feature-key` — Documenta una feature del inventario (ej: `/document-feature collections/list`). Explora código, navega la UI, captura screenshots y genera MDX.
+- `/document-next` — Selecciona la siguiente feature pendiente por prioridad y la documenta automáticamente.
 - `/create-user role [name] [school] [group]` — Crea usuario de prueba via Chrome DevTools
-- `/document-feature app/feature-id` — Documenta una feature del inventario
-- `/document-next` — Documenta la siguiente feature pendiente
-- `/generar-manual funcionalidad` — Genera documentación de una funcionalidad
-- `/inventory-status` — Ver progreso del inventario
 
 ## Tono y audiencia
 
