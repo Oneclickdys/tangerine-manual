@@ -1,7 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual -type f -name .*)"
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual -type f -name .*)",
+      "Skill(oneclick:commit)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(grep -E \"\\\\.\\(ts|js|tsx\\)$\")",
+      "Bash(done)",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__fill",
+      "mcp__chrome-devtools__click",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/tangerine-backoffice/src/app -path *publication*service* -o -path *publication*route*)",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__plugin_oneclick_context7__query-docs"
     ]
   }
 }
