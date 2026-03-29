@@ -1,0 +1,375 @@
+---
+title: "Editor Mint"
+description: "Herramienta de autor para construir páginas HTML interactivas con bloques visuales"
+icon: "file-code"
+---
+
+## Descripción
+
+**Mint** es el editor de páginas HTML integrado en Tangerine. Permite construir contenido educativo interactivo — similar a herramientas como Articulate Rise — combinando bloques de texto, imágenes, galerías, multimedia y componentes interactivos en una página web visualmente atractiva.
+
+A diferencia de [Lemonade](/backoffice/herramientas-autor/editor-lemonade), que se centra en actividades evaluativas (preguntas con respuesta), Mint está diseñado para **contenido expositivo e interactivo**: lecciones, explicaciones, recursos de consulta y páginas con elementos dinámicos como acordeones, comparativas antes/después o intercambiadores de imagen.
+
+| Contexto | Dónde aparece | Quién lo usa |
+|----------|---------------|--------------|
+| **Backoffice** | Al editar una lección dentro de un programa digital (tipo "Página html") | Administradores y editores de contenido |
+| **Frontoffice** | Al editar el contenido de una lección dentro de un curso | Docentes |
+
+<Info>
+  **Rol requerido:** Administrador (backoffice) o Docente (frontoffice)
+</Info>
+
+<Note>
+  Los docentes acceden al mismo editor Mint desde el frontoffice al editar lecciones dentro de sus cursos. La interfaz es idéntica en ambos contextos.
+</Note>
+
+---
+
+## Cómo acceder desde el backoffice
+
+El editor Mint se abre siempre dentro del contexto de un **programa digital**, desde la pestaña **Contenidos**.
+
+<Steps>
+  <Step title="Abrir un programa digital">
+    Desde el menú lateral, el administrador accede a **Contenidos** > **Programas digitales** y selecciona el programa que desea editar.
+  </Step>
+  <Step title="Navegar a la pestaña Contenidos">
+    En la configuración del programa, se selecciona la pestaña **Contenidos** para visualizar la estructura de módulos, submódulos y materiales.
+  </Step>
+  <Step title="Añadir o editar una Página html">
+    Dentro de un submódulo, el botón **+ Añadir** despliega un menú con los tipos de material disponibles. La opción **Página html** crea una nueva página Mint.
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/mint-menu-anadir-leccion.png" alt="Menú de añadir material mostrando la opción Página html junto a Material, Quiz, Tarea, Videolecciones y Sección" />
+    </Frame>
+
+    Para editar una página existente, se hace clic en el icono de **tres puntos** (⋯) del material y se selecciona **Editar**.
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/mint-menu-contextual-pagina.png" alt="Menú contextual de una página html con opciones Editar, Mover a, Duplicar y Eliminar" />
+    </Frame>
+  </Step>
+</Steps>
+
+<Tip>
+  Además de "Página html", Mint también soporta el tipo **Página html dual**, que permite crear versiones diferenciadas de contenido para profesor y estudiante dentro de la misma página. Esta opción es útil cuando el docente necesita ver guías didácticas o notas adicionales que no deben ser visibles para el estudiante.
+</Tip>
+
+---
+
+## Interfaz del editor
+
+Al abrir una página Mint, el sistema presenta un editor WYSIWYG a pantalla completa organizado en tres zonas:
+
+<Frame>
+  <img src="/assets/screenshots/backoffice/herramientas-autor/mint-editor-toolbar.png" alt="Vista completa del editor Mint mostrando la barra superior, el área de contenido y la paleta de bloques inferior" />
+</Frame>
+
+### Barra superior
+
+| Elemento | Función |
+|----------|---------|
+| **Título** | Nombre de la página. El botón **Cambiar título** permite editarlo |
+| **Audios** | Gestión de audiodescripciones asociadas a la página |
+| **Páginas** | Navegación entre páginas cuando la lección tiene múltiples páginas |
+| **Deshacer / Rehacer** | Control+Z / Control+Y para revertir o recuperar cambios |
+| **Editar layout** | Activa el modo de edición de la disposición visual (filas y columnas) |
+| **Borrar layout** | Elimina la configuración de layout personalizado |
+| **Configuración** (⚙) | Opciones generales de la página |
+
+### Área de contenido
+
+Zona central donde se visualizan y editan los bloques. Cada bloque muestra al pasar el cursor una barra de acciones con:
+
+- **Editar** — Abre las opciones de configuración del bloque
+- **Subir / Bajar** — Reordena el bloque dentro de la página
+- **Duplicar** — Crea una copia del bloque
+- **Borrar** — Elimina el bloque
+- **Sustituir por bloque compatible** — Cambia el tipo de bloque manteniendo el contenido donde es posible
+
+<Frame>
+  <img src="/assets/screenshots/backoffice/herramientas-autor/mint-editor-bloque-hover.png" alt="Bloque de texto seleccionado mostrando el borde púrpura y los botones de acción" />
+</Frame>
+
+Los bloques se pueden reordenar arrastrándolos con el asa de arrastre que aparece al lado izquierdo del bloque.
+
+### Paleta de bloques
+
+En la parte inferior del editor, una **paleta de acceso rápido** permite insertar los tipos de bloque más comunes con un clic:
+
+| Botón | Inserta |
+|-------|---------|
+| **Cabecera** | Bloque de encabezado |
+| **Párrafo** | Bloque de texto |
+| **Imagen** | Bloque de imagen |
+| **Actividad** | Actividad Lemonade embebida |
+| **Gráfico** | Gráfico etiquetado interactivo |
+| **Proceso** | Línea de tiempo o proceso secuencial |
+| **Lista** | Lista numerada o con viñetas |
+| **Acordeón** | Secciones expandibles/colapsables |
+| **Notas para el profesorado** | Contenido visible solo para docentes |
+
+El botón **Todos** abre la **Biblioteca de bloques** completa en un panel lateral.
+
+### Botón Previsualizar
+
+En la esquina inferior derecha, el botón **Previsualizar** muestra cómo verá el estudiante la página final, sin las herramientas de edición.
+
+---
+
+## Biblioteca de bloques
+
+La Biblioteca de bloques organiza todos los tipos disponibles en **11 categorías**. Se abre haciendo clic en **Todos** en la paleta inferior.
+
+<Frame>
+  <img src="/assets/screenshots/backoffice/herramientas-autor/mint-selector-bloques-todos.png" alt="Biblioteca de bloques abierta mostrando las categorías en el panel lateral izquierdo" />
+</Frame>
+
+<AccordionGroup>
+  <Accordion title="Texto — 6 bloques">
+    Bloques para contenido textual con distintos niveles de jerarquía.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Párrafo** | Texto libre con formato enriquecido | Explicaciones, descripciones, contenido general |
+    | **Párrafo con cabecera** | Encabezado seguido de texto | Inicio de sección con título destacado |
+    | **Párrafo con subcabecera** | Subcabecera seguida de texto | Subsecciones dentro de una sección |
+    | **Cabecera** | Título independiente | Separación visual de secciones |
+    | **Subcabecera** | Subtítulo independiente | Separación de subsecciones |
+    | **Texto a dos columnas** | Párrafo distribuido en dos columnas | Comparaciones textuales, contenido denso |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/mint-biblioteca-texto.png" alt="Categoría Texto de la Biblioteca de bloques mostrando las previsualizaciones de Párrafo, Párrafo con cabecera y Párrafo con subcabecera" />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Notas — 2 bloques">
+    Bloques para contenido destacado que llama la atención del lector.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Notas para el profesorado** | Contenido visible únicamente para el rol docente | Guías didácticas, instrucciones de facilitación |
+    | **Nota de impacto** | Caja destacada con fondo de color | Datos importantes, advertencias, curiosidades |
+  </Accordion>
+
+  <Accordion title="Frases — 2 bloques">
+    Bloques para texto con formato destacado.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Afirmación tipo A** | Texto resaltado con estilo de declaración | Afirmaciones clave, tesis, definiciones destacadas |
+    | **Cita** | Texto con formato de cita | Citas textuales, frases célebres |
+  </Accordion>
+
+  <Accordion title="Listas — 2 bloques">
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Lista numerada** | Lista con numeración secuencial | Pasos de un proceso, rankings, secuencias |
+    | **Lista con viñetas** | Lista con marcadores | Enumeraciones sin orden específico |
+  </Accordion>
+
+  <Accordion title="Imágenes — 4 bloques">
+    Bloques para contenido visual con distintas disposiciones.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Imagen hero** | Imagen a ancho completo como cabecera visual | Apertura de lección, impacto visual |
+    | **Imagen completa** | Imagen centrada a ancho completo | Ilustraciones, diagramas |
+    | **Imagen con texto al lado** | Imagen acompañada de texto lateral | Explicaciones con soporte visual |
+    | **Imagen con texto superpuesto** | Texto posicionado sobre la imagen | Portadas, banners, contenido visual impactante |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/mint-biblioteca-imagenes.png" alt="Categoría Imágenes de la Biblioteca de bloques" />
+    </Frame>
+  </Accordion>
+
+  <Accordion title="Galerías — 4 bloques">
+    Colecciones de imágenes en distintas distribuciones.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Galería centrada** | Imágenes en disposición centrada | Colecciones pequeñas de ilustraciones |
+    | **Galería 2 columnas** | Dos imágenes lado a lado | Comparaciones visuales |
+    | **Galería 3 columnas** | Tres imágenes en fila | Series de ejemplos |
+    | **Galería 4 columnas** | Cuatro imágenes en fila | Catálogos, mosaicos |
+  </Accordion>
+
+  <Accordion title="Multimedia — 3 bloques">
+    Bloques para contenido audiovisual y embebido.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Audio** | Reproductor de audio integrado | Podcasts, audiolibros, ejercicios de escucha |
+    | **Vídeo** | Reproductor de vídeo | Explicaciones en vídeo, demostraciones |
+    | **Embed** | Contenido externo embebido (iframe) | Simulaciones, mapas interactivos, contenido web externo |
+  </Accordion>
+
+  <Accordion title="Interactivos — 8 bloques">
+    Componentes dinámicos que el estudiante puede manipular.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Acordeón** | Secciones expandibles/colapsables | Contenido opcional, glosarios, FAQ |
+    | **Intercambiador de imagen** | Botones que alternan entre varias imágenes | Comparar estados, mostrar variantes |
+    | **Antes y después** | Slider que compara dos imágenes superpuestas | Comparativas visuales (antes/después de un proceso) |
+    | **Imagen volteable** | Imagen que se voltea al hacer clic revelando otra cara | Tarjetas de vocabulario, flashcards |
+    | **Pestañas** | Contenido organizado en pestañas | Información categorizada, perspectivas múltiples |
+    | **Gráfico etiquetado** | Imagen con puntos interactivos que muestran información | Anatomía, mapas, diagramas técnicos |
+    | **Slider a pantalla completa** | Carrusel de contenido | Presentaciones secuenciales, galerías narrativas |
+    | **Línea de tiempo** | Secuencia cronológica interactiva | Cronologías históricas, fases de un proyecto |
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/herramientas-autor/mint-biblioteca-interactivos.png" alt="Categoría Interactivos mostrando Acordeón, Intercambiador de imagen, Antes y después e Imagen volteable" />
+    </Frame>
+
+    <Tip>
+      Los bloques interactivos son especialmente útiles para contenido que requiere exploración activa por parte del estudiante, como comparar fases de un proceso histórico (Antes y después) o explorar las partes de un organismo (Gráfico etiquetado).
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Divisores — 2 bloques">
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Divisor** | Línea horizontal de separación | Separar secciones temáticas |
+    | **Espaciador** | Espacio en blanco vertical | Controlar el ritmo visual de la página |
+  </Accordion>
+
+  <Accordion title="Actividad — Lemonade integrado">
+    Permite embeber actividades evaluativas creadas con [Lemonade](/backoffice/herramientas-autor/editor-lemonade) directamente dentro de la página Mint.
+
+    | Bloque | Descripción |
+    |--------|-------------|
+    | **Actividad Lemonade** | Inserta una actividad evaluativa existente por su identificador |
+    | **Feedback Lemonade** | Inserta una actividad de retroalimentación |
+
+    Las actividades Lemonade embebidas mantienen toda su funcionalidad (corrección automática, feedback, puntuación) dentro del flujo de la página Mint.
+  </Accordion>
+
+  <Accordion title="Proveedores externos — 2 bloques">
+    Integración con plataformas de contenido educativo externas.
+
+    | Bloque | Descripción | Caso de uso |
+    |--------|-------------|-------------|
+    | **Edpuzzle** | Vídeo interactivo de Edpuzzle | Vídeos con preguntas intercaladas |
+    | **Genially** | Contenido interactivo de Genially | Presentaciones, infografías, juegos |
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Edición de texto enriquecido
+
+Los bloques de texto soportan un editor de texto enriquecido con las siguientes opciones de formato:
+
+- **Negrita**, *cursiva* y subrayado
+- Listas ordenadas y con viñetas
+- Enlaces
+- Fórmulas matemáticas (renderizadas con KaTeX)
+- Tooltips de texto (palabras con información adicional al pasar el cursor)
+
+El formato se aplica seleccionando el texto y usando la barra de herramientas contextual que aparece sobre la selección.
+
+---
+
+## Layout de filas y columnas
+
+El botón **Editar layout** en la barra superior activa el modo de disposición avanzada. Este modo permite:
+
+- Organizar bloques en **filas** y **columnas**
+- Definir el ancho proporcional de cada columna
+- Crear diseños más complejos que una simple secuencia vertical de bloques
+
+<Note>
+  La funcionalidad de layout por filas y columnas está habilitada por configuración del programa. Si no se ve el botón **Editar layout**, el programa no tiene activada la opción `enableRowColumnLayout`.
+</Note>
+
+---
+
+## Auto-guardado
+
+El editor Mint implementa un sistema de auto-guardado para prevenir pérdida de datos:
+
+- **Guardado parcial** cada 5 segundos mientras hay cambios pendientes
+- **Guardado completo** cada 60 segundos
+
+No existe un botón manual de "Guardar" dentro del editor — los cambios se persisten automáticamente. Al cerrar el diálogo del editor (con el botón X), el sistema realiza un guardado final antes de cerrar.
+
+<Warning>
+  Si se cierra el navegador o se pierde la conexión antes de que el auto-guardado se ejecute, los últimos cambios (hasta 5 segundos de trabajo) podrían perderse.
+</Warning>
+
+---
+
+## Versión dual (Profesor / Estudiante)
+
+Cuando una página se crea como **Página html dual**, el editor muestra un selector de versión que permite alternar entre:
+
+- **Versión Profesor** — Contenido completo incluyendo notas didácticas, guías de facilitación y material de referencia
+- **Versión Estudiante** — Contenido visible para el alumno, sin las notas del profesorado
+
+Cada versión se edita de forma independiente. Los bloques de tipo **Notas para el profesorado** solo son visibles en la versión profesor, independientemente de si la página es dual o no.
+
+---
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede cambiar una página simple a dual después de crearla?">
+    No directamente. El tipo de página (simple o dual) se define al crear el material. Para convertir una página simple en dual, se debe crear una nueva página dual y reconstruir el contenido, o solicitar el cambio a nivel de base de datos.
+  </Accordion>
+
+  <Accordion title="¿Qué ocurre si dos personas editan la misma página simultáneamente?">
+    El editor no tiene bloqueo de edición concurrente. Si dos usuarios editan la misma página al mismo tiempo, el último en guardar sobrescribirá los cambios del otro. Se recomienda coordinar la edición de contenidos entre los miembros del equipo.
+  </Accordion>
+
+  <Accordion title="¿Las actividades Lemonade embebidas se pueden editar desde Mint?">
+    No directamente. Al hacer clic en **Editar** en un bloque de actividad Lemonade, se abre el editor Lemonade dentro de Mint para modificar la actividad. Los cambios en la actividad se reflejan en todos los lugares donde esté referenciada.
+  </Accordion>
+
+  <Accordion title="¿Cómo se importa contenido Mint existente?">
+    El programa puede incluir una opción de **Importar Mint** que permite cargar páginas previamente exportadas. Esta funcionalidad está disponible desde el menú de opciones del submódulo.
+  </Accordion>
+
+  <Accordion title="¿Se puede duplicar una página Mint completa?">
+    Sí. Desde el menú contextual (⋯) del material en la vista de contenidos del programa, la opción **Duplicar** crea una copia completa de la página con todos sus bloques.
+  </Accordion>
+
+  <Accordion title="¿Los cambios en una página Mint afectan a programas que la reutilizan?">
+    Las páginas Mint están asociadas al contenido del programa. Cada página es una instancia propia, por lo que los cambios en una no afectan a copias en otros programas. Solo si se comparte el mismo contenido base (por referencia), los cambios se propagan.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Editor Lemonade" icon="puzzle-piece" href="/backoffice/herramientas-autor/editor-lemonade">
+    Herramienta de autor para crear actividades evaluativas con múltiples tipos de preguntas.
+  </Card>
+  <Card title="Contenidos del programa" icon="book-open" href="/backoffice/programas-digitales/contenidos-programa">
+    Gestión de módulos, submódulos y materiales dentro de un programa digital.
+  </Card>
+  <Card title="Crear contenido" icon="file-plus" href="/backoffice/contenidos/crear-contenido">
+    Flujo completo para crear cualquier tipo de contenido en el backoffice.
+  </Card>
+  <Card title="Editar programa" icon="pencil" href="/backoffice/programas-digitales/editar-programa">
+    Configuración general y pestañas de un programa digital.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: backoffice (transversal con frontoffice-docente)
+  - Sección UI: Programas digitales > Contenidos > Página html
+  - Archivos de código relacionados:
+    - frontend editor: mint-components/modules/editorPlusV1/
+    - frontend viewer: mint-components/modules/visorPlusV1/
+    - frontend bloques: mint-components/services/blockDefinitions.constants.ts
+    - integración backoffice: tangerine-backoffice/src/app/components/MintView/MintView.jsx
+    - integración dialog: tangerine-backoffice/src/app/components/dialog/DialogMintEditor/DialogMintEditor.jsx
+    - servicio mint: tangerine-backoffice/src/app/services/mint.service.js
+    - viewer independiente: mint-viewer/src/components/LessonTangerine/
+  - Última revisión: 2026-03-29
+*/}

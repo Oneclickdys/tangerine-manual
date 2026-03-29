@@ -29,7 +29,14 @@
       "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual/assets/screenshots/frontoffice-docente/stream -name *.png)",
       "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/manual/assets/screenshots/backoffice -name *.png)",
       "Bash(git checkout:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/tangerine-backoffice/src -name *Content* -type f)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx\\)$\")",
+      "Bash(find /Users/camilolopez/DEVS/repos/tangerine-global/mint-components/modules/editorPlusV1 -name *.ts -o -name *.tsx)",
+      "Bash(pkill -f \"chrome-devtools-mcp\")",
+      "Bash(pkill -f \"Google Chrome.*remote-debugging\")",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__hover"
     ]
   }
 }

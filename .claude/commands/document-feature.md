@@ -58,6 +58,19 @@ Según el tamaño y complejidad de la feature:
 - **Feature media** (crud-complete, interactive-view): 1-2 páginas (ej: gestión + crear)
 - **Feature compleja** (complex-workflow, editor, multi-step-form): 2-3 páginas
 
+**Subdivisión de features grandes:** Después de la exploración de código y UI (pasos 2-3), si una feature resulta más extensa de lo que su `complexity` sugiere, puedes dividirla en más subsecciones. Criterios para subdividir:
+
+- La feature tiene **más de 3 flujos independientes** (ej: crear, editar, duplicar, importar, configurar)
+- Un solo paso o tab del formulario tiene **complejidad suficiente para una página propia** (ej: un editor embebido, un configurador con múltiples opciones)
+- Documentar todo en el rango estándar de páginas produciría páginas **excesivamente largas** (más de ~400 líneas de MDX) o difíciles de navegar
+- La feature tiene **variantes significativas** que merecen documentación separada (ej: Planeador Avanzado vs Essential como páginas independientes en lugar de Tabs)
+
+Cuando subdividas:
+1. Crea una **página índice** de la feature con descripción general y enlaces a las subpáginas
+2. Cada subpágina debe ser **autocontenida** (no requiere leer las demás para entenderse)
+3. Organiza en una **subcarpeta** con el slug de la feature (ej: `backoffice/programas-digitales/vista-general.mdx`, `backoffice/programas-digitales/editor-sesiones.mdx`)
+4. Actualiza la navegación en `docs.json` creando un subgrupo si es necesario
+
 Si hay features relacionadas pendientes en la misma sección (ej: `list` + `create` + `detail`), documentarlas juntas en las mismas páginas. Actualiza el inventario de TODAS las features cubiertas.
 
 ### 5. Generar documentación

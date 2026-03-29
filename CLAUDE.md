@@ -169,6 +169,7 @@ Si necesitas verificar comportamientos, el código está en el monorepo padre (`
 
 - `/document-feature feature-key` — Documenta una feature del inventario (ej: `/document-feature collections/list`). Explora código, navega la UI, captura screenshots y genera MDX.
 - `/document-next` — Selecciona la siguiente feature pendiente por prioridad y la documenta automáticamente.
+- `/document-batch app-name` — Documenta todas las features pendientes de una app (ej: `/document-batch frontoffice-teacher`). Delega cada feature a un subagente para no saturar el contexto del coordinador. Ejecuta secuencialmente.
 - `/create-user role [name] [school] [group]` — Crea usuario de prueba via Chrome DevTools
 
 ## Tono y audiencia

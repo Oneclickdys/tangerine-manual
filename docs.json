@@ -77,7 +77,8 @@
           {
             "group": "Herramientas de Autor",
             "pages": [
-              "backoffice/herramientas-autor/editor-lemonade"
+              "backoffice/herramientas-autor/editor-lemonade",
+              "backoffice/herramientas-autor/editor-mint"
             ]
           }
         ]

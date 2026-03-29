@@ -266,6 +266,35 @@ El botón se muestra con el texto configurado por el publisher (por defecto: "As
 - Integración con otras features
 - Troubleshooting detallado
 
+### Subdivisión de features que exceden su rango
+
+Los rangos de páginas anteriores son orientativos. Después de explorar el código y la UI, si una feature resulta más grande de lo esperado, el agente puede decidir subdividirla en más subsecciones. Esto aplica a **cualquier nivel de complexity**, no solo a los complejos.
+
+**Criterios para subdividir:**
+
+| Señal | Acción |
+|-------|--------|
+| Más de 3 flujos independientes en una feature | Separar cada flujo en su propia página |
+| Un paso/tab tiene complejidad equivalente a una feature simple | Darle página propia |
+| La página resultante superaría ~400 líneas MDX | Dividir por secciones lógicas |
+| Variantes significativas (no solo cosméticas) entre configuraciones | Considerar páginas separadas en lugar de Tabs |
+
+**Estructura de una feature subdividida:**
+
+```
+backoffice/feature-name/
+├── vista-general.mdx          # Página índice: qué es, cómo acceder, enlaces a subpáginas
+├── crear.mdx                  # Flujo de creación
+├── editor-contenido.mdx       # Editor embebido (si es complejo)
+└── configuracion-avanzada.mdx # Settings y variantes
+```
+
+**Reglas:**
+- Cada subpágina debe ser **autocontenida** — se entiende sin leer las demás
+- La página índice incluye una descripción general y un `<CardGroup>` con enlaces a las subpáginas
+- En `docs.json`, crear un subgrupo dentro del grupo de la sección
+- En el inventario, el `docFile` de la feature principal apunta a la página índice; las subpáginas se listan en `notes`
+
 ---
 
 ## 3. Profundidad consistente
@@ -283,6 +312,10 @@ Si documentas dos o más formas de hacer algo, cada una necesita:
 ---
 
 ## 4. Gestión de contenido extenso
+
+### Subdivide features grandes en múltiples páginas
+
+Cuando una feature resulta demasiado extensa para el rango de páginas sugerido por su `complexity`, subdivídela en subpáginas independientes dentro de una subcarpeta. Ver la sección "Subdivisión de features que exceden su rango" en Templates por complexity (sección 2) para criterios y estructura.
 
 ### Mueve el contenido de referencia a páginas separadas
 
