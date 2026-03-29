@@ -388,7 +388,8 @@
       "section": "Publicaciones",
       "route": "/publications",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
+      "docFile": "backoffice/publicaciones/gestion-publicaciones.mdx",
       "complexity": "simple-list",
       "docFile": null,
       "codeFiles": {
@@ -407,7 +408,8 @@
       "section": "Publicaciones",
       "route": "/publication/create",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
+      "docFile": "backoffice/publicaciones/crear-publicacion.mdx",
       "complexity": "multi-step-form",
       "docFile": null,
       "codeFiles": {
@@ -426,7 +428,8 @@
       "section": "Publicaciones",
       "route": "/publication/:guid",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
+      "docFile": "backoffice/publicaciones/crear-publicacion.mdx",
       "complexity": "multi-step-form",
       "docFile": null,
       "codeFiles": {

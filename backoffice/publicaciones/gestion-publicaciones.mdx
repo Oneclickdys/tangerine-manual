@@ -1,0 +1,112 @@
+---
+title: "Gestión de Publicaciones"
+description: "Listado, búsqueda y filtrado de publicaciones en el backoffice"
+icon: "book-open"
+---
+
+## Descripción
+
+Las publicaciones son el elemento central que conecta los **contenidos** con las **licencias** y los **programas digitales**. Una publicación agrupa contenidos educativos y se asocia a licencias para que los usuarios finales (docentes y estudiantes) puedan acceder a ellos.
+
+<Info>
+  **Rol requerido:** Administrador editorial
+
+  **Acceso:** Contenidos → Publicaciones
+</Info>
+
+## Conceptos clave
+
+| Concepto | Descripción |
+|----------|-------------|
+| **Publicación** | Agrupación de contenidos que se distribuye a través de licencias |
+| **Contenidos** | Materiales educativos (actividades, libros digitales, páginas) asignados a la publicación |
+| **Licencia** | El vehículo que da acceso a una publicación a los usuarios finales |
+| **Colección** | Agrupación lógica de publicaciones (opcional) |
+
+La cadena de distribución funciona así: **Contenido → Publicación → Licencia → Usuario**.
+
+## Listado de publicaciones
+
+La pantalla principal muestra todas las publicaciones del tenant en formato de tabla.
+
+![Listado de publicaciones](/assets/screenshots/backoffice/publicaciones/lista-publicaciones.png)
+
+### Columnas de la tabla
+
+| Columna | Descripción |
+|---------|-------------|
+| **Título** | Nombre de la publicación (enlace al detalle) |
+| **Fecha de creación** | Fecha en que se creó la publicación |
+| **Etapas** | Niveles educativos asociados |
+| **Asignaturas** | Disciplinas vinculadas |
+| **Colección** | Colección a la que pertenece (si aplica) |
+| **Editorial** | Editorial propietaria |
+| **País** | País asociado (visible en configuraciones multipaís) |
+| **Estado** | Toggle para activar/desactivar la publicación |
+
+### Búsqueda y filtros
+
+El campo de búsqueda permite localizar publicaciones por nombre. El panel de filtros ofrece las siguientes opciones:
+
+![Filtros de publicaciones](/assets/screenshots/backoffice/publicaciones/filtros-publicaciones.png)
+
+- **País**: Filtra por país (en configuraciones multipaís)
+- **Editorial**: Filtra por editorial propietaria
+- **Nivel educativo**: Filtra por etapa educativa
+- **Asignaturas**: Filtra por disciplina/asignatura
+- **Colección**: Filtra por colección
+- **Categoría**: Filtra por categoría de publicación
+- **Estado**: Filtra publicaciones activas o inactivas
+
+<Tip>
+  En configuraciones multipaís, al seleccionar un país los filtros de nivel educativo y asignaturas se actualizan automáticamente para mostrar solo los valores disponibles en ese país.
+</Tip>
+
+### Acciones disponibles
+
+- **Crear publicación**: Botón en la cabecera para crear una nueva publicación
+- **Editar**: Desde el menú de acciones de cada fila, accede al formulario de edición
+- **Eliminar**: Desde el menú de acciones, permite eliminar la publicación (previa confirmación)
+- **Activar/Desactivar**: El toggle de estado permite cambiar la visibilidad de la publicación sin eliminarla
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Qué ocurre al desactivar una publicación?">
+    La publicación deja de estar disponible para los usuarios que la tengan asignada a través de licencias. Los contenidos no se eliminan, solo dejan de ser accesibles. Al reactivarla, el acceso se restaura.
+  </Accordion>
+  <Accordion title="¿Se puede eliminar una publicación que está asignada a licencias?">
+    El sistema solicita confirmación antes de eliminar. Si la publicación está asignada a licencias activas, la eliminación afectará a los usuarios que tengan acceso a través de esas licencias.
+  </Accordion>
+  <Accordion title="¿Quién puede eliminar publicaciones?">
+    Los administradores editoriales con rol completo pueden eliminar cualquier publicación. Los roles de Help Desk y Publisher solo pueden eliminar publicaciones que hayan creado ellos mismos.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear publicación" icon="plus" href="/backoffice/publicaciones/crear-publicacion">
+    Formulario paso a paso para crear una nueva publicación.
+  </Card>
+  <Card title="Gestión de licencias" icon="key" href="/backoffice/licencias/gestion-licencias">
+    Las licencias distribuyen publicaciones a los usuarios finales.
+  </Card>
+  <Card title="Gestión de contenidos" icon="file" href="/backoffice/contenidos/gestion-contenidos">
+    Contenidos educativos que se asignan a publicaciones.
+  </Card>
+  <Card title="Programas digitales" icon="book" href="/backoffice/programas-digitales/crear-programa">
+    Los programas digitales se vinculan a través de las publicaciones.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: backoffice
+  - Sección UI: Contenidos → Publicaciones
+  - Archivos de código relacionados:
+    - frontend: tangerine-backoffice/src/app/pages/publications/PublicationsPage/
+    - frontend: tangerine-backoffice/src/app/modules/publications/PublicationsFilter/
+  - Última revisión: 2026-03-28
+*/}

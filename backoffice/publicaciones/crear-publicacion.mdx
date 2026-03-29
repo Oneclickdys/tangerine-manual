@@ -1,0 +1,135 @@
+---
+title: "Crear Publicación"
+description: "Formulario de creación y edición de publicaciones con asignación de contenidos"
+icon: "plus"
+---
+
+## Descripción
+
+El formulario de creación de publicaciones consta de dos pasos: la configuración de los **datos generales** (nombre, asignaturas, agrupación) y la **asignación de contenidos** que formarán parte de la publicación.
+
+<Info>
+  **Rol requerido:** Administrador editorial (excepto Help Desk)
+
+  **Acceso:** Contenidos → Publicaciones → **Crear publicación**
+</Info>
+
+## Paso 1: Detalles
+
+![Formulario de creación - Detalles](/assets/screenshots/backoffice/publicaciones/crear-publicacion-paso1.png)
+
+### Campos del formulario
+
+**Sección "Detalles":**
+
+| Campo | Obligatorio | Descripción |
+|-------|:-----------:|-------------|
+| **Nombre** | Sí | Nombre de la publicación (3-250 caracteres) |
+| **Asignaturas** | Sí | Disciplinas académicas asociadas (selector múltiple) |
+| **País** | Sí* | País de la publicación. *Obligatorio en configuraciones multipaís |
+| **Descripción** | No | Descripción breve de la publicación |
+
+**Sección "Agrupación":**
+
+| Campo | Obligatorio | Descripción |
+|-------|:-----------:|-------------|
+| **Etapa** | No | Nivel educativo (Primaria, Secundaria, etc.) |
+| **Año / serie** | No | Curso o año específico dentro de la etapa |
+| **Colección** | No | Colección a la que pertenece la publicación |
+
+<Tip>
+  El campo **Año / serie** se habilita después de seleccionar una etapa educativa y muestra solo los años correspondientes a esa etapa.
+</Tip>
+
+### Configuración multipaís
+
+<Tabs>
+  <Tab title="Tenant multipaís">
+    En configuraciones multipaís, el campo **País** es obligatorio y condiciona los valores disponibles en los selectores de asignaturas, etapa y año/serie. Al cambiar de país, estos campos se reinician.
+  </Tab>
+  <Tab title="Tenant de un solo país">
+    El campo País no aparece en el formulario. Los selectores de asignaturas y etapas muestran directamente todos los valores configurados para el tenant.
+  </Tab>
+</Tabs>
+
+Al completar los datos, el botón **Crear** (o **Siguiente** en edición) avanza al paso 2.
+
+## Paso 2: Contenidos
+
+![Asignación de contenidos](/assets/screenshots/backoffice/publicaciones/detalle-publicacion-contenidos.png)
+
+En este paso se asignan los contenidos educativos que formarán parte de la publicación.
+
+### Asignar contenidos
+
+<Steps>
+  <Step title="Añadir contenidos">
+    El botón **Añadir contenidos** abre un diálogo de selección donde se pueden buscar y seleccionar contenidos del catálogo.
+  </Step>
+  <Step title="Revisar asignación">
+    Los contenidos seleccionados aparecen en una tabla con su nombre, tipo y estado. Cada contenido puede eliminarse individualmente.
+  </Step>
+  <Step title="Guardar">
+    El botón **Guardar** confirma la asignación de contenidos y finaliza la creación de la publicación.
+  </Step>
+</Steps>
+
+<Note>
+  Una misma pieza de contenido puede estar asignada a múltiples publicaciones. Esto permite reutilizar contenidos entre diferentes combinaciones de publicación.
+</Note>
+
+## Edición de publicaciones
+
+Al acceder al detalle de una publicación existente, el formulario se presenta con las mismas dos pestañas (**Detalles** y **Contenidos**) pero con los datos precargados.
+
+![Detalle de publicación - Detalles](/assets/screenshots/backoffice/publicaciones/detalle-publicacion-detalles.png)
+
+**Diferencias con la creación:**
+- Las pestañas son navegables directamente (no es necesario completar el paso 1 para acceder al paso 2)
+- El botón de acción cambia de "Crear" a **Guardar**
+- El sistema muestra un diálogo de confirmación si hay cambios sin guardar al salir
+
+## Imagen de portada
+
+El formulario permite subir una **imagen de portada** (thumbnail) para la publicación. La imagen se puede recortar desde el propio formulario antes de confirmar la subida.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se pueden modificar los contenidos de una publicación ya asignada a licencias?">
+    Sí. Los cambios en los contenidos de una publicación se reflejan automáticamente para todos los usuarios que tengan acceso a través de licencias. No es necesario reasignar la publicación a las licencias.
+  </Accordion>
+  <Accordion title="¿Qué ocurre si se elimina un contenido de una publicación?">
+    El contenido deja de ser accesible a través de esa publicación. Si los usuarios ya estaban trabajando con ese contenido, perderán el acceso. El contenido en sí no se elimina del sistema.
+  </Accordion>
+  <Accordion title="¿Se puede cambiar el país de una publicación después de crearla?">
+    Sí, pero al cambiar el país se reinician los campos dependientes (asignaturas, etapa, año/serie). Los contenidos asignados no se ven afectados por el cambio de país.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestión de publicaciones" icon="list" href="/backoffice/publicaciones/gestion-publicaciones">
+    Listado y filtrado de todas las publicaciones.
+  </Card>
+  <Card title="Gestión de contenidos" icon="file" href="/backoffice/contenidos/gestion-contenidos">
+    Contenidos que se asignan a las publicaciones.
+  </Card>
+  <Card title="Gestión de licencias" icon="key" href="/backoffice/licencias/gestion-licencias">
+    Las licencias distribuyen las publicaciones a usuarios finales.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: backoffice
+  - Sección UI: Contenidos → Publicaciones → Crear publicación
+  - Archivos de código relacionados:
+    - frontend: tangerine-backoffice/src/app/pages/publications/PublicationCreatePage/
+    - frontend: tangerine-backoffice/src/app/pages/publications/PublicationDetailPage/
+    - frontend: tangerine-backoffice/src/app/modules/publications/PublicationForm/
+    - service: tangerine-backoffice/src/app/services/publications.service.js
+  - Última revisión: 2026-03-28
+*/}

@@ -76,6 +76,13 @@
           ]
         },
         {
+          "group": "Publicaciones",
+          "pages": [
+            "backoffice/publicaciones/gestion-publicaciones",
+            "backoffice/publicaciones/crear-publicacion"
+          ]
+        },
+        {
           "group": "Programas Digitales",
           "pages": [
             "backoffice/programas-digitales/crear-programa"
