@@ -1,0 +1,154 @@
+---
+title: "Panel / Stream"
+description: "Muro social del curso donde el estudiante recibe anuncios, participa en conversaciones y consulta tareas pendientes"
+icon: "comments"
+---
+
+El Panel (también conocido como Stream en algunas instituciones) es el muro social del curso visto desde la perspectiva del estudiante. Es el espacio donde el estudiante recibe anuncios del docente, participa en conversaciones y accede rápidamente a tareas pendientes y eventos próximos.
+
+<Note>
+  En algunas instituciones este tab aparece como **"Stream"**, **"Muro"** u otros nombres según el idioma y la configuración del tenant. La funcionalidad es siempre la misma.
+</Note>
+
+## Acceder al Panel
+
+El Panel es el tab que se muestra por defecto cuando el estudiante entra a un curso. También se puede acceder haciendo clic en el tab **Panel** (o **Stream**) en la barra de navegación superior del curso.
+
+La ruta es `/course/:guid` (sin sufijo, ya que es el tab por defecto).
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/curso/panel-stream-english.png" alt="Vista del Panel del estudiante mostrando un comunicado global y tareas pendientes" />
+</Frame>
+
+## Estructura del Panel
+
+El Panel del estudiante se divide en dos áreas:
+
+### Área de publicaciones (izquierda)
+
+Es el área principal de comunicación. Contiene:
+
+- **Campo de nueva publicación**: Cuadro de texto para escribir un mensaje (visible solo si el docente lo permite; ver [Permisos de publicación](#permisos-de-publicación))
+- **Comunicados globales**: Mensajes institucionales destacados en la parte superior, con la etiqueta "Comunicado Global"
+- **Historial de publicaciones**: Todas las publicaciones del curso ordenadas cronológicamente (las más recientes primero)
+
+### Barra lateral (derecha)
+
+Información contextual y accesos rápidos:
+
+| Sección | Descripción |
+|---------|-------------|
+| **Tareas pendientes** | Lista de evaluaciones pendientes del estudiante en este curso. Muestra el texto "Nada para hacer" si no hay tareas. |
+| **Libros** | Acceso rápido a los libros digitales asociados al curso (si los hay) |
+| **Próximos eventos** | Eventos del calendario del curso (visible solo si el calendario legacy está activo) |
+
+<Note>
+  A diferencia del docente, el estudiante **no ve** la tarjeta de configuración del Panel en la barra lateral. Solo el docente puede modificar los permisos de publicación.
+</Note>
+
+---
+
+## Permisos de publicación
+
+El comportamiento del muro social para el estudiante depende de la configuración que haya establecido el docente. Existen tres modos:
+
+| Modo | Qué puede hacer el estudiante |
+|------|-------------------------------|
+| **Solo comentar** (por defecto) | El estudiante puede responder a publicaciones existentes mediante comentarios, pero no puede crear publicaciones nuevas. El campo de publicación no aparece. |
+| **Publicar y comentar** | El estudiante puede tanto crear publicaciones nuevas como comentar en publicaciones existentes. El campo de publicación es visible. |
+| **Privado (solo el docente)** | El estudiante solo puede leer las publicaciones del docente. No puede publicar ni comentar. |
+
+<Info>
+  Si el estudiante no ve el campo para crear publicaciones, significa que el docente ha configurado el Panel en modo "Solo comentar" o "Privado". Esto no es un error.
+</Info>
+
+### Crear una publicación
+
+Cuando el docente ha habilitado la opción de publicar:
+
+1. El estudiante escribe su mensaje en el campo de texto "Qué vas a compartir?"
+2. Opcionalmente, adjunta archivos mediante el icono de clip
+3. Hace clic en **Publicar**
+
+<Note>
+  A diferencia del docente, el estudiante **no puede fijar publicaciones** en la parte superior del muro. La opción de fijar es exclusiva del rol docente.
+</Note>
+
+---
+
+## Comentarios
+
+Los comentarios permiten al estudiante responder a las publicaciones del docente o de otros compañeros, creando hilos de conversación.
+
+### Ver comentarios
+
+- El estudiante hace clic en el icono de comentarios debajo de una publicación para expandir el hilo
+- El número junto al icono indica cuántos comentarios tiene la publicación
+
+### Agregar un comentario
+
+1. Expandir los comentarios de la publicación
+2. Escribir el comentario en el campo de texto
+3. Hacer clic en **Publicar**
+
+### Editar o eliminar comentarios
+
+El estudiante puede editar y eliminar **únicamente sus propios comentarios**:
+
+1. Localizar el comentario propio
+2. Hacer clic en el menú de opciones (tres puntos)
+3. Seleccionar **Editar** o **Eliminar**
+
+<Note>
+  El estudiante no puede editar ni eliminar comentarios de otros compañeros ni del docente. Solo el docente tiene permisos para moderar los comentarios de cualquier participante.
+</Note>
+
+---
+
+## Comunicados globales
+
+Los comunicados globales son mensajes institucionales que aparecen destacados en la parte superior del Panel de todos los cursos. Se identifican por la etiqueta **"Comunicado Global"** y un estilo visual diferenciado.
+
+### Características
+
+- Los crea el administrador de la plataforma, no el docente
+- No permiten comentarios
+- El estudiante puede marcarlos como leídos con la casilla **"Lo he leído"** para ocultarlos de su vista
+
+<Note>
+  Marcar un comunicado como leído solo lo oculta de la vista personal del estudiante. Otros compañeros seguirán viéndolo hasta que ellos también lo marquen.
+</Note>
+
+---
+
+## Tareas pendientes en la barra lateral
+
+La sección de tareas pendientes en la barra lateral muestra las evaluaciones y actividades del curso que el estudiante aún no ha completado. Al hacer clic en una tarea, el sistema redirige directamente a la actividad correspondiente dentro de la lección.
+
+Si no hay tareas pendientes, se muestra el mensaje **"Nada para hacer"**.
+
+El enlace **"Ver todo"** en la parte superior de esta sección redirige al gestor de tareas global (`/tasks`), donde el estudiante puede ver todas sus tareas pendientes de todos los cursos.
+
+---
+
+## Diferencias con el Panel del docente
+
+| Funcionalidad | Docente | Estudiante |
+|---------------|---------|-----------|
+| Crear publicaciones | Siempre | Solo si el docente lo permite |
+| Fijar publicaciones | Sí | No |
+| Configurar permisos del Panel | Sí | No |
+| Editar/eliminar publicaciones de otros | Sí | No |
+| Editar/eliminar comentarios de otros | Sí | No |
+| Ver tarjeta de configuración en barra lateral | Sí | No |
+| Adjuntar archivos a publicaciones | Sí | Solo si puede publicar |
+| Comentar en publicaciones | Siempre | Depende de la configuración |
+
+---
+
+## Navegación relacionada
+
+- Para una visión general del curso, consultar [Vista del curso](/estudiantes/curso/vista-curso)
+- Para ver las calificaciones, consultar [Calificaciones](/estudiantes/curso/calificaciones)
+- Para ver todas las clases, consultar [Ver mis clases](/estudiantes/mis-clases/ver-clases)
+- Para conocer el Panel desde la perspectiva del docente, consultar [Panel / Stream (docente)](/frontoffice-docentes/curso/stream)

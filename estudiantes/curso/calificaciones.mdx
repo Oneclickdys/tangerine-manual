@@ -1,0 +1,147 @@
+---
+title: "Calificaciones"
+description: "Consulta de calificaciones propias del estudiante dentro de un curso, con gráficos y detalle por unidad"
+icon: "star"
+---
+
+El tab de **Calificaciones** dentro de un curso permite al estudiante consultar sus propias notas, analizar su rendimiento mediante gráficos y revisar el detalle de cada actividad evaluada. Esta es una vista reducida en comparación con la del docente: el estudiante solo ve sus propios resultados, sin acceso a las calificaciones de otros compañeros ni a funciones de exportación.
+
+<Info>
+  **Rol requerido:** Estudiante asignado a un curso activo (no programas sueltos/unattended).
+</Info>
+
+## Acceder a las calificaciones
+
+1. Desde la pantalla de inicio, el estudiante entra al curso deseado
+2. Hace clic en el tab **Calificaciones** en la barra de navegación superior
+
+La ruta es `/course/:guid/grades`.
+
+## Variantes de la vista
+
+La vista de calificaciones del estudiante tiene dos variantes según la configuración del tenant. El sistema selecciona automáticamente cuál mostrar.
+
+### Variante 1: Cuaderno de evaluación (modelo de evaluación activo)
+
+Cuando el tenant tiene habilitado el **modelo de evaluación** (`enableEvaluationModel`), el estudiante ve una vista organizada por períodos de evaluación con una estructura de acordeón.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/curso/calificaciones-con-datos.png" alt="Vista de calificaciones del estudiante con el modelo de evaluación, mostrando unidades y actividades en formato acordeón" />
+</Frame>
+
+#### Elementos de esta variante
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Tabs de período** | Botones en la parte superior para navegar entre períodos (ej. "Semestre 1", "Trimestre 1"). |
+| **Unidades (acordeón)** | Cada unidad se muestra como un acordeón expandible con su nombre, un indicador de progreso (ej. "0 de 1 actividades") y las lecciones que contiene. |
+| **Lecciones** | Dentro de cada unidad, las lecciones se muestran también como acordeones expandibles con sus actividades. |
+| **Actividades** | Cada actividad muestra su tipo (ej. "Videolección", "Test"), nombre y un botón **"Ir"** para acceder directamente a la actividad o a sus resultados. |
+| **Nota final del período** | Si el docente ha publicado la nota del período, aparece un indicador con la calificación final del trimestre/semestre. |
+| **Nota global** | Si hay una nota global publicada, se muestra junto a la nota del período. |
+
+#### Acciones disponibles
+
+- **Expandir/contraer unidades y lecciones**: Clic en el acordeón para ver el detalle
+- **Acceder a una actividad**: Clic en el botón **"Ir"** para abrir la actividad. Si ya fue evaluada, se abre la vista de resultados individuales del estudiante.
+- **Navegar entre períodos**: Clic en los tabs de período para ver las calificaciones de cada uno
+
+<Note>
+  Las notas finales de período y la nota global solo aparecen cuando el docente las ha publicado. Hasta ese momento, estos indicadores no son visibles para el estudiante.
+</Note>
+
+### Variante 2: Libro de calificaciones clásico (sin modelo de evaluación)
+
+Cuando el modelo de evaluación no está activo, el estudiante accede a una vista con un menú lateral izquierdo que ofrece tres sub-vistas:
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/curso/calificaciones-vacio.png" alt="Vista de calificaciones vacía cuando no hay actividades evaluadas" />
+</Frame>
+
+#### Sub-vista Gráficas
+
+Muestra el rendimiento del estudiante mediante gráficos de barras:
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Título** | "Análisis de calificaciones" |
+| **Selector de scope** | Permite alternar entre Programa, Toolbox, libros digitales, etc. |
+| **Tabs de gráfico** | Actividades (cada actividad individual), Unidades (promedio por unidad), Calendario (si aplica) |
+| **Gráfico de barras** | Cada barra representa una actividad o unidad con su nota, coloreada según el rango: rojo (< 5), naranja (5-7), verde (> 7) |
+
+#### Sub-vista Calificaciones
+
+Muestra el detalle de las notas en formato de tabla con acordeones:
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Título** | "Mis calificaciones" |
+| **Selector de scope** | Mismo selector que en Gráficas |
+| **Acordeones por unidad** | Cada unidad se expande para mostrar lecciones, y cada lección muestra sus actividades con la nota obtenida |
+| **Estado de actividad** | Indicadores visuales como "Evaluado", "Entregado", "Pendiente", "Entregado con retraso" |
+
+#### Sub-vista Libro de calificaciones
+
+Muestra las calificaciones de actividades del libro digital (tipo Retro), si el curso lo tiene configurado.
+
+<Note>
+  La mayoría de los tenants actuales utilizan la **Variante 1** (cuaderno de evaluación). La Variante 2 se mantiene para tenants que no han activado el modelo de evaluación.
+</Note>
+
+---
+
+## Estados de las actividades
+
+El estudiante puede encontrar los siguientes estados en sus actividades evaluadas:
+
+| Estado | Significado |
+|--------|-------------|
+| **Evaluado** | La actividad ha sido corregida y tiene nota asignada |
+| **Entregado** | El estudiante ha entregado la actividad pero aún no ha sido evaluada |
+| **Entregado con retraso** | La actividad fue entregada después de la fecha límite |
+| **Pendiente** | La actividad aún no ha sido entregada |
+| **Reasignado** | El docente ha devuelto la actividad para que el estudiante la rehaga |
+| **Fuera de plazo** | La fecha límite ha pasado y no se aceptan entregas tardías |
+
+---
+
+## Diferencias con las calificaciones del docente
+
+| Funcionalidad | Docente | Estudiante |
+|---------------|---------|-----------|
+| Ver calificaciones de todos los estudiantes | Sí | No (solo las propias) |
+| Gráficos comparativos entre estudiantes | Sí | No |
+| Ranking de estudiantes | Sí | No |
+| Exportar calificaciones a CSV | Sí | No |
+| Seleccionar estudiantes para comparar | Sí | No |
+| Modificar calificaciones | Sí | No |
+| Secciones de asistencia y comportamiento | Sí | No |
+| Ver detalle de actividad propia | -- | Sí (botón "Ir") |
+
+---
+
+## Situaciones especiales
+
+### No aparecen calificaciones
+
+Si el estudiante ve un mensaje indicando que no hay calificaciones disponibles, puede deberse a:
+
+- No hay actividades evaluables en el curso
+- Las actividades aún no han sido completadas por el estudiante
+- El docente no ha publicado las calificaciones del período (en la variante con modelo de evaluación)
+
+### El tab Calificaciones no aparece
+
+El tab de Calificaciones no se muestra en los siguientes casos:
+
+- El curso es de tipo **programa suelto** (unattended/desatendido): estos cursos solo muestran el tab Programa
+- El estudiante accede desde **Microsoft Teams** y no está registrado como miembro del curso
+
+---
+
+## Navegación relacionada
+
+- Para una visión general del curso, consultar [Vista del curso](/estudiantes/curso/vista-curso)
+- Para participar en el muro social, consultar [Panel / Stream](/estudiantes/curso/stream)
+- Para ver todas las clases, consultar [Ver mis clases](/estudiantes/mis-clases/ver-clases)
+- Para conocer las calificaciones desde la perspectiva del docente, consultar [Calificaciones del curso (docente)](/frontoffice-docentes/curso/calificaciones)

@@ -1,0 +1,201 @@
+---
+title: "Ver Resultados"
+description: "Cómo consultar calificaciones, feedback del docente y revisión pregunta por pregunta tras enviar una evaluación"
+icon: "chart-simple"
+---
+
+Una vez que el estudiante envía una evaluación y el docente publica las calificaciones, el estudiante puede acceder a una vista de resultados que muestra la puntuación obtenida, el feedback del docente y la revisión detallada de cada pregunta. Esta página describe cómo acceder a los resultados y qué información contienen.
+
+<Info>
+  **Rol requerido:** Estudiante que haya enviado una evaluación evaluativa cuyas calificaciones hayan sido publicadas por el docente.
+</Info>
+
+## Cómo acceder a los resultados
+
+### Desde la lección
+
+<Steps>
+  <Step title="Abrir la lección que contiene la evaluación">
+    Navegar al curso y entrar en la lección donde se encuentra la evaluación calificada.
+  </Step>
+  <Step title="Identificar la evaluación calificada">
+    La evaluación muestra la etiqueta **"Grades published"** con el icono de estrellas, junto a la calificación obtenida (por ejemplo, `7.5/10`).
+  </Step>
+  <Step title="Hacer clic en 'Ver resultados'">
+    Junto a la etiqueta de calificación aparece el enlace **Ver resultados**. Al hacer clic, el sistema navega a la vista de resultados individuales.
+  </Step>
+</Steps>
+
+### Desde el tab Calificaciones del curso
+
+El estudiante también puede ver un resumen de todas sus calificaciones en la pestaña **Calificaciones** del curso, donde cada evaluación muestra la nota obtenida. Hacer clic en una evaluación calificada navega a la vista de resultados.
+
+## Vista de resultados del estudiante
+
+La vista de resultados individuales (`AssessmentStudentResultView`) presenta la información en dos secciones principales.
+
+### Encabezado de resultados
+
+El encabezado muestra:
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Icono** | Icono diferenciado según si la evaluación es evaluativa (tarea con estrella) o formativa (tarea simple) |
+| **Título** | Nombre de la evaluación asignado por el docente |
+| **Descripción** | Texto descriptivo de la evaluación (si lo tiene) |
+| **Calificación** | Nota obtenida sobre el total (por ejemplo, `8/10`) |
+| **Fecha de entrega** | Fecha límite configurada por el docente, o "Sin fecha de entrega" |
+| **Duración** | Tiempo asignado en minutos, o "Sin duración" si no tenía temporizador |
+
+### Feedback del docente
+
+Debajo del encabezado, si el docente ha proporcionado feedback, se muestran dos campos:
+
+- **"What's good about this assessment?"**: comentarios positivos del docente sobre el desempeño del estudiante (icono de llama verde)
+- **"Things that need improving"**: aspectos a mejorar identificados por el docente (icono de bandera naranja)
+
+Estos campos de feedback son de solo lectura para el estudiante.
+
+### Revisión de preguntas
+
+La parte principal de la vista muestra la lista completa de preguntas del quiz con las respuestas del estudiante. Para cada pregunta, el sistema indica visualmente si la respuesta fue correcta, incorrecta o parcialmente correcta.
+
+## Indicadores de resultado por pregunta
+
+Los resultados de cada pregunta se muestran mediante **indicadores visuales** (bullets) en la barra de navegación de resultados. Cada bullet tiene un color que indica el estado de la respuesta:
+
+| Indicador | Significado |
+|-----------|-------------|
+| **Verde** | Respuesta correcta |
+| **Rojo** | Respuesta incorrecta |
+| **Amarillo/parcial** | Respuesta parcialmente correcta |
+| **Gris** | Pregunta sin responder |
+
+El estudiante puede hacer clic en cualquier bullet para navegar directamente a la revisión de esa pregunta.
+
+<Tip>
+  La barra de bullets permite identificar rápidamente qué preguntas necesitan más atención de estudio. Las preguntas rojas son aquellas donde el estudiante puede enfocarse para mejorar.
+</Tip>
+
+## Navegación a pregunta individual
+
+Al hacer clic en un bullet o en el botón **"Ver mis resultados"**, el sistema navega a la vista de resultado individual de pregunta (`/results-assesment-individual/course/:courseGuid/:lessonItemGuid/user/:userGuid/question/:questionGuid`).
+
+En esta vista, el estudiante puede:
+
+1. Ver el enunciado completo de la pregunta
+2. Ver su respuesta tal como la envió
+3. Ver la corrección (si el docente habilitó la visibilidad de soluciones)
+4. Navegar a la siguiente pregunta sin volver a la vista general
+
+<Note>
+  La visibilidad de las respuestas correctas depende de la configuración **"Mostrar soluciones"** (`showSolutions`) que el docente puede activar o desactivar desde la vista de resultados del docente. Si está desactivada, el estudiante solo ve su respuesta y la puntuación, pero no la solución correcta.
+</Note>
+
+## Formato de calificaciones
+
+La calificación se muestra en diferentes formatos según la configuración del curso:
+
+<Tabs>
+  <Tab title="Escala numérica">
+    La calificación se presenta como un número sobre el máximo posible (por ejemplo, `7.5/10`). La escala puede configurarse con un mínimo, máximo y número de decimales específicos del tenant.
+  </Tab>
+  <Tab title="Escala cualitativa">
+    En lugar de un número, se muestra una etiqueta textual (por ejemplo, "Notable", "Sobresaliente"). Las etiquetas se definen en rangos configurados en la escala de evaluación del curso.
+  </Tab>
+  <Tab title="Escala estándar (por defecto)">
+    Se usa la escala base del curso (`score_scale`), normalmente de 0 a 10. El sistema convierte la puntuación bruta a esta escala.
+  </Tab>
+</Tabs>
+
+### Indicadores de rendimiento
+
+Junto a la calificación numérica, se muestra un **icono de rendimiento** que varía según la nota:
+
+| Rendimiento | Icono | Significado |
+|-------------|-------|-------------|
+| **Buen progreso** | Estrella dorada | El estudiante ha alcanzado un nivel satisfactorio |
+| **Necesita ampliación** | Pulgar arriba | Resultado aceptable, con margen de mejora |
+| **Necesita refuerzo** | Cara de preocupación | El estudiante necesita trabajo adicional en este tema |
+| **Tiempo agotado** | Cara de pánico | La evaluación se envió automáticamente al agotarse el tiempo |
+| **Pendiente de corrección** | Reloj | El docente aún no ha calificado (para preguntas manuales) |
+
+## Evaluaciones con corrección manual
+
+Algunas evaluaciones contienen preguntas que no son auto-evaluables (texto libre, subida de archivo, grabación de audio). En estos casos:
+
+1. Al enviar, el estado cambia a **"Pendiente de corrección"** en lugar de mostrar inmediatamente la calificación
+2. El estudiante ve el tag **"Waiting correction"** hasta que el docente revise y califique manualmente
+3. Una vez calificada, el docente publica las notas y el estudiante puede acceder a los resultados
+
+<Note>
+  Una evaluación mixta (con preguntas auto-evaluables y manuales) puede mostrar puntuación parcial para las preguntas automáticas mientras las manuales están pendientes de corrección.
+</Note>
+
+## Reasignación
+
+Cuando el docente considera que el estudiante debe repetir una evaluación, puede **reasignarla**. En este caso:
+
+1. La evaluación vuelve al estado **pendiente** para el estudiante
+2. Se muestra el tag **"Reassigned"** con el mensaje "Something was wrong! You have to do this activity again"
+3. El estudiante puede empezar de nuevo desde cero
+4. Las respuestas anteriores se descartan y se crea un nuevo registro de trabajo
+
+## Chat privado
+
+En la vista de resultados (Vista Power), junto a la evaluación puede aparecer un **chat privado** entre el estudiante y el docente. Este chat permite:
+
+- Al docente: dar feedback personalizado, pedir aclaraciones o indicar correcciones
+- Al estudiante: preguntar dudas sobre la calificación o los comentarios recibidos
+
+El chat se muestra debajo de la evaluación y los mensajes nuevos se señalan con un indicador visual.
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Cuándo puedo ver mis resultados?">
+    Los resultados están disponibles cuando el docente publica las calificaciones. Para evaluaciones con preguntas 100% auto-evaluables, el docente puede publicar inmediatamente después del envío. Para evaluaciones con corrección manual, depende de cuándo el docente complete la revisión.
+  </Accordion>
+  <Accordion title="Por qué veo 'Pendiente de corrección' en lugar de mi nota?">
+    La evaluación contiene preguntas que requieren corrección manual por parte del docente (texto libre, archivos, audio). La calificación estará disponible cuando el docente complete la revisión y publique las notas.
+  </Accordion>
+  <Accordion title="Puedo repetir una evaluación que ya envié?">
+    Solo si el docente la reasigna. El estudiante no puede reiniciar una evaluación evaluativa por su cuenta. Las evaluaciones formativas sí permiten reiniciar.
+  </Accordion>
+  <Accordion title="Dónde veo el feedback del docente?">
+    El feedback aparece en la vista de resultados, debajo del encabezado con la calificación. Se divide en dos secciones: aspectos positivos y aspectos a mejorar. Adicionalmente, el docente puede comunicarse a través del chat privado.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Responder Evaluaciones" icon="pen-to-square" href="/estudiantes/evaluaciones/responder-evaluacion">
+    Visión general de todos los tipos de evaluaciones disponibles.
+  </Card>
+  <Card title="Responder un Quiz" icon="list-check" href="/estudiantes/evaluaciones/responder-quiz">
+    Flujo detallado de navegación, temporizador y envío de un quiz.
+  </Card>
+  <Card title="Calificaciones del Curso" icon="graduation-cap" href="/estudiantes/curso/calificaciones">
+    Vista general de todas las calificaciones del estudiante en un curso.
+  </Card>
+  <Card title="Resultados de Evaluación (Docente)" icon="magnifying-glass-chart" href="/frontoffice-docentes/evaluaciones/resultados-evaluacion">
+    Perspectiva del docente: cómo se revisan, califican y publican los resultados.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Sección UI: /results-assesment-individual/course/:courseGuid/:lessonItemGuid/user/:userGuid
+  - Archivos de código relacionados:
+    - frontend: src/core/lite/views/AssessmentResultsView/AssessmentStudentResultView.js
+    - frontend: src/core/lite/views/AssessmentResultsView/components/AssessmentStudenResultHeader.js
+    - frontend: src/core/modules/components/Quizz/QuizzResultsBullets/QuizzResultsBullets.js
+    - frontend: src/core/modules/components/Quizz/QuizzResultsBullets/useQuizzResultsBullets.js
+    - frontend: src/core/modules/compositions/AssessmentGradeTag.js
+    - frontend: src/app/pages/AssessmentResultIndividualQuestion/
+    - frontend: src/app/modules/views/CustomAssessmentResultsView/CustomAssessmentStudentResults/
+  - Última revisión: 2026-03-30
+*/}

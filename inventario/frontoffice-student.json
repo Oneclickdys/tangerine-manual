@@ -1,6 +1,6 @@
 {
   "app": "frontoffice-student",
-  "lastUpdated": "2025-12-18",
+  "lastUpdated": "2026-03-30",
   "features": {
     "home/classrooms": {
       "name": "Ver mis clases",
@@ -8,18 +8,18 @@
       "section": "Mis Clases",
       "route": "/home",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "estudiantes/mis-clases/ver-clases",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/HomeView/"],
+        "frontend": ["src/core/lite/views/MyClassroomsView/", "src/core/lite/views/StudentClassroomsView/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
-      "lastDocumented": null,
-      "notes": "Misma vista que docentes pero con funcionalidades reducidas"
+      "lastDocumented": "2026-03-30",
+      "notes": "Misma vista que docentes pero con funcionalidades reducidas. Usa MyClassroomsView (Tangerine standard) o StudentClassroomsView (Edelvives). Documentados: recomendaciones IA, programas sueltos, diálogo añadir código."
     },
     "course/view": {
       "name": "Vista del curso",
@@ -27,9 +27,9 @@
       "section": "Curso",
       "route": "/course/:guid",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "estudiantes/curso/vista-curso",
       "codeFiles": {
         "frontend": ["src/core/lite/views/CourseView/"],
         "backend": []
@@ -37,8 +37,8 @@
       "tenantVariations": ["UNOi tiene Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/stream", "course/grades"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-30",
+      "notes": "Tabs: Programa, Panel (Stream), Calificaciones. Vista reducida vs docente. Variante Vanilla usa VanillaCourseViewWrapper."
     },
     "course/stream": {
       "name": "Stream (muro social)",
@@ -46,9 +46,9 @@
       "section": "Curso",
       "route": "/course/:guid (tab Stream)",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "estudiantes/curso/stream",
       "codeFiles": {
         "frontend": ["src/core/lite/views/CourseView/Stream/"],
         "backend": []
@@ -56,8 +56,8 @@
       "tenantVariations": ["UNOi usa Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-30",
+      "notes": "3 modos de stream (onlyComment, postAndComment, private) configurados por docente. Estudiante no ve tarjeta de config. Comunicados globales con opción Lo he leído."
     },
     "course/grades": {
       "name": "Ver mis calificaciones",
@@ -65,18 +65,18 @@
       "section": "Curso",
       "route": "/course/:guid (tab Grades)",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-list",
-      "docFile": null,
+      "docFile": "estudiantes/curso/calificaciones",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/CourseView/Grades/"],
+        "frontend": ["src/core/lite/views/CourseView/Grades/", "src/core/lite/views/CourseView/GradesPeriods/student/"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": [],
+      "featureFlags": ["enableEvaluationModel"],
       "relatedFeatures": ["course/view"],
-      "lastDocumented": null,
-      "notes": "Vista reducida comparada con la de docentes"
+      "lastDocumented": "2026-03-30",
+      "notes": "Dos variantes: GradesPeriodsStudent (con modelo evaluación) y StudentGradesView (sin modelo evaluación, con sub-tabs Gráficas/Calificaciones/Libro). Solo muestra datos propios."
     },
     "lesson/view": {
       "name": "Vista de leccion",
@@ -84,9 +84,9 @@
       "section": "Lecciones",
       "route": "/course/:courseGuid/lesson/:lessonGuid",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "estudiantes/lecciones/vista-leccion",
       "codeFiles": {
         "frontend": ["src/core/lite/views/LessonView/"],
         "backend": []
@@ -94,8 +94,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-30",
+      "notes": "Tres variantes de vista: LessonViewPower (sidebar + contenido inline), LessonView (secciones accordion), LessonMintView (contenido Mint). Estudiante solo consume contenido, sin edición."
     },
     "assessment/answer": {
       "name": "Responder evaluacion",
@@ -103,18 +103,18 @@
       "section": "Evaluaciones",
       "route": "/assessment/:guid",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "complex-workflow",
-      "docFile": null,
+      "docFile": "estudiantes/evaluaciones/responder-evaluacion",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/AssessmentView/"],
+        "frontend": ["src/core/lite/views/NewAssessmentView/", "src/core/modules/components/Quizz/", "src/core/modules/components/Task/", "src/core/lite/views/AssessmentResultsView/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": "Flujo critico - documentar con detalle"
+      "relatedFeatures": ["lesson/view", "course/grades"],
+      "lastDocumented": "2026-03-30",
+      "notes": "Flujo critico - documentado con detalle. 3 paginas: responder-evaluacion (overview), responder-quiz (flujo quiz), resultados-estudiante (ver resultados). Cubre Quizz (CTTY_09), Task (CTTY_14), Videolesson evaluativa."
     },
     "tasks/list": {
       "name": "Ver mis tareas pendientes",
@@ -122,18 +122,18 @@
       "section": "Tareas",
       "route": "/tasks",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-list",
-      "docFile": null,
+      "docFile": "estudiantes/tareas/ver-tareas",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/TasksView/"],
+        "frontend": ["src/app/modules/views/TasksView/TasksStudentView/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "relatedFeatures": ["assessment/answer"],
+      "lastDocumented": "2026-03-30",
+      "notes": "Vista estudiante usa TasksStudentView (no TasksView genérico). Panel lateral con filtro por curso y pestañas Pendiente/Entregado. Listado usa AssessmentsList con scroll infinito (24 items/página). Ruta de código real: src/app/modules/views/TasksView/ (no src/core/lite/views/)."
     },
     "calendar/view": {
       "name": "Calendario",
@@ -141,18 +141,18 @@
       "section": "Calendario",
       "route": "/calendar",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "estudiantes/calendario/vista-calendario",
       "codeFiles": {
         "frontend": ["src/core/lite/views/CalendarView/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "relatedFeatures": ["tasks/list", "assessment/answer"],
+      "lastDocumented": "2026-03-30",
+      "notes": "Misma vista CalendarView que el docente pero con funcionalidades reducidas (sin drag&drop, sin configurar curso, sin gestionar festivos). Tres variantes de calendario segun tenant: avanzado con horas, semanal sin horas, legacy. Clic en entregable abre dialogo de previsualizacion (no nueva pestana como docente)."
     },
     "profile/view": {
       "name": "Ver mi perfil",
@@ -160,9 +160,9 @@
       "section": "Perfil",
       "route": "/profile",
       "priority": "P3",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-form",
-      "docFile": null,
+      "docFile": "estudiantes/perfil/ver-perfil",
       "codeFiles": {
         "frontend": ["src/core/lite/views/ProfileView/"],
         "backend": []
@@ -170,8 +170,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-30",
+      "notes": "4 pestanas: Detalles personales (avatar, nombre, apellidos, rol, colegio), Cuenta (email read-only, cambio contrasena), Licencias (listado + anadir), Idiomas (selector). Editabilidad de campos depende de tenantConfig (canEditProfileInfo, canChangeAvatar, showPersonalizeAvatar). Pestana Cuenta depende de showAccountTab. Pestana Licencias depende de canCreateGroup."
     }
   }
 }

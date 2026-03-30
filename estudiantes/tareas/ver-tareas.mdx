@@ -1,0 +1,112 @@
+---
+title: "Mis Tareas Pendientes"
+description: "Listado de tareas y evaluaciones pendientes del estudiante"
+icon: "list-checks"
+---
+
+## Descripción general
+
+La vista de tareas centraliza todas las evaluaciones y actividades asignadas al estudiante en un único lugar, independientemente del curso al que pertenezcan. Desde esta pantalla, el estudiante puede consultar qué tareas tiene pendientes de realizar, cuáles ya ha entregado y acceder directamente a cada una de ellas.
+
+La vista distingue entre dos estados principales: **Pendiente** (tareas por hacer) y **Entregado** (tareas ya enviadas). Además, permite filtrar por curso para localizar rápidamente una tarea concreta.
+
+<Info>
+  **Rol requerido:** Estudiante con licencia activa y al menos un curso con evaluaciones asignadas por el docente.
+</Info>
+
+## Cómo acceder
+
+El estudiante dispone de dos vías para llegar a la vista de tareas:
+
+### Desde el icono de la barra de navegación
+
+En la barra de navegación superior, el icono **Tareas** (representado con un portapapeles) está disponible en cualquier pantalla de la plataforma. Al hacer clic, se despliega un panel rápido con un resumen de las tareas pendientes y un enlace **Ver todo** que conduce a la vista completa.
+
+### Navegación directa
+
+La ruta de la pantalla es `/tasks`. También es posible llegar a ella desde el **menú lateral del perfil**.
+
+## Elementos de la vista
+
+![Vista de tareas del estudiante mostrando el estado vacío con filtro de cursos y pestañas de estado](/assets/screenshots/frontoffice-estudiante/tareas/vista-tareas-vacia.png)
+
+La pantalla se divide en dos paneles principales:
+
+### Panel lateral izquierdo
+
+El panel lateral contiene los controles de navegación y filtrado:
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Flecha de retorno** | Vuelve a la pantalla anterior. |
+| **Título "Tareas"** | Identifica la sección con un icono de portapapeles. |
+| **Selector de curso** | Desplegable que permite filtrar las tareas por un curso específico o ver todas a la vez ("Todos los cursos"). |
+| **Pestañas de estado** | Dos opciones: **Pendiente** y **Entregado**, cada una con un contador numérico de tareas en ese estado. |
+
+### Filtro por curso
+
+![Desplegable de filtro por curso mostrando los cursos disponibles del estudiante](/assets/screenshots/frontoffice-estudiante/tareas/filtro-cursos.png)
+
+El selector de curso muestra todos los cursos en los que el estudiante está inscrito. Cada entrada del desplegable incluye:
+
+- **Nombre del grupo** (por ejemplo, "3º ESO - A")
+- **Disciplina** (Math, Language, etc.)
+- **Nivel educativo** (3.º ESO, 2.º Primaria, etc.)
+
+Al seleccionar un curso, tanto el listado de tareas como los contadores de las pestañas se actualizan para reflejar únicamente las tareas de ese curso.
+
+### Panel principal (derecho)
+
+El panel principal muestra el listado de tareas correspondiente a la pestaña seleccionada. Cada tarea en el listado incluye la siguiente información:
+
+| Dato | Descripción |
+|------|-------------|
+| **Asignatura y lección** | Nombre de la disciplina del curso y la lección a la que pertenece la evaluación. |
+| **Título** | Nombre de la evaluación o actividad. |
+| **Número de preguntas** | Cantidad de preguntas que contiene la evaluación (cuando aplica). |
+| **Fecha de entrega** | Plazo límite para entregar la tarea, con indicación visual de proximidad o retraso. |
+| **Estado** | Etiqueta visual que indica la situación de la tarea (asignada, próxima a vencer, retrasada, entregada, calificada, etc.). |
+| **Calificación** | Nota obtenida, visible una vez que el docente ha publicado las calificaciones. |
+
+<Tip>
+  El estudiante puede hacer clic en cualquier tarea del listado para navegar directamente a la evaluación y comenzar a responderla (si está pendiente) o consultar sus resultados (si ya fue entregada o calificada).
+</Tip>
+
+## Pestañas de estado
+
+La vista organiza las tareas en dos categorías accesibles mediante las pestañas del panel lateral:
+
+<Tabs>
+  <Tab title="Pendiente">
+    Muestra las tareas que el estudiante aún no ha entregado. Incluye evaluaciones recién asignadas, próximas a vencer y retrasadas (cuando se permite entrega tardía). Las tareas se ordenan por fecha de entrega ascendente, de modo que las más urgentes aparecen primero.
+  </Tab>
+  <Tab title="Entregado">
+    Muestra las tareas que el estudiante ya ha enviado. Incluye tanto las que están pendientes de corrección como las que ya tienen calificación publicada.
+  </Tab>
+</Tabs>
+
+## Estados de una tarea
+
+Cada tarea muestra una etiqueta visual que refleja su situación actual. Los estados posibles son:
+
+| Estado | Etiqueta | Significado |
+|--------|----------|-------------|
+| **Asignada** | "Lets go" | La evaluación está asignada y dentro del plazo. |
+| **Próxima a vencer** | "Coming soon" | Quedan menos de 24 horas para la fecha de entrega. |
+| **Retrasada** | "Late!" | La fecha de entrega ha pasado pero se permite entrega tardía. |
+| **Tiempo agotado** | "Timed out" | La fecha de entrega ha pasado y no se permite entrega tardía. El estudiante no puede acceder. |
+| **Reasignada** | "Reassigned" | El docente ha solicitado que el estudiante repita la evaluación. |
+| **Entregada** | "Turned in ok" | El estudiante envió sus respuestas dentro del plazo. |
+| **Calificada** | "Grades published" | El docente ha publicado la calificación de la evaluación. |
+
+<Note>
+  Las tareas con estado **Tiempo agotado** ("Timed out") no son clicables: el estudiante no puede acceder a la evaluación una vez expirado el plazo sin entrega tardía habilitada.
+</Note>
+
+## Estado vacío
+
+Cuando no existen tareas en la pestaña seleccionada, la vista muestra un mensaje informativo: **"Nada que ver aquí"** acompañado de la sugerencia _"Revisa las otras secciones para ver tareas en otros estados"_.
+
+## Paginación
+
+El listado de tareas implementa **scroll infinito**: a medida que el estudiante se desplaza hacia abajo, se cargan automáticamente más resultados en bloques de 24 elementos. No es necesario hacer clic en un botón de paginación.

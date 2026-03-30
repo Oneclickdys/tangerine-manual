@@ -1,0 +1,241 @@
+---
+title: "Responder un Quiz"
+description: "Flujo completo para responder un quiz: navegación entre preguntas, temporizador, guardado automático y envío"
+icon: "list-check"
+---
+
+El quiz (cuestionario) es el tipo de evaluación más completo de Tangerine. Contiene múltiples preguntas que el estudiante puede navegar libremente, con guardado automático de respuestas, temporizador opcional y un proceso de envío con confirmación explícita. Esta página describe el flujo paso a paso.
+
+<Info>
+  **Rol requerido:** Estudiante con una evaluación de tipo quiz asignada y en estado pendiente.
+</Info>
+
+## Flujo completo
+
+<Steps>
+  <Step title="Acceder al quiz">
+    Desde la vista de lección, el estudiante hace clic en la evaluación de tipo quiz. Si es la primera vez que accede, se crea un registro de trabajo (*job*) que almacena el progreso. Si ya había comenzado previamente, se restaura el estado anterior: respuestas guardadas, pregunta actual y tiempo transcurrido.
+  </Step>
+  <Step title="Responder preguntas">
+    El quiz muestra una pregunta a la vez en el área central. El estudiante interactúa con la pregunta usando los controles de Lemonade (seleccionar opciones, arrastrar elementos, escribir texto, subir archivos, etc.). Cada respuesta se guarda automáticamente en el servidor.
+  </Step>
+  <Step title="Navegar entre preguntas">
+    La barra de navegación superior muestra botones numerados para cada pregunta. El estudiante puede saltar a cualquier pregunta en cualquier momento, sin necesidad de seguir un orden secuencial.
+  </Step>
+  <Step title="Enviar el quiz">
+    Cuando el estudiante ha terminado de responder, hace clic en el botón **Enviar**. Aparece un diálogo de confirmación. Al confirmar, el quiz queda marcado como entregado y ya no se pueden modificar las respuestas.
+  </Step>
+</Steps>
+
+## Interfaz del quiz
+
+La pantalla del quiz se divide en tres zonas principales:
+
+### Barra de navegación de preguntas
+
+En la parte superior del quiz aparece una fila de **botones numerados**, uno por cada pregunta. Cada botón indica visualmente el estado de la pregunta correspondiente:
+
+| Estado del botón | Significado |
+|------------------|-------------|
+| **Activo** (resaltado) | Pregunta que se está visualizando actualmente |
+| **Completado** (color diferenciado) | Pregunta que ya tiene una respuesta guardada |
+| **Sin responder** (color neutro) | Pregunta que aún no ha sido respondida |
+| **Deshabilitado** | El quiz ya fue entregado; la navegación es de solo lectura |
+
+El estudiante puede hacer clic en cualquier botón para saltar directamente a esa pregunta. No es necesario responder en orden.
+
+<Tip>
+  Antes de enviar, el estudiante puede revisar visualmente la barra de navegación para identificar preguntas sin responder (botones en color neutro).
+</Tip>
+
+### Área de pregunta
+
+El área central muestra la pregunta actual renderizada por el motor de Lemonade. Los tipos de pregunta que el estudiante puede encontrar incluyen:
+
+- **Selección múltiple**: elegir una o varias opciones
+- **Arrastrar y soltar**: asociar elementos arrastrándolos a sus posiciones
+- **Texto libre** (`longtextV2`, Essay): escribir una respuesta abierta con editor enriquecido
+- **Completar huecos**: rellenar espacios en blanco dentro de un texto
+- **Subir archivo** (`uploadfile`): adjuntar un documento o imagen
+- **Grabación de audio** (`audiorecorder`): grabar una respuesta oral
+- **Dibujo** (`pencil`): dibujar o anotar sobre un lienzo
+- **Ejercicios matemáticos**: resolver operaciones usando un editor de fórmulas
+
+Cada tipo de pregunta tiene su propia interfaz de interacción, pero todos comparten el mismo mecanismo de guardado automático.
+
+### Botón de envío
+
+A la derecha de la barra de navegación aparece el botón **Enviar** (`Submit!`). Este botón permanece activo mientras el quiz está pendiente y se deshabilita una vez entregado.
+
+## Guardado automático
+
+El quiz implementa un sistema de **guardado automático** (*auto-save*) que protege el trabajo del estudiante:
+
+- Cada vez que el estudiante interactúa con una pregunta (selecciona una opción, escribe texto, etc.), la respuesta se envía al servidor.
+- El guardado se ejecuta con un **debounce de 500 milisegundos**: si el estudiante realiza cambios rápidos consecutivos, solo se envía la última versión.
+- Antes de cambiar de pregunta, el sistema ejecuta inmediatamente cualquier guardado pendiente (`flush`).
+- Antes de abrir el diálogo de envío, también se ejecuta el guardado pendiente.
+- El servidor almacena tanto las respuestas individuales como el índice de la pregunta actual, permitiendo retomar el quiz exactamente donde se dejó.
+
+<Note>
+  El guardado automático no equivale a entregar el quiz. Las respuestas se guardan como borrador mientras el quiz mantiene estado **pendiente**. Solo al hacer clic en **Enviar** y confirmar se marca como **entregado**.
+</Note>
+
+### Guardado de progreso entre sesiones
+
+Si el estudiante cierra el navegador o pierde la conexión, al volver a acceder al quiz:
+
+1. Se restauran todas las respuestas previamente guardadas
+2. Se restaura la pregunta en la que se encontraba
+3. Si el quiz tiene temporizador, se calcula el tiempo restante basado en la marca temporal de inicio original
+
+## Temporizador
+
+Cuando el docente configura una duración para el quiz, el estudiante ve un **temporizador** en la parte inferior de la pantalla.
+
+### Funcionamiento
+
+- El temporizador muestra el tiempo restante en formato `MM:SS` (o `HH:MM:SS` si supera una hora)
+- El tiempo comienza a contar desde el primer acceso al quiz (se registra un `startTimestamp`)
+- El temporizador es **persistente**: si el estudiante sale y vuelve a entrar, el tiempo sigue descontándose desde el inicio original
+- El conteo se actualiza cada segundo en los últimos 60 segundos, y cada 5 segundos en el resto del tiempo (optimización de rendimiento)
+
+### Indicadores visuales de tiempo
+
+| Tiempo restante | Indicador visual |
+|-----------------|------------------|
+| Más de 5 minutos | Estilo normal |
+| Menos de 5 minutos | Estilo de advertencia (warning) |
+| Menos de 1 minuto | Estilo crítico (critical) |
+
+### Agotamiento del tiempo
+
+Cuando el temporizador llega a cero:
+
+1. El quiz se envía **automáticamente** con todas las respuestas guardadas hasta ese momento
+2. El estudiante no necesita confirmar el envío
+3. Las preguntas sin responder quedan vacías
+4. El estado del quiz pasa a **entregado**
+
+<Warning>
+  El temporizador no se detiene si el estudiante sale del quiz o cierra el navegador. El cálculo de tiempo restante se basa en la diferencia entre el momento actual y el timestamp de inicio, por lo que el estudiante no puede "ganar" tiempo saliendo y volviendo a entrar.
+</Warning>
+
+## Envío del quiz
+
+### Proceso de confirmación
+
+Al hacer clic en **Enviar**, se muestra un diálogo de confirmación con el mensaje:
+
+> "Have you finished? Once you submit your assignment, you won't be able to take it again."
+
+El diálogo ofrece dos opciones:
+- **Cancelar**: cierra el diálogo y el estudiante puede seguir respondiendo
+- **Enviar** (`Submit`): confirma el envío definitivo
+
+### Cálculo de la puntuación
+
+Al enviar el quiz, el sistema calcula automáticamente la puntuación:
+
+1. Para cada pregunta, se obtiene el **score base** (puntuación de 0 a 1 que Lemonade asigna según la corrección de la respuesta)
+2. Se multiplica por el **ranking_scale** de la pregunta (peso relativo configurado por el docente)
+3. Se suman los scores ponderados de todas las preguntas para obtener el **score total**
+4. Solo las preguntas marcadas como evaluables (`isEvaluable`) contribuyen a la puntuación
+
+<Note>
+  Las preguntas no evaluables (informativas o de práctica) dentro de un quiz evaluativo no afectan la calificación, aunque el estudiante sí debe interactuar con ellas.
+</Note>
+
+### Después del envío
+
+Una vez entregado el quiz:
+
+- La barra de navegación se muestra en modo **deshabilitado**: el estudiante puede navegar entre preguntas pero no modificar respuestas
+- El botón **Enviar** se deshabilita
+- Las preguntas de tipo formativo muestran la respuesta correcta y pistas si estaban configuradas
+- Si el quiz es evaluativo, la visibilidad de las respuestas correctas depende de la configuración del docente (`showSolutions`)
+
+## Tipos de pregunta especiales
+
+Algunos tipos de pregunta tienen un comportamiento particular dentro del quiz:
+
+### Preguntas de texto largo
+
+Para preguntas de tipo `longtextV2` o `Essay with rich text`, el guardado automático tiene una lógica adicional:
+- Se ignora el primer cambio (para evitar guardar el estado inicial vacío)
+- Se requiere un mínimo de 2 caracteres de texto para considerar la respuesta válida
+- Se aplica un throttle de 500ms entre guardados
+
+### Preguntas con subida de archivo
+
+Para preguntas de tipo `uploadfile`, `audiorecorder` o `pencil`:
+- Se muestra un botón explícito de **envío de respuesta** (además del envío general del quiz)
+- La respuesta se guarda al completar la subida del archivo
+- El sistema genera una URL de subida autenticada para cada sesión
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo salir del quiz y volver más tarde?">
+    Sí. El quiz guarda automáticamente cada respuesta. Al volver a acceder, se restaura el progreso completo incluyendo respuestas, pregunta actual y tiempo restante (si tiene temporizador). Sin embargo, el temporizador no se detiene al salir.
+  </Accordion>
+  <Accordion title="Puedo cambiar una respuesta después de guardarla?">
+    Sí, mientras el quiz no haya sido enviado. El estudiante puede volver a cualquier pregunta y modificar su respuesta. El nuevo valor se guarda automáticamente.
+  </Accordion>
+  <Accordion title="Qué pasa si se me acaba el tiempo?">
+    El quiz se envía automáticamente con todas las respuestas guardadas hasta ese momento. Las preguntas sin responder quedan vacías y reciben puntuación cero.
+  </Accordion>
+  <Accordion title="Puedo ver mis respuestas después de enviar?">
+    Sí, el estudiante puede navegar entre las preguntas para revisar sus respuestas, pero no puede modificarlas. La visualización de respuestas correctas depende de la configuración del docente.
+  </Accordion>
+  <Accordion title="Qué significa 'formativo' vs 'evaluativo'?">
+    Un quiz formativo permite ver pistas, reiniciar y practicar sin que la nota cuente. Un quiz evaluativo registra la calificación en el libro de notas y el envío es definitivo.
+  </Accordion>
+</AccordionGroup>
+
+## Problemas comunes
+
+<AccordionGroup>
+  <Accordion title="El quiz no carga y muestra 'No questions found'">
+    Este mensaje aparece cuando el quiz no tiene preguntas asociadas. Puede ocurrir si el docente creó el quiz pero no añadió preguntas, o si hubo un error al cargar el contenido. El estudiante debe contactar al docente.
+  </Accordion>
+  <Accordion title="La respuesta no se guarda (el botón numérico no cambia de color)">
+    El guardado requiere conexión a internet. Si el estudiante pierde la conexión momentáneamente, la respuesta se guardará cuando se restaure. Si el problema persiste, verificar la conexión y recargar la página; las respuestas previas se restaurarán desde el servidor.
+  </Accordion>
+  <Accordion title="El temporizador muestra menos tiempo del esperado">
+    El temporizador se calcula desde el primer acceso al quiz. Si el estudiante abrió el quiz previamente (aunque sea brevemente), el tiempo ya empezó a correr. Esto es por diseño para evitar que se pueda extender el tiempo saliendo y volviendo a entrar.
+  </Accordion>
+  <Accordion title="No puedo enviar: el botón está deshabilitado">
+    El botón se deshabilita si el quiz ya fue entregado. Esto puede ocurrir si el temporizador agotó el tiempo y el sistema envió automáticamente, o si el quiz fue enviado desde otra pestaña o dispositivo.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Responder Evaluaciones" icon="pen-to-square" href="/estudiantes/evaluaciones/responder-evaluacion">
+    Visión general de todos los tipos de evaluaciones y cómo acceder a ellas.
+  </Card>
+  <Card title="Ver Resultados" icon="chart-simple" href="/estudiantes/evaluaciones/resultados-estudiante">
+    Cómo consultar las calificaciones y el feedback del docente tras el envío.
+  </Card>
+  <Card title="Crear Evaluación (Docente)" icon="circle-plus" href="/frontoffice-docentes/evaluaciones/crear-evaluacion">
+    Perspectiva del docente: cómo se crean y configuran las evaluaciones que el estudiante responde.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Sección UI: Vista de quiz dentro de lección (/course/:courseGuid/lesson/:lessonGuid)
+  - Archivos de código relacionados:
+    - frontend: src/core/modules/components/Quizz/Quizz.js
+    - frontend: src/core/modules/components/Quizz/useQuizz.js
+    - frontend: src/core/modules/components/Quizz/QuizzQuestion/QuizzQuestion.js
+    - frontend: src/core/modules/components/Quizz/QuizzNavigationHeader/QuizzNavigationHeader.js
+    - frontend: src/core/modules/components/Quizz/QuizzTimer/QuizzTimer.js
+    - frontend: src/core/modules/components/Quizz/QuizzDialogSubmit/QuizzDialogSubmit.js
+    - frontend: src/core/modules/components/Quizz/hooks/useQuizzTimer.js
+  - Última revisión: 2026-03-30
+*/}

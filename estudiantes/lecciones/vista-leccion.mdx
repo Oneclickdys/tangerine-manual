@@ -1,0 +1,198 @@
+---
+title: "Vista de Lección"
+description: "Contenido y actividades de una lección desde la perspectiva del estudiante"
+icon: "book-open"
+---
+
+La vista de lección es el espacio donde el estudiante consume el contenido educativo de una sesión de aprendizaje. Desde esta pantalla se accede a materiales de lectura, imágenes, documentos PDF, vídeos y actividades evaluativas, todo organizado de forma secuencial dentro de la lección.
+
+El estudiante no puede modificar el contenido de la lección: su rol se limita a visualizar materiales, responder actividades y navegar entre los elementos disponibles. Las funciones de edición, reordenación y publicación son exclusivas del docente.
+
+<Info>
+  **Rol requerido:** Estudiante con licencia activa, asignado a un grupo que tenga al menos un curso con lecciones publicadas.
+</Info>
+
+## Cómo acceder
+
+<Steps>
+  <Step title="Abrir un curso">
+    Desde la pantalla de inicio (`/home`), el estudiante hace clic en el curso que desea consultar.
+  </Step>
+  <Step title="Ir al tab Programa">
+    Dentro del curso, seleccionar la pestaña **Programa** si no está activa.
+  </Step>
+  <Step title="Expandir una unidad">
+    Hacer clic en la unidad que contiene la lección deseada para desplegar sus lecciones.
+  </Step>
+  <Step title="Seleccionar la lección">
+    Hacer clic en la lección. El sistema navega a la ruta `/course/:courseGuid/lesson/:lessonGuid`.
+  </Step>
+</Steps>
+
+## Estructura de la vista
+
+La vista de lección para el estudiante se organiza en tres zonas principales: un encabezado superior, un panel lateral de navegación y un área de contenido central.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/lecciones/vista-leccion-contenido.png" alt="Vista de lección del estudiante mostrando el sidebar de navegación y contenido de lectura" />
+</Frame>
+
+### Encabezado
+
+El encabezado muestra el nombre de la unidad a la que pertenece la lección (por ejemplo, "1. Language as a System") y un botón de retroceso para volver al programa del curso. A diferencia del encabezado del docente, no incluye botones de edición, proyección ni pestañas adicionales.
+
+### Panel lateral (sidebar)
+
+El panel lateral izquierdo lista todos los contenidos de la lección agrupados por lecciones dentro de la unidad. Cada elemento se presenta como un botón con su nombre. El contenido actualmente seleccionado aparece resaltado visualmente.
+
+La navegación del sidebar incluye:
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Portadas de lección** | Separadores que identifican cada lección dentro de la unidad |
+| **Elementos de contenido** | Páginas, imágenes, PDFs, vídeos o actividades publicadas |
+| **Indicador activo** | El elemento seleccionado se muestra con un estilo diferenciado |
+
+<Tip>
+  El panel lateral permite al estudiante navegar libremente entre todos los contenidos de las lecciones de la unidad sin necesidad de volver al programa del curso.
+</Tip>
+
+### Área de contenido principal
+
+Ocupa la mayor parte de la pantalla y renderiza el contenido del elemento seleccionado en el sidebar. El tipo de renderizado varía según el tipo de contenido.
+
+## Tipos de contenido
+
+El estudiante puede encontrar diversos tipos de contenido dentro de una lección. Cada tipo se presenta de forma diferente en el área principal.
+
+### Páginas de contenido (Mint)
+
+Las páginas creadas con el editor Mint se renderizan directamente en el área principal. Incluyen texto, imágenes, tablas y componentes interactivos. Cuando la página contiene actividades embebidas (preguntas de selección múltiple, arrastrar y soltar, etc.), estas aparecen al final del contenido y el estudiante puede responderlas directamente.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/lecciones/vista-leccion-actividades.png" alt="Actividades embebidas dentro de una página de contenido de la lección" />
+</Frame>
+
+### Documentos PDF
+
+Los documentos PDF se abren en un visor integrado con herramientas de anotación (resaltar, subrayar, dibujar) y navegación entre páginas.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/lecciones/vista-leccion-pdf.png" alt="Visor de PDF integrado en la vista de lección del estudiante" />
+</Frame>
+
+### Imágenes e infografías
+
+Las imágenes se muestran directamente en el área de contenido. El estudiante puede hacer clic en el botón de zoom para ampliarlas.
+
+### Vídeos y audios
+
+Los contenidos de vídeo y audio se reproducen con un reproductor integrado. Al abrir un vídeo o audio, el sistema registra automáticamente que el estudiante ha accedido al contenido.
+
+### Evaluaciones y tareas
+
+Las actividades evaluativas (quizzes, tareas, videolecciones evaluativas) se presentan con una pantalla de portada que muestra información del estado de la actividad antes de iniciarla.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/lecciones/vista-leccion-evaluacion.png" alt="Vista de una actividad evaluativa pendiente con botón Empezar" />
+</Frame>
+
+La pantalla de portada de una evaluación incluye:
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Estado** | Pendiente, Entregado, Evaluado, Fuera de plazo |
+| **Fecha de entrega** | Plazo límite configurado por el docente (si aplica) |
+| **Entrega tardía** | Indica si se permite entregar después de la fecha límite |
+| **Botón de acción** | "Empezar", "Continuar" o "Ver resultados" según el estado |
+
+Al hacer clic en **Empezar**, el contenido de la actividad se despliega en el área principal: un quiz muestra sus preguntas, una tarea muestra el editor de respuesta, y una videolección reproduce el vídeo con preguntas intercaladas.
+
+### Enlaces externos
+
+Los contenidos de tipo enlace abren una nueva pestaña del navegador con la URL configurada por el docente.
+
+### Contenidos interactivos (SCORM/xAPI)
+
+Los paquetes SCORM y xAPI se abren en el visor correspondiente. El progreso se registra automáticamente y se muestra una barra de avance junto con la puntuación obtenida.
+
+## Navegación entre contenidos
+
+El estudiante dispone de varios mecanismos para moverse entre los elementos de la lección:
+
+### Panel lateral
+
+Hacer clic en cualquier elemento del sidebar carga ese contenido en el área principal. Esta es la forma principal de navegación.
+
+### Barra de navegación inferior
+
+En la parte inferior de la vista aparece una barra con flechas de navegación:
+
+- **Flecha izquierda**: avanza al contenido anterior, mostrando su nombre como referencia
+- **Flecha derecha**: avanza al contenido siguiente, mostrando su nombre como referencia
+
+Esta barra permite recorrer todos los contenidos secuencialmente sin interactuar con el sidebar. Las flechas se desactivan cuando se alcanza el primer o el último elemento de la secuencia.
+
+### Botón de retroceso
+
+El botón de retroceso en el encabezado devuelve al estudiante al tab Programa del curso.
+
+## Estados de las actividades
+
+Las actividades evaluativas (quizzes, tareas, videolecciones) presentan diferentes estados que determinan qué puede hacer el estudiante:
+
+| Estado | Indicador visual | Acciones disponibles |
+|--------|-----------------|---------------------|
+| **Pendiente** | Etiqueta "Pendiente" | Empezar la actividad |
+| **Pendiente (reasignado)** | Etiqueta "Reasignado" | Volver a realizar la actividad |
+| **Entregado** | Etiqueta "Entregado" | Consultar la entrega realizada |
+| **Entregado fuera de plazo** | Etiqueta "Entregado tarde" | Consultar la entrega realizada |
+| **Evaluado** | Etiqueta "Calificación publicada" | Ver resultados y calificación |
+| **Fuera de plazo** | Etiqueta "Fuera de plazo" | No es posible entregar (salvo que se permita entrega tardía) |
+
+<Note>
+  El estado de una actividad solo cambia cuando el estudiante interactúa con ella (la inicia, la entrega) o cuando el docente la califica. Los contenidos de tipo material (páginas, PDFs, imágenes) no tienen estos estados de entrega.
+</Note>
+
+## Registro de consumo
+
+El sistema registra automáticamente el consumo de contenidos por parte del estudiante. Cuando el estudiante abre una imagen, un enlace o un contenido multimedia, el sistema marca ese elemento como "entregado" (`delivered`) sin intervención manual. Este registro alimenta las estadísticas de progreso visibles para el docente.
+
+## Situaciones especiales
+
+### Lección sin contenido visible
+
+Si la lección no muestra ningún elemento, puede deberse a que todo el contenido está en estado borrador (no publicado) o programado para una fecha futura. El sistema muestra un mensaje indicando que la lección está vacía.
+
+### Secciones ocultas
+
+Las secciones que contienen exclusivamente elementos en estado borrador no se muestran al estudiante. Solo las secciones con al menos un elemento publicado son visibles.
+
+### Contenido exclusivo del docente
+
+Los elementos marcados como "Solo docente" por el profesor no aparecen en la vista del estudiante. Este contenido (guías pedagógicas, notas del docente) es invisible para el rol de estudiante.
+
+## Diferencias con la vista del docente
+
+| Funcionalidad | Docente | Estudiante |
+|---------------|---------|------------|
+| **Agregar contenido** | Puede crear secciones, materiales, tareas y quizzes | No disponible |
+| **Editar contenido** | Puede modificar y eliminar elementos | No disponible |
+| **Reordenar secciones** | Puede mover secciones y elementos | No disponible |
+| **Publicar/despublicar** | Controla la visibilidad de cada elemento | Solo ve contenido publicado |
+| **Ver progreso de estudiantes** | Ve estadísticas de entrega y calificación por alumno | Solo ve su propio estado |
+| **Proyectar la lección** | Disponible para presentar en clase | No disponible |
+| **Pestañas adicionales** | Pestaña "Preguntas" y "Resultados" (según el tipo) | Solo la pestaña de contenido |
+| **Notas del docente** | Visibles bajo cada elemento | No visibles |
+| **Comentarios** | Puede comentar en cualquier elemento | Puede comentar en elementos publicados |
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Vista del curso" icon="chalkboard" href="/estudiantes/curso/vista-curso">
+    Estructura del curso con tabs Programa, Panel y Calificaciones
+  </Card>
+  <Card title="Vista de lección (docente)" icon="book-open" href="/frontoffice-docentes/lecciones/vista-leccion">
+    La misma vista desde la perspectiva del docente con funciones de edición
+  </Card>
+</CardGroup>

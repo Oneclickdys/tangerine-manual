@@ -156,6 +156,46 @@
               "estudiantes/mis-clases/ver-clases",
               "estudiantes/mis-clases/unirse-grupo"
             ]
+          },
+          {
+            "group": "Curso",
+            "pages": [
+              "estudiantes/curso/vista-curso",
+              "estudiantes/curso/stream",
+              "estudiantes/curso/calificaciones"
+            ]
+          },
+          {
+            "group": "Lecciones",
+            "pages": [
+              "estudiantes/lecciones/vista-leccion"
+            ]
+          },
+          {
+            "group": "Evaluaciones",
+            "pages": [
+              "estudiantes/evaluaciones/responder-evaluacion",
+              "estudiantes/evaluaciones/responder-quiz",
+              "estudiantes/evaluaciones/resultados-estudiante"
+            ]
+          },
+          {
+            "group": "Tareas",
+            "pages": [
+              "estudiantes/tareas/ver-tareas"
+            ]
+          },
+          {
+            "group": "Calendario",
+            "pages": [
+              "estudiantes/calendario/vista-calendario"
+            ]
+          },
+          {
+            "group": "Perfil",
+            "pages": [
+              "estudiantes/perfil/ver-perfil"
+            ]
           }
         ]
       },

@@ -1,0 +1,188 @@
+---
+title: "Responder Evaluaciones"
+description: "Tipos de evaluaciones, cómo acceder a ellas y flujo general de respuesta desde la perspectiva del estudiante"
+icon: "pen-to-square"
+---
+
+Las evaluaciones son actividades que el docente asigna al estudiante dentro de una lección. Pueden ser formativas (sin calificación) o evaluativas (con calificación que se refleja en el libro de notas). Desde la perspectiva del estudiante, el flujo principal consiste en acceder a la evaluación, responder las preguntas y enviar las respuestas.
+
+Tangerine distingue tres tipos de evaluaciones que el estudiante puede encontrar:
+
+| Tipo | Descripción | Identificador |
+|------|-------------|---------------|
+| **Quiz** | Conjunto de preguntas con navegación entre ellas, temporizador opcional y envío explícito | `CTTY_09` |
+| **Tarea (Actividad individual)** | Una única pregunta o actividad que se envía de forma inmediata al responderla | `CTTY_14` |
+| **Videolección evaluativa** | Vídeo con preguntas intercaladas que el estudiante responde durante la reproducción | `CTTY_VIDEOLESSON` |
+
+<Info>
+  **Rol requerido:** Estudiante con licencia activa, asignado a un grupo con al menos un curso que contenga evaluaciones publicadas por el docente.
+</Info>
+
+## Cómo acceder a una evaluación
+
+El estudiante puede llegar a una evaluación a través de dos caminos principales.
+
+### Desde una lección
+
+<Steps>
+  <Step title="Abrir un curso">
+    Desde la pantalla de inicio (`/home`), el estudiante hace clic en el curso que desea consultar.
+  </Step>
+  <Step title="Ir al tab Programa">
+    Dentro del curso, seleccionar la pestaña **Programa** y expandir la unidad que contiene la lección.
+  </Step>
+  <Step title="Entrar a la lección">
+    Hacer clic en la lección. El sistema navega a la vista de lección donde se listan los contenidos y evaluaciones.
+  </Step>
+  <Step title="Localizar la evaluación">
+    En la vista de lección, las evaluaciones aparecen como elementos diferenciados del contenido. Cada evaluación muestra:
+    - Su **tipo** (quiz evaluativo, quiz formativo, tarea evaluativa, tarea formativa, videolección evaluativa, videolección formativa)
+    - El **número de preguntas** (para quizzes)
+    - La **fecha de entrega** (si la tiene)
+    - Su **estado actual** (pendiente, entregado, calificado, retrasado, etc.)
+  </Step>
+  <Step title="Iniciar la evaluación">
+    Hacer clic en el botón **Empezar** o **Ir** que aparece junto a la evaluación. Si la evaluación ya fue entregada, el botón cambia a **Ver mis respuestas** o **Ver resultados**.
+  </Step>
+</Steps>
+
+### Desde el panel de tareas
+
+<Steps>
+  <Step title="Abrir el panel de tareas">
+    Desde cualquier pantalla del frontoffice, hacer clic en el icono **Tareas** de la barra de navegación superior. Se despliega un panel lateral con las evaluaciones pendientes.
+  </Step>
+  <Step title="Seleccionar la evaluación">
+    Cada tarea pendiente muestra el nombre del curso, la lección, el título de la evaluación, la fecha de entrega y su estado. Hacer clic en la evaluación para acceder directamente a ella.
+  </Step>
+</Steps>
+
+<Tip>
+  El panel de tareas es especialmente útil cuando el estudiante tiene evaluaciones pendientes en varios cursos, ya que las agrupa todas en un único lugar.
+</Tip>
+
+## Estados de una evaluación
+
+Cada evaluación tiene un estado que determina qué acciones puede realizar el estudiante. Los estados se muestran mediante etiquetas visuales (tags) con iconos descriptivos.
+
+| Estado | Etiqueta | Significado | Acción disponible |
+|--------|----------|-------------|-------------------|
+| **Pendiente** | "Assigned" | La evaluación está asignada y dentro del plazo | Empezar |
+| **Pendiente (reasignada)** | "Reassigned" | El docente ha pedido al estudiante que repita la evaluación | Empezar de nuevo |
+| **Retrasada (entrega tardía permitida)** | "Late!" | La fecha de entrega ha pasado pero se permite entrega tardía | Empezar (con advertencia) |
+| **Retrasada (sin entrega tardía)** | "Timed out" | La fecha de entrega ha pasado y no se permite entrega tardía | Solo visualizar |
+| **Entregada** | "Turned in ok" | El estudiante envió sus respuestas dentro del plazo | Ver respuestas |
+| **Entregada tarde** | "Turned in late" | El estudiante envió sus respuestas después del plazo | Ver respuestas |
+| **Calificada** | "Grades published" | El docente ha publicado las calificaciones | Ver resultados |
+| **Pendiente de corrección** | "Waiting correction" | El estudiante envió pero el docente aún no ha calificado | Esperar |
+| **No disponible** | "Not available" | El período de evaluación está cerrado | No se puede realizar |
+
+<Note>
+  El estado **"Timed out"** (tiempo agotado) aparece cuando la fecha de entrega ha pasado y el docente configuró la evaluación sin permitir entrega tardía (`can_deliver_late = false`). En este caso, el estudiante ya no puede responder la evaluación.
+</Note>
+
+## Portada de la evaluación
+
+Al acceder a una evaluación desde la vista de lección (Vista Power), el estudiante ve primero una **portada** con información clave antes de comenzar a responder.
+
+La portada incluye:
+
+- **Icono de tipo** de evaluación (tarea, quiz, videolección)
+- **Tarjeta informativa** con un mensaje contextual según el estado:
+  - "You can work on this activity" (pendiente sin temporizador)
+  - "This activity has a duration of X minutes" (pendiente con temporizador)
+  - "Something was wrong! You have to do this activity again" (reasignada)
+  - "It's getting late!" (retrasada con entrega tardía permitida)
+  - "Is Late! You can no longer work on this activity" (retrasada sin entrega tardía)
+  - "You delivered!" (entregada)
+  - "Grades are ready!" (calificada)
+- **Metadatos**: fecha de entrega, si se permite entrega tardía, duración (si aplica), categoría de evaluación
+- **Botón de acción**: Empezar, Continuar, Ver resultados o Ver actividad (deshabilitado si no está disponible)
+
+<Warning>
+  Si la evaluación tiene **temporizador**, la portada advierte al estudiante que una vez que entre no podrá repetir la evaluación. El tiempo empieza a contar desde que accede a las preguntas, no desde que ve la portada.
+</Warning>
+
+## Tipos de evaluaciones en detalle
+
+### Quiz (cuestionario)
+
+El quiz es el tipo de evaluación más completo. Contiene múltiples preguntas creadas con el editor Lemonade y ofrece navegación libre entre ellas. El flujo detallado se describe en la página [Responder un Quiz](/estudiantes/evaluaciones/responder-quiz).
+
+**Características principales:**
+- Navegación entre preguntas mediante botones numerados
+- Temporizador opcional (configurable por el docente)
+- Guardado automático de respuestas (cada respuesta se guarda con debounce de 500ms)
+- Envío explícito con diálogo de confirmación
+- Posibilidad de ver respuestas anteriores si el quiz ya fue entregado
+
+### Tarea (actividad individual)
+
+La tarea contiene una única pregunta o actividad. El envío es inmediato al responder: el estudiante no necesita confirmar manualmente.
+
+**Características principales:**
+- Una sola pregunta renderizada con Lemonade
+- Envío automático al completar la respuesta
+- Si la pregunta es de tipo archivo (`uploadfile`), grabación de audio (`audiorecorder`) o dibujo (`pencil`), se muestra un botón explícito de envío
+- Una vez entregada, el estudiante puede ver su respuesta pero no modificarla
+
+### Videolección evaluativa
+
+La videolección combina un vídeo con preguntas que aparecen en momentos específicos durante la reproducción.
+
+**Características principales:**
+- El vídeo se reproduce con un visor especializado
+- Las preguntas emergen en los timestamps configurados por el docente
+- El estudiante debe responder antes de continuar con el vídeo
+- Las respuestas se registran y forman parte de la calificación
+
+## Evaluativa vs. formativa
+
+Cada evaluación puede configurarse como **evaluativa** o **formativa**. Esta distinción afecta significativamente la experiencia del estudiante.
+
+<Tabs>
+  <Tab title="Evaluativa">
+    - La calificación se registra y aparece en el libro de notas
+    - El estudiante no puede ver las respuestas correctas después de enviar (salvo que el docente lo configure)
+    - La evaluación aparece como **"Quiz evaluativo"** o **"Tarea evaluativa"** en la lección
+    - El envío es definitivo: el mensaje de confirmación advierte "Once you submit your assignment, you won't be able to take it again"
+  </Tab>
+  <Tab title="Formativa">
+    - No genera calificación en el libro de notas
+    - El estudiante puede ver pistas y la respuesta de ejemplo (`showSampleAnswer`)
+    - La evaluación aparece como **"Quiz formativo"** o **"Tarea formativa"**
+    - Orientada a la práctica y el aprendizaje, no a la evaluación formal
+    - El botón de reiniciar está disponible para practicar de nuevo
+  </Tab>
+</Tabs>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Responder un Quiz" icon="list-check" href="/estudiantes/evaluaciones/responder-quiz">
+    Flujo detallado para responder quizzes: navegación, temporizador, guardado automático y envío.
+  </Card>
+  <Card title="Ver Resultados" icon="chart-simple" href="/estudiantes/evaluaciones/resultados-estudiante">
+    Cómo consultar calificaciones, feedback del docente y revisión pregunta por pregunta.
+  </Card>
+  <Card title="Vista de Lección" icon="book-open" href="/estudiantes/lecciones/vista-leccion">
+    Navegación general de una lección donde se encuentran las evaluaciones.
+  </Card>
+  <Card title="Calificaciones del Curso" icon="graduation-cap" href="/estudiantes/curso/calificaciones">
+    Consultar las notas generales del curso, incluyendo las de evaluaciones.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Sección UI: /course/:courseGuid/lesson/:lessonGuid (evaluaciones dentro de lecciones)
+  - Archivos de código relacionados:
+    - frontend: src/core/lite/views/LessonViewPowerV2/LessonViewPowerContents/LessonViewPowerContentStudent/
+    - frontend: src/core/modules/components/lists/assessments/AssessmentItem/
+    - frontend: src/core/modules/compositions/AssessmentStatusTags.js
+    - frontend: src/core/modules/compositions/AssessmentGradeTag.js
+    - frontend: src/core/lite/views/LessonViewPowerV2/LessonViewPowerContents/LessonViewPowerContentStudent/useLessonViewPowerContentStudent.js
+  - Última revisión: 2026-03-30
+*/}

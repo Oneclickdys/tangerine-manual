@@ -1,0 +1,121 @@
+---
+title: "Vista del curso"
+description: "Pantalla principal del curso del estudiante con acceso al programa, muro social y calificaciones"
+icon: "chalkboard"
+---
+
+La vista del curso es el espacio donde el estudiante accede a todo el contenido y la actividad de un curso concreto. Desde esta pantalla se navega por el programa de estudio, se participa en el muro social del curso y se consultan las calificaciones obtenidas.
+
+Esta vista comparte estructura con la del docente, pero con funcionalidades reducidas: el estudiante no puede editar el programa, gestionar unidades, configurar el muro ni exportar calificaciones.
+
+<Info>
+  **Rol requerido:** Estudiante con licencia activa, asignado a un grupo que tenga al menos un curso.
+</Info>
+
+## Cómo acceder
+
+Para entrar a la vista de un curso:
+
+1. Desde la pantalla de inicio (`/home`), el estudiante localiza el grupo al que pertenece
+2. Hace clic en el nombre del curso que desea abrir (por ejemplo, "Math 26" o "English 26")
+
+La ruta de la vista es `/course/:guid`, donde `:guid` es el identificador único del curso.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/curso/vista-curso-panel.png" alt="Vista principal del curso del estudiante mostrando el tab Panel con el muro social" />
+</Frame>
+
+## Estructura de la vista
+
+La vista del curso se organiza en un header superior y un área de contenido que cambia según el tab seleccionado.
+
+### Header del curso
+
+El header muestra los siguientes elementos:
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Nombre del curso** | Indica el curso activo (ej. "Math 26", "English 26") |
+| **Nombre del grupo** | Muestra a qué grupo pertenece el curso (ej. "3.º ESO - A") |
+| **Tabs de navegación** | Programa, Panel y Calificaciones |
+| **Barra de herramientas** | Accesos directos a Tareas, Calendario, Notificaciones, Mis calificaciones y Mi perfil |
+
+### Tabs disponibles
+
+La vista del curso tiene tres tabs principales:
+
+| Tab | Descripción | Página de referencia |
+|-----|-------------|---------------------|
+| **Programa** | Contenido del curso organizado por unidades y lecciones. Es la puerta de entrada al material de estudio. | -- |
+| **Panel** | Muro social del curso donde se publican anuncios y se participa en conversaciones. | [Panel / Stream](/estudiantes/curso/stream) |
+| **Calificaciones** | Consulta de las calificaciones propias del estudiante en el curso. | [Calificaciones](/estudiantes/curso/calificaciones) |
+
+<Note>
+  En algunas instituciones el tab "Panel" puede aparecer como **"Stream"** o **"Muro"**. La funcionalidad es idéntica; solo varía el nombre según la configuración del tenant.
+</Note>
+
+## Tab Programa
+
+El tab Programa es la vista por defecto cuando el estudiante accede a un curso. Muestra todo el contenido educativo organizado jerárquicamente.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-estudiante/curso/vista-curso-programa.png" alt="Tab Programa del curso mostrando unidades organizadas por trimestre" />
+</Frame>
+
+### Elementos del programa
+
+- **Períodos o trimestres**: Si el programa está configurado con planificación avanzada, el contenido se agrupa en períodos (Trimestre 1, Trimestre 2, etc.) accesibles mediante botones en la parte superior.
+- **Unidades**: Agrupaciones temáticas del contenido. Cada unidad muestra:
+  - Imagen de portada
+  - Nombre de la unidad
+- **Lecciones**: Al expandir una unidad, el estudiante ve las lecciones disponibles. Cada lección se abre haciendo clic sobre ella.
+
+### Acciones disponibles en el programa
+
+| Acción | Descripción |
+|--------|-------------|
+| **Expandir/contraer unidades** | Clic en una unidad para ver sus lecciones |
+| **Abrir una lección** | Clic en cualquier lección para acceder al contenido |
+| **Navegar entre períodos** | Clic en los botones de trimestre/semestre para filtrar el contenido |
+
+<Note>
+  El estudiante solo ve las unidades y lecciones que el docente ha marcado como visibles. Las unidades ocultas no aparecen en la vista del estudiante.
+</Note>
+
+### Diferencias con la vista del docente
+
+El programa del estudiante no incluye:
+
+- Botones para crear, editar, reordenar o eliminar unidades y lecciones
+- Opciones de ocultar/mostrar módulos
+- Modo de edición del programa
+- Modo de proyección
+- Selector "Ver como estudiante"
+- Información sobre el número de sesiones planificadas por unidad
+
+## Diferencias generales con la vista del docente
+
+La siguiente tabla resume las funcionalidades exclusivas del docente que no están disponibles para el estudiante:
+
+| Funcionalidad | Docente | Estudiante |
+|---------------|---------|-----------|
+| Editar programa (unidades, lecciones) | Si | No |
+| Configurar el muro social | Si | No |
+| Modo de proyección | Si | No |
+| Selector "Ver como estudiante" | Si | No |
+| Ver calificaciones de todos los estudiantes | Si | No |
+| Exportar calificaciones | Si | No |
+| Gestionar tareas y evaluaciones | Si | No |
+| Fijar publicaciones en el muro | Si | No |
+
+<Accordion title="Variación por tenant: UNOi y el nombre del tab">
+  En tenants que utilizan la configuración de **UNOi**, el tab que en Tangerine estándar se llama "Panel" aparece como "Panel" (misma palabra). En la configuración por defecto en español, el tab también se traduce como "Panel". En otros idiomas puede aparecer como "Stream" (inglés), "Muro" (Edelvives español) o "Horma" (euskera). La funcionalidad es siempre la misma.
+</Accordion>
+
+---
+
+## Navegación relacionada
+
+- Para ver todas las clases, consultar [Ver mis clases](/estudiantes/mis-clases/ver-clases)
+- Para conocer el muro social en detalle, consultar [Panel / Stream](/estudiantes/curso/stream)
+- Para entender las calificaciones del estudiante, consultar [Calificaciones](/estudiantes/curso/calificaciones)

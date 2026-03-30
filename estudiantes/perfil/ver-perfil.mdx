@@ -1,0 +1,119 @@
+---
+title: "Mi Perfil"
+description: "Visualizacion y edicion del perfil del estudiante"
+icon: "user"
+---
+
+La seccion **Mi perfil** permite al estudiante consultar y modificar sus datos personales, gestionar su contrasena, revisar las licencias activas y cambiar el idioma de la plataforma. La vista se organiza en pestanas independientes que agrupan la informacion por categoria.
+
+<Info>
+  **Rol requerido:** Estudiante.
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Abrir el menu de perfil">
+    Desde cualquier pantalla, el estudiante hace clic en su **avatar** o icono de usuario en la esquina superior derecha de la barra de navegacion. En el menu desplegable, selecciona la opcion **Mi perfil**. La ruta directa es `/profile`.
+  </Step>
+</Steps>
+
+## Pestanas del perfil
+
+La vista del perfil presenta un panel lateral izquierdo con las pestanas disponibles y un area principal a la derecha con el contenido de la pestana seleccionada. Las pestanas disponibles para un estudiante son:
+
+| Pestana | Contenido |
+|---------|-----------|
+| **Detalles personales** | Avatar, nombre, apellidos, rol y colegio asociado |
+| **Cuenta** | Email (solo lectura) y formulario de cambio de contrasena |
+| **Licencias** | Listado de licencias activas y opcion de anadir nuevas |
+| **Idiomas** | Selector de idioma de la interfaz |
+
+<Note>
+La pestana **Licencias** solo aparece para usuarios que tienen permiso de crear grupos (normalmente docentes en modo self-service). En la configuracion estandar, los estudiantes tambien pueden verla si el tenant lo permite. La pestana **Cuenta** depende de la configuracion `showAccountTab` del tenant.
+</Note>
+
+## Detalles personales
+
+La pestana principal muestra el formulario de datos basicos del estudiante.
+
+![Vista de detalles personales del perfil](/assets/screenshots/frontoffice-estudiante/perfil/vista-perfil-datos-personales.png)
+
+### Campos del formulario
+
+| Campo | Editable | Descripcion |
+|-------|----------|-------------|
+| **Avatar** | Si (condicional) | Imagen de perfil. Los estudiantes seleccionan entre avatares predefinidos, a menos que el tenant active la opcion de avatar personalizado |
+| **Nombre** | Si (condicional) | Nombre del usuario. Maximo 50 caracteres. Editable solo si el tenant permite `canEditProfileInfo` |
+| **Apellidos** | Si (condicional) | Apellidos del usuario. Maximo 50 caracteres. Misma condicion que el nombre |
+| **Rol** | No | Muestra el rol asignado (por ejemplo, "Alumno"). Campo de solo lectura |
+
+<Tip>
+Al hacer clic sobre el avatar, se abre un dialogo de seleccion. Para estudiantes sin la opcion de avatar personalizado, se muestra una galeria de avatares predefinidos. Si el tenant activa la personalizacion, se abre un generador de avatares.
+</Tip>
+
+### Tarjeta de colegio
+
+Debajo del formulario de datos personales, si el estudiante tiene un colegio asociado, se muestra la tarjeta **Mi colegio** con el nombre del centro educativo y su ubicacion (ciudad y provincia/estado). Esta tarjeta es de solo lectura.
+
+## Cuenta
+
+La pestana **Cuenta** permite al estudiante ver su email y cambiar su contrasena.
+
+![Vista de la pestana Cuenta](/assets/screenshots/frontoffice-estudiante/perfil/vista-perfil-cuenta.png)
+
+En la parte superior se muestra el **email** asociado a la cuenta (solo lectura, no editable). A continuacion, el formulario de cambio de contrasena solicita:
+
+1. **Contrasena actual** — la contrasena vigente del usuario
+2. **Nueva contrasena** — la nueva contrasena deseada (minimo 3 caracteres)
+
+Al pulsar **Cambiar contrasena**, el sistema valida la contrasena actual contra el servidor. Si es correcta, se aplica el cambio y se muestra una notificacion de exito. Si la contrasena actual no coincide, se muestra un mensaje de error.
+
+<Warning>
+El email del estudiante no se puede modificar desde esta pantalla. Si es necesario cambiarlo, debe gestionarse desde el backoffice por un administrador.
+</Warning>
+
+## Licencias
+
+La pestana **Licencias** muestra todas las licencias activas del usuario con sus programas asociados.
+
+![Vista de la pestana Licencias](/assets/screenshots/frontoffice-estudiante/perfil/vista-perfil-licencias.png)
+
+Cada licencia se presenta como una tarjeta que incluye:
+
+- **Nombre del programa** asociado (por ejemplo, "Math 26", "English 26")
+- **Nivel educativo** (por ejemplo, "Secundaria", "Bachillerato")
+- **Codigo de licencia** utilizado
+- **Periodo de vigencia** con fechas de inicio y fin
+- **ISBN** de la publicacion, si aplica
+
+### Anadir una licencia
+
+En la parte superior del listado, el enlace **Anade una licencia** abre un dialogo donde el estudiante puede introducir un codigo de licencia para redimirlo. Una vez canjeada con exito, la nueva licencia aparece en el listado y los programas asociados quedan disponibles.
+
+## Idiomas
+
+La pestana **Idiomas** (tambien etiquetada como "Preferencias" en la configuracion interna) permite al estudiante cambiar el idioma de la interfaz.
+
+![Vista de la pestana Idiomas](/assets/screenshots/frontoffice-estudiante/perfil/vista-perfil-idiomas.png)
+
+Se presenta una lista de idiomas disponibles con botones de seleccion. El idioma activo aparece marcado. Los idiomas disponibles dependen de la configuracion del tenant; en la configuracion estandar se incluyen **Castellano**, **Ingles** y **Portugues**.
+
+Al seleccionar un idioma diferente y pulsar **Guardar cambios**, la interfaz se recarga en el idioma elegido. Este cambio se persiste en el perfil del usuario y se mantiene en sesiones futuras.
+
+## Situaciones especiales
+
+### Campos no editables
+
+En algunos tenants, la configuracion `canEditProfileInfo` esta desactivada, lo que impide al usuario modificar su nombre y apellidos. En ese caso, los campos aparecen deshabilitados y el boton **Guardar cambios** no se muestra. Esto es habitual en despliegues donde los datos del usuario se gestionan centralmente desde el backoffice o mediante integracion con sistemas externos.
+
+### Avatar segun tipo de usuario
+
+El comportamiento del selector de avatar varia segun la configuracion del tenant:
+
+- **Sin personalizacion (por defecto para estudiantes):** Se abre una galeria de avatares predefinidos
+- **Con personalizacion activada (`showPersonalizeAvatar`):** Se abre un generador de avatares que permite crear un avatar personalizado
+
+### Usuarios gestionados por administrador de escuela
+
+Cuando el estudiante pertenece a un centro gestionado a traves de **Admin School**, es posible que ciertos campos esten controlados por el administrador y no sean editables desde el perfil del estudiante.

@@ -1,53 +1,159 @@
 ---
 title: "Ver Mis Clases"
-description: "Pantalla principal del estudiante con sus grupos y cursos activos"
-icon: "book-open"
+description: "Pantalla principal del estudiante con todos sus grupos, cursos y accesos rápidos"
+icon: "graduation-cap"
 ---
 
-## Descripción
+## Descripción general
 
-La pantalla de inicio del estudiante muestra los grupos a los que pertenece y los cursos disponibles en cada uno. Desde aquí el estudiante puede acceder directamente a los materiales de cada curso.
+La pantalla de inicio del estudiante es el punto de entrada principal a la plataforma. Desde ella, el estudiante visualiza los grupos a los que pertenece, los cursos disponibles en cada uno y accede a herramientas como tareas, calendario, notificaciones y calificaciones.
+
+Esta vista comparte la misma base que la pantalla de inicio del docente, pero con funcionalidades reducidas: el estudiante no puede crear grupos, gestionar cursos ni configurar programaciones.
 
 <Info>
   **Rol requerido:** Estudiante con licencia activa y al menos un grupo asignado.
 </Info>
 
-## Pantalla de inicio
+## Cómo acceder
 
-Al iniciar sesion, el estudiante ve su pantalla principal con:
+El estudiante accede a esta pantalla automáticamente tras iniciar sesión. También puede volver a ella en cualquier momento haciendo clic en el **logo de la plataforma** en la esquina superior izquierda de la barra de navegación.
 
-- **Saludo personalizado** con su nombre
-- **Grupo activo** con el nivel educativo y nombre del grupo (ej: "ESO: 3.o — 3ro ESO - A")
-- **Cursos del grupo** como tarjetas accesibles (ej: Math 26, English 26)
-- **Barra lateral** con acceso a Tareas, Calendario, Notificaciones y Mis calificaciones
+La ruta de la pantalla es `/home`.
 
-![Home del estudiante con grupo](/assets/screenshots/frontoffice-estudiante/unirse-grupo/06-pablo-con-grupo.png)
+## Elementos de la vista
 
-## Sin grupo asignado
+![Pantalla de inicio del estudiante con grupo y cursos asignados](/assets/screenshots/frontoffice-estudiante/mis-clases/home-estudiante-vista-principal.png)
 
-Si el estudiante aun no pertenece a ningún grupo, la pantalla muestra un campo para introducir un código de grupo o de libro. El docente proporciona este código al estudiante.
+La pantalla se organiza en las siguientes secciones, de arriba a abajo:
 
-![Home sin grupo](/assets/screenshots/frontoffice-estudiante/unirse-grupo/04-pablo-sin-grupo.png)
+### Barra de navegación superior
 
-<Tip>
-  Para unirse a un grupo, consulta la guía [Unirse a un Grupo](/estudiantes/mis-clases/unirse-grupo).
-</Tip>
+La barra superior incluye los siguientes elementos, de izquierda a derecha:
 
-## Multiples grupos
+| Elemento | Descripción |
+|----------|-------------|
+| **Logo** | Logotipo de la plataforma (personalizable por tenant). Funciona como enlace al Home. |
+| **Tareas** | Acceso al listado de tareas pendientes y completadas. Muestra un indicador numérico si hay tareas nuevas. |
+| **Calendario** | Acceso a la vista de calendario con fechas de entrega y eventos. |
+| **Notificaciones** | Desplegable con las notificaciones recientes. Muestra un badge con el número de notificaciones sin leer. |
+| **Mis calificaciones** | Acceso al cuaderno de calificaciones global del estudiante (visible cuando el modelo de evaluación está activado). |
+| **Mi perfil** | Avatar del estudiante. Al hacer clic, despliega un menú con acceso al perfil y la opción de cerrar sesión. |
 
-Un estudiante puede pertenecer a varios grupos simultaneamente. En ese caso, cada grupo aparece como una sección independiente en la pantalla de inicio, con sus propios cursos asociados.
+<Note>
+  El botón **Mis calificaciones** (icono de estrella) solo aparece cuando el tenant tiene activado el setting de modelo de evaluación (`enableEvaluationModel`). Si no está activado, este botón no se muestra.
+</Note>
+
+### Saludo personalizado
+
+Debajo de la barra de navegación, la plataforma muestra un saludo con el nombre del estudiante: **"¡Hola, [nombre]!"**.
+
+### Recomendaciones de Tangerine AI
+
+Si el estudiante tiene activada la funcionalidad de **Tangerine AI** (`is_tangerine_ai`), la pantalla muestra una sección de **Recomendaciones** personalizadas. Esta sección incluye:
+
+- Un mensaje de bienvenida generado por la IA
+- Tarjetas de actividades recomendadas basadas en el progreso del estudiante, con indicadores de estado ("Nuevo", "Sin empezar")
+- Un botón **Generar más** para solicitar recomendaciones adicionales
+
+<Note>
+  La sección de recomendaciones solo es visible para estudiantes con Tangerine AI habilitado y que tengan sesiones de estudio disponibles. Si el estudiante no cumple estas condiciones, la sección no aparece.
+</Note>
+
+### Tarjeta de grupo
+
+Cada grupo al que pertenece el estudiante se presenta como una tarjeta independiente con la siguiente información:
+
+- **Nivel educativo**: Etapa y año (por ejemplo, "ESO: 3.º")
+- **Nombre del grupo**: Identificador del grupo asignado por el docente (por ejemplo, "3º ESO - A")
+- **Número de cursos**: Cantidad de cursos disponibles en el grupo
+- **Código del grupo**: Icono de llave que identifica el código del grupo (visible cuando `canCreateGroup` está habilitado en la configuración del tenant)
+- **Tarjetas de cursos**: Cada curso se muestra como una tarjeta con su imagen representativa y nombre (por ejemplo, "Math 26", "English 26")
+
+Al hacer clic en una tarjeta de curso, el estudiante accede a la vista del curso correspondiente.
+
+### Sección de Programas
+
+Debajo de los grupos, la pantalla puede mostrar una sección expandible de **Programas**. Esta sección lista los programas digitales asociados a la licencia del estudiante que no están vinculados a ningún grupo. Se presenta como un acordeón que el estudiante puede expandir o contraer.
+
+<Note>
+  La sección de Programas solo aparece cuando el tenant tiene habilitado `showDisregardedPrograms` y la biblioteca no está oculta (`hideLibrary`). Estos programas representan contenido al que el estudiante tiene acceso por su licencia, pero que no forma parte de ningún grupo.
+</Note>
+
+### Botón de añadir código
+
+En la esquina inferior derecha de la pantalla aparece un botón circular con el icono **+**. Al pulsarlo, se abre un diálogo que permite al estudiante introducir un código de grupo o de licencia.
+
+![Diálogo para añadir un código de grupo o licencia](/assets/screenshots/frontoffice-estudiante/mis-clases/dialogo-anadir-codigo.png)
+
+El diálogo muestra:
+- El título **"Añadir un código"**
+- El texto explicativo: "Añade tu clave de grupo o código de licencia"
+- Un campo de texto con el placeholder "Introduce un código válido"
+- El botón **Activar** (deshabilitado hasta que se introduce un código)
+
+Tras introducir un código válido y pulsar **Activar**, el sistema muestra un mensaje de confirmación ("Grupo añadido correctamente" o "Programa añadido correctamente") y la pantalla se actualiza con el nuevo grupo o programa.
+
+<Note>
+  El botón **+** flotante solo aparece cuando el estudiante ya pertenece a al menos un grupo y el tenant permite la creación de grupos (`canCreateGroup`).
+</Note>
+
+## Acciones disponibles para el estudiante
+
+| Acción | Cómo realizarla |
+|--------|-----------------|
+| **Acceder a un curso** | Hacer clic en la tarjeta del curso dentro de un grupo |
+| **Añadir un código** | Pulsar el botón **+** flotante o, si no tiene grupos, usar el campo de código en la pantalla principal |
+| **Ver tareas pendientes** | Hacer clic en el icono de tareas en la barra superior |
+| **Consultar el calendario** | Hacer clic en el icono de calendario en la barra superior |
+| **Ver notificaciones** | Hacer clic en el icono de campana en la barra superior |
+| **Consultar calificaciones** | Hacer clic en el icono de estrella en la barra superior |
+| **Abrir un programa suelto** | Expandir la sección "Programas" y hacer clic en un programa |
+| **Acceder al perfil** | Hacer clic en el avatar en la esquina superior derecha |
+| **Cerrar sesión** | Desde el menú del avatar, seleccionar "Cerrar sesión" |
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El estudiante no tiene ningún grupo">
+    Si el estudiante aún no pertenece a ningún grupo, la pantalla muestra directamente un campo para introducir un código de grupo o de libro en lugar de las tarjetas de grupo. El texto indica "Introduce tu código de grupo o de libro" con la aclaración "Consulta a tu profesor si no tienes uno".
+
+    Para unirse a un grupo, consulta la guía [Unirse a un Grupo](/estudiantes/mis-clases/unirse-grupo).
+  </Accordion>
+  <Accordion title="El estudiante pertenece a varios grupos">
+    Un estudiante puede pertenecer a múltiples grupos simultáneamente. En ese caso, cada grupo aparece como una tarjeta independiente en la pantalla de inicio, con sus propios cursos asociados. Los grupos se listan uno debajo del otro.
+  </Accordion>
+  <Accordion title="Un curso no es accesible">
+    Si un curso no está disponible (por ejemplo, porque la licencia no cubre ese programa o el contenido aún no ha sido publicado), al hacer clic en la tarjeta del curso el sistema muestra un mensaje indicando que el contenido no está disponible ("Próximamente").
+  </Accordion>
+  <Accordion title="No aparece el botón + para añadir código">
+    El botón flotante **+** solo se muestra si el estudiante ya tiene al menos un grupo y el tenant permite la gestión de grupos por parte de usuarios. Si no aparece, el estudiante debe contactar al docente o administrador para que lo añada a un grupo.
+  </Accordion>
+  <Accordion title="No aparece la sección de Recomendaciones">
+    La sección de recomendaciones de Tangerine AI solo aparece si el estudiante tiene la funcionalidad de IA habilitada en su cuenta y ha tenido sesiones de estudio previas. Si no se muestra, puede deberse a que el tenant no tiene contratada esta funcionalidad.
+  </Accordion>
+  <Accordion title="No aparece el botón de Mis calificaciones">
+    El icono de estrella (Mis calificaciones) en la barra superior solo se muestra cuando el tenant tiene activado el modelo de evaluación avanzado. Si no aparece, el estudiante puede consultar sus calificaciones desde dentro de cada curso.
+  </Accordion>
+</AccordionGroup>
 
 ---
 
-## Secciones de la barra lateral
+## Diferencias con la vista del docente
 
-| Sección | Descripción |
-|---------|-------------|
-| **Tareas** | Listado de tareas pendientes y completadas |
-| **Calendario** | Vista de calendario con fechas de entrega y eventos |
-| **Notificaciones** | Avisos del docente y actualizaciones de la plataforma |
-| **Mis calificaciones** | Resumen de calificaciones por curso |
-| **Programas** | Programas digitales disponibles por licencia |
+La pantalla de inicio del estudiante comparte estructura con la del docente, pero presenta las siguientes diferencias:
+
+| Funcionalidad | Docente | Estudiante |
+|---------------|---------|------------|
+| Crear grupos | Si | No |
+| Editar/eliminar grupos | Si | No |
+| Configurar cursos | Si | No |
+| Gestionar miembros | Si | No |
+| Ver avatares de miembros del grupo | Si | No |
+| Pestañas (Grupos, Programas, Mi biblioteca) | Si | No (solo contenido directo) |
+| Panel IA docente | Si | No |
+| Biblioteca | Si | No |
+| Recomendaciones IA personalizadas | No | Si (si Tangerine AI está activo) |
+| Botón + para añadir código | No (usa otro flujo) | Si |
 
 ---
 
@@ -55,6 +161,9 @@ Un estudiante puede pertenecer a varios grupos simultaneamente. En ese caso, cad
 
 <CardGroup cols={2}>
   <Card title="Unirse a un Grupo" icon="user-plus" href="/estudiantes/mis-clases/unirse-grupo">
-    Como unirse a un grupo usando el código del docente.
+    Cómo unirse a un grupo usando el código proporcionado por el docente.
+  </Card>
+  <Card title="Vista del Curso" icon="book-open" href="/estudiantes/curso/vista-curso">
+    Pantalla principal del curso con contenidos, programa y calificaciones.
   </Card>
 </CardGroup>
