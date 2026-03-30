@@ -1,0 +1,179 @@
+---
+title: "Configuracion y exportacion"
+description: "Opciones de configuracion del cuaderno de evaluacion (puntuacion, ordenacion, visualizacion) y exportacion de calificaciones"
+icon: "gear"
+---
+
+El cuaderno de evaluacion ofrece varias opciones de configuracion que permiten al docente personalizar como se muestran y calculan las calificaciones, ademas de exportar los datos en diferentes formatos.
+
+<Info>
+  **Rol requerido:** Docente. El administrador de escuela puede acceder a las opciones de ordenacion y visualizacion, pero no a las de puntuacion.
+</Info>
+
+## Dialogo de configuracion
+
+El docente accede a la configuracion pulsando el icono de **engranaje** en la esquina superior izquierda de la tabla del cuaderno de evaluacion. El dialogo de configuracion tiene tres tabs:
+
+### Puntuacion
+
+<Note>
+  Esta tab no esta disponible para el administrador de escuela en modo de solo lectura.
+</Note>
+
+La tab de puntuacion controla como se calculan y gestionan las notas:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Contar como 0 las actividades no entregadas** | Cuando esta activada, las actividades que el estudiante no ha entregado se cuentan como 0 en el calculo del promedio. Cuando esta desactivada, se ignoran. |
+| **Permitir edicion de calificacion de promedio** | Habilita la opcion de asignar manualmente la nota del promedio de periodo. |
+| **Permitir edicion de calificacion global** | Habilita la opcion de asignar manualmente la nota del promedio global. |
+
+Cada opcion se configura como **Si** o **No** mediante botones de radio.
+
+<Warning>
+  **Cambiar la opcion "Contar como 0 las actividades no entregadas"** puede afectar a calificaciones ya publicadas. Si el docente activa esta opcion y ya hay notas publicadas, el sistema muestra un dialogo de confirmacion advirtiendo que los cambios se aplicaran automaticamente y seran visibles para los estudiantes.
+</Warning>
+
+<Tip>
+  Activar "Contar como 0 las actividades no entregadas" es una practica habitual al final del trimestre, cuando ya no se esperan mas entregas. Durante el trimestre, mantenerla desactivada evita que los promedios se vean artificialmente bajos por actividades que los estudiantes aun no han realizado.
+</Tip>
+
+### Ordenacion
+
+La tab de ordenacion controla como se ordenan los estudiantes en las filas de la tabla:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Ordenar alfabeticamente (A-Z) por nombre** | Ordena los estudiantes por su nombre de pila |
+| **Ordenar alfabeticamente (A-Z) por apellido** | Ordena los estudiantes por su primer apellido (opcion por defecto) |
+
+### Visualizacion
+
+La tab de visualizacion controla que datos se muestran en la tabla:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Mostrar actividades no publicadas** | Cuando esta en **Si**, se muestran todas las actividades evaluables en la tabla, incluyendo las que aun no tienen notas publicadas. Cuando esta en **No**, las actividades sin notas publicadas se ocultan. |
+
+<Note>
+  Ocultar las actividades no publicadas simplifica la vista, pero puede generar confusion si el docente olvida que hay actividades pendientes de calificar. Las actividades ocultas siguen contando en el calculo del promedio si tienen notas.
+</Note>
+
+## Clasificacion de columnas
+
+En la esquina superior izquierda de la tabla, encima de la columna de estudiantes, el docente puede alternar entre dos modos de clasificacion:
+
+<Tabs>
+  <Tab title="Por categorias">
+    Agrupa las actividades por la **categoria de evaluacion** a la que pertenecen (por ejemplo, "Tareas", "Examenes", "Participacion"). Cada categoria se muestra como un grupo de columnas.
+
+    Esta vista es util para verificar que el peso de cada categoria se esta aplicando correctamente y para identificar rapidamente las actividades de un tipo especifico.
+  </Tab>
+  <Tab title="Por programa">
+    Agrupa las actividades siguiendo la **estructura del programa digital**: unidades, lecciones y actividades dentro de cada leccion.
+
+    Esta vista es util para ver las calificaciones en el contexto de la planificacion del curso y para identificar en que parte del temario los estudiantes tienen dificultades.
+
+    <Note>
+      Cuando el curso tiene dos niveles de estructura (unidades y lecciones), la tabla muestra dos filas de encabezado: una para las unidades y otra para las lecciones.
+    </Note>
+  </Tab>
+</Tabs>
+
+## Seleccion de periodos visibles
+
+Cuando el curso tiene multiples periodos de evaluacion configurados, la tabla puede resultar muy ancha. El selector de periodos en la parte superior permite filtrar que periodos se muestran:
+
+- Por defecto, **todos los periodos** estan seleccionados
+- El docente puede desmarcar periodos para ocultar sus columnas
+- Los periodos ocultos no afectan al calculo del promedio global
+
+<Tip>
+  Durante el dia a dia del trimestre, resulta practico mostrar solo el periodo actual para reducir el scroll horizontal y enfocarse en las calificaciones relevantes.
+</Tip>
+
+## Exportar calificaciones
+
+El cuaderno de evaluacion permite exportar las calificaciones en dos formatos.
+
+<Steps>
+  <Step title="Abrir el dialogo de exportacion">
+    El docente pulsa el icono de **exportar** en la esquina superior izquierda de la tabla. Se abre el dialogo "Exportar".
+  </Step>
+  <Step title="Seleccionar periodos">
+    El dialogo muestra una lista de checkboxes con todos los periodos de evaluacion configurados. El docente selecciona los periodos que desea incluir en la exportacion.
+
+    <Note>
+      Es obligatorio seleccionar al menos un periodo. El boton de exportar permanece deshabilitado si no hay periodos seleccionados.
+    </Note>
+  </Step>
+  <Step title="Seleccionar formato">
+    El docente elige entre:
+    - **Excel** — Genera un archivo `.xlsx`
+    - **CSV** — Genera un archivo `.csv` con separador de punto y coma
+  </Step>
+  <Step title="Exportar">
+    Al pulsar **Exportar**, el archivo se descarga automaticamente al equipo del docente.
+  </Step>
+</Steps>
+
+### Contenido del archivo exportado
+
+El archivo exportado contiene:
+
+- **Nombre del estudiante** en la primera columna
+- **Calificaciones de cada actividad** del periodo seleccionado
+- **Promedios** de periodo y global
+
+<Tip>
+  El formato Excel es recomendable cuando el docente necesita manipular los datos (filtrar, ordenar, crear graficos adicionales). El formato CSV es mas adecuado para importar los datos en otros sistemas.
+</Tip>
+
+## Comparacion con la exportacion del cuaderno estandar
+
+| Caracteristica | Cuaderno estandar | Cuaderno de evaluacion |
+|---------------|-------------------|----------------------|
+| **Formatos** | Solo CSV | Excel y CSV |
+| **Seleccion de periodos** | No aplica (exporta todo) | Si, con checkboxes |
+| **Estructura del archivo** | Unidades > Lecciones > Actividades | Segun periodos seleccionados |
+| **Nombre del archivo** | `Notas [Curso] - [Aula].csv` | Dependiente del formato |
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Los cambios de configuracion no se guardan">
+    Cada cambio en la configuracion se aplica inmediatamente al pulsar **Aplicar**. Si la pagina se recarga antes de pulsar Aplicar, los cambios se pierden. No hay guardado automatico.
+  </Accordion>
+  <Accordion title="La opcion de puntuacion no aparece">
+    Si el usuario actual es un administrador de escuela, la tab de puntuacion no esta disponible. Solo los docentes pueden modificar las opciones de puntuacion.
+  </Accordion>
+  <Accordion title="La exportacion no incluye todas las actividades">
+    La exportacion incluye solo las actividades de los periodos seleccionados. Si un periodo esta desmarcado, sus actividades no apareceran en el archivo exportado.
+  </Accordion>
+  <Accordion title="El archivo CSV no se abre correctamente en Excel">
+    El archivo CSV usa punto y coma (;) como separador. Si al abrirlo en Excel las columnas no se separan correctamente, se recomienda usar la funcion "Texto en columnas" de Excel o seleccionar el formato Excel directamente desde el dialogo de exportacion.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Cuaderno de evaluacion" icon="table" href="/frontoffice-docentes/libro-calificaciones/cuaderno-evaluacion">
+    Tabla de calificaciones por periodos con publicacion de notas y calificacion manual.
+  </Card>
+  <Card title="Vista general del libro" icon="book-open" href="/frontoffice-docentes/libro-calificaciones/vista-general">
+    Descripcion general del sistema de calificaciones y sus dos variantes.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: /course/:guid/grades (dialogos de settings, export y model)
+  - Archivos de codigo relacionados:
+    - frontend: GradesPeriods/teacher/GradesPeriodsTable/GradesPeriodsTableHeader/ths/ThUser/ (DialogSettings, DialogExport, DialogPeriodsModel)
+    - frontend: GradesPeriods/teacher/export.js
+    - backend: gradebook.crud.js (putConfigGradebook)
+  - Ultima revision: 2026-03-30
+*/}

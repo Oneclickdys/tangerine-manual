@@ -1,0 +1,215 @@
+---
+title: "Recursos del curso"
+description: "Biblioteca de recursos adicionales del curso organizada por secciones: actividades, videolecciones, documentos, videos, audios e imagenes"
+icon: "folder-open"
+---
+
+La tab **Recursos del aula** dentro de la vista del curso ofrece acceso a los materiales complementarios asociados al programa digital. A diferencia del contenido del programa (organizado por unidades y lecciones), los recursos se agrupan por tipo de contenido, lo que facilita la consulta rapida de materiales de apoyo.
+
+<Info>
+  **Rol requerido:** Docente (los estudiantes tambien acceden a esta vista, pero con funcionalidades reducidas).
+</Info>
+
+## Cuando usar los recursos del curso
+
+Los recursos del curso son utiles cuando el docente necesita:
+
+- **Consultar materiales complementarios** que la editorial ha incluido en el programa digital (guias, fichas, presentaciones)
+- **Acceder a videolecciones** interactivas con seguimiento de progreso
+- **Revisar evaluaciones** vinculadas al curso fuera del flujo de lecciones
+- **Compartir recursos adicionales** como imagenes, audios o videos de apoyo
+
+<Tip>
+Los recursos disponibles dependen del programa digital asociado al curso. Son definidos por la editorial en el backoffice y no pueden ser modificados por el docente, salvo las videolecciones creadas por el propio docente.
+</Tip>
+
+## Acceder a los recursos
+
+<Steps>
+  <Step title="Abrir un curso">
+    Desde el Home, el docente selecciona uno de sus cursos en la seccion "Mis clases".
+  </Step>
+  <Step title="Seleccionar la tab Recursos del aula">
+    En la vista del curso, el docente hace clic en el tab **Recursos del aula** en la barra de navegacion superior.
+  </Step>
+</Steps>
+
+{/* Screenshot: Vista general de la tab Recursos del aula */}
+{/* ![Vista de recursos del curso](/assets/screenshots/frontoffice-docentes/recursos-curso/01-vista-general-recursos.png) */}
+
+## Estructura de la vista
+
+La vista de recursos utiliza un layout de dos columnas:
+
+- **Columna izquierda (navegacion):** Lista de secciones disponibles. Cada seccion agrupa los recursos por tipo de contenido.
+- **Columna derecha (contenido):** Muestra los grupos y materiales de la seccion seleccionada.
+
+### Secciones disponibles
+
+Los recursos se organizan automaticamente en secciones segun el tipo de contenido. Las secciones posibles son:
+
+| Seccion | Tipo de contenido | Icono |
+|---------|-------------------|-------|
+| **Actividades** | Ejercicios interactivos, SCORM, xAPI | Tarea |
+| **Videolecciones** | Videos con actividades integradas y seguimiento | Camara de video |
+| **Imagenes** | Galerias de imagenes | Imagen |
+| **Videos** | Archivos de video | Video |
+| **Audios** | Archivos de audio | Audio |
+| **Documentos** | PDFs, archivos Office, HTML interactivos y otros | Documento |
+| **Evaluaciones** | Tests y cuestionarios creados para el curso | Cuestionario |
+
+<Note>
+Solo se muestran las secciones que contienen recursos. Si un curso no tiene videolecciones, por ejemplo, esa seccion no aparecera en la lista.
+</Note>
+
+### Grupos y materiales
+
+Dentro de cada seccion, los recursos se organizan en **grupos** (acordeones desplegables). Cada grupo contiene uno o mas **materiales** individuales.
+
+Cada material muestra:
+
+- **Icono de tipo**: Indica visualmente el formato del recurso (PDF, video, audio, enlace, etc.)
+- **Etiqueta de tipo**: Texto como "PDF", "VIDEO", "AUDIO", "LINK" en la parte superior
+- **Nombre del recurso**: Titulo descriptivo del material
+- **Indicador "Solo docente"**: Un icono de escuela aparece si el recurso esta marcado como exclusivo para docentes (no visible para estudiantes)
+- **Boton de descarga**: Disponible para recursos descargables (excluye videolecciones)
+
+## Tipos de recursos y comportamiento
+
+Al hacer clic en un recurso, el comportamiento varia segun el tipo de contenido:
+
+### Documentos, PDFs, audios y videos
+
+Se abren en el **visor integrado** de Tangerine. El docente es redirigido a una pantalla de visualizacion dentro de la plataforma.
+
+### Imagenes
+
+Se abren en un **carrusel de imagenes** tipo dialogo, permitiendo navegar entre las imagenes del mismo grupo.
+
+### Enlaces
+
+Se abren directamente en una **nueva pestana del navegador**, sin salir de Tangerine.
+
+### Actividades interactivas (SCORM, xAPI)
+
+Se abren en un **dialogo de actividad** donde el docente puede:
+- Visualizar la actividad
+- Ver los intentos de los estudiantes (si accede desde el contexto de revision)
+
+### Evaluaciones (tests)
+
+Al hacer clic en una evaluacion, el docente es redirigido a la **vista de evaluacion** donde puede revisar las entregas de los estudiantes. Las evaluaciones dentro de recursos funcionan de forma independiente a las creadas desde el flujo de lecciones.
+
+<Note>
+Si una evaluacion aun no ha sido creada (no tiene preguntas), el sistema mostrara un mensaje de error: "La pregunta aun no ha sido creada".
+</Note>
+
+### Videolecciones
+
+Las videolecciones se abren en un **dialogo especializado** que incluye el video y las actividades asociadas. El docente puede ver los intentos de los estudiantes, editar la videoleccion o eliminarla.
+
+## Videolecciones: acciones del docente
+
+La seccion de videolecciones es la unica donde el docente tiene capacidad de crear, editar y eliminar contenido directamente desde la vista de recursos.
+
+### Crear una videoleccion
+
+<Steps>
+  <Step title="Acceder a la seccion de videolecciones">
+    El docente selecciona la seccion **Videolecciones** en la lista de la izquierda.
+  </Step>
+  <Step title="Hacer clic en el boton de anadir">
+    Junto al nombre de cada grupo aparece un icono **+** (anadir). El docente hace clic en el del grupo donde desea agregar la videoleccion.
+  </Step>
+  <Step title="Introducir la URL del video">
+    En el dialogo que aparece, el docente introduce la URL del video (YouTube, Vimeo, etc.) y confirma.
+  </Step>
+  <Step title="Configurar la videoleccion">
+    Se abre el editor de videolecciones donde el docente puede anadir actividades y preguntas sobre el video.
+  </Step>
+</Steps>
+
+### Editar una videoleccion
+
+El docente puede editar videolecciones que haya creado el mismo (identificadas por tener un `course_guid` asociado):
+
+1. Localizar la videoleccion en la lista de recursos
+2. Hacer clic en el menu de tres puntos (mas opciones)
+3. Seleccionar **Editar**
+
+### Eliminar una videoleccion
+
+1. Hacer clic en el menu de tres puntos de la videoleccion
+2. Seleccionar **Eliminar**
+3. Confirmar en el dialogo de confirmacion
+
+<Warning>
+Si algun estudiante ya ha realizado actividades dentro de la videoleccion, el sistema mostrara una advertencia indicando que se perderan los resultados. El docente puede confirmar la eliminacion de todos modos.
+</Warning>
+
+## Evaluaciones en recursos
+
+La seccion de evaluaciones (tipo `test`) presenta una interfaz diferente al resto de secciones. En lugar de un listado con acordeones, muestra **tarjetas de evaluacion** con informacion adicional:
+
+- **Nombre de la evaluacion**
+- **Fecha de entrega** (configurable por el docente)
+- **Indicador de IA**: Si la evaluacion fue generada con Tangerine AI
+- **Acciones**: Editar, eliminar y configurar fecha de entrega
+
+### Crear evaluaciones desde recursos
+
+El docente puede crear nuevas evaluaciones directamente desde esta seccion:
+
+1. Hacer clic en el icono **+** junto al nombre del grupo
+2. Si Tangerine AI esta habilitado, el sistema preguntara si desea crear la evaluacion manualmente o con IA
+3. El docente es redirigido al editor de evaluaciones
+
+### Configurar fecha de entrega
+
+Para cada evaluacion, el docente puede establecer o modificar la fecha de entrega haciendo clic en el selector de fecha de la tarjeta.
+
+## Recursos exclusivos para docentes
+
+Algunos recursos y grupos estan marcados como **"Solo docente"** (teacher only). Estos materiales:
+
+- Son visibles unicamente para el docente
+- Estan senalados con un icono de escuela junto al nombre
+- Los estudiantes no los ven en su vista de recursos
+
+Esta funcionalidad es util para guias del profesor, solucionarios o materiales de planificacion que la editorial incluye como apoyo al docente.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No hay recursos disponibles">
+    Si el mensaje "No hay recursos de aula disponibles" aparece, significa que el programa digital asociado al curso no incluye recursos adicionales, o que los recursos no han sido configurados por la editorial en el backoffice.
+  </Accordion>
+  <Accordion title="Una seccion aparece vacia">
+    Si al seleccionar una seccion no hay grupos visibles, es posible que todos los recursos de esa seccion esten marcados como "Solo docente" y el usuario sea estudiante, o que los grupos no contengan materiales.
+  </Accordion>
+  <Accordion title="No aparece el boton de anadir videoleccion">
+    El boton de anadir (+) en videolecciones solo aparece para docentes y cuando el curso tiene un GUID valido. Los estudiantes no tienen acceso a esta funcionalidad.
+  </Accordion>
+  <Accordion title="Un recurso descargable no se descarga">
+    Si al hacer clic en el icono de descarga aparece un error, puede deberse a que el archivo ya no esta disponible en el servidor o a un problema temporal de red. El docente puede intentarlo de nuevo o contactar con soporte.
+  </Accordion>
+  <Accordion title="Los recursos cambian segun el colegio del docente">
+    Para algunos publishers (como Edelvives), los recursos se filtran por comunidad autonoma. El docente solo vera los recursos asociados a la region de su colegio. Si un recurso esperado no aparece, puede deberse a este filtrado geografico.
+  </Accordion>
+</AccordionGroup>
+
+## Navegacion relacionada
+
+- Para conocer la estructura completa de la vista del curso, consulta [Vista del curso](/frontoffice-docentes/curso/vista-curso)
+- Para gestionar el contenido del programa por unidades y lecciones, consulta [Programa del curso](/frontoffice-docentes/curso/programa)
+- Para crear evaluaciones independientes, consulta [Crear evaluacion](/frontoffice-docentes/evaluaciones/crear-evaluacion)
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: /course/:guid (tab Resources)
+  - Archivos de codigo relacionados:
+    - frontend: src/core/lite/views/CourseView/Resources/
+  - Ultima revision: 2026-03-29
+*/}

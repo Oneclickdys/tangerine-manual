@@ -1,0 +1,133 @@
+---
+title: "Gestión de contenidos"
+description: "Control de visibilidad, estados de publicación y comentarios sobre los contenidos de una lección"
+icon: "sliders"
+---
+
+Desde la [Vista Power](/frontoffice-docentes/lecciones/vista-power), el docente dispone de herramientas para gestionar la visibilidad de los contenidos de la lección y comunicarse con los estudiantes a través de comentarios contextuales.
+
+## Control de visibilidad
+
+El docente puede controlar qué contenidos de la lección son visibles para los estudiantes. Cada contenido tiene un **estado de publicación** que determina su visibilidad.
+
+### Estados disponibles
+
+| Estado | Tag | Visible para estudiantes |
+|--------|-----|--------------------------|
+| **Publicado** | <span style={{color: 'green'}}>Publicado</span> | Sí — el contenido aparece en la lección del estudiante |
+| **Borrador** | <span style={{color: 'gray'}}>Borrador</span> | No — el contenido solo es visible para el docente |
+| **Programado** | <span style={{color: 'blue'}}>Programado</span> | No hasta la fecha indicada — se publica automáticamente en la fecha y hora configuradas |
+
+### Cambiar el estado de un contenido
+
+<Steps>
+  <Step title="Hacer clic en el tag de estado">
+    En la cabecera del contenido, el docente hace clic sobre el tag de estado (ej: **Publicado**). Se abre un diálogo con las opciones disponibles.
+  </Step>
+  <Step title="Seleccionar el nuevo estado">
+    El diálogo presenta tres opciones:
+
+    - **Publicado**: el contenido queda visible de inmediato
+    - **Borrador**: el contenido se oculta para los estudiantes
+    - **Programado**: aparece un selector de fecha y hora para programar la publicación automática
+
+    ![Diálogo de cambio de estado con opciones Publicado, Borrador y Programado](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/dialogo-cambio-estado.png)
+  </Step>
+  <Step title="Confirmar el cambio">
+    Al confirmar, el sistema actualiza el estado y la visibilidad del contenido. El tag en la cabecera refleja el nuevo estado.
+  </Step>
+</Steps>
+
+### Indicador visual en la barra lateral
+
+Los contenidos en estado **Borrador** muestran un icono de **ojo tachado** junto a su nombre en la barra lateral. Este indicador solo es visible para el docente — los estudiantes directamente no ven estos elementos en su barra lateral.
+
+![Barra lateral mostrando el icono de ojo tachado junto al contenido en estado Borrador](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/contenido-borrador.png)
+
+<Tip>
+  Usar el estado **Programado** es útil para preparar contenido con antelación. El docente puede crear y configurar actividades y materiales, y programar su publicación para que coincida con el calendario de clases.
+</Tip>
+
+<Note>
+  El control de visibilidad aplica tanto a contenidos editoriales (del programa digital) como a contenidos creados por el docente. Esto permite al docente ocultar temporalmente material del programa que no desea abordar en una sesión determinada.
+</Note>
+
+## Comentarios sobre contenidos
+
+La Vista Power incluye un sistema de comentarios públicos por contenido que permite la comunicación entre el docente y los estudiantes en el contexto de cada elemento de la lección.
+
+<Info>
+  Los comentarios requieren que el setting **enableLessonItemComments** esté activado para el tenant. No están disponibles en contenidos de tipo Tangerine AI ni en contenidos de Fixed Layout editorial.
+</Info>
+
+### Acceder a los comentarios
+
+El docente puede abrir el panel de comentarios de dos formas:
+
+- **Icono de burbuja en la cabecera del contenido**: situado junto al menú de tres puntos
+- **Botón de comentarios en el footer**: el icono naranja de burbuja en la barra de navegación inferior
+
+Al abrir el panel, se muestra el historial de comentarios del contenido actual con el campo para escribir un nuevo mensaje.
+
+![Panel de comentarios mostrando el área de chat y el campo de texto para escribir un comentario](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/panel-comentarios.png)
+
+### Funcionalidades del chat
+
+| Acción | Docente | Estudiante |
+|--------|---------|------------|
+| Ver comentarios públicos | Sí | Sí |
+| Escribir comentarios | Sí | Sí |
+| Editar comentarios propios | Sí | Sí |
+| Eliminar comentarios propios | Sí | Sí |
+| Ver contador de comentarios en sidebar | Sí | Sí |
+
+### Indicadores en la barra lateral
+
+La barra lateral muestra contadores junto a cada contenido que tiene comentarios:
+
+- **Icono de burbuja + número**: indica la cantidad de comentarios públicos en ese contenido
+- **Icono de candado + número** (solo docente): indica comentarios privados o notificaciones pendientes de leer. Al abrir el chat de ese contenido, las notificaciones se marcan automáticamente como leídas.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El tag de estado no aparece en un contenido">
+    Algunos contenidos editoriales pueden no mostrar el tag de estado si no soportan cambio de visibilidad. Esto depende de la configuración del programa digital.
+  </Accordion>
+  <Accordion title="Los comentarios no aparecen en un contenido">
+    El chat público por contenido solo está disponible cuando:
+
+    - El setting `enableLessonItemComments` está activado para el tenant
+    - El contenido actual no es de tipo Tangerine AI
+    - El contenido no es Fixed Layout editorial
+
+    Si no se ve el botón de comentarios en la cabecera ni en el footer, alguna de estas condiciones no se cumple.
+  </Accordion>
+  <Accordion title="Un contenido programado no se publicó a la hora indicada">
+    La publicación programada depende del reloj del servidor. Si hay una diferencia horaria entre la zona del docente y la del servidor, la publicación puede ocurrir con un desfase. Verificar que la fecha y hora configuradas corresponden a la zona horaria esperada.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Vista Power" icon="presentation" href="/frontoffice-docentes/lecciones/vista-power">
+    Estructura completa de la vista inmersiva de lección.
+  </Card>
+  <Card title="Modo de proyección" icon="screen-users" href="/frontoffice-docentes/lecciones/modo-proyeccion">
+    Presentación en el aula con herramientas de clase y control remoto.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: frontoffice-docente
+  - Sección UI: Lecciones > Vista Power > Gestión de contenidos
+  - Archivos de código relacionados:
+    - frontend: src/app/modules/atoms/StatusTag/ (control de visibilidad published/draft/scheduled)
+    - frontend: src/core/modules/components/dialogs/DialogEditStatus/ (diálogo cambio de estado)
+    - frontend: src/core/modules/components/chats/PublicChatWidget/ (comentarios por contenido)
+    - frontend: src/core/lite/views/LessonViewPowerV2/LessonViewPower/LessonSidebar/LessonSidebarItem/ (indicadores sidebar)
+  - Última revisión: 2026-03-29
+*/}

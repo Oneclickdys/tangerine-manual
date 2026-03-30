@@ -1,0 +1,184 @@
+---
+title: "Gestor de tareas"
+description: "Vista centralizada de todas las evaluaciones pendientes de corregir y las notas ya publicadas en los cursos del docente"
+icon: "clipboard-list"
+---
+
+El gestor de tareas permite al docente consultar de forma centralizada todas las evaluaciones de todos sus cursos que requieren revision. En lugar de navegar curso por curso para localizar entregas pendientes, esta vista agrega todas las tareas en un unico listado filtrable por curso, con dos pestanas: tareas por corregir y notas publicadas.
+
+<Info>
+  **Rol requerido:** Docente
+</Info>
+
+## Cuando usar el gestor de tareas
+
+El gestor de tareas resulta especialmente util cuando:
+
+- El docente imparte **varios cursos** y necesita una vision global de las evaluaciones pendientes de revision
+- Se quiere identificar rapidamente que tareas tienen **entregas sin corregir**
+- El docente necesita localizar una evaluacion concreta sin recordar en que curso o leccion se encuentra
+- Se desea consultar las **notas ya publicadas** de evaluaciones anteriores
+
+<Tip>
+El gestor de tareas muestra informacion de todos los cursos activos del docente. Para enfocarse en un curso concreto, es posible ocultar los demas desde el panel lateral "Ver tareas de".
+</Tip>
+
+## Acceder al gestor de tareas
+
+<Steps>
+  <Step title="Abrir desde la barra de navegacion">
+    Desde cualquier pantalla de la plataforma, el docente hace clic en el icono de **Tareas** en la barra de navegacion lateral o superior. La ruta es `/tasks`.
+  </Step>
+</Steps>
+
+{/* Screenshot: Vista general del gestor de tareas */}
+{/* ![Vista general del gestor de tareas](/assets/screenshots/frontoffice-docentes/tareas/01-vista-general.png) */}
+
+## Estructura de la vista
+
+La pantalla del gestor de tareas se organiza en un layout de dos columnas: un panel lateral izquierdo con los filtros por curso y el area principal con el listado de tareas.
+
+### Panel lateral: filtro por curso
+
+El panel lateral muestra una tarjeta titulada **"Ver tareas de"** que contiene la lista de todos los cursos (calendarios) del docente. Cada curso aparece con:
+
+- El **nombre del curso**
+- Un **indicador de color** asociado al curso
+- Un **icono de visibilidad** que permite incluir o excluir las tareas de ese curso del listado principal
+
+Por defecto, todos los cursos estan visibles. Al ocultar un curso, sus tareas desaparecen del listado inmediatamente.
+
+{/* Screenshot: Panel lateral con filtros de curso */}
+{/* ![Filtro por curso](/assets/screenshots/frontoffice-docentes/tareas/02-panel-lateral.png) */}
+
+<Note>
+En dispositivos moviles, el panel lateral se convierte en un menu desplegable accesible desde un boton de hamburguesa en la cabecera.
+</Note>
+
+### Pestanas del listado
+
+El area principal contiene dos pestanas que separan las tareas segun su estado de revision:
+
+| Pestana | Contenido | Orden |
+|---------|-----------|-------|
+| **Tareas por corregir** | Evaluaciones que tienen entregas pendientes de revision | Fecha de entrega ascendente (mas urgentes primero) |
+| **Notas publicadas** | Evaluaciones cuyas notas ya han sido revisadas y publicadas | Fecha de entrega descendente (mas recientes primero) |
+
+Al cambiar de pestana, el sistema recarga las tareas desde el servidor con el criterio de ordenacion correspondiente.
+
+## Tareas por corregir
+
+La pestana por defecto muestra las evaluaciones que tienen al menos una entrega sin revisar. Cada tarea en el listado presenta la siguiente informacion:
+
+### Informacion de contexto
+
+Cada tarea muestra en su parte superior una ruta de navegacion que indica:
+- **Nombre del curso** al que pertenece
+- **Seccion** dentro de la leccion
+- **Nombre de la leccion**
+
+Esto permite al docente identificar rapidamente la ubicacion de cada evaluacion dentro de la estructura del programa.
+
+### Detalle de la tarea
+
+En la parte inferior de cada elemento se muestra:
+
+- **Titulo de la evaluacion** (nombre del item de leccion)
+- **Fecha de entrega** con indicador visual de urgencia:
+  - Texto normal si la fecha de entrega aun no ha pasado
+  - Icono de reloj en color y estilo visual diferenciado si la entrega esta **vencida**
+  - Texto "Sin fecha de entrega" si no se ha configurado fecha limite
+- Indicador de **autoevaluativo** cuando la evaluacion se corrige automaticamente
+
+### Barras de progreso
+
+A la derecha de cada tarea se muestran tres indicadores de progreso con barras visuales:
+
+| Indicador | Significado |
+|-----------|-------------|
+| **Sin empezar** | Numero de estudiantes que aun no han iniciado la evaluacion |
+| **Pendiente** | Numero de estudiantes que han entregado pero cuya nota no se ha publicado |
+| **Evaluado** | Numero de estudiantes cuya entrega ya ha sido corregida |
+
+{/* Screenshot: Detalle de una tarea pendiente con barras de progreso */}
+{/* ![Tarea pendiente con barras de progreso](/assets/screenshots/frontoffice-docentes/tareas/03-tarea-pendiente.png) */}
+
+## Notas publicadas
+
+La segunda pestana muestra las evaluaciones que ya tienen al menos una entrega corregida. La informacion presentada es similar a la de tareas pendientes, con las siguientes diferencias:
+
+- En lugar de las tres barras de progreso, se muestra un **indicador circular de participacion** que refleja el porcentaje de estudiantes que han participado (entregado o evaluado) sobre el total
+- El titulo de evaluaciones de tipo **Mint** se muestra precedido por la etiqueta "Actividad"
+
+{/* Screenshot: Detalle de una tarea revisada */}
+{/* ![Tarea con notas publicadas](/assets/screenshots/frontoffice-docentes/tareas/04-tarea-revisada.png) */}
+
+## Navegar a los resultados
+
+Al hacer clic en cualquier tarea del listado, el sistema navega directamente a la pantalla de **resultados de la evaluacion** correspondiente. La ruta de destino varia segun el tipo de contenido de la evaluacion:
+
+| Tipo de contenido | Ruta de destino |
+|-------------------|-----------------|
+| Evaluacion estandar (test/Lemonade) | Resultados de evaluacion dentro de la leccion |
+| Actividad Mint | Resultados de evaluacion con parametro de tipo Mint |
+| Videoleccion | Resultados de evaluacion con parametro de tipo Videoleccion |
+
+En todos los casos, el docente llega a la vista de resultados donde puede revisar entregas individuales, asignar calificaciones y publicar notas.
+
+## Carga progresiva
+
+El listado de tareas implementa **scroll infinito**: se cargan inicialmente 24 tareas y, al desplazarse hacia abajo, se solicitan las siguientes paginas automaticamente. Esto permite trabajar de forma fluida incluso cuando el docente tiene un volumen elevado de evaluaciones.
+
+## Estado vacio
+
+Si el docente no tiene tareas en la pestana seleccionada, el sistema muestra un mensaje de estado vacio:
+
+- **Titulo:** "No hay tareas pendientes"
+- **Texto:** "Todas las tareas han sido corregidas"
+
+{/* Screenshot: Estado vacio sin tareas */}
+{/* ![Sin tareas pendientes](/assets/screenshots/frontoffice-docentes/tareas/05-sin-tareas.png) */}
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Que tipos de evaluaciones aparecen en el gestor de tareas?">
+    Aparecen todas las evaluaciones asignadas dentro de las lecciones de los cursos del docente: evaluaciones estandar (tipo test/Lemonade), actividades Mint y videolecciones evaluativas. Solo se muestran aquellas que tienen al menos una entrega o un estudiante asignado.
+  </Accordion>
+  <Accordion title="¿Por que una tarea no aparece en el listado?">
+    Si una tarea no aparece, puede deberse a que el curso correspondiente esta oculto en el filtro del panel lateral. Tambien es posible que no haya ningun estudiante asignado a esa evaluacion o que la evaluacion no tenga entregas registradas.
+  </Accordion>
+  <Accordion title="¿Se puede corregir directamente desde esta vista?">
+    No. El gestor de tareas es una vista de navegacion que lista todas las evaluaciones pendientes. Al hacer clic en una tarea, el sistema navega a la pantalla de resultados de la evaluacion, donde el docente puede revisar entregas y asignar calificaciones.
+  </Accordion>
+  <Accordion title="¿Las tareas autoevaluativas aparecen como pendientes?">
+    Si, aunque el sistema las corrige automaticamente, aparecen en el listado para que el docente pueda revisar los resultados y publicar las notas cuando lo considere oportuno.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear evaluacion" icon="plus" href="/frontoffice-docentes/evaluaciones/crear-evaluacion">
+    Formulario para crear nuevas evaluaciones y tareas dentro de una leccion.
+  </Card>
+  <Card title="Resultados de evaluacion" icon="chart-bar" href="/frontoffice-docentes/evaluaciones/resultados-evaluacion">
+    Vista detallada de entregas, calificaciones y publicacion de notas.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: /tasks
+  - Archivos de codigo relacionados:
+    - frontend: src/app/modules/views/TasksView/TasksView.js
+    - frontend: src/app/modules/views/TasksView/useViewTasksView.js
+    - frontend: src/app/modules/views/TasksView/useDataTasksView.js
+    - frontend: src/core/modules/compositions/TaskList.js
+    - frontend: src/core/modules/components/lists/tasks-pending/TaskPendingItem.js
+    - frontend: src/core/modules/components/lists/task-reviewed/TaskReviewedItem.js
+    - backend: API endpoint front/tasks
+  - Ultima revision: 2026-03-29
+*/}

@@ -1,0 +1,100 @@
+---
+title: "Modo de proyección"
+description: "Presentación de contenidos en el aula con herramientas de clase interactivas y control remoto desde el móvil"
+icon: "screen-users"
+---
+
+La [Vista Power](/frontoffice-docentes/lecciones/vista-power) incluye un modo de proyección diseñado para presentar el contenido de la lección en el aula, utilizando un proyector o pantalla compartida. Este modo optimiza la visualización para audiencias y añade herramientas interactivas de clase.
+
+## Acceso al modo de proyección
+
+Desde la Vista Power, el docente puede iniciar la proyección cuando se encuentra en la pestaña **Contenido**. El sistema navega a una URL dedicada de proyección (`/course/:courseGuid/lesson/:lessonGuid/projection/:unitGuid/power`).
+
+{/* TODO: Capturar screenshot del modo proyección — no disponible en Math 26 (requiere curso con configuración de proyección habilitada) */}
+
+## Interfaz de proyección
+
+La interfaz de proyección se compone de:
+
+### Encabezado de proyección
+
+Muestra el nombre de la unidad, el nombre de la lección, las fechas programadas y el número de sesiones. Incluye un botón de retroceso que regresa a la Vista Power de la lección.
+
+### Área de contenido
+
+El contenido se muestra a pantalla completa con flechas de navegación laterales:
+
+- **Flecha izquierda**: navega al contenido anterior (oculta si es el primer elemento)
+- **Flecha derecha**: navega al contenido siguiente (oculta si es el último elemento)
+
+Los contenidos Mint se renderizan usando el visor `MintLessonVisorPlusV1`, que presenta las páginas HTML interactivas de forma optimizada para proyección. Las actividades Lemonade se muestran con su visualizador específico para preguntas.
+
+### Barra inferior de proyección
+
+La barra inferior contiene:
+
+- **Paginador visual**: muestra todos los contenidos de la lección como pasos numerados, permitiendo saltar directamente a cualquier elemento
+- **Estado del control remoto**: indica si hay un dispositivo móvil conectado como mando a distancia
+- **Herramientas de clase**: botón que despliega las opciones disponibles
+
+## Herramientas de clase
+
+El menú **Herramientas de clase** ofrece tres utilidades interactivas para la dinámica del aula:
+
+| Herramienta | Descripción |
+|-------------|-------------|
+| **Turno de palabra** | Selecciona estudiantes del curso al azar para participar, registrando quiénes ya han hablado |
+| **Cuenta atrás** | Temporizador regresivo configurable para limitar el tiempo de una actividad |
+| **Cronómetro** | Temporizador progresivo para medir el tiempo de una tarea o ejercicio |
+
+Estas herramientas se sincronizan con el control remoto del dispositivo móvil cuando está conectado.
+
+## Control remoto
+
+El modo de proyección soporta conexión con un dispositivo móvil como control remoto a través de WebSockets. Cuando el docente inicia sesión en la app desde su teléfono durante la proyección:
+
+- El indicador cambia de "Control remoto desactivado" a "Teléfono conectado"
+- El docente puede navegar entre contenidos, abrir herramientas de clase y controlar el scroll desde su dispositivo
+- El modo de proyección sincroniza el contenido visible y las acciones del dispositivo remoto en tiempo real
+
+<Tip>
+  El control remoto permite al docente moverse libremente por el aula mientras proyecta la lección, controlando la presentación desde su teléfono sin necesidad de estar junto al ordenador.
+</Tip>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El control remoto no se conecta">
+    La conexión del control remoto requiere que el docente tenga sesión activa en la app móvil con el mismo usuario y que ambos dispositivos tengan conexión a internet. Si el indicador permanece en "Control remoto desactivado", verificar:
+
+    - Que la sesión en el móvil esté activa
+    - Que no haya restricciones de red que bloqueen WebSockets
+    - Que el navegador del proyector no tenga bloqueadas las conexiones WebSocket
+  </Accordion>
+  <Accordion title="El modo de proyección no está disponible">
+    No todos los cursos tienen habilitado el modo de proyección. Esta funcionalidad depende de la configuración del programa digital y del tenant. Si el botón de proyección no aparece en la Vista Power, el curso no soporta esta funcionalidad.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Vista Power" icon="presentation" href="/frontoffice-docentes/lecciones/vista-power">
+    Estructura completa de la vista inmersiva de lección.
+  </Card>
+  <Card title="Gestión de contenidos" icon="sliders" href="/frontoffice-docentes/lecciones/gestion-contenidos">
+    Control de visibilidad y comentarios sobre los contenidos.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: frontoffice-docente
+  - Sección UI: Lecciones > Vista Power > Modo de proyección
+  - Archivos de código relacionados:
+    - frontend: src/core/lite/views/projection/ProjectionPowerView/ (modo proyección)
+    - frontend: src/app/pages/ProjectionPower.js (página de proyección con sockets)
+    - frontend: src/core/lite/views/ToolsProjectView/ (herramientas de clase)
+  - Última revisión: 2026-03-29
+*/}

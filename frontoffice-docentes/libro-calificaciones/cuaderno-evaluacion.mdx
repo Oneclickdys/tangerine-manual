@@ -1,0 +1,224 @@
+---
+title: "Cuaderno de evaluacion"
+description: "Gestion avanzada de calificaciones por periodos con modelos de evaluacion, publicacion de notas y calificacion manual"
+icon: "table"
+---
+
+El **cuaderno de evaluacion** es la variante avanzada del libro de calificaciones. Organiza las calificaciones por periodos (trimestres, cuatrimestres u otros) y permite aplicar modelos de evaluacion con categorias, escalas y pesos diferenciados.
+
+<Info>
+  **Rol requerido:** Docente. El administrador de escuela puede acceder en modo de solo lectura.
+</Info>
+
+<Note>
+  Esta variante solo esta disponible cuando el tenant tiene activado el setting **enableEvaluationModel**. Si el docente no ve esta interfaz, su institucion utiliza el [cuaderno de calificaciones estandar](/frontoffice-docentes/curso/calificaciones).
+</Note>
+
+## Estructura de la tabla
+
+La tabla del cuaderno de evaluacion se organiza en las siguientes areas:
+
+### Encabezado de la tabla
+
+El encabezado contiene:
+
+1. **Clasificacion**: Permite alternar entre dos formas de organizar las columnas:
+   - **Categorias**: Agrupa las actividades por categoria de evaluacion (ej. "Tareas", "Examenes", "Participacion")
+   - **Programa**: Agrupa las actividades por la estructura del programa digital (unidades, lecciones)
+
+2. **Acciones**: Tres iconos en la esquina superior del panel de estudiantes:
+   - **Ojo** — Abre el dialogo de modelo de evaluacion
+   - **Engranaje** — Abre el dialogo de configuracion
+   - **Exportar** — Abre el dialogo de exportacion
+
+### Columnas de periodos
+
+Cada periodo de evaluacion configurado (ej. "1T", "2T", "3T") se muestra como un grupo de columnas que contiene:
+
+- Las **actividades evaluables** de ese periodo, con nombre e icono de tipo de contenido
+- El **promedio del periodo** (columna resaltada al final del grupo)
+
+Al final de todos los periodos aparece la columna de **promedio global**, que calcula la nota final combinando los promedios de cada periodo segun el modelo de evaluacion.
+
+### Filas de estudiantes
+
+Cada fila representa a un estudiante e incluye:
+
+- **Nombre del estudiante** (con avatar)
+- **Celdas de calificacion** para cada actividad y cada promedio de periodo
+- **Promedio global**
+
+### Selector de periodos visibles
+
+En la parte superior de la tabla, un selector multiple permite filtrar que periodos se muestran. Esto es util cuando el docente quiere enfocarse en un solo trimestre sin el ruido visual de los demas.
+
+## Estados de las celdas
+
+Las celdas de calificacion muestran diferentes estados visuales:
+
+| Estado | Indicador visual | Significado |
+|--------|-----------------|-------------|
+| **Calificado** | Nota con fondo de color segun escala | El estudiante completo la actividad y tiene nota |
+| **Pendiente** | Guion (-) | El estudiante no ha completado la actividad |
+| **No entregado** | Celda vacia | La actividad no es aplicable para ese estudiante |
+| **Entrega tardia** | Icono de calendario | El estudiante entrego despues de la fecha limite |
+| **Nota editada manualmente** | Icono de lapiz | El docente modifico la nota precalculada |
+| **No publicado** | Estilo atenuado | La nota existe pero aun no es visible para el estudiante |
+| **Notificacion** | Icono de exclamacion rojo | Hay una notificacion pendiente asociada a esa entrega |
+
+## Publicar calificaciones
+
+Una de las funcionalidades clave del cuaderno de evaluacion es el control de **cuando** las notas son visibles para los estudiantes.
+
+### Publicar notas de una actividad
+
+<Steps>
+  <Step title="Identificar la actividad">
+    En el encabezado de la tabla, el docente localiza la columna de la actividad cuyas notas desea publicar. Las actividades no publicadas muestran un icono de **publicar** (flecha hacia arriba) debajo del nombre.
+  </Step>
+  <Step title="Hacer clic en Publicar">
+    Al pulsar el icono de publicar, aparece un dialogo de confirmacion con el mensaje: "Vas a publicar las notas de esta actividad y pasaran a ser visibles para los estudiantes".
+  </Step>
+  <Step title="Confirmar la publicacion">
+    El docente confirma pulsando **Si, publicar**. Las notas de esa actividad se hacen visibles inmediatamente para todos los estudiantes del curso.
+  </Step>
+</Steps>
+
+### Publicar promedios de periodo
+
+El proceso es similar, pero se realiza desde la columna de **promedio del periodo**:
+
+<Steps>
+  <Step title="Localizar la columna de promedio">
+    Al final de cada grupo de periodo se encuentra la columna de promedio (ej. "1T", "2T"). Si el promedio aun no esta publicado, aparece el icono de publicar.
+  </Step>
+  <Step title="Revisar advertencias">
+    Si hay actividades del periodo que aun no tienen notas publicadas, el sistema muestra una advertencia: "Estas a punto de publicar las notas finales del periodo, pero tienes calificaciones de actividades sin publicar". Esto alerta al docente de que puede haber notas que los estudiantes no han visto aun.
+  </Step>
+  <Step title="Confirmar la publicacion">
+    El docente confirma con **Si, publicar**. El promedio del periodo pasa a ser visible para los estudiantes.
+
+    <Warning>
+      Al publicar las notas de un periodo, las actividades de ese periodo dejan de estar disponibles para los estudiantes. Los estudiantes podran ver las actividades, pero ya no podran realizarlas.
+    </Warning>
+  </Step>
+</Steps>
+
+### Publicar promedio global
+
+El promedio global se publica de la misma forma que los promedios de periodo. Si hay periodos pendientes de publicar, el sistema lo indica con una advertencia especifica.
+
+### Despublicar notas
+
+Es posible revertir la publicacion de notas tanto a nivel de actividad como de periodo:
+
+- Al **despublicar una actividad**, el sistema recalcula las calificaciones para incluir entregas realizadas despues de la publicacion original
+- Al **despublicar un promedio de periodo**, las calificaciones se recalculan para reflejar todas las entregas actuales
+
+<Tip>
+  La opcion de despublicar es util cuando se detecta un error en una calificacion despues de haberla publicado, o cuando se quiere dar tiempo adicional a los estudiantes para completar una actividad.
+</Tip>
+
+## Asignar nota manualmente
+
+El docente puede sobrescribir el promedio calculado automaticamente para un estudiante en cualquier celda de promedio (periodo o global).
+
+<Steps>
+  <Step title="Hacer clic en la celda de promedio">
+    El docente pulsa sobre la celda de promedio de un estudiante (periodo o global). Aparece un menu contextual con dos opciones:
+    - **Asignar calificacion manualmente** (icono de lapiz)
+    - **Restablecer a nota precalculada** (icono de recarga)
+  </Step>
+  <Step title="Introducir la nota">
+    Al seleccionar "Asignar calificacion manualmente", se abre un dialogo donde el docente introduce la nueva nota dentro del rango de la escala configurada para el curso.
+  </Step>
+  <Step title="Guardar">
+    La celda se actualiza con la nueva nota y muestra un icono de lapiz para indicar que ha sido editada manualmente.
+  </Step>
+</Steps>
+
+<Note>
+  La opcion de asignar nota manualmente solo esta disponible si la configuracion del cuaderno tiene habilitada la opcion **Permitir edicion de calificacion** para el tipo de promedio correspondiente (por periodo o global). Consulta la seccion de [Configuracion](/frontoffice-docentes/libro-calificaciones/configuracion-y-exportacion) para mas detalle.
+</Note>
+
+### Restablecer nota precalculada
+
+Si la nota fue editada manualmente, el docente puede revertirla al valor calculado automaticamente seleccionando **Restablecer a nota precalculada** en el menu contextual. Esta opcion solo esta disponible si la celda tiene una nota manual activa.
+
+## Navegar a una actividad
+
+Al hacer clic en una celda de calificacion de una actividad (no de promedio), el sistema navega a la vista de **resultados de la evaluacion** de esa actividad para ese estudiante. Desde ahi el docente puede:
+
+- Ver las respuestas del estudiante
+- Revisar el tiempo empleado
+- Consultar intentos anteriores
+- Modificar la calificacion individual
+
+Al hacer clic en el **nombre de una actividad** en el encabezado de la tabla, se abre un dialogo con informacion de la actividad y opciones para:
+
+- **Editar** la actividad (navega a la leccion correspondiente)
+- **Ver resultados** (navega a la vista de resultados de la evaluacion)
+
+## Modelo de evaluacion
+
+El modelo de evaluacion define como se calculan las notas finales de cada periodo. El docente puede consultar (pero no modificar) el modelo desde el cuaderno de evaluacion.
+
+<Steps>
+  <Step title="Abrir el dialogo de modelo">
+    En la esquina superior izquierda de la tabla, el docente pulsa el icono de **ojo**. Se abre el dialogo "Modelo de evaluacion".
+  </Step>
+  <Step title="Consultar categorias y pesos">
+    El dialogo muestra, para cada periodo, la lista de categorias de evaluacion con:
+    - **Nombre** de la categoria
+    - **Escala** asociada
+    - **Peso** porcentual en el calculo final
+
+    Se puede navegar entre periodos usando las tabs del dialogo.
+  </Step>
+</Steps>
+
+<Note>
+  El modelo de evaluacion se configura desde el **backoffice** a nivel de programa digital. El docente solo puede consultarlo, no modificarlo.
+</Note>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No se muestra la tabla del cuaderno de evaluacion">
+    Si en lugar de la tabla aparece el mensaje "Para guardar las modificaciones al horario de grupos, es necesario que la configuracion del curso este completa", el curso no tiene configuracion asignada. El coordinador academico o administrador debe completar la configuracion del curso desde el backoffice.
+  </Accordion>
+  <Accordion title="El administrador de escuela no puede editar calificaciones">
+    El administrador de escuela accede al cuaderno de evaluacion en **modo de solo lectura**. No puede asignar notas manualmente, publicar/despublicar calificaciones ni modificar la configuracion. Esta restriccion es por diseno.
+  </Accordion>
+  <Accordion title="Una nota muestra un asterisco (*)">
+    En el cuaderno de calificaciones estandar, un asterisco junto a una nota indica que la calificacion fue asignada por el sistema de forma automatica (por ejemplo, un 0.0 por no entrega). En el cuaderno de evaluacion, el icono de lapiz indica edicion manual.
+  </Accordion>
+  <Accordion title="Las notas de un periodo no coinciden con las actividades visibles">
+    Si el docente ha activado el filtro "Mostrar actividades no publicadas: No", las actividades sin publicar se ocultan de la tabla, pero sus notas siguen contando en el calculo del promedio. Para ver todas las actividades, el docente debe cambiar esta opcion en la configuracion.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Configuracion y exportacion" icon="gear" href="/frontoffice-docentes/libro-calificaciones/configuracion-y-exportacion">
+    Opciones de puntuacion, ordenacion, visualizacion y exportacion de datos.
+  </Card>
+  <Card title="Calificaciones del curso (estandar)" icon="chart-line" href="/frontoffice-docentes/curso/calificaciones">
+    Cuaderno de calificaciones estandar con graficas y tabla de notas.
+  </Card>
+  <Card title="Resultados de evaluacion" icon="clipboard-check" href="/frontoffice-docentes/evaluaciones/resultados-evaluacion">
+    Vista detallada de las entregas de una evaluacion.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: /course/:guid/grades (con enableEvaluationModel=true)
+  - Archivos de codigo relacionados:
+    - frontend: CourseView/GradesPeriods/teacher/
+    - backend: gradebook.crud.js (getHeadersGradebook, getGradebook, postScore, putScore, deleteScore, publishScoreItem, unpublishScoreItem)
+  - Ultima revision: 2026-03-30
+*/}

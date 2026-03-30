@@ -1,0 +1,126 @@
+---
+title: "Libro de calificaciones"
+description: "Vista general del sistema de calificaciones de Tangerine, sus dos variantes y las funcionalidades disponibles para el docente"
+icon: "book-open"
+---
+
+El **libro de calificaciones** es la herramienta central que permite al docente consultar, gestionar y publicar las notas de los estudiantes dentro de un curso. Tangerine ofrece dos variantes del libro de calificaciones, cuya disponibilidad depende de la configuracion del tenant.
+
+<Info>
+  **Rol requerido:** Docente o Administrador de escuela (solo lectura)
+</Info>
+
+## Dos variantes del libro de calificaciones
+
+La variante que se muestra al docente depende de una configuracion a nivel de tenant. No es posible alternar entre ambas desde la interfaz de usuario.
+
+<Tabs>
+  <Tab title="Cuaderno de calificaciones">
+    Es la variante estandar. Presenta las calificaciones organizadas por unidades y actividades, con graficas de rendimiento, ranking de estudiantes y la posibilidad de exportar a CSV.
+
+    **Incluye las siguientes secciones:**
+
+    | Seccion | Descripcion |
+    |---------|-------------|
+    | **Graficas** | Ranking de estudiantes y grafico lineal de analisis de notas |
+    | **Calificaciones** | Tabla detallada con notas por unidad, leccion y actividad |
+    | **Libro digital** | Calificaciones de actividades del libro retro (si aplica) |
+    | **Global Educa** | Integracion con plataforma Global Educa (si esta habilitada) |
+    | **Asistencia** | Registro de asistencia diaria |
+    | **Comportamiento** | Registro de observaciones de comportamiento |
+
+    Esta variante esta documentada en detalle en [Calificaciones del curso](/frontoffice-docentes/curso/calificaciones).
+  </Tab>
+  <Tab title="Cuaderno de evaluacion">
+    Es la variante avanzada. Organiza las calificaciones por **periodos de evaluacion** (trimestres, cuatrimestres, etc.) y permite aplicar **modelos de evaluacion** con categorias, escalas y pesos diferenciados.
+
+    **Funcionalidades exclusivas:**
+
+    | Funcionalidad | Descripcion |
+    |---------------|-------------|
+    | **Periodos de evaluacion** | Organiza actividades y promedios por trimestre u otro periodo configurado |
+    | **Modelos de evaluacion** | Define categorias con escalas y pesos para el calculo de notas |
+    | **Publicar/despublicar notas** | Control granular sobre la visibilidad de calificaciones para los estudiantes |
+    | **Asignar nota manualmente** | Permite sobrescribir el promedio calculado automaticamente |
+    | **Clasificacion por categorias o programa** | Dos formas de organizar las columnas de la tabla |
+    | **Exportar a Excel o CSV** | Exportacion con seleccion de periodos y formato |
+    | **Configuracion de puntuacion** | Opciones para contar entregas tardias y habilitar edicion de notas |
+
+    Esta variante se documenta en las paginas siguientes de esta seccion.
+  </Tab>
+</Tabs>
+
+<Note>
+  La variante activa se determina por el setting **enableEvaluationModel** del tenant. El docente no puede cambiar entre variantes. Si el equipo de soporte necesita identificar cual variante usa un cliente, puede consultar la configuracion del tenant en el backoffice.
+</Note>
+
+## Como acceder
+
+<Steps>
+  <Step title="Seleccionar un curso">
+    Desde el Home, el docente selecciona uno de sus cursos en la seccion **Grupos**.
+  </Step>
+  <Step title="Ir a la tab Calificaciones">
+    Dentro del curso, el docente selecciona la tab **Calificaciones** en la barra de navegacion superior.
+
+    ![Tab de calificaciones del curso](/assets/screenshots/frontoffice-docentes/libro-calificaciones/cuaderno-calificaciones-graficas.png)
+  </Step>
+</Steps>
+
+## Requisitos previos
+
+Para que el libro de calificaciones muestre datos, se deben cumplir las siguientes condiciones:
+
+- El curso debe tener un **programa digital** asignado con actividades evaluables
+- Los estudiantes deben haber **completado** al menos una actividad evaluable
+- En el caso del cuaderno de evaluacion, el curso debe tener una **configuracion de curso** completa (periodos, modelo de evaluacion)
+
+<Warning>
+  Si el cuaderno de evaluacion muestra el mensaje "Para guardar las modificaciones al horario de grupos, es necesario que la configuracion del curso este completa", significa que falta la configuracion de curso. El coordinador academico o administrador debe completar esta configuracion desde el backoffice.
+
+  ![Mensaje de error cuando falta la configuracion del curso](/assets/screenshots/frontoffice-docentes/libro-calificaciones/cuaderno-evaluacion-sin-configuracion.png)
+</Warning>
+
+## Vista del estudiante
+
+Ambas variantes del libro de calificaciones tienen una **vista de estudiante** diferente a la del docente:
+
+- En el **cuaderno de calificaciones**, el estudiante ve un resumen de sus propias notas con graficas de progreso, un acordeon por unidad con el detalle de cada actividad, y la posibilidad de cambiar el scope (programa, toolbox, etc.).
+- En el **cuaderno de evaluacion**, el estudiante ve sus promedios por periodo y un desglose por modulos y actividades con barras de progreso.
+
+<Note>
+  Los estudiantes solo ven las calificaciones que el docente ha **publicado**. En el cuaderno de evaluacion, esto requiere una accion explicita de publicacion por parte del docente.
+</Note>
+
+## Variaciones por tenant
+
+<AccordionGroup>
+  <Accordion title="Richmond">
+    Richmond tiene una configuracion especial de permisos en el libro de calificaciones. El administrador de escuela puede acceder al cuaderno de evaluacion en modo de solo lectura, sin posibilidad de modificar calificaciones ni publicar notas.
+  </Accordion>
+</AccordionGroup>
+
+## Paginas de esta seccion
+
+<CardGroup cols={2}>
+  <Card title="Cuaderno de evaluacion" icon="table" href="/frontoffice-docentes/libro-calificaciones/cuaderno-evaluacion">
+    Tabla de calificaciones por periodos con modelos de evaluacion, publicacion de notas y calificacion manual.
+  </Card>
+  <Card title="Configuracion y exportacion" icon="gear" href="/frontoffice-docentes/libro-calificaciones/configuracion-y-exportacion">
+    Opciones de configuracion del cuaderno (puntuacion, ordenacion, visualizacion) y exportacion de datos.
+  </Card>
+  <Card title="Calificaciones del curso" icon="chart-line" href="/frontoffice-docentes/curso/calificaciones">
+    Cuaderno de calificaciones estandar con graficas, tabla de notas y exportacion a CSV.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: /course/:guid/grades
+  - Archivos de codigo relacionados:
+    - frontend: CourseView/Grades/, CourseView/GradesPeriods/, CrossGradebookView/
+    - backend: gradebook.crud.js
+  - Ultima revision: 2026-03-30
+*/}

@@ -1,0 +1,307 @@
+---
+title: "Calendario general"
+description: "Vista de calendario con sesiones, tareas y dias festivos de todos los cursos del docente o estudiante"
+icon: "calendar"
+---
+
+El calendario general ofrece una vista consolidada de todas las sesiones, tareas pendientes y dias festivos de los cursos del usuario. Tanto docentes como estudiantes acceden a la misma pantalla, pero con funcionalidades diferentes: los docentes pueden reorganizar sesiones, configurar cursos y acceder directamente al detalle de cada sesion, mientras que los estudiantes tienen una vista de solo lectura enfocada en las entregas pendientes.
+
+<Info>
+  **Rol requerido:** Docente o Estudiante.
+</Info>
+
+## Cuando usar el calendario
+
+El calendario resulta especialmente util cuando:
+
+- El docente necesita una **vision global** de la planificacion semanal de todos sus cursos
+- Se requiere **verificar superposiciones** de sesiones o tareas entre distintos cursos
+- El docente quiere **reorganizar sesiones** arrastrando eventos a otros dias (segun la configuracion)
+- El estudiante necesita consultar **que tareas tiene pendientes** y en que fechas
+
+<Tip>
+El calendario muestra informacion de todos los cursos activos del usuario. Para enfocarse en un curso concreto, el docente puede ocultar los demas desde el panel lateral "Mis calendarios".
+</Tip>
+
+## Acceder al calendario
+
+<Steps>
+  <Step title="Abrir el calendario desde el Home">
+    Desde la pantalla principal (Home), el usuario hace clic en el icono de **Calendario** en la barra de navegacion lateral o superior. La ruta es `/calendar`.
+  </Step>
+</Steps>
+
+{/* Screenshot: Vista general del calendario */}
+{/* ![Vista general del calendario](/assets/screenshots/frontoffice-docentes/calendario/01-vista-general.png) */}
+
+## Estructura de la vista
+
+La pantalla del calendario se organiza en un layout de dos columnas con un panel lateral izquierdo y el area principal de calendario a la derecha.
+
+### Panel lateral izquierdo
+
+El panel lateral contiene dos elementos principales:
+
+1. **Calendario pequeno (mini-calendario):** Un calendario mensual compacto que permite navegar entre meses y seleccionar un dia concreto. El dia actual aparece resaltado. Al hacer clic en un dia, el calendario principal se desplaza a esa fecha.
+
+2. **Mis calendarios:** Una lista de todos los cursos del usuario, agrupados por **grupo escolar** (clase). Cada curso aparece con:
+   - Un **indicador de color** que identifica visualmente al curso en el calendario principal
+   - El **nombre del curso**
+   - Un **icono de visibilidad** (ojo) para mostrar u ocultar los eventos de ese curso
+   - Un **icono de configuracion** (engranaje), disponible solo para docentes cuando la configuracion del tenant lo permite
+
+Los grupos escolares se muestran como acordeones desplegables. Cada grupo tiene su propio icono de visibilidad que permite ocultar o mostrar todos los cursos del grupo de una vez.
+
+{/* Screenshot: Panel lateral con mini-calendario y lista de calendarios */}
+{/* ![Panel lateral del calendario](/assets/screenshots/frontoffice-docentes/calendario/02-panel-lateral.png) */}
+
+<Note>
+En dispositivos moviles, el panel lateral se convierte en un menu desplegable accesible desde un boton de hamburguesa. Al abrirlo, el contenido del calendario queda oculto detras del panel.
+</Note>
+
+### Area principal de calendario
+
+El area principal muestra los eventos en formato de calendario. Existen **tres variantes** de visualizacion segun la configuracion del tenant, descritas en detalle en la seccion siguiente.
+
+## Variantes del calendario
+
+El calendario presenta diferentes modos de visualizacion segun la configuracion del tenant. Esto se determina automaticamente y no es seleccionable por el usuario.
+
+<Tabs>
+  <Tab title="Calendario avanzado con horas">
+    Esta es la variante principal, usada por la mayoria de los tenants (excepto Santillana Piloto y tenants con calendario legacy activado).
+
+    Muestra una **vista semanal con franjas horarias** (de 7:00 a 19:00). Utiliza la libreria `react-big-calendar` con soporte para eventos en posiciones temporales precisas.
+
+    **Tipos de eventos visibles:**
+
+    | Tipo | Representacion | Comportamiento al hacer clic |
+    |------|----------------|-------------------------------|
+    | **Sesion** | Bloque de color en la franja horaria correspondiente, con numero de sesion, titulo de la leccion y asignatura | Abre un dropdown con los detalles de la sesion y un boton para navegar a ella |
+    | **Tarea/Entregable** | Barra coloreada en la parte superior del dia (zona "all day"), con icono y titulo | **Docente:** abre el contenido en una nueva pestana. **Estudiante:** abre un dialogo de previsualizacion del material |
+    | **Dia festivo** | Barra con fondo especial en la zona "all day" | No es interactivo (no se puede hacer clic) |
+
+    **Navegacion:**
+    - Botones de **flecha izquierda/derecha** para moverse entre semanas
+    - Boton **Hoy** para volver a la semana actual
+    - El mes y anio actuales se muestran en la barra de herramientas
+
+    Los **fines de semana** y **dias festivos** aparecen con un estilo visual diferenciado (fondo mas claro o gris). Los eventos pasados se muestran con menor opacidad para distinguirlos de los futuros.
+
+    {/* Screenshot: Calendario avanzado con horas mostrando sesiones y entregables */}
+    {/* ![Calendario avanzado con horas](/assets/screenshots/frontoffice-docentes/calendario/03-calendario-avanzado-horas.png) */}
+  </Tab>
+
+  <Tab title="Calendario semanal sin horas">
+    Variante especifica para **Mexico (Santillana Piloto)**. Muestra una vista semanal pero sin franjas horarias, organizando las sesiones como tarjetas apiladas dentro de cada dia.
+
+    Utiliza un componente personalizado con soporte para **drag & drop** (arrastrar y soltar) mediante la libreria `@dnd-kit`, permitiendo al docente mover sesiones entre dias.
+
+    **Estructura por dia:**
+    - **Cabecera del dia:** Nombre del dia y numero. Incluye las tareas/entregables como badges coloreados.
+    - **Area de sesiones:** Lista vertical de tarjetas de sesion. Cada tarjeta muestra el numero de sesion, titulo y asignatura, con el color del curso correspondiente.
+
+    **Drag & drop de sesiones (solo docentes):**
+    - Las sesiones se pueden arrastrar a otro dia de la semana
+    - Solo se pueden mover sesiones en dias actuales o futuros (no en dias pasados)
+    - Las sesiones del primer y ultimo elemento de un grupo de curso son arrastrables
+    - Al soltar una sesion en otro dia, se actualiza la fecha en el servidor
+
+    Los dias festivos se muestran con un indicador visual diferenciado en la columna del dia correspondiente.
+
+    {/* Screenshot: Calendario semanal sin horas con sesiones apiladas */}
+    {/* ![Calendario semanal sin horas](/assets/screenshots/frontoffice-docentes/calendario/04-calendario-semanal-sin-horas.png) */}
+  </Tab>
+
+  <Tab title="Calendario legacy">
+    Variante para tenants con la configuracion `isLegacyCalendar` activada. Ofrece las vistas de **semana** y **mes** con navegacion entre ambas.
+
+    **Vistas disponibles:**
+    - **Semana:** Similar al calendario avanzado con horas pero con funcionalidad adicional de drag & drop integrado
+    - **Mes:** Vista de cuadricula mensual con los eventos representados como puntos o pequenas barras en cada dia
+
+    **Drag & drop (solo si `allowMoveCalendarSessions` esta activado):**
+    - Los docentes pueden arrastrar sesiones a otros dias
+    - Restricciones: no se permite mover a dias pasados, fines de semana o dias festivos
+    - Al intentar mover una sesion, el sistema muestra un dialogo de confirmacion antes de ejecutar el cambio
+
+    **Configuracion del calendario:**
+    - Los docentes (no estudiantes) pueden acceder a un dialogo de **Configuracion del calendario** desde la barra de herramientas
+    - Este dialogo permite gestionar los dias festivos del calendario
+
+    {/* Screenshot: Calendario legacy vista mes */}
+    {/* ![Calendario legacy](/assets/screenshots/frontoffice-docentes/calendario/05-calendario-legacy.png) */}
+  </Tab>
+</Tabs>
+
+## Interacciones principales
+
+### Filtrar calendarios por curso
+
+Cada curso aparece como un calendario independiente en el panel lateral. El docente puede:
+
+1. **Ocultar un curso individual:** Hacer clic en el icono de ojo junto al nombre del curso. Los eventos de ese curso dejan de mostrarse en el calendario principal.
+2. **Ocultar un grupo escolar completo:** Hacer clic en el icono de ojo junto al nombre del grupo. Todos los cursos del grupo se ocultan o muestran simultaneamente.
+3. **Restaurar la visibilidad:** Hacer clic de nuevo en el icono de ojo para volver a mostrar los eventos.
+
+<Tip>
+Cuando se accede al calendario desde la vista de un curso concreto (via URL `/calendar/course/:guid`), el sistema preselecciona automaticamente solo ese curso como visible, filtrando los demas.
+</Tip>
+
+### Ver detalle de una sesion
+
+Al hacer clic en una sesion del calendario (en las variantes avanzada con horas y semanal sin horas), se despliega un **dropdown contextual** con la siguiente informacion:
+
+- **Fecha completa** de la sesion (dia de la semana, numero y mes)
+- **Nombre del curso** con su indicador de color
+- **Nombre del grupo escolar** (clase)
+- **Numero de sesion** (solo visible para docentes)
+- **Titulo de la leccion**
+
+El dropdown incluye un boton de accion:
+- **Docentes:** "Ir a la sesion" — navega a la vista de la sesion dentro de la leccion
+- **Estudiantes:** "Ver contenidos" — navega a la leccion correspondiente
+
+{/* Screenshot: Dropdown de detalle de sesion */}
+{/* ![Detalle de sesion](/assets/screenshots/frontoffice-docentes/calendario/06-dropdown-sesion.png) */}
+
+### Ver detalle de una tarea (entregable)
+
+Al hacer clic en un entregable (tarea, evaluacion o actividad), el comportamiento varia segun el rol:
+
+- **Docente:** El contenido se abre directamente en una **nueva pestana** del navegador, llevando a la vista de resultados o detalle correspondiente.
+- **Estudiante:** Se abre un **dialogo de previsualizacion del material** dentro de la misma pagina. Desde este dialogo, el estudiante puede acceder a la vista detallada del contenido. Si la tarea ya fue entregada o evaluada, se redirige a la vista de resultados individuales.
+
+### Configurar un curso desde el calendario
+
+Si la configuracion del tenant permite la configuracion de cursos por parte del docente (`enableTeacherConfigCourse`), cada curso en el panel lateral muestra un icono de engranaje. Al hacer clic, se abre un dialogo de configuracion del curso que permite ajustar los periodos y la distribucion de sesiones.
+
+<Note>
+El dialogo de configuracion de curso es el mismo que se utiliza en otras partes de la plataforma para configurar la planificacion del curso. Tras cerrar el dialogo, el calendario se recarga automaticamente para reflejar los cambios.
+</Note>
+
+### Mover sesiones (drag & drop)
+
+La funcionalidad de arrastrar y soltar sesiones esta disponible solo para docentes y depende de la variante del calendario:
+
+| Variante | Drag & drop disponible | Restricciones |
+|----------|----------------------|---------------|
+| Avanzado con horas | Preparado pero no habilitado actualmente | -- |
+| Semanal sin horas | Si | Solo sesiones en dias actuales o futuros; solo primera/ultima sesion de un grupo de curso |
+| Legacy | Si (si `allowMoveCalendarSessions` esta activo) | No se permite mover a dias pasados, fines de semana o dias festivos; requiere confirmacion |
+
+<Warning>
+Al mover una sesion en la variante legacy, el sistema muestra un dialogo de confirmacion con el texto "Esta seguro de que desea mover esta leccion?". Es importante confirmar antes de que se ejecute el cambio, ya que afecta la planificacion del curso.
+</Warning>
+
+## Tipos de eventos
+
+El calendario unifica tres tipos de eventos provenientes de diferentes fuentes:
+
+### Sesiones
+
+Representan las sesiones de clase programadas del programa digital de cada curso. Cada sesion muestra:
+
+- **Numero de sesion** (por ejemplo, "Sesion 3")
+- **Titulo de la leccion** a la que pertenece
+- **Asignatura o materia** del curso
+- **Color del curso** como indicador visual
+
+Las sesiones se obtienen automaticamente a partir de la planificacion del programa digital de cada curso. El rango de carga es de tres meses (mes anterior, actual y siguiente) para optimizar el rendimiento.
+
+### Entregables (deliverables)
+
+Son las tareas, evaluaciones y actividades que tienen una fecha de entrega asignada. Aparecen en la zona "todo el dia" (all day) del calendario, con:
+
+- **Icono del tipo de contenido** (actividad, evaluacion, etc.)
+- **Titulo de la tarea o actividad**
+- **Color de fondo** del curso al que pertenecen
+
+### Dias festivos
+
+Los dias no lectivos configurados para el centro escolar. Aparecen como franjas horizontales con un estilo visual distintivo y no son interactivos (no se puede hacer clic sobre ellos). Los dias festivos tambien afectan el estilo de la columna del dia correspondiente en la vista semanal.
+
+## Diferencias entre docente y estudiante
+
+| Aspecto | Docente | Estudiante |
+|---------|---------|------------|
+| **Numero de sesion** | Visible en tarjetas y dropdown | No visible |
+| **Drag & drop** | Disponible (segun variante y configuracion) | No disponible |
+| **Configurar curso** | Icono de engranaje visible | No visible |
+| **Clic en entregable** | Abre en nueva pestana | Abre dialogo de previsualizacion |
+| **Boton de accion en dropdown** | "Ir a la sesion" | "Ver contenidos" |
+| **Configuracion del calendario** (legacy) | Acceso a dialogo de configuracion | No disponible |
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El calendario aparece vacio">
+    Si el calendario no muestra ningun evento, puede deberse a:
+    - El usuario no tiene cursos activos (el calendario requiere al menos un curso para cargar datos)
+    - Todos los calendarios estan ocultos en el panel lateral — verificar que al menos un curso tenga el icono de ojo activado
+    - El rango de fechas visible no contiene sesiones programadas — usar el mini-calendario para navegar a un mes con actividad
+  </Accordion>
+
+  <Accordion title="No se pueden mover sesiones">
+    El drag & drop de sesiones solo esta disponible en determinadas condiciones:
+    - **Variante avanzada con horas:** la funcionalidad esta preparada pero no habilitada actualmente
+    - **Variante semanal sin horas:** solo el docente puede mover, y unicamente sesiones en dias actuales o futuros
+    - **Variante legacy:** requiere que el tenant tenga `allowMoveCalendarSessions` activado
+    - Los estudiantes nunca pueden mover sesiones
+  </Accordion>
+
+  <Accordion title="Los eventos de un curso no aparecen">
+    Si los eventos de un curso concreto no se muestran pero otros cursos si:
+    - Verificar que el curso no esta oculto en el panel "Mis calendarios"
+    - Comprobar que el curso tiene un programa digital con sesiones programadas
+    - Si se accedio desde la URL de un curso especifico, es posible que solo ese curso este seleccionado; hacer clic en los iconos de ojo del panel lateral para mostrar los demas
+  </Accordion>
+
+  <Accordion title="Se muestra un error al cargar eventos">
+    Si aparece un mensaje de error tipo "Error loading calendar events", puede ser un problema temporal de conexion con el servidor. El sistema muestra un toast de error transitorio. Recargar la pagina suele resolver el problema.
+  </Accordion>
+</AccordionGroup>
+
+## Configurabilidad
+
+<AccordionGroup>
+  <Accordion title="isLegacyCalendar">
+    Configuracion de tenant que determina si se usa el calendario legacy (con vistas mes/semana y eventos del backend clasico) o el calendario avanzado basado en sesiones del programa digital. La mayoria de los tenants actuales usan el calendario avanzado (`isLegacyCalendar = false`).
+  </Accordion>
+
+  <Accordion title="allowMoveCalendarSessions">
+    Solo aplica al calendario legacy. Cuando esta activado, los docentes pueden mover sesiones mediante drag & drop en la vista semanal o mensual.
+  </Accordion>
+
+  <Accordion title="enableTeacherConfigCourse">
+    Cuando esta activado, los docentes ven un icono de engranaje junto a cada curso en el panel lateral, que abre el dialogo de configuracion del curso para ajustar periodos y distribucion de sesiones.
+  </Accordion>
+
+  <Accordion title="enableAdvancedProgramming">
+    Controla si la recarga de eventos al cambiar de dia usa la API de sesiones avanzadas. Cuando esta activado, navegar entre dias recarga los datos de sesiones; cuando no, solo la navegacion entre meses dispara una recarga.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Vista del curso" icon="book-open" href="/frontoffice-docentes/curso/vista-curso">
+    Vista principal del curso con tabs de Programa, Stream, Recursos y Calificaciones.
+  </Card>
+  <Card title="Programa del curso" icon="list-ordered" href="/frontoffice-docentes/curso/programa">
+    Vista del programa con la estructura de unidades, lecciones y sesiones.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: /calendar
+  - Archivos de codigo relacionados:
+    - frontend: src/core/lite/views/CalendarView/
+    - frontend: src/core/modules/components/general/calendar/CalendarEvents/
+    - frontend: src/core/modules/components/general/calendar/CalendarWeekSessions/
+    - frontend: src/core/modules/components/general/calendar/CalendarBig/
+  - Ultima revision: 2026-03-29
+*/}

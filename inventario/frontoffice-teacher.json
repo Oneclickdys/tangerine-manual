@@ -103,18 +103,18 @@
       "section": "Curso/Aula",
       "route": "/course/:guid (tab Resources)",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-list",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/curso/recursos.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/CourseView/Resources/"],
         "backend": []
       },
-      "tenantVariations": [],
+      "tenantVariations": ["Edelvives filtra recursos por comunidad autonoma del colegio del docente"],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-29",
+      "notes": "Layout dos columnas (secciones + acordeones). Secciones: actividades, videolecciones, imagenes, videos, audios, documentos. Seccion test usa tarjetas especiales con CRUD de evaluaciones. Docentes pueden crear/editar/eliminar videolecciones."
     },
     "course/grades": {
       "name": "Calificaciones del curso",
@@ -156,22 +156,22 @@
     },
     "lesson/power-view": {
       "name": "Vista Power (presentacion)",
-      "description": "Vista de presentacion para proyectar en clase",
+      "description": "Vista inmersiva de leccion con sidebar, navegacion secuencial, control de visibilidad (publicar/borrador/programado), comentarios por contenido, creacion de contenido y modo de proyeccion para el aula",
       "section": "Lecciones",
       "route": "/course/:courseGuid/lesson/:lessonGuid/power",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/lecciones/vista-power.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/PowerView/"],
+        "frontend": ["src/core/lite/views/LessonViewPowerV2/", "src/app/modules/views/LessonPowerView/", "src/core/lite/views/projection/ProjectionPowerView/", "src/app/pages/ProjectionPower.js"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": [],
+      "featureFlags": ["enableTeacherCanCreateSection", "enableLessonItemComments"],
       "relatedFeatures": ["lesson/view"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-29",
+      "notes": "Dos versiones del componente: LessonViewPowerV2 (nueva, con LayoutSidebarResponsive) y LessonPowerView (legacy, con tabs Contenido/Recursos). LessonPage usa LessonViewPowerV2 cuando has_power_lesson=1 o lesson.type=POWER. Modo proyeccion usa WebSockets para control remoto movil. Toggle FL/Mint solo visible en plantilla PRIMARY_HYBRID_LAYOUT. Control de visibilidad: 3 estados (published/draft/scheduled) via StatusTag y DialogEditStatus. Comentarios publicos por contenido controlados por enableLessonItemComments (setting show_item_comments). Cabecera de contenido con avatares de estudiantes, configuracion (engranaje) y menu de acciones."
     },
     "assessment/create": {
       "name": "Crear evaluacion",
@@ -217,18 +217,18 @@
       "section": "Libro de Calificaciones",
       "route": "/course/:guid/grades",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "complex-workflow",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/libro-calificaciones/vista-general.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/GradebookView/"],
-        "backend": []
+        "frontend": ["src/core/lite/views/CourseView/Grades/", "src/core/lite/views/CourseView/GradesPeriods/", "src/core/lite/views/CrossGradebookView/"],
+        "backend": ["src/core/crud/gradebook.crud.js"]
       },
       "tenantVariations": ["Richmond tiene configuracion especial de permisos"],
-      "featureFlags": [],
+      "featureFlags": ["enableEvaluationModel"],
       "relatedFeatures": ["course/grades"],
-      "lastDocumented": null,
-      "notes": "Funcionalidad core muy usada - documentar con detalle"
+      "lastDocumented": "2026-03-30",
+      "notes": "Funcionalidad core muy usada. Dos variantes: cuaderno de calificaciones (GradesContainer) y cuaderno de evaluacion (GradesPeriods) controladas por enableEvaluationModel. Subpaginas: vista-general.mdx, cuaderno-evaluacion.mdx, configuracion-y-exportacion.mdx"
     },
     "students/list": {
       "name": "Ver estudiantes del aula",
@@ -255,18 +255,18 @@
       "section": "Calendario",
       "route": "/calendar",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/calendario/vista-calendario.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/CalendarView/"],
         "backend": []
       },
-      "tenantVariations": [],
-      "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "tenantVariations": ["Santillana Piloto usa calendario semanal sin horas", "Tenants con isLegacyCalendar usan calendario legacy con vistas mes/semana"],
+      "featureFlags": ["isLegacyCalendar", "allowMoveCalendarSessions", "enableTeacherConfigCourse", "enableAdvancedProgramming"],
+      "relatedFeatures": ["course/view", "course/program"],
+      "lastDocumented": "2026-03-29",
+      "notes": "Tres variantes de calendario segun configuracion del tenant: avanzado con horas (por defecto), semanal sin horas (MX/Santillana Piloto), legacy (isLegacyCalendar). Drag & drop de sesiones disponible en variantes semanal sin horas y legacy."
     },
     "tasks/list": {
       "name": "Gestor de tareas",
@@ -274,18 +274,18 @@
       "section": "Tareas",
       "route": "/tasks",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-list",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/tareas/gestor-tareas.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/TasksView/"],
+        "frontend": ["src/app/modules/views/TasksView/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "relatedFeatures": ["assessment/create", "assessment/results"],
+      "lastDocumented": "2026-03-29",
+      "notes": "Layout dos columnas: panel lateral con filtro por curso (calendarios) y listado principal con tabs Pendientes/Notas publicadas. Scroll infinito (24 items por pagina). Navega a resultados de evaluacion al hacer clic. Tipos soportados: test/Lemonade, Mint, Videoleccion."
     },
     "ai/tools": {
       "name": "Herramientas de IA",

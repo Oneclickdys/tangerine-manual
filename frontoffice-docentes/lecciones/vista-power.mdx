@@ -1,0 +1,249 @@
+---
+title: "Vista Power"
+description: "Vista inmersiva de la lección con navegación lateral, visualización de contenidos y herramientas de gestión"
+icon: "presentation"
+---
+
+La Vista Power es la interfaz principal para explorar y gestionar el contenido de una lección de forma inmersiva. Presenta un diseño con barra lateral de navegación, área central de contenido y controles de navegación secuencial, optimizado tanto para la preparación de clase como para la presentación en el aula.
+
+<Info>
+  **Rol requerido:** Docente (con funcionalidades reducidas para estudiantes)
+</Info>
+
+## Cuándo se utiliza la Vista Power
+
+La Vista Power se activa automáticamente cuando el curso tiene habilitado el modo Power (`has_power_lesson`) o cuando la lección es de tipo Power. Es la vista predeterminada para la mayoría de programas digitales modernos en Tangerine, reemplazando a la vista clásica de lección con secciones colapsables.
+
+A diferencia de la [vista clásica de lección](/frontoffice-docentes/lecciones/vista-leccion), la Vista Power ofrece:
+
+- Navegación lateral persistente con todos los elementos de la lección
+- Visualización de un contenido a la vez en el área central
+- Navegación secuencial entre contenidos con flechas anterior/siguiente
+- [Control de visibilidad](/frontoffice-docentes/lecciones/gestion-contenidos#control-de-visibilidad) y [comentarios](/frontoffice-docentes/lecciones/gestion-contenidos#comentarios-sobre-contenidos) por contenido
+- [Modo de proyección](/frontoffice-docentes/lecciones/modo-proyeccion) integrado para presentar en clase
+- Creación de contenido sin salir de la vista
+
+## Cómo acceder
+
+<Steps>
+  <Step title="Acceder a un curso">
+    Desde el **Home**, el docente selecciona uno de sus cursos en la sección **Mis clases**.
+  </Step>
+  <Step title="Navegar al programa">
+    En la vista del curso, el docente accede a la pestaña **Programa** donde se muestra la estructura de unidades y lecciones.
+  </Step>
+  <Step title="Seleccionar una lección">
+    Al hacer clic en una lección, el sistema abre automáticamente la Vista Power si el curso o la lección tienen esta configuración activa.
+
+    ![Vista Power completa del curso Math 26 con barra lateral de lecciones, área central mostrando contenido Mint y navegación inferior](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/vista-general.png)
+  </Step>
+</Steps>
+
+## Estructura de la interfaz
+
+La Vista Power se organiza en cuatro áreas principales:
+
+### Encabezado
+
+El encabezado muestra:
+
+- **Título de la lección**: nombre de la lección activa
+- **Botón "Ver como estudiante"**: permite al docente previsualizar la lección tal como la vería un estudiante (ver [Ver como estudiante](#ver-como-estudiante))
+- **Botón de cierre**: regresa a la vista del programa del curso
+
+### Barra lateral (sidebar)
+
+La barra lateral presenta el índice completo de contenidos de la lección, organizado por secciones. Incluye:
+
+- **Botón de agregar contenido** (icono `+`): abre el panel para crear nuevos elementos
+- **Botón de editar** (icono de filtros): activa el modo de edición para reorganizar o eliminar contenidos del docente
+- **Secciones colapsables**: agrupan los contenidos por tema (Guía docente, Tareas, Evaluación, etc.)
+- **Elementos de contenido**: cada ítem muestra su icono, nombre y estado
+
+![Vista Power con la barra lateral mostrando las lecciones de Natural Numbers, secciones y elementos de contenido](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/vista-general.png)
+
+Al hacer clic en un elemento de la barra lateral, el contenido correspondiente se carga en el área central. El elemento activo se resalta visualmente para indicar la posición actual dentro de la lección.
+
+<Note>
+  Si la lección contiene **submódulos** (lecciones hijas dentro de la misma unidad), la barra lateral muestra cada submódulo como un grupo colapsable, permitiendo navegar entre ellos sin salir de la Vista Power.
+</Note>
+
+#### Toggle de vista FL / Mint
+
+En cursos que utilizan la plantilla **Primary Hybrid Layout**, la barra lateral incluye un selector de vista con dos modos:
+
+| Modo | Contenido visible |
+|------|-------------------|
+| **Fixed Layout** (icono de documento) | Muestra únicamente contenido de tipo Fixed Layout (libro maquetado) |
+| **Mint** (icono de post) | Muestra todos los demás tipos de contenido (páginas Mint, actividades, materiales) |
+
+Los contenidos creados por el docente aparecen en ambas vistas independientemente del modo seleccionado.
+
+### Área de contenido
+
+El área central ocupa la mayor parte de la pantalla y muestra el contenido seleccionado. Se compone de una **cabecera de contenido** con herramientas de gestión y el **visor del contenido** propiamente dicho.
+
+#### Cabecera del contenido
+
+Al seleccionar un elemento, la cabecera muestra:
+
+- **Título del contenido** (ej: "3.1 Addition (Sum)")
+- **Tag de estado**: indica si el contenido está **Publicado**, **Borrador** o **Programado** (ver [Control de visibilidad](/frontoffice-docentes/lecciones/gestion-contenidos#control-de-visibilidad))
+- **Avatares de estudiantes**: muestra los estudiantes asignados o que han interactuado con el contenido
+- **Icono de configuración** (engranaje): abre los ajustes del contenido (fecha de entrega, asignación, etc.)
+- **Menú de acciones** (tres puntos): opciones adicionales según el tipo de contenido
+- **Icono de comentarios** (burbuja): abre el chat público del contenido (ver [Comentarios](/frontoffice-docentes/lecciones/gestion-contenidos#comentarios-sobre-contenidos))
+
+![Cabecera del contenido mostrando título, tag de estado Publicado, avatares de estudiantes, icono de configuración, menú de tres puntos e icono de comentarios](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/cabecera-contenido.png)
+
+#### Visor del contenido
+
+El tipo de visualizador varía según el contenido:
+
+| Tipo de contenido | Visualizador | Experiencia del docente |
+|-------------------|-------------|------------------------|
+| **Página Mint** | Editor/visor Mint embebido | Visualización del contenido HTML interactivo |
+| **Quiz / Tarea / Videolección** | Vista de resultados con pestañas | Instrucciones, resultados de estudiantes, y actividad |
+| **Material (PDF, video, etc.)** | Visor de recurso | Previsualización del archivo |
+| **Fixed Layout** | Visor de libro maquetado | Páginas del libro editorial |
+| **XAPI** | Visor XAPI con resultados | Actividad interactiva con seguimiento |
+
+Para los estudiantes, los elementos evaluativos (quiz, tarea, videolección) muestran primero una **portada** con información del estado de la actividad (pendiente, entregado, evaluado) y un botón para acceder al contenido.
+
+![Área de contenido mostrando una página Mint sobre el sistema decimal con texto formateado y notación matemática](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/area-contenido.png)
+
+### Barra de navegación inferior (footer)
+
+La barra inferior permite navegar secuencialmente entre los contenidos de la lección:
+
+- **Flecha izquierda**: navega al contenido anterior, mostrando su nombre e icono
+- **Flecha derecha**: navega al contenido siguiente, mostrando su nombre e icono
+- **Botón de comentarios** (icono de burbuja naranja): abre el chat público del contenido actual (ver [Comentarios](/frontoffice-docentes/lecciones/gestion-contenidos#comentarios-sobre-contenidos))
+
+La navegación secuencial recorre todos los elementos de la lección en orden, incluyendo los contenidos de diferentes submódulos cuando existen. Si el docente está en el primer elemento, la flecha izquierda aparece deshabilitada; lo mismo ocurre con la flecha derecha en el último elemento.
+
+![Barra de navegación inferior con flecha izquierda a la lección anterior y flecha derecha a la siguiente unidad](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/footer-navegacion.png)
+
+## Agregar contenido a la lección
+
+El docente puede crear contenido directamente desde la Vista Power sin necesidad de navegar a otra pantalla.
+
+<Steps>
+  <Step title="Abrir el panel de nuevo contenido">
+    El docente hace clic en el botón **+** (Agregar contenido) en la cabecera de la barra lateral. Se despliega un panel con las opciones disponibles.
+
+    ![Panel de agregar contenido con opciones de Tarea, Quiz, Videolección, Página MINT, Material y Sección](/assets/screenshots/frontoffice-docentes/lecciones/vista-power/agregar-contenido.png)
+  </Step>
+  <Step title="Seleccionar el tipo de contenido">
+    Las opciones disponibles se dividen en dos categorías:
+
+    **Actividades:**
+    | Opción | Descripción |
+    |--------|-------------|
+    | **Tarea** | Crea una actividad individual asignable a uno o más estudiantes |
+    | **Quiz** | Crea un cuestionario con múltiples preguntas y opciones de respuesta |
+    | **Videolección** | Agrega un video con actividades y preguntas intermedias |
+
+    **Contenidos:**
+    | Opción | Descripción |
+    |--------|-------------|
+    | **Página Mint** | Combina contenido de cualquier tipo y lo organiza en una sola página (actualmente deshabilitado) |
+    | **Material** | Adjunta archivos de audio, video, imagen o documentos PDF |
+
+    Si el setting **enableTeacherCanCreateSection** está activado, también aparece la opción de crear una **Sección** para organizar el contenido.
+  </Step>
+  <Step title="Completar el formulario de creación">
+    El área central de la Vista Power se reemplaza por el formulario de creación correspondiente. El docente completa la información requerida sin abandonar la vista.
+
+    Durante la creación, la barra lateral permanece visible pero no interactiva, y el botón de retroceso en el encabezado muestra un diálogo de confirmación para evitar la pérdida de datos.
+  </Step>
+</Steps>
+
+## Modo de edición
+
+El modo de edición permite al docente reorganizar y gestionar los contenidos que ha creado dentro de la lección.
+
+<Steps>
+  <Step title="Activar el modo de edición">
+    El docente hace clic en el botón de **editar** (icono de filtros) en la cabecera de la barra lateral. Este botón solo aparece si existen contenidos creados por el docente (`is_customized = true`).
+  </Step>
+  <Step title="Gestionar contenidos">
+    En modo de edición, cada contenido creado por el docente muestra controles adicionales para:
+    - **Mover**: reorganizar el orden de los elementos dentro de la sección
+    - **Editar**: modificar la configuración del contenido
+    - **Eliminar**: quitar el elemento de la lección
+  </Step>
+  <Step title="Gestionar secciones">
+    Si el docente tiene permisos para crear secciones, también puede:
+    - **Editar sección**: cambiar el nombre de una sección existente
+    - **Eliminar sección**: borrar una sección y su contenido
+  </Step>
+</Steps>
+
+<Warning>
+  Solo los contenidos creados por el docente son editables. Los contenidos editoriales (creados por el programa digital) no pueden modificarse ni eliminarse desde la Vista Power.
+</Warning>
+
+## Ver como estudiante
+
+El botón **Ver como estudiante** en el encabezado activa una previsualización que simula la experiencia del alumno:
+
+- Los contenidos en **borrador** (no visibles) se ocultan de la barra lateral y la navegación
+- Los controles de edición y el botón de agregar contenido desaparecen
+- Las actividades evaluativas muestran la portada con el estado de entrega en lugar de la vista de resultados del docente
+
+Para desactivar este modo, el docente hace clic en **Salir del modo estudiante** en el encabezado.
+
+<Tip>
+  El botón **Ver como estudiante** es útil antes de publicar contenido nuevo, ya que oculta los elementos en borrador y los controles de edición, mostrando exactamente lo que percibirá el alumno.
+</Tip>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="La lección aparece sin contenido">
+    Si la Vista Power muestra el mensaje "Lección sin recursos", puede deberse a:
+
+    - La lección no tiene contenidos asignados por el programa digital
+    - El docente está en modo estudiante y todos los contenidos están en borrador
+    - El modo de vista activo (FL/Mint) no tiene contenidos del tipo correspondiente
+
+    El docente puede cambiar el modo de vista en la barra lateral o agregar contenido propio usando el botón **+**.
+  </Accordion>
+  <Accordion title="No se puede editar un contenido existente">
+    Los contenidos creados por la editorial (programa digital) no son editables por el docente. Solo los contenidos marcados como `is_customized` (creados por el propio docente) permiten edición y eliminación.
+
+    Para cursos referenciados, el docente puede agregar contenido complementario en sus propias secciones, pero no modificar el material original del programa.
+  </Accordion>
+  <Accordion title="La navegación secuencial salta contenidos">
+    La navegación anterior/siguiente respeta el modo de vista activo. Si el docente tiene seleccionado el modo **Fixed Layout**, solo navegará entre contenidos de ese tipo. Para ver todos los contenidos, debe cambiar al modo **Mint** o verificar que no hay filtros activos.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestión de contenidos" icon="sliders" href="/frontoffice-docentes/lecciones/gestion-contenidos">
+    Control de visibilidad (publicar, borrador, programado) y comentarios por contenido.
+  </Card>
+  <Card title="Modo de proyección" icon="screen-users" href="/frontoffice-docentes/lecciones/modo-proyeccion">
+    Presentación en el aula con herramientas de clase y control remoto.
+  </Card>
+  <Card title="Vista de Lección (clásica)" icon="book-open" href="/frontoffice-docentes/lecciones/vista-leccion">
+    Vista alternativa con secciones colapsables para lecciones que no usan el formato Power.
+  </Card>
+  <Card title="Programa del curso" icon="list" href="/frontoffice-docentes/curso/programa">
+    Estructura de unidades y lecciones desde donde se accede a la Vista Power.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: frontoffice-docente
+  - Sección UI: Lecciones > Vista Power
+  - Archivos de código relacionados:
+    - frontend: src/core/lite/views/LessonViewPowerV2/ (vista principal)
+    - frontend: src/app/modules/views/LessonPowerView/ (vista legacy con tabs Contenido/Recursos)
+  - Última revisión: 2026-03-29
+*/}
