@@ -1,0 +1,137 @@
+---
+title: "Personalizar el programa"
+description: "Edita la estructura del programa: oculta contenido, añade módulos y submódulos, y reordena elementos mediante drag & drop"
+icon: "pen-to-square"
+---
+
+Cuando el docente tiene permisos de edición, puede personalizar la estructura del programa del curso. El sistema ofrece dos modos de trabajo diferenciados: **Edit mode** para gestionar visibilidad y añadir contenido, y **Reorder mode** para reorganizar el orden de los elementos.
+
+## Activar la edición
+
+En la vista del Programa, el botón **"Editar programa"** aparece en la esquina superior derecha. Al hacer clic, se despliegan los dos modos disponibles:
+
+| Modo | Función principal |
+|------|-------------------|
+| **Edit mode** | Ocultar/mostrar contenido y añadir módulos o submódulos |
+| **Reorder mode** | Cambiar el orden de los elementos mediante arrastrar y soltar |
+
+Solo un modo puede estar activo a la vez. El botón activo aparece resaltado.
+
+<Note>
+Si el botón "Editar programa" no aparece, puede deberse a que el programa fue creado por la editorial sin permisos de edición para docentes, o a que la institución tiene deshabilitada esta funcionalidad. Contactar al administrador.
+</Note>
+
+---
+
+## Modo de edición (Edit mode)
+
+Al activar Edit mode, el programa muestra controles adicionales sobre cada elemento:
+
+- Cada módulo y submódulo muestra un botón **"Ocultar módulo"** (icono de ojo)
+- Los módulos con submódulos muestran un botón **"Mostrar/ocultar submódulos"** para expandir la vista de edición
+- Aparecen botones **"+ Añadir módulo"** al final de cada trimestre
+- Dentro de un módulo expandido, aparece el botón **"+ Añadir submódulo"**
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/programa/03-modo-edicion-activado.png" alt="Programa en modo de edición mostrando controles de visibilidad y botones de añadir" />
+</Frame>
+
+### Ocultar y mostrar contenido
+
+Para ocultar un módulo o submódulo a los estudiantes:
+
+1. En modo de edición, el docente hace clic en el botón **"Ocultar módulo"** del elemento deseado
+2. El sistema muestra un diálogo de confirmación: **"¿Estás seguro de querer ocultar este submódulo?"**
+3. El docente marca la casilla **"Sí, estoy seguro"** para habilitar el botón de confirmación
+4. Al confirmar con **"Sí, ocultar"**, el elemento queda oculto para los estudiantes
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/programa/05-dialogo-ocultar-modulo.png" alt="Diálogo de confirmación para ocultar un submódulo" />
+</Frame>
+
+<Warning>
+Ocultar un módulo o submódulo **afecta al cuaderno de evaluación y al calendario**. El sistema advierte de esto en el diálogo de confirmación. Esta acción es reversible: el contenido puede volver a mostrarse desde el mismo control.
+</Warning>
+
+### Gestionar submódulos dentro de un módulo
+
+Al hacer clic en **"Mostrar/ocultar submódulos"** de un módulo, se expanden los submódulos con sus controles de edición individuales, y aparece el botón **"+ Añadir submódulo"** al final de la lista.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/programa/06-edicion-submodulos-expandidos.png" alt="Submódulos expandidos dentro de un módulo en modo edición, con botón de añadir submódulo" />
+</Frame>
+
+### Crear un nuevo módulo
+
+1. En modo de edición, el docente hace clic en **"+ Añadir módulo"** del trimestre correspondiente
+2. Se abre el diálogo **"Nuevo módulo"** con un campo de texto para el nombre
+3. El docente escribe el nombre y hace clic en **"Guardar"**
+4. El módulo se crea para todos los grupos que tengan el programa y **por defecto estará oculto**
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/programa/07-dialogo-nuevo-modulo.png" alt="Diálogo para crear un nuevo módulo con campo de nombre" />
+</Frame>
+
+<Note>
+Los nuevos módulos se crean ocultos por defecto. El docente debe hacerlos visibles manualmente cuando estén listos para los estudiantes.
+</Note>
+
+### Crear un nuevo submódulo
+
+1. En modo de edición, el docente expande los submódulos de un módulo
+2. Hace clic en **"+ Añadir submódulo"**
+3. Se abre el diálogo **"Nuevo submódulo"** con un campo de texto para el nombre
+4. El docente escribe el nombre y hace clic en **"Guardar"**
+5. El submódulo se crea oculto por defecto
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/programa/08-dialogo-nuevo-submodulo.png" alt="Diálogo para crear un nuevo submódulo con campo de nombre" />
+</Frame>
+
+---
+
+## Modo de reordenación (Reorder mode)
+
+El modo de reordenación permite cambiar el orden de los módulos y submódulos mediante **arrastrar y soltar** (drag & drop). Al activarlo:
+
+- Desaparecen los controles de visibilidad y los botones de añadir
+- Cada elemento se convierte en un elemento arrastrable
+- El docente puede mover módulos y submódulos a nuevas posiciones dentro del mismo trimestre
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/programa/04-modo-reordenar.png" alt="Programa en modo de reordenación con elementos arrastrables" />
+</Frame>
+
+### Cómo reordenar elementos
+
+1. El docente activa el **Reorder mode**
+2. Hace clic y mantiene presionado sobre el módulo o submódulo que desea mover
+3. Arrastra el elemento a la nueva posición
+4. Suelta para confirmar la nueva ubicación
+
+<Tip>
+También es posible reordenar con teclado: al presionar la barra espaciadora sobre un elemento se activa el arrastre, las flechas del teclado mueven el elemento, y la barra espaciadora lo suelta en su nueva posición. La tecla Escape cancela la operación.
+</Tip>
+
+---
+
+## Situaciones especiales
+
+### Oculté un módulo por error
+
+La acción de ocultar es reversible. En modo de edición, los elementos ocultos siguen apareciendo (con un indicador visual diferenciado) y el docente puede volver a hacerlos visibles desde el mismo control de visibilidad.
+
+### No puedo reordenar entre trimestres
+
+El drag & drop funciona dentro del mismo trimestre. Para mover un módulo a otro trimestre, es necesario contactar al administrador o gestionar el cambio desde el backoffice.
+
+### Los cambios afectan a todos los grupos
+
+Al crear un nuevo módulo, el sistema advierte que **el módulo se creará para todos los grupos que tengan el programa**. Esto es por diseño: la estructura del programa es compartida entre grupos que usan el mismo programa digital. La visibilidad, en cambio, se puede gestionar de forma independiente por grupo.
+
+---
+
+## Navegación relacionada
+
+- Para consultar la estructura general del programa, ver [Programa del curso](/frontoffice-docentes/curso/programa)
+- Para entender la vista completa del curso, consultar [Vista del curso](/frontoffice-docentes/curso/vista-curso)

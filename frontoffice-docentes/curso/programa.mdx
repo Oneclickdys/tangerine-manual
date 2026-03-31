@@ -1,251 +1,146 @@
 ---
 title: "Programa del curso"
-description: "Navega por el contenido del curso organizado en unidades y lecciones, con acceso rápido a cada tema"
+description: "Estructura del contenido educativo organizado en períodos, módulos y submódulos, con herramientas de edición y reordenación"
 icon: "book-open"
 ---
 
-El tab Programa es donde se organiza todo el contenido educativo de tu curso. Aquí puedes ver las unidades tematicas, las lecciones dentro de cada unidad, y acceder directamente al material que necesitas impartir.
+El tab **Programa** organiza todo el contenido educativo del curso. Muestra la estructura jerárquica de módulos y submódulos distribuidos por períodos académicos, y permite al docente personalizar esa estructura cuando tiene permisos de edición.
 
-## Cuando usar el Programa
+## Cuándo consultar el Programa
 
-Usa el tab Programa cuando necesites:
+El tab Programa es el punto de partida cuando el docente necesita:
 
-- **Preparar tu clase**: Revisar el contenido de las lecciones antes de impartirlas
-- **Navegar el contenido**: Encontrar rápidamente una lección o tema específico
-- **Seguir el progreso**: Ver que unidades y lecciones ya se han completado
-- **Personalizar el curso**: Reorganizar o editar el contenido (si tienes permisos de edición)
+- **Preparar una clase**: Revisar los submódulos disponibles dentro de cada módulo antes de impartirlos
+- **Navegar el contenido**: Localizar rápidamente un submódulo o tema específico dentro del curso
+- **Personalizar el curso**: Reorganizar módulos, ocultar contenido o añadir nuevos elementos (requiere permisos de edición)
+- **Consultar la planificación**: Ver cómo se distribuye el contenido entre los períodos académicos (trimestres)
 
 <Tip>
-El Programa esta disenado para seguir una secuencia pedagógica. Te recomendamos recorrer las unidades en orden, aunque puedes acceder a cualquier lección directamente si necesitas saltar a un tema específico.
+El Programa sigue una secuencia pedagógica definida por la editorial o el administrador. Se recomienda recorrer los módulos en orden, aunque el docente puede acceder a cualquier submódulo directamente.
 </Tip>
 
 ## Acceder al Programa
 
-Para acceder al Programa de tu curso:
-
-1. Desde el Home, selecciona el curso que deseas gestionar
-2. Una vez en la vista del curso, haz clic en el tab **Programa** (generalmente es el primer tab)
+1. Desde el Home, el docente selecciona el curso que desea gestionar (por ejemplo, **Math 26**)
+2. La vista del curso se abre directamente en el tab **Programa** (es el tab por defecto)
 
 <Frame>
-  <img src="/assets/screenshots/frontoffice-docente/vista-curso/01-vista-curso-programa.png" alt="Vista principal del Programa mostrando unidades y lecciones del curso" />
+  <img src="/assets/screenshots/frontoffice-docente/programa/01-vista-programa-math26.png" alt="Vista principal del Programa del curso Math 26 mostrando los trimestres y módulos" />
 </Frame>
 
 ---
 
 ## Estructura del Programa
 
-El Programa organiza el contenido en una jerarquia de tres niveles:
+El Programa organiza el contenido en una jerarquía de tres niveles:
 
-### Periodos académicos
+### Períodos académicos (Trimestres)
 
-En la parte superior, el contenido puede estar organizado por periodos académicos (trimestres, cuatrimestres o semestres) según la configuración de tu institución. Cada período muestra:
+En la parte superior del programa aparecen los botones de período: **Trimestre 1**, **Trimestre 2**, **Trimestre 3** (u otra división según la configuración institucional). Al seleccionar un trimestre, se muestra el contenido asociado a ese período.
 
-- **Nombre del período** (por ejemplo, "Primer Trimestre")
-- **Fechas de inicio y fin**
-- **Número de unidades** contenidas en ese período
+Si un trimestre no tiene contenido asignado, el sistema muestra el mensaje **"Este contenido aún no está disponible"**.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/programa/09-trimestre-vacio.png" alt="Trimestre sin contenido mostrando mensaje de no disponibilidad" />
+</Frame>
 
 <Note>
-En algunas instituciones, el contenido no esta dividido por periodos académicos y las unidades se muestran directamente sin esta agrupacion.
+La división por períodos académicos depende de la configuración del programa digital. Algunos programas pueden no tener esta división y mostrar todo el contenido en una sola vista.
 </Note>
 
-### Unidades
+### Módulos
 
-Las unidades son agrupaciones tematicas del contenido. Cada unidad muestra:
+Los módulos son las agrupaciones temáticas principales del contenido (equivalentes a "unidades"). Cada módulo se presenta como una tarjeta con:
 
 | Elemento | Descripción |
 |----------|-------------|
-| **Imagen de portada** | Identificacion visual de la unidad |
-| **Nombre** | Título de la unidad tematica |
-| **Número de sesiones** | Cantidad de sesiones planificadas |
-| **Indicador de estado** | Muestra si la unidad esta pendiente, en curso o completada |
-| **Indicador de visibilidad** | Si solo tu puedes ver la unidad (oculta para estudiantes) |
+| **Imagen de portada** | Identificación visual del módulo |
+| **Nombre** | Título del módulo (por ejemplo, "Natural Numbers", "Powers & Indices") |
+| **Indicador expandible** | Permite ver los submódulos contenidos |
+
+### Submódulos (lecciones)
+
+Al expandir un módulo, se despliegan los submódulos que contiene. Cada submódulo muestra:
+
+- **Nombre del submódulo** (por ejemplo, "1. The Number System")
+- **Imagen de portada** del submódulo
+- **Estado de avance** cuando aplica
 
 <Frame>
-  <img src="/assets/screenshots/frontoffice-docente/vista-curso/06-programa-unidad-expandida.png" alt="Unidad expandida mostrando las lecciones contenidas" />
+  <img src="/assets/screenshots/frontoffice-docente/programa/02-unidad-expandida-lecciones.png" alt="Módulo Natural Numbers expandido mostrando sus submódulos" />
 </Frame>
-
-### Lecciones
-
-Las lecciones son los contenidos individuales dentro de cada unidad. Al expandir una unidad, puedes ver todas sus lecciones con:
-
-- **Nombre de la lección**
-- **Tipo de contenido** (lección presencial, actividad, evaluación, etc.)
-- **Estado de avance** (pendiente, en curso, completado)
-- **Fecha programada** (si aplica)
 
 ---
 
 ## Navegación del Programa
 
-### Expandir y contraer unidades
+### Cambiar de período académico
 
-Para ver las lecciones dentro de una unidad:
+Los botones de trimestre en la parte superior permiten alternar entre los períodos. El contenido del programa se actualiza automáticamente al seleccionar un trimestre diferente.
 
-1. Localiza la unidad que deseas explorar
-2. Haz clic en cualquier parte de la tarjeta de la unidad
-3. Las lecciones se desplegaran debajo
+### Expandir y contraer módulos
 
-Para contraer la unidad y ocultar las lecciones, haz clic nuevamente en la tarjeta de la unidad.
+Para ver los submódulos dentro de un módulo:
 
-<Tip>
-El sistema recuerda que unidad estabas explorando. Si vuelves al Programa, encontrarás la misma unidad expandida que dejaste abierta.
-</Tip>
+1. El docente hace clic en la tarjeta del módulo
+2. Los submódulos se despliegan debajo del módulo
+3. Para contraer, basta con hacer clic nuevamente en la tarjeta del módulo
 
-### Acceder a una lección
+### Acceder a un submódulo
 
-Para abrir una lección y ver su contenido:
+Para abrir un submódulo y ver su contenido detallado:
 
-1. Expande la unidad que contiene la lección
-2. Haz clic en el nombre de la lección
-3. Se abrirá la vista detallada de la lección
-
-### Indicadores de estado
-
-El Programa utiliza indicadores visuales para mostrar el progreso:
-
-| Indicador | Significado |
-|-----------|-------------|
-| **Circulo gris** | Pendiente - no se ha iniciado |
-| **Circulo naranja** | En curso - parcialmente completado |
-| **Circulo verde con check** | Completado |
+1. El docente expande el módulo que contiene el submódulo
+2. Hace clic en el nombre del submódulo
+3. Se abre la vista detallada de la lección correspondiente
 
 ---
 
-## Modo de edición
+## Personalización del Programa
 
-Si tienes permisos de edición en el curso, puedes modificar la estructura del Programa.
+Cuando el docente tiene permisos de edición, aparece el botón **"Editar programa"** en la esquina superior derecha. Este botón da acceso a dos modos: **Edit mode** (ocultar contenido, añadir módulos y submódulos) y **Reorder mode** (reorganizar el orden mediante drag & drop).
 
-### Activar modo de edición
-
-1. En la parte superior del Programa, localiza el texto **"Modo de edición"**
-2. Haz clic para activar el modo de edición
-3. El icono cambiara indicando que el modo esta activo
-
-<Note>
-Esta funcionalidad puede no estar disponible en todas las instituciones o para todos los roles de docente. Si no ves la opción de edición, contacta a tu administrador.
-</Note>
-
-### Acciones disponibles en modo edición
-
-Cuando el modo de edición esta activo, puedes:
-
-#### En unidades:
-- **Crear nueva unidad**: Agregar unidades al programa
-- **Editar título**: Cambiar el nombre de la unidad
-- **Reordenar**: Mover unidades hacia arriba o hacia abajo
-- **Cambiar visibilidad**: Ocultar o mostrar unidades a los estudiantes
-- **Eliminar**: Remover unidades del programa
-
-#### En lecciones:
-- **Crear nueva lección**: Agregar lecciones a una unidad
-- **Editar título**: Cambiar el nombre de la lección
-- **Mover a otra unidad**: Reorganizar lecciones entre unidades
-- **Eliminar**: Remover lecciones del programa
-
-<Warning>
-Eliminar una unidad o lección es una acción que no se puede deshacer. Asegúrate de que realmente deseas eliminar el contenido antes de confirmar.
-</Warning>
-
-### Crear una nueva unidad
-
-1. Activa el modo de edición
-2. Localiza el botón **"Agregar unidad"** al final de la lista de unidades
-3. Haz clic en el botón
-4. Se creara una nueva unidad con un nombre predeterminado
-5. Edita el título de la unidad según necesites
-
-### Crear una nueva lección
-
-1. Activa el modo de edición
-2. Expande la unidad donde deseas agregar la lección
-3. Localiza el botón para agregar lección
-4. Selecciona el tipo de lección que deseas crear
-5. Asigna un nombre a la nueva lección
-
----
-
-## Libros asociados
-
-Si tu curso tiene libros digitales asociados (como libros de texto o cuadernos de ejercicios), apareceran en una sección lateral del Programa.
-
-### Acceder a los libros
-
-1. En la vista del Programa, localiza la sección **"Libros"** en la barra lateral izquierda
-2. Haz clic en la portada del libro que deseas abrir
-3. El libro se abrirá en el visor de contenidos
-
-<Note>
-La sección de libros solo aparece si tu curso tiene contenido de este tipo asociado. No todos los cursos incluyen libros digitales.
-</Note>
-
----
-
-## Vista como estudiante
-
-Como docente, puedes previsualizar como ven tus estudiantes el Programa. Esta función es útil para verificar que el contenido visible es el correcto.
-
-### Activar vista como estudiante
-
-1. En la parte inferior derecha de la pantalla, localiza el botón **"Verlo como estudiante"** (icono de usuario)
-2. Haz clic en el botón
-3. La vista cambiara para mostrar exactamente lo que ven tus estudiantes
-
-En esta vista:
-- No verás el modo de edición
-- Las unidades ocultas no apareceran
-- Los indicadores de progreso reflejaran la vista del estudiante
-
-### Volver a la vista de docente
-
-Para salir del modo de vista como estudiante, haz clic nuevamente en el botón de vista o navega a otra sección del curso.
+<Card title="Personalizar el programa" icon="pen-to-square" href="/frontoffice-docentes/curso/personalizar-programa">
+  Ocultar contenido, crear módulos y submódulos, y reordenar elementos del programa
+</Card>
 
 ---
 
 ## Situaciones especiales
 
-### No veo ninguna unidad en el Programa
+### No aparecen módulos en el Programa
 
-Si el Programa aparece vacio, puede deberse a:
+Si el Programa aparece vacío al seleccionar un trimestre, puede deberse a:
 
-- El curso no tiene contenido asignado aun
-- No tienes licencia activa para el contenido
-- Las unidades estan ocultas (solo visible en modo edición)
+- El trimestre seleccionado no tiene contenido asignado — el sistema mostrará "Este contenido aún no está disponible"
+- El docente no tiene licencia activa para el contenido del curso
+- Todos los módulos están ocultos (solo visibles en modo de edición)
 
-Contacta a tu coordinador académico para verificar la asignación de contenido.
+Contactar al coordinador académico para verificar la asignación de contenido.
 
-### Las lecciones no se expanden
+### Los submódulos no se despliegan
 
-Si al hacer clic en una unidad las lecciones no aparecen:
+Si al hacer clic en un módulo los submódulos no aparecen:
 
-- Verifica que la unidad realmente tenga lecciones (el contador de sesiones indica cuántas hay)
-- Intenta recargar la página
+- Verificar que el módulo realmente contenga submódulos
+- Intentar recargar la página
 - Si el problema persiste, puede ser un error temporal del sistema
 
-### No puedo editar el Programa
+### No aparece el botón "Editar programa"
 
-La edición del Programa esta controlada por permisos:
+La edición del Programa está controlada por permisos:
 
-- Algunos cursos vienen con contenido predefinido que no puede modificarse
-- Tu rol puede no incluir permisos de edición
+- Algunos cursos vienen con contenido predefinido de editorial que no permite modificaciones
+- El rol del docente puede no incluir permisos de edición
 - La institución puede haber deshabilitado esta funcionalidad
 
-Consulta con tu administrador si necesitas realizar cambios en el programa.
-
-### El Programa muestra fechas incorrectas
-
-Las fechas del programa se calculan automáticamente según:
-
-- El calendario académico de tu institución
-- Las fechas de inicio y fin del curso
-- La configuración del horario de clases
-
-Si las fechas no coinciden con tu planificación, contacta a tu coordinador para ajustar el calendario del curso.
+Consultar con el administrador si se necesita realizar cambios en el programa.
 
 ---
 
 ## Navegación relacionada
 
-- Para entender la estructura completa del curso, consulta [Vista del curso](/frontoffice-docentes/curso/vista-curso)
-- Para comunicarte con tus estudiantes, consulta [Panel / Stream](/frontoffice-docentes/curso/stream)
-- Para acceder al contenido de una lección específica, haz clic en ella desde el Programa
-- Para volver a ver todas tus clases, consulta [Ver mis aulas](/frontoffice-docentes/mis-aulas/ver-mis-aulas)
+- Para entender la estructura completa del curso, consultar [Vista del curso](/frontoffice-docentes/curso/vista-curso)
+- Para comunicarse con los estudiantes, consultar [Panel / Stream](/frontoffice-docentes/curso/stream)
+- Para acceder al contenido de un submódulo específico, hacer clic en él desde el Programa
+- Para volver a ver todas las clases, consultar [Ver mis aulas](/frontoffice-docentes/mis-aulas/ver-mis-aulas)

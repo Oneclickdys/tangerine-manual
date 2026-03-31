@@ -94,8 +94,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["course/view", "lesson/view"],
-      "lastDocumented": "2025-12-24",
-      "notes": "Incluye modo de edicion para docentes con permisos. Estructura jerarquica: Periodos > Unidades > Lecciones. Soporta vista como estudiante para previsualizar el contenido."
+      "lastDocumented": "2026-03-31",
+      "notes": "Incluye dos modos de edicion: Edit mode (visibilidad, añadir) y Reorder mode (drag & drop). Estructura jerarquica: Periodos (trimestres) > Módulos > Submódulos. Screenshots actualizados con programa Demo Math 26."
     },
     "course/resources": {
       "name": "Recursos del curso",

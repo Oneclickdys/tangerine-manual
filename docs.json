@@ -111,6 +111,7 @@
             "pages": [
               "frontoffice-docentes/curso/vista-curso",
               "frontoffice-docentes/curso/programa",
+              "frontoffice-docentes/curso/personalizar-programa",
               "frontoffice-docentes/curso/stream",
               "frontoffice-docentes/curso/recursos",
               "frontoffice-docentes/curso/calificaciones"
