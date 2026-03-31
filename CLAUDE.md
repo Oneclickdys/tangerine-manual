@@ -21,7 +21,7 @@ El entorno principal es **latest**. Las URLs están en `.test-scenarios.json` ba
 
 - **Backoffice**: `publisher.tangerine-latest.oneclick.es` — Admin editorial (gestión de usuarios, licencias, contenidos, programas digitales)
 - **Frontoffice**: `tangerine-latest.oneclick.es` — App de docentes y estudiantes
-- **Admin School**: `admin-school-qa.stn-neds.com` — Administración de escuela
+- **Admin School**: `adminescuela.tangerine-latest.oneclick.es` — Administración de escuela
 
 ## Modos de funcionamiento de Tangerine
 

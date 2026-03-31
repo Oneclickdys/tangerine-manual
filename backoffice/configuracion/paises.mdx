@@ -1,0 +1,141 @@
+---
+title: "Países"
+description: "Configuración de países, modelos de calificación, año escolar, etapas, cursos y asignaturas"
+icon: "globe"
+---
+
+## Descripción
+
+La sección de **Países** permite configurar los países donde opera la editorial, junto con sus parámetros educativos: modelo de calificación, estructura del año escolar (trimestres o bimestres), etapas educativas, cursos y asignaturas. Estos datos se utilizan como base para la creación de programas digitales, escuelas y usuarios.
+
+<Info>
+  **Rol requerido:** Administrador del backoffice con permisos de configuración. Solo visible cuando el tenant opera en modo **multipaís**.
+</Info>
+
+## Cómo acceder
+
+El administrador accede desde el menú lateral **Configuración** > **Países**.
+
+![Listado de países](/assets/screenshots/backoffice/configuracion/paises-listado.png)
+
+## Listado de países
+
+La tabla muestra todos los países configurados con las siguientes columnas:
+
+| Columna | Descripción |
+|---------|-------------|
+| **País** | Nombre del país (enlace al detalle) |
+| **Modelo de calificación** | Escala de calificación asignada (ej: 0-10, 0-100) |
+| **Año escolar** | Tipo de período académico (Trimestre o Bimestre) |
+
+### Acciones disponibles
+
+- **Buscar**: Campo de búsqueda para filtrar países por nombre
+- **Añadir País**: Botón para crear un nuevo país
+- **Customizar tabla**: Permite mostrar u ocultar columnas
+
+## Detalle de un país
+
+Al hacer clic en el nombre de un país, el sistema muestra un formulario de configuración organizado en cuatro pestañas.
+
+### Pestaña 1: Detalles
+
+![Detalle de país](/assets/screenshots/backoffice/configuracion/pais-detalle.png)
+
+Configura los parámetros generales del país:
+
+| Campo | Descripción |
+|-------|-------------|
+| **Nombre del país** | Campo de solo lectura con el nombre del país |
+| **Modelo de calificación** | Selector con las [escalas de calificación](/backoffice/configuracion/escalas-calificacion) disponibles en el sistema |
+| **Año escolar** | Selección entre **Trimestre** (3 períodos) o **Bimestre** (2 períodos) |
+| **Períodos** | Para cada período (1.er, 2.o y 3.er trimestre, o 1.er y 2.o bimestre), se configuran las fechas de inicio y fin |
+
+<Note>
+  Al cambiar entre Trimestre y Bimestre, la sección de períodos se actualiza automáticamente para mostrar el número correcto de campos de fecha.
+</Note>
+
+### Pestaña 2: Etapas
+
+![Etapas educativas](/assets/screenshots/backoffice/configuracion/pais-etapas.png)
+
+Gestiona las **etapas educativas** del país (ej: Infantil, Primaria, ESO, Bachillerato). Estas etapas se utilizan como filtros en la creación de programas digitales.
+
+| Acción | Procedimiento |
+|--------|--------------|
+| **Añadir etapa** | Botón **Añadir etapas** > completar nombre > confirmar |
+| **Eliminar etapa** | Menú de acciones en la fila > eliminar |
+
+La tabla muestra un contador con el total de etapas creadas.
+
+### Pestaña 3: Cursos
+
+![Cursos educativos](/assets/screenshots/backoffice/configuracion/pais-cursos.png)
+
+Gestiona los **cursos educativos** del país (ej: 1.o de Primaria, 2.o de ESO). Los cursos se utilizan para clasificar programas digitales y organizar la oferta educativa.
+
+| Acción | Procedimiento |
+|--------|--------------|
+| **Añadir curso** | Botón **Añadir curso** > completar nombre > confirmar |
+| **Eliminar curso** | Menú de acciones en la fila > eliminar |
+
+Si no hay cursos creados, el sistema muestra un estado vacío con el botón de creación.
+
+### Pestaña 4: Asignaturas
+
+![Asignaturas](/assets/screenshots/backoffice/configuracion/pais-asignaturas.png)
+
+Gestiona las **asignaturas** disponibles en el país (ej: Matemáticas, Lengua, Inglés). Las asignaturas se utilizan para clasificar programas digitales y contenidos.
+
+| Acción | Procedimiento |
+|--------|--------------|
+| **Añadir asignatura** | Botón **Añadir asignatura** > completar nombre > confirmar |
+| **Eliminar asignatura** | Menú de acciones en la fila > eliminar |
+
+### Navegación entre pestañas
+
+- Los botones **Anterior** y **Siguiente** permiten navegar entre pestañas de forma secuencial
+- En la última pestaña (Asignaturas), el botón **Siguiente** se reemplaza por **Salir**
+- El botón **Guardar** se habilita cuando hay cambios pendientes en cualquier pestaña
+- Si el administrador intenta salir sin guardar, el sistema muestra un diálogo de confirmación
+
+## Configuración y variantes
+
+<Note>
+  La sección **Países** solo aparece en el menú de configuración cuando el tenant tiene habilitado el modo **multipaís** (`is_multicountry`). En tenants de un solo país, esta sección no es visible y las asignaturas se gestionan desde una sección separada llamada **Disciplinas**.
+</Note>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Qué ocurre si se elimina un país en uso?">
+    El sistema muestra un diálogo de error si el país está siendo utilizado por escuelas, usuarios o programas digitales. No es posible eliminar un país con dependencias activas.
+  </Accordion>
+  <Accordion title="¿Se puede cambiar el modelo de calificación de un país en uso?">
+    Sí, pero el cambio afecta a las evaluaciones futuras. Las calificaciones ya registradas mantienen la escala con la que fueron creadas.
+  </Accordion>
+  <Accordion title="¿Las etapas, cursos y asignaturas son compartidos entre países?">
+    No. Cada país tiene sus propias etapas educativas, cursos y asignaturas configurados de forma independiente.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Escalas de calificación" icon="star" href="/backoffice/configuracion/escalas-calificacion">
+    Las escalas que se asignan como modelo de calificación por país.
+  </Card>
+  <Card title="Gestión de escuelas" icon="school" href="/backoffice/escuelas/gestion-escuelas">
+    Las escuelas se asocian a un país durante su creación.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+  - Aplicación: backoffice
+  - Sección UI: Configuración > Países
+  - Rutas: /settings-countries, /settings-country/:guid/:step
+  - Archivos de código relacionados:
+    - frontend: src/app/pages/settings/SettingsCountriesPage/, src/app/pages/settings/SettingsCountryPage/
+  - Última revisión: 2026-03-31
+*/}

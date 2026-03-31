@@ -293,9 +293,9 @@
       "section": "Contenidos",
       "route": "/content/:guid",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "editor",
-      "docFile": null,
+      "docFile": "backoffice/contenidos/detalle-contenido.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/contents/ContentDetailPage/"],
         "backend": []
@@ -303,8 +303,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["contents/list"],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-31",
+      "notes": "Documentado con 4 pestanas, gestion de archivos multimedia (subtitulos, audiodescripciones, transcripciones), editores Lemonade y VideoLesson, variantes por tipo de contenido."
     },
     "programs/list": {
       "name": "Listar programas",
@@ -578,9 +578,9 @@
       "section": "Configuracion del Sistema",
       "route": "/settings",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "simple-form",
-      "docFile": null,
+      "docFile": "backoffice/configuracion/configuracion-general.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/settings/SettingsGeneralPage/"],
         "backend": []
@@ -588,7 +588,7 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["settings/periods", "settings/countries"],
-      "lastDocumented": null,
+      "lastDocumented": "2026-03-31",
       "notes": "Incluye toggles de permisos docente (administrar clase, personalizar programas) y gestion de lenguas."
     },
     "settings/countries": {
@@ -597,9 +597,9 @@
       "section": "Configuracion del Sistema",
       "route": "/settings-countries",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "crud-complete",
-      "docFile": null,
+      "docFile": "backoffice/configuracion/paises.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/settings/SettingsCountriesPage/", "src/app/pages/settings/SettingsCountryPage/"],
         "backend": []
@@ -607,8 +607,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["settings/general"],
-      "lastDocumented": null,
-      "notes": "Incluye detalle por pais con configuracion de niveles educativos, asignaturas y disciplinas."
+      "lastDocumented": "2026-03-31",
+      "notes": "Incluye detalle por pais con 4 pestanas: Detalles, Etapas, Cursos, Asignaturas. Solo visible en modo multipais."
     },
     "settings/learning-objectives": {
       "name": "Objetivos de aprendizaje",
@@ -616,18 +616,18 @@
       "section": "Configuracion del Sistema",
       "route": "/settings-learning-objectives",
       "priority": "P3",
-      "status": "pending",
+      "status": "documented",
       "complexity": "crud-complete",
-      "docFile": null,
+      "docFile": "backoffice/configuracion/objetivos-aprendizaje.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/settings/SettingsLearningObjectivesPage/"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": [],
+      "featureFlags": ["is_learning_objectives", "showEvaluationOptions"],
       "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-31",
+      "notes": "Arbol jerarquico con busqueda. Hasta 10 niveles de profundidad."
     },
     "settings/scales": {
       "name": "Escalas de calificacion",
@@ -635,18 +635,18 @@
       "section": "Configuracion del Sistema",
       "route": "/settings-scales",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "crud-complete",
-      "docFile": null,
+      "docFile": "backoffice/configuracion/escalas-calificacion.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/settings/SettingsEvaluationScalesPage/"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": [],
+      "featureFlags": ["showEvaluationOptions"],
       "relatedFeatures": ["settings/categories", "settings/periods"],
-      "lastDocumented": null,
-      "notes": "Relacionado con la variante Cuaderno de evaluacion."
+      "lastDocumented": "2026-03-31",
+      "notes": "Soporta escalas numericas (min-max con decimales) y cualitativas (rangos con nombre). Relacionado con Cuaderno de evaluacion."
     },
     "settings/categories": {
       "name": "Categorias evaluables",
@@ -654,18 +654,18 @@
       "section": "Configuracion del Sistema",
       "route": "/settings-categories",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "crud-complete",
-      "docFile": null,
+      "docFile": "backoffice/configuracion/categorias-evaluables.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/settings/SettingsEvaluationCategoriesPage/"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": [],
+      "featureFlags": ["showEvaluationOptions"],
       "relatedFeatures": ["settings/scales", "settings/periods"],
-      "lastDocumented": null,
-      "notes": "Relacionado con la variante Cuaderno de evaluacion."
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD simple con nombre y estado. Categorias globales para todo el tenant. Relacionado con Cuaderno de evaluacion."
     },
     "authoring/lemonade": {
       "name": "Editor Lemonade (Actividades)",
@@ -702,6 +702,120 @@
       "relatedFeatures": ["contents/create", "programs/detail", "authoring/lemonade"],
       "lastDocumented": "2026-03-29",
       "notes": "Transversal: accesible desde backoffice (crear contenido/programas) y frontoffice docente (editar lecciones). 11 categorias de bloques con 40+ tipos. Documentado con screenshots del editor, biblioteca de bloques e interactivos."
+    },
+    "settings/countries-detail": {
+      "name": "Detalle de pais",
+      "description": "Configuracion detallada de un pais: periodo academico, niveles educativos, anos escolares y disciplinas",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-country/:guid/:step?",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "multi-step-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsCountryPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/countries"],
+      "lastDocumented": null,
+      "notes": "Formulario wizard con 4 pasos: Detalle del pais y periodo (trimestre/bimestre), Niveles educativos, Anos escolares, Disciplinas. Solo visible si is_multicountry esta activo."
+    },
+    "settings/disciplines": {
+      "name": "Disciplinas",
+      "description": "Gestion de disciplinas/asignaturas del sistema",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-disciplines",
+      "priority": "P3",
+      "status": "pending",
+      "complexity": "crud-complete",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsDisciplinesPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/countries-detail"],
+      "lastDocumented": null,
+      "notes": "Solo visible cuando is_multicountry esta desactivado. Si el tenant es multi-pais, las disciplinas se gestionan dentro del detalle de cada pais (paso 4). Oculta boton Anadir si hay integraciones de terceros activas."
+    },
+    "settings/tenant-params": {
+      "name": "Parametros de Tenant",
+      "description": "Gestion de feature flags y parametros de configuracion del tenant organizados por categorias",
+      "section": "Configuracion del Sistema",
+      "route": "/settings-tenant-params",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "complex-workflow",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsTenantParamsPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/general"],
+      "lastDocumented": null,
+      "notes": "Solo visible para usuarios OneClick. Organizado por categorias: Editor Mint (8 toggles), Programas (5 toggles), Biblioteca y Contenidos (2 toggles), Evaluacion (1 toggle), Integraciones (3 params), Visor PDF (3 params), Configuracion del Tenant (2 params), LMS (2 toggles), Otros parametros (flags y valores de texto/numero miscelaneos). Soporta toggles booleanos e inputs de texto/numero con guardado individual por campo."
+    },
+    "personalize/general": {
+      "name": "Personalizacion general",
+      "description": "Configuracion de branding del tenant: nombre de la aplicacion, logo, favicon e imagen de landing page",
+      "section": "Personalizacion",
+      "route": "/personalize",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/pages/personalize/", "src/app/modules/personalize/general/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["personalize/colors", "personalize/subjects"],
+      "lastDocumented": null,
+      "notes": "Vista con menu lateral (General, Colores, Asignaturas) y preview en iframe del login page. Campos: Nombre de aplicacion (texto), Logo (500x160px), Favicon (14x14px), Imagen de landing (819x900px). Publica cambios como CSS de organizacion y language scopes. Solo accesible para usuarios no-Publisher."
+    },
+    "personalize/colors": {
+      "name": "Personalizacion de colores",
+      "description": "Configuracion de colores del tema: color primario y colores secundarios con gradiente",
+      "section": "Personalizacion",
+      "route": "/personalize",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "simple-form",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/modules/personalize/colors/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["personalize/general", "personalize/subjects"],
+      "lastDocumented": null,
+      "notes": "Color primario (--color-first) y colores secundarios con selector de tipo solido o degradado (--color-gradient-1, --color-gradient-2). Usa color pickers hex. Valida formato 7 caracteres hex. Preview en tiempo real en iframe. Almacena como variables CSS en organizacion."
+    },
+    "personalize/subjects": {
+      "name": "Personalizacion de asignaturas",
+      "description": "Configuracion visual de asignaturas/disciplinas: imagen personalizada y color por asignatura",
+      "section": "Personalizacion",
+      "route": "/personalize",
+      "priority": "P3",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/app/modules/personalize/subjects/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["personalize/general", "personalize/colors"],
+      "lastDocumented": null,
+      "notes": "Lista expandible de asignaturas (acordeon). Cada asignatura permite: subir imagen icono personalizada (con preview y crop), seleccionar color con SketchPicker (react-color), eliminar imagen con confirmacion. Usa endpoint lms/course-themes para CRUD de disciplinas."
     }
   }
 }

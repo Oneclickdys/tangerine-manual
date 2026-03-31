@@ -1,0 +1,356 @@
+---
+title: "Editar Contenido"
+description: "Edita contenidos existentes: modifica metadatos, reemplaza archivos, gestiona subtitulos, audiodescripciones y transcripciones"
+icon: "pen-to-square"
+---
+
+## Descripcion
+
+La edicion de contenidos permite modificar cualquier aspecto de un contenido existente: actualizar su informacion basica, reemplazar el archivo adjunto, gestionar archivos de accesibilidad (subtitulos, audiodescripciones, transcripciones), reclasificar el contenido y asociarlo a publicaciones o colecciones.
+
+<Info>
+  **Rol requerido:** Administrador de Backoffice, Gestor de Contenido, Publisher
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Navega a Contenidos">
+    En el menu lateral izquierdo, el administrador hace clic en **Contenidos**. Se muestra el listado completo de contenidos del sistema.
+  </Step>
+  <Step title="Selecciona el contenido">
+    En la tabla de contenidos, al hacer clic sobre el **nombre del contenido** se accede al formulario de edicion.
+  </Step>
+</Steps>
+
+<Tip>
+  Tambien es posible acceder al detalle de un contenido desde el resultado de una busqueda o despues de clonarlo, ya que el sistema redirige automaticamente al formulario de edicion.
+</Tip>
+
+---
+
+## Estructura del formulario
+
+El formulario de edicion es el mismo que el de creacion, pero con todos los pasos habilitados desde el inicio. Se organiza en **cuatro pestanas** accesibles en cualquier orden:
+
+| Pestana | Nombre | Descripcion |
+|---------|--------|-------------|
+| 1 | **Detalles** | Informacion basica, archivo adjunto y archivos de accesibilidad |
+| 2 | **Clasificacion** | Metadatos educativos (pais, etapa, asignatura, idioma, tags) |
+| 3 | **Apariencia** / **Editor** | Miniatura y privacidad, o editor especializado segun el tipo |
+| 4 | **Agrupacion** | Asociacion a publicaciones, colecciones y dependencias |
+
+<Note>
+  A diferencia de la creacion, donde solo el paso Detalles esta disponible inicialmente, en la edicion **todas las pestanas estan habilitadas** desde el primer momento.
+</Note>
+
+La barra superior del formulario muestra:
+- **Configurar contenido** con un enlace para volver a la lista
+- **Visualizar** para previsualizar el contenido en una nueva pestana (disponible cuando el contenido tiene un archivo asociado)
+
+---
+
+## Paso 1: Detalles
+
+Este paso contiene la informacion basica del contenido y la gestion de archivos. Los campos generales (nombre, tipo, disponibilidad, ERP, descripcion, estado, accesible offline) funcionan igual que en la [creacion de contenido](/backoffice/contenidos/crear-contenido).
+
+<Warning>
+  El **tipo de contenido** no puede modificarse una vez creado. Si el contenido ya tiene un archivo subido, el selector de tipo aparece deshabilitado.
+</Warning>
+
+### Gestion del archivo adjunto
+
+Cuando un contenido ya tiene un archivo subido, la seccion **Adjuntar contenido** muestra:
+
+- **Nombre del fichero** con un enlace de descarga
+- **Fecha de subida** de la version actual
+- **Boton eliminar** (icono de papelera) para borrar el archivo
+- **Boton Subir nueva version** para reemplazar el archivo manteniendo el historial
+
+![Detalle de un contenido PDF con archivo subido](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso1-pdf.png)
+
+<Warning>
+  **Eliminar el archivo** borra tambien todos los archivos de accesibilidad asociados (subtitulos, audiodescripciones y transcripciones). Esta accion no se puede deshacer.
+</Warning>
+
+#### Reemplazar archivo
+
+El boton **Subir nueva version** permite actualizar el archivo sin perder la referencia al contenido en programas o lecciones que lo utilicen. El sistema registra la fecha de cada version.
+
+---
+
+### Archivos de accesibilidad
+
+Segun el tipo de contenido, el paso Detalles muestra secciones adicionales para gestionar archivos de accesibilidad.
+
+#### Videos: subtitulos y audiodescripcion
+
+Los contenidos de tipo **Video** incluyen dos secciones adicionales:
+
+![Detalle de un video con secciones de subtitulos y audiodescripcion](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso1-video.png)
+
+<Tabs>
+  <Tab title="Subtitulos">
+    Permiten agregar subtitulos en multiples idiomas.
+
+    | Aspecto | Detalle |
+    |---------|---------|
+    | **Formatos** | SRT, VTT |
+    | **Idiomas** | Se selecciona el idioma de cada archivo al subirlo |
+    | **Multiples archivos** | Se pueden agregar tantos como idiomas se necesiten |
+    | **Acciones** | Visualizar, editar metadatos, eliminar |
+
+    <Steps>
+      <Step title="Subir subtitulos">
+        En la seccion **Subtitulos**, el administrador hace clic en **Seleccionar fichero** y elige un archivo SRT o VTT.
+      </Step>
+      <Step title="Seleccionar idioma">
+        El sistema solicita el idioma del archivo de subtitulos.
+      </Step>
+      <Step title="Guardar">
+        El boton **Guardar** envia el archivo. Se pueden agregar mas archivos de subtitulos con el boton **Anadir subtitulos**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Audiodescripcion">
+    Permite agregar pistas de audio alternativas con descripciones para accesibilidad.
+
+    | Aspecto | Detalle |
+    |---------|---------|
+    | **Formatos** | MP3, OGG |
+    | **Idiomas** | Se selecciona el idioma de cada archivo al subirlo |
+    | **Multiples archivos** | Se pueden agregar tantos como idiomas se necesiten |
+    | **Acciones** | Visualizar, editar metadatos, eliminar |
+
+    El flujo de subida es identico al de subtitulos.
+  </Tab>
+</Tabs>
+
+#### Audios: transcripcion
+
+Los contenidos de tipo **Audio** incluyen una seccion de **Transcripcion de audio**:
+
+![Detalle de un audio con transcripcion subida](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso1-audio.png)
+
+| Aspecto | Detalle |
+|---------|---------|
+| **Formatos** | TXT, VTT |
+| **Archivo unico** | Solo se permite una transcripcion por contenido |
+| **Acciones** | Visualizar contenido, eliminar, subir nueva version |
+
+<Note>
+  Los archivos VTT deben comenzar con la cabecera `WEBVTT` y contener al menos un bloque de tiempo valido (formato `HH:MM:SS.mmm --> HH:MM:SS.mmm`). El sistema valida el formato automaticamente al subir. Los archivos TXT se aceptan pero el sistema muestra una advertencia indicando que el formato preferido es VTT.
+</Note>
+
+---
+
+## Paso 2: Clasificacion
+
+La pestana de clasificacion permite asignar metadatos educativos al contenido. Los campos disponibles dependen de si el tenant opera en modo mono-pais o multi-pais.
+
+![Paso de clasificacion con campos completados](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso2-clasificacion.png)
+
+### Campos de clasificacion
+
+| Campo | Descripcion |
+|-------|-------------|
+| **Pais** | Pais del contenido (solo en modo multi-pais) |
+| **Etapa** | Nivel educativo (Infantil, Primaria, ESO, Bachillerato, etc.) |
+| **Ano / serie** | Grado o curso escolar - se filtra segun la etapa seleccionada |
+| **Asignaturas** | Disciplinas o materias asociadas |
+| **Idioma** | Idioma del contenido |
+| **Tags** | Etiquetas para facilitar la busqueda |
+
+Todos los selectores permiten **seleccion multiple**.
+
+### Metadatos adicionales
+
+La seccion **Metadatos** incluye un selector de **Objetivos de aprendizaje** que permite vincular el contenido con objetivos curriculares. Este campo solo aparece cuando el tenant tiene activada la funcionalidad de objetivos de aprendizaje (`is_learning_objectives`).
+
+---
+
+## Paso 3: Apariencia / Editor
+
+El contenido del paso 3 varia significativamente segun el tipo de contenido. Incluso el nombre de la pestana cambia.
+
+<Tabs>
+  <Tab title="Tipos con miniatura (PDF, Fixed Layout, Office, xApi)">
+    La pestana se llama **Apariencia** y muestra dos secciones:
+
+    **Portada (thumbnail)**
+
+    Permite subir una imagen de portada en formato PNG o JPG. Esta imagen se utiliza como miniatura del contenido en listados y programas.
+
+    ![Paso de apariencia con seccion de thumbnail](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso3-apariencia-pdf.png)
+
+    **Ajustes de privacidad**
+
+    | Opcion | Descripcion |
+    |--------|-------------|
+    | **Contenido publico** | Visible para todos los usuarios de la plataforma |
+    | **Contenido privado** | Solo visible para usuarios con acceso explicito |
+  </Tab>
+  <Tab title="Videos, audios, imagenes y otros">
+    La pestana se llama **Apariencia** y solo muestra la seccion de **Ajustes** con el selector de privacidad (publico/privado).
+
+    ![Paso de apariencia simplificado para video](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso3-apariencia-video.png)
+  </Tab>
+  <Tab title="Question (Lemonade)">
+    La pestana se renombra a **Editor** y muestra el editor de actividades Lemonade.
+
+    Si la actividad aun no ha sido configurada, se muestra un **selector de plantillas** organizado por categorias:
+
+    - Tipo test
+    - Completar con texto
+    - Arrastrar y seleccionar
+    - Ordenar, identificar y relacionar
+    - Clasificar
+    - Matematicas
+    - Evaluacion manual
+
+    ![Selector de plantillas Lemonade](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso3-editor-lemonade.png)
+
+    Una vez seleccionada la plantilla, se muestra el **editor completo** con secciones para:
+    - Nombre interno y enunciado de la actividad
+    - Opciones de respuesta (arrastrables para reordenar)
+    - Soluciones y tipo de evaluacion
+    - Tratamiento del error y del acierto (feedback)
+    - Pistas
+    - Ajustes visuales (orden aleatorio, columnas, imagen de fondo)
+
+    ![Editor Lemonade con actividad configurada](/assets/screenshots/backoffice/contenidos/detalle-contenido-editor-lemonade-actividad.png)
+
+    <Info>
+      Para una guia completa del editor Lemonade, consulta la documentacion del [Editor Lemonade](/backoffice/herramientas-autor/editor-lemonade).
+    </Info>
+  </Tab>
+  <Tab title="Video Lesson">
+    La pestana se renombra a **Editor** y muestra el editor de videolecciones, que permite definir segmentos temporales del video con contenido educativo asociado.
+  </Tab>
+</Tabs>
+
+---
+
+## Paso 4: Agrupacion
+
+La pestana de agrupacion permite organizar el contenido dentro de las estructuras del sistema.
+
+![Paso de agrupacion del contenido](/assets/screenshots/backoffice/contenidos/detalle-contenido-paso4-agrupacion.png)
+
+| Campo | Descripcion |
+|-------|-------------|
+| **Publicacion** | Asocia el contenido a una o mas publicaciones |
+| **Coleccion** | Agrupa el contenido en colecciones tematicas |
+| **Dependencias** | Define otros contenidos necesarios para que este funcione correctamente |
+
+<Info>
+  Las **dependencias** son utiles cuando un contenido requiere otro para funcionar. Por ejemplo, un ejercicio interactivo que necesita una libreria JavaScript externa empaquetada como contenido de tipo Dependency.
+</Info>
+
+---
+
+## Guardar cambios
+
+El boton **Guardar** se habilita cuando hay cambios pendientes en el formulario. Al guardar:
+
+1. Se actualizan primero los metadatos del contenido
+2. Se sube el archivo principal si fue reemplazado (con barra de progreso)
+3. Se suben los archivos de accesibilidad (transcripcion, subtitulos, audiodescripciones) de forma secuencial
+4. El sistema refresca los datos al completar todas las operaciones
+
+<Warning>
+  **No cerrar la ventana** mientras se suben archivos. Si la subida se interrumpe, los archivos parcialmente subidos podrian perderse. El sistema muestra un dialogo de confirmacion si se intenta salir durante una subida.
+</Warning>
+
+---
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El tipo de contenido no puede cambiarse despues de la creacion">
+    El selector de tipo de contenido aparece deshabilitado en el formulario de edicion. Si se necesita un tipo diferente, es necesario crear un nuevo contenido y eliminar el anterior.
+  </Accordion>
+  <Accordion title="Eliminar el archivo borra los archivos de accesibilidad">
+    Al eliminar el archivo principal de un contenido (boton de papelera), el sistema elimina automaticamente todos los subtitulos, audiodescripciones y transcripciones asociados. Se recomienda descargar primero los archivos de accesibilidad si se desea conservarlos.
+  </Accordion>
+  <Accordion title="El contenido muestra un indicador de procesamiento">
+    Algunos tipos de contenido (PDF, OFFICE) requieren conversion interna despues de subir el archivo. Durante este proceso, el sistema muestra un indicador de carga. El contenido no estara disponible para visualizacion hasta que el procesamiento termine.
+  </Accordion>
+  <Accordion title="Modificar un contenido no afecta a los programas que lo usan">
+    Los cambios en metadatos, clasificacion o archivo de un contenido se reflejan automaticamente en todos los programas y lecciones que lo referencian. No es necesario volver a asignarlo.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="Puedo agregar subtitulos en varios idiomas?">
+    Si. La seccion de subtitulos permite agregar multiples archivos, cada uno asociado a un idioma diferente. Los usuarios veran las opciones disponibles en el visor de contenido.
+  </Accordion>
+  <Accordion title="Que pasa si subo un archivo VTT con formato incorrecto?">
+    El sistema valida automaticamente los archivos VTT. Si el formato es incorrecto (falta la cabecera WEBVTT o los bloques de tiempo no son validos), se muestra un mensaje de error y el archivo no se sube.
+  </Accordion>
+  <Accordion title="Puedo revertir a una version anterior del archivo?">
+    No. Al subir una nueva version, se reemplaza el archivo anterior. Si se necesita volver a la version original, habra que subirla de nuevo manualmente.
+  </Accordion>
+  <Accordion title="Por que no veo la pestana Apariencia?">
+    Para algunos tipos de contenido (como Link o Mint), la pestana de Apariencia puede no mostrarse si no hay opciones configurables. Esto depende de la configuracion del tenant.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Problemas comunes
+
+<Warning>
+  **Problema:** El boton Guardar esta deshabilitado.
+
+  **Solucion:** El boton solo se habilita cuando hay cambios pendientes. Verifica que hayas modificado algun campo. Si acabas de navegar entre pestanas sin cambiar nada, el boton permanecera deshabilitado.
+</Warning>
+
+<Warning>
+  **Problema:** Error al subir transcripcion VTT.
+
+  **Solucion:** El archivo VTT debe comenzar con la cabecera `WEBVTT` en la primera linea y contener bloques de tiempo con el formato `HH:MM:SS.mmm --> HH:MM:SS.mmm`. Verifica que no haya caracteres adicionales antes de la cabecera.
+</Warning>
+
+<Warning>
+  **Problema:** El contenido muestra "procesando" despues de subir el archivo.
+
+  **Solucion:** Algunos formatos (PDF, OFFICE) requieren conversion al formato XOD para su visualizacion. Este proceso puede tardar unos minutos. Espera y recarga la pagina. Si el estado persiste mas de 10 minutos, contacta al equipo tecnico.
+</Warning>
+
+---
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear Contenido" icon="plus-circle" href="/backoffice/contenidos/crear-contenido">
+    Guia completa para crear nuevos contenidos educativos.
+  </Card>
+  <Card title="Gestion de Contenidos" icon="book-open" href="/backoffice/contenidos/gestion-contenidos">
+    Buscar, filtrar y administrar los contenidos del sistema.
+  </Card>
+  <Card title="Editor Lemonade" icon="sparkles" href="/backoffice/herramientas-autor/editor-lemonade">
+    Herramienta para crear actividades interactivas con multiples tipos de preguntas.
+  </Card>
+  <Card title="Editor Mint" icon="palette" href="/backoffice/herramientas-autor/editor-mint">
+    Herramienta para construir paginas HTML interactivas.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: backoffice
+  - Seccion UI: /content/:guid
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/contents/ContentDetailPage/
+    - modulos: src/app/modules/contents/ContentForm/
+    - crud: src/app/crud/contents.crud.js
+    - servicios: src/app/services/contents.service.js
+  - Feature ID: contents/detail
+  - Ultima revision: 2026-03-31
+*/}

@@ -1,0 +1,110 @@
+---
+title: "Escalas de Calificación"
+description: "Definición de escalas numéricas y cualitativas para el sistema de evaluación"
+icon: "star"
+---
+
+## Descripción
+
+Las **escalas de calificación** definen los rangos y tipos de puntuación que se utilizan en el sistema de evaluación. Cada escala puede ser **numérica** (ej: 0-10, 0-100) o **cualitativa** (ej: Insuficiente, Suficiente, Notable, Sobresaliente). Las escalas se asignan a países como modelo de calificación y se utilizan en el cuaderno de evaluación.
+
+<Info>
+  **Rol requerido:** Administrador del backoffice con permisos de escalas de calificación.
+</Info>
+
+<Note>
+  Esta funcionalidad está disponible cuando el feature flag **showEvaluationOptions** está activado. Si no aparece en el menú de configuración, contactar al equipo de soporte.
+</Note>
+
+## Cómo acceder
+
+El administrador accede desde el menú lateral **Configuración** > **Escalas de calificación**.
+
+![Listado de escalas](/assets/screenshots/backoffice/configuracion/escalas-listado.png)
+
+## Listado de escalas
+
+La tabla muestra todas las escalas de calificación con las siguientes columnas:
+
+| Columna | Descripción |
+|---------|-------------|
+| **Nombre** | Nombre descriptivo de la escala |
+| **Tipo** | **Numérica** o **Cualitativa** |
+| **Rango** | Para numéricas: rango mín-máx (ej: 1-10). Para cualitativas: etiquetas de los niveles |
+| **Estado** | **En uso** si la escala está asignada a algún país, vacío en caso contrario |
+
+### Acciones disponibles
+
+- **Añadir escala**: Botón para crear una nueva escala
+- **Vista detalle** (icono de ojo): Muestra un diálogo con la información completa de la escala
+- **Editar**: Clic en la fila para modificar la escala
+- **Eliminar**: Disponible solo para escalas que no están en uso
+
+## Crear una escala
+
+Al pulsar **Añadir escala**, se abre un diálogo con el formulario de creación.
+
+### Escala numérica
+
+| Campo | Descripción |
+|-------|-------------|
+| **Nombre** | Nombre descriptivo (ej: "Escala del 1 al 10 sin decimales") |
+| **Tipo** | Seleccionar **Numérica** |
+| **Rango mínimo** | Valor mínimo de la escala |
+| **Rango máximo** | Valor máximo de la escala |
+| **Número de decimales** | Precisión decimal permitida (0 para enteros) |
+
+### Escala cualitativa
+
+| Campo | Descripción |
+|-------|-------------|
+| **Nombre** | Nombre descriptivo (ej: "Escala cualitativa primaria") |
+| **Tipo** | Seleccionar **Cualitativa** |
+| **Rangos** | Lista de niveles con nombre y valor. Se pueden añadir y eliminar rangos individuales |
+
+## Vista de detalle
+
+![Detalle de escala](/assets/screenshots/backoffice/configuracion/escala-detalle.png)
+
+Al hacer clic en el icono de ojo de una escala, se abre un diálogo de solo lectura que muestra:
+
+- **Nombre** de la escala
+- **Tipo**: Numérica o Cualitativa
+- **Rango**: Valores mínimo y máximo (numérica) o listado de niveles (cualitativa)
+- **Número de decimales** (solo para numéricas)
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede editar una escala que está en uso?">
+    Sí, pero el sistema muestra un aviso de confirmación indicando que la escala está siendo utilizada. Los cambios afectan a las evaluaciones futuras; las calificaciones ya registradas no se recalculan automáticamente.
+  </Accordion>
+  <Accordion title="¿Se puede eliminar una escala en uso?">
+    No. El botón de eliminar está deshabilitado para escalas con estado **En uso**. Es necesario reasignar la escala en los países que la utilizan antes de poder eliminarla.
+  </Accordion>
+  <Accordion title="¿Se pueden eliminar rangos individuales de una escala cualitativa?">
+    Sí. Dentro del diálogo de edición, cada rango tiene la opción de eliminarse individualmente.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Países" icon="globe" href="/backoffice/configuracion/paises">
+    Las escalas se asignan como modelo de calificación por país.
+  </Card>
+  <Card title="Categorías evaluables" icon="tags" href="/backoffice/configuracion/categorias-evaluables">
+    Las categorías complementan las escalas en el sistema de evaluación.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+  - Aplicación: backoffice
+  - Sección UI: Configuración > Escalas de calificación
+  - Ruta: /settings-scales
+  - Archivos de código relacionados:
+    - frontend: src/app/pages/settings/SettingsEvaluationScalesPage/
+  - Feature flags: showEvaluationOptions
+  - Última revisión: 2026-03-31
+*/}

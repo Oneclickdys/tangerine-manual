@@ -1,0 +1,102 @@
+---
+title: "Categorías Evaluables"
+description: "Gestión de categorías para agrupar evaluaciones por tipo"
+icon: "tags"
+---
+
+## Descripción
+
+Las **categorías evaluables** permiten clasificar las evaluaciones por tipo (ej: Tareas, Trabajo en clase, Evaluaciones). Estas categorías se utilizan en el cuaderno de evaluación del docente para organizar y ponderar las calificaciones.
+
+<Info>
+  **Rol requerido:** Administrador del backoffice con permisos de configuración.
+</Info>
+
+<Note>
+  Esta funcionalidad está disponible cuando el feature flag **showEvaluationOptions** está activado. Forma parte del sistema de evaluación avanzado (cuaderno de evaluación).
+</Note>
+
+## Cómo acceder
+
+El administrador accede desde el menú lateral **Configuración** > **Categorías evaluables**.
+
+![Listado de categorías](/assets/screenshots/backoffice/configuracion/categorias-listado.png)
+
+## Listado de categorías
+
+La tabla muestra todas las categorías evaluables con las siguientes columnas:
+
+| Columna | Descripción |
+|---------|-------------|
+| **Nombre** | Nombre de la categoría (en mayúsculas) |
+| **Estado** | **En uso** si la categoría está siendo utilizada en evaluaciones, vacío en caso contrario |
+
+El encabezado muestra un contador con el **número total de categorías** creadas.
+
+### Acciones disponibles
+
+- **Añadir categoría**: Botón para crear una nueva categoría
+- **Editar**: Clic en la fila para modificar el nombre
+- **Customizar tabla**: Permite mostrar u ocultar columnas
+
+## Crear una categoría
+
+<Steps>
+  <Step title="Abrir diálogo">
+    El administrador pulsa el botón **Añadir categoría** en la esquina superior derecha.
+  </Step>
+  <Step title="Completar nombre">
+    En el diálogo que aparece, el administrador introduce el nombre de la categoría (ej: "Exámenes", "Proyectos", "Participación").
+  </Step>
+  <Step title="Confirmar">
+    El botón de confirmación guarda la categoría y la añade al listado.
+  </Step>
+</Steps>
+
+## Editar una categoría
+
+Al hacer clic en una fila de la tabla, se abre el mismo diálogo de creación con el nombre actual precargado. El administrador modifica el nombre y confirma el cambio.
+
+## Casos de uso
+
+<AccordionGroup>
+  <Accordion title="Organización por tipo de actividad">
+    Una editorial puede definir categorías como **Tareas**, **Trabajo en clase** y **Evaluaciones** para que los docentes clasifiquen automáticamente sus actividades evaluativas. Esto facilita la ponderación de calificaciones en el cuaderno de evaluación.
+  </Accordion>
+  <Accordion title="Ponderación diferenciada">
+    Con categorías diferenciadas, el cuaderno de evaluación permite asignar pesos distintos a cada tipo de actividad (ej: Evaluaciones 60%, Tareas 25%, Participación 15%).
+  </Accordion>
+</AccordionGroup>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede eliminar una categoría en uso?">
+    La interfaz muestra el estado **En uso** para categorías asignadas a evaluaciones. Las categorías en uso no deben eliminarse para evitar inconsistencias en las calificaciones existentes.
+  </Accordion>
+  <Accordion title="¿Las categorías son globales o por país?">
+    Las categorías son globales para todo el tenant. Todos los docentes de todos los países ven las mismas categorías evaluables.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Escalas de calificación" icon="star" href="/backoffice/configuracion/escalas-calificacion">
+    Las escalas definen los rangos de puntuación que complementan las categorías.
+  </Card>
+  <Card title="Períodos de evaluación" icon="calendar" href="/backoffice/configuracion/periodos-evaluacion">
+    Los períodos definen el marco temporal para las evaluaciones.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+  - Aplicación: backoffice
+  - Sección UI: Configuración > Categorías evaluables
+  - Ruta: /settings-categories
+  - Archivos de código relacionados:
+    - frontend: src/app/pages/settings/SettingsEvaluationCategoriesPage/
+  - Feature flags: showEvaluationOptions
+  - Última revisión: 2026-03-31
+*/}

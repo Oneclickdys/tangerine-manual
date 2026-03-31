@@ -1,0 +1,92 @@
+---
+title: "Configuración General"
+description: "Permisos de docentes y gestión de lenguas del sistema"
+icon: "sliders"
+---
+
+## Descripción
+
+La sección de **Configuración General** permite definir los permisos globales que se aplican a todos los docentes del sistema, así como gestionar las lenguas o versiones idiomáticas disponibles para los contenidos.
+
+<Info>
+  **Rol requerido:** Administrador del backoffice (no disponible para usuarios con rol Publisher ni integraciones de terceros).
+</Info>
+
+## Cómo acceder
+
+El administrador accede desde el menú lateral **Configuración** (icono de engranaje en la parte inferior del sidebar). La página **General** es la primera opción del menú de configuración.
+
+![Configuración general](/assets/screenshots/backoffice/configuracion/configuracion-general.png)
+
+## Permisos de docentes
+
+Esta sección contiene dos toggles que controlan los permisos globales de todos los docentes del sistema:
+
+| Permiso | Descripción | Valor por defecto |
+|---------|-------------|-------------------|
+| **Los docentes pueden administrar la clase** | Permite a los docentes crear y gestionar sus propias clases en el frontoffice. Si se desactiva, los docentes solo pueden acceder a clases creadas por el administrador de escuela. | Activado |
+| **Los docentes pueden personalizar los programas digitales** | Permite a los docentes modificar el contenido y la estructura de los programas digitales asignados a sus clases. Si se desactiva, los programas se muestran tal como fueron configurados en el backoffice. | Activado |
+
+<Note>
+  Estos permisos se aplican de forma global a **todos los docentes** del tenant. No es posible configurarlos por país, escuela o usuario individual.
+</Note>
+
+<Warning>
+  Desactivar estos permisos afecta inmediatamente a todos los docentes activos. Si un docente tenía clases o programas personalizados, **no se eliminan**, pero el docente pierde la capacidad de crear nuevas clases o realizar nuevas personalizaciones.
+</Warning>
+
+## Lenguas y versiones
+
+La sección **Lenguas - Versiones** gestiona los idiomas disponibles para la clasificación de contenidos en el sistema. Cada contenido puede asociarse a una lengua, lo que permite organizar materiales por idioma.
+
+### Gestión de lenguas
+
+- Cada lengua aparece como un campo de texto editable con su nombre actual
+- El botón **Añadir +** crea una nueva lengua vacía al final de la lista
+- El campo no permite guardar lenguas con nombre vacío
+
+### Operaciones disponibles
+
+| Acción | Procedimiento |
+|--------|--------------|
+| **Añadir lengua** | Hacer clic en **Añadir +**, escribir el nombre y pulsar **Guardar** |
+| **Editar lengua** | Modificar el texto del campo directamente y pulsar **Guardar** |
+
+<Note>
+  El botón **Guardar** solo se habilita cuando hay cambios pendientes. Los cambios en permisos y lenguas se guardan de forma conjunta con un solo clic.
+</Note>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Qué ocurre si se elimina una lengua que ya está en uso?">
+    El sistema no permite eliminar lenguas directamente desde esta interfaz. Las lenguas creadas permanecen disponibles para ser asignadas a contenidos.
+  </Accordion>
+  <Accordion title="¿Los cambios en permisos son retroactivos?">
+    No. Si se desactiva el permiso de administrar clase, las clases ya creadas por docentes siguen existiendo. El docente pierde la capacidad de crear nuevas clases, pero mantiene acceso a las existentes.
+  </Accordion>
+  <Accordion title="¿Esta página está disponible para todos los administradores?">
+    No. Los usuarios con rol Publisher y los usuarios de integraciones de terceros no tienen acceso a esta página.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Países" icon="globe" href="/backoffice/configuracion/paises">
+    Configuración de países, niveles educativos y año escolar.
+  </Card>
+  <Card title="Escalas de calificación" icon="star" href="/backoffice/configuracion/escalas-calificacion">
+    Definición de escalas numéricas y cualitativas para evaluaciones.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+  - Aplicación: backoffice
+  - Sección UI: Configuración > General
+  - Ruta: /settings
+  - Archivos de código relacionados:
+    - frontend: src/app/pages/settings/SettingsGeneralPage/
+  - Última revisión: 2026-03-31
+*/}

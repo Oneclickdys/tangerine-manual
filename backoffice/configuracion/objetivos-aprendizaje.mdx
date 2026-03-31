@@ -1,0 +1,130 @@
+---
+title: "Objetivos de Aprendizaje"
+description: "Gestión jerárquica de objetivos de aprendizaje y competencias vinculables a contenidos"
+icon: "bullseye"
+---
+
+## Descripción
+
+Los **objetivos de aprendizaje** son competencias o estándares educativos que pueden vincularse a contenidos y evaluaciones del sistema. Se organizan en una estructura jerárquica (árbol), lo que permite definir objetivos generales y sudobjetivos más específicos. Esto facilita el seguimiento del progreso del estudiante por competencias.
+
+<Info>
+  **Rol requerido:** Administrador del backoffice con permisos de configuración.
+</Info>
+
+<Note>
+  Esta funcionalidad solo está visible cuando el feature flag **is_learning_objectives** está activado para el tenant. Además requiere que **showEvaluationOptions** esté habilitado.
+</Note>
+
+## Cómo acceder
+
+El administrador accede desde el menú lateral **Configuración** > **Objetivos de aprendizaje**.
+
+![Objetivos de aprendizaje](/assets/screenshots/backoffice/configuracion/objetivos-aprendizaje.png)
+
+## Listado de objetivos
+
+La página muestra los objetivos de aprendizaje en una **tabla jerárquica expandible** (árbol):
+
+| Elemento | Descripción |
+|----------|-------------|
+| **Título** | Nombre del objetivo de aprendizaje |
+| **Subtítulo** | Descripción del objetivo (mostrado debajo del título) |
+| **Hijos** | Los objetivos pueden expandirse para mostrar sudobjetivos anidados |
+
+### Acciones disponibles
+
+- **Buscar**: Campo de búsqueda que filtra objetivos por título o descripción (mínimo 3 caracteres). Al buscar, el árbol se expande automáticamente para mostrar las coincidencias
+- **Añadir**: Botón para crear un nuevo objetivo de aprendizaje
+- **Menú contextual** (por fila): Opciones de **Editar** y **Eliminar** para cada objetivo
+
+## Crear un objetivo
+
+<Steps>
+  <Step title="Abrir diálogo">
+    El administrador pulsa el botón **Añadir** en la esquina superior derecha.
+  </Step>
+  <Step title="Completar datos">
+    El diálogo de creación contiene los siguientes campos:
+
+    | Campo | Descripción | Obligatorio |
+    |-------|-------------|:-----------:|
+    | **Nombre** | Título del objetivo de aprendizaje | Sí |
+    | **Descripción** | Texto descriptivo del objetivo | No |
+    | **Objetivo padre** | Selector de árbol para elegir un objetivo padre, convirtiendo el nuevo en sudobjetivo | No |
+  </Step>
+  <Step title="Confirmar">
+    El botón de confirmación guarda el objetivo y lo añade al árbol en la posición correspondiente.
+  </Step>
+</Steps>
+
+<Tip>
+  Si se selecciona un **objetivo padre**, el nuevo objetivo aparecerá como hijo del seleccionado. Si no se selecciona padre, el objetivo se crea como raíz del árbol.
+</Tip>
+
+## Editar un objetivo
+
+Al seleccionar **Editar** en el menú contextual de un objetivo, se abre el mismo diálogo con los datos precargados. El administrador puede modificar el nombre, la descripción o reasignar el objetivo padre.
+
+## Búsqueda
+
+El campo de búsqueda permite localizar objetivos dentro del árbol:
+
+- Se requieren al menos **3 caracteres** para activar la búsqueda
+- La búsqueda tiene un **debounce de 200ms** para evitar búsquedas innecesarias
+- Los resultados incluyen las coincidencias y sus **objetivos padres** para mantener el contexto jerárquico
+- El árbol se expande automáticamente al mostrar resultados
+- La búsqueda funciona sobre el **título** y la **descripción** del objetivo
+
+## Estructura jerárquica
+
+Los objetivos se organizan en un árbol que soporta hasta **10 niveles de profundidad**. Un ejemplo de estructura típica:
+
+```
+├── Competencia lingüística
+│   ├── Comprensión lectora
+│   │   ├── Identificar ideas principales
+│   │   └── Inferir significados
+│   └── Expresión escrita
+│       ├── Redacción coherente
+│       └── Ortografía y gramática
+└── Competencia matemática
+    ├── Cálculo
+    └── Resolución de problemas
+```
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Qué ocurre si se elimina un objetivo padre?">
+    Al eliminar un objetivo padre, los sudobjetivos quedan huérfanos. Es recomendable reasignar los sudobjetivos a otro padre antes de eliminar.
+  </Accordion>
+  <Accordion title="¿Los objetivos están vinculados a un país?">
+    Los objetivos de aprendizaje son globales para el tenant, aunque pueden organizarse internamente por país o región mediante la jerarquía del árbol (ej: un nodo raíz por país).
+  </Accordion>
+  <Accordion title="¿Se pueden importar objetivos en lote?">
+    Actualmente no existe una funcionalidad de importación masiva desde esta interfaz. Los objetivos se crean uno a uno.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestión de contenidos" icon="book" href="/backoffice/contenidos/gestion-contenidos">
+    Los contenidos pueden vincularse a objetivos de aprendizaje durante su clasificación.
+  </Card>
+  <Card title="Categorías evaluables" icon="tags" href="/backoffice/configuracion/categorias-evaluables">
+    Las categorías complementan los objetivos en el sistema de evaluación.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+  - Aplicación: backoffice
+  - Sección UI: Configuración > Objetivos de aprendizaje
+  - Ruta: /settings-learning-objectives
+  - Archivos de código relacionados:
+    - frontend: src/app/pages/settings/SettingsLearningObjectivesPage/
+  - Feature flags: showEvaluationOptions, is_learning_objectives
+  - Última revisión: 2026-03-31
+*/}

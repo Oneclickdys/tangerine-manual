@@ -105,9 +105,13 @@ El formulario de creación de escuela incluye los siguientes campos:
     La opción **Admin Escuela** habilita un portal especial donde los administradores del colegio pueden gestionar sus propios usuarios, grupos y configuraciones sin necesidad de acceder al Backoffice principal.
 
     Cuando esta opción esta habilitada:
-    - Se genera un acceso especial para el administrador del colegio
-    - El administrador puede gestionar usuarios y grupos de su escuela
+    - Los usuarios con rol **Administrador Escuela** asignados a este colegio pueden acceder al panel de Admin Escuela
+    - Desde ese panel, el administrador gestiona usuarios, grupos y configuracion de su escuela
     - No requiere permisos de administrador del Backoffice
+
+    <Warning>
+      Habilitar la casilla en la escuela no es suficiente por si solo. Tambien es necesario crear al menos un usuario con el rol **Administrador Escuela** y asignarlo a este colegio. Consulta la seccion [Crear un Administrador de Escuela](/backoffice/usuarios/gestion-usuarios#crear-un-administrador-de-escuela) en la guia de usuarios.
+    </Warning>
   </Accordion>
   <Accordion title="Cuando debo habilitar Admin Escuela?">
     Habilita esta opción cuando:

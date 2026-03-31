@@ -41,7 +41,8 @@
             "group": "Contenidos",
             "pages": [
               "backoffice/contenidos/gestion-contenidos",
-              "backoffice/contenidos/crear-contenido"
+              "backoffice/contenidos/crear-contenido",
+              "backoffice/contenidos/detalle-contenido"
             ]
           },
           {
@@ -79,6 +80,16 @@
             "pages": [
               "backoffice/herramientas-autor/editor-lemonade",
               "backoffice/herramientas-autor/editor-mint"
+            ]
+          },
+          {
+            "group": "Configuración",
+            "pages": [
+              "backoffice/configuracion/configuracion-general",
+              "backoffice/configuracion/paises",
+              "backoffice/configuracion/escalas-calificacion",
+              "backoffice/configuracion/categorias-evaluables",
+              "backoffice/configuracion/objetivos-aprendizaje"
             ]
           }
         ]
