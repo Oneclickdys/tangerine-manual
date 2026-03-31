@@ -1,0 +1,127 @@
+---
+title: "Descarga de reportes"
+description: "Visualizar, descargar en PDF y Excel, y gestionar las boletas de calificaciones generadas"
+icon: "download"
+---
+
+## Descripcion
+
+Una vez que el sistema genera una boleta de calificaciones, la vista de descarga permite al administrador de escuela visualizar el documento en formato PDF directamente en el navegador y descargarlo en formato PDF o Excel.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Desde la lista de reportes">
+    En la lista de reportes (`/reports`), el administrador hace clic sobre el **nombre** de la boleta. El sistema navega a `/report/download/:guid`.
+  </Step>
+</Steps>
+
+## Vista de descarga
+
+La vista de descarga se divide en dos areas:
+
+### Cabecera
+
+La cabecera muestra:
+- **Boton de volver**: Flecha que regresa a la lista de reportes.
+- **Nombre de la boleta**: Titulo asignado durante la creacion.
+
+### Area de contenido
+
+El area de contenido muestra el estado del reporte y las opciones de descarga:
+
+**Cuando la boleta se genero correctamente:**
+- **Visor PDF**: Un iframe integrado que muestra el documento PDF directamente en el navegador, ocupando la mayor parte de la pantalla.
+- **Boton Descargar PDF**: Descarga el archivo en formato PDF con el nombre de la boleta.
+- **Boton Descargar Excel**: Descarga el archivo en formato XLSX para su manipulacion en hojas de calculo.
+
+**Cuando la boleta fallo al generarse:**
+
+![Vista de descarga con error](/assets/screenshots/admin-school/reports/descarga-reporte-error.png)
+
+El sistema muestra un mensaje de error que incluye:
+- Icono de error y texto descriptivo: *"El reporte no se ha podido generar"*.
+- Detalle del error: informacion adicional sobre la causa del fallo (por ejemplo, "Cursos no encontrados o las lecciones no existen").
+
+## Formatos de descarga
+
+| Formato | Extension | Uso recomendado |
+|---------|-----------|-----------------|
+| **PDF** | `.pdf` | Impresion y distribucion oficial de boletas. Mantiene el formato visual exacto. |
+| **Excel** | `.xlsx` | Analisis de datos, integracion con otros sistemas o edicion manual de calificaciones. |
+
+<Tip>
+  El formato Excel resulta util cuando la escuela necesita importar las calificaciones en otro sistema de gestion academica o realizar calculos adicionales sobre los datos.
+</Tip>
+
+## Proceso de generacion
+
+La generacion de una boleta es un proceso asincrono que el sistema ejecuta en segundo plano:
+
+1. Al guardar la boleta, el sistema registra la configuracion y pone el reporte en estado **Pendiente**.
+2. El procesador de reportes recoge la boleta y cambia su estado a **Procesando**.
+3. El sistema recopila las calificaciones de los estudiantes segun los filtros configurados.
+4. Se genera el documento PDF y el archivo Excel.
+5. El estado cambia a **Completada** o **Fallida** segun el resultado.
+
+<Note>
+  La lista de reportes hace polling automatico cada 10 segundos para actualizar el estado de las boletas pendientes. No es necesario refrescar la pagina manualmente.
+</Note>
+
+## Gestion de boletas
+
+### Editar una boleta
+
+Desde el menu contextual (icono de tres puntos o **Editar**) en la lista de reportes, el administrador puede modificar la configuracion de una boleta existente. Al guardar los cambios, el sistema regenera la boleta con la nueva configuracion.
+
+### Eliminar una boleta
+
+Desde el menu contextual, la opcion **Eliminar** muestra un dialogo de confirmacion con el nombre de la boleta. Al confirmar, la boleta se elimina de forma permanente junto con sus archivos generados.
+
+<Warning>
+  La eliminacion de una boleta es irreversible. Los archivos PDF y Excel asociados se eliminan permanentemente.
+</Warning>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="La boleta queda en estado 'Fallida'">
+    Las causas mas comunes son:
+    - **Cursos no encontrados**: El grupo no tiene contenidos asignados o los cursos fueron eliminados despues de crear la boleta.
+    - **Lecciones inexistentes**: Los cursos asignados no tienen lecciones configuradas.
+    - **Sin calificaciones**: No hay calificaciones registradas para los periodos seleccionados.
+
+    **Solucion**: Verificar la asignacion de contenidos en el detalle del grupo, editar la boleta y volver a guardarla para regenerar el reporte.
+  </Accordion>
+  <Accordion title="El PDF no se visualiza en el visor integrado">
+    Puede deberse a restricciones del navegador con cookies de terceros o a problemas de red. El boton **Descargar PDF** sigue funcionando incluso si el visor no carga el documento.
+  </Accordion>
+  <Accordion title="Solo aparece el boton de PDF y no el de Excel">
+    El archivo Excel se genera a partir del PDF. Si el proceso de generacion fallo parcialmente, puede que solo uno de los dos formatos este disponible. En ese caso, regenerar la boleta (editar y guardar) suele resolver el problema.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Boletas y Reportes" icon="file-text" href="/admin-escuela/reportes/vista-general">
+    Vision general del modulo y lista de boletas.
+  </Card>
+  <Card title="Crear una boleta" icon="plus" href="/admin-escuela/reportes/crear-boleta">
+    Guia del constructor visual de boletas.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: /report/download/:guid
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/reports/ReportDownloadPage/, src/app/modules/reports/ReportDownload/
+  - Ultima revision: 2026-03-31
+*/}

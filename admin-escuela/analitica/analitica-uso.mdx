@@ -1,0 +1,194 @@
+---
+title: "Analitica de uso"
+description: "Estadisticas generales de uso de la plataforma con metricas de usuarios activos, sesiones, tareas evaluativas y formativas, consumo de materiales y dispositivos"
+icon: "chart-line"
+---
+
+## Descripcion
+
+El dashboard de **Analitica de uso** ofrece una panoramica del uso general de la plataforma en la escuela. Incluye metricas de usuarios activos, tiempo medio de sesion, numero de visitas, estado de tareas evaluativas y formativas, consumo de materiales por tipo y desglose por dispositivo y modo de uso.
+
+Este dashboard es el punto de partida habitual de la seccion de analitica y permite al administrador de escuela evaluar la salud global de la adopcion de la plataforma.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+<Note>
+  La seccion de analitica no aparece en el menu lateral de navegacion de forma predeterminada. Se accede directamente a traves de la URL `/analytic/usage` o desde las pestanas de navegacion internas de la seccion.
+</Note>
+
+## Como acceder
+
+La seccion de analitica cuenta con un menu lateral propio con tres pestanas: **Uso**, **Licencias** y **Programas**. El administrador accede a `/analytic/usage` y se situa automaticamente en la pestana **Uso**.
+
+Si el administrador gestiona varias escuelas, el selector de escuela en la cabecera permite cambiar de contexto. Los datos del dashboard se recargan al seleccionar una escuela diferente.
+
+## Filtros
+
+### Filtro de periodo temporal
+
+Un selector de periodo en la parte superior del dashboard permite acotar el rango de tiempo de los datos. Las opciones disponibles son:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Hoy** | Datos del dia actual |
+| **Ultimos 7 dias** | Datos de la ultima semana (seleccion por defecto) |
+| **Ultimos 30 dias** | Datos del ultimo mes |
+| **Ultimos 60 dias** | Datos de los ultimos dos meses |
+| **Ultimos 90 dias** | Datos del ultimo trimestre |
+| **Ultimos 12 meses** | Datos del ultimo ano |
+| **Personalizado** | Permite seleccionar un rango de fechas a medida |
+
+### Boton Filtrar
+
+Un boton **Filtrar** en la esquina superior derecha permite acceder a filtros avanzados adicionales. El badge numerico junto al boton indica cuantos filtros estan activos.
+
+## Secciones del dashboard
+
+### Tarjetas de metricas principales
+
+Tres tarjetas de resumen en la parte superior muestran:
+
+| Metrica | Descripcion |
+|---------|-------------|
+| **Usuarios activos** | Numero total de usuarios (docentes y estudiantes) que han accedido a la plataforma en el periodo seleccionado. Incluye indicador de tendencia comparado con el periodo anterior |
+| **Tiempo medio de sesion** | Duracion media de las sesiones de usuario, expresada en formato HH:MM:SS. Incluye la nota "Comparado con el periodo anterior" |
+| **Visitas** | Numero total de visitas (sesiones) registradas en el periodo seleccionado |
+
+Cada tarjeta muestra un indicador de tendencia (positivo con signo `+` o negativo con signo `-`) expresado en porcentaje, que permite evaluar la evolucion respecto al periodo anterior.
+
+### Grafico temporal de usuarios activos
+
+Un grafico de area titulado **Total usuarios activos** muestra la evolucion del numero de usuarios activos a lo largo del tiempo, con dos series diferenciadas:
+
+- **Docentes** (azul)
+- **Estudiantes** (rosa/magenta)
+
+El eje horizontal representa las fechas y el eje vertical el numero de usuarios, permitiendo identificar tendencias de adopcion, picos de actividad y periodos de inactividad.
+
+### Circulos de usuarios activos
+
+Dos graficos circulares muestran el porcentaje de activacion de usuarios por rol:
+
+| Grafico | Datos |
+|---------|-------|
+| **Docentes activos** | Porcentaje de docentes que han accedido respecto al total registrado (ej. "198 de 264") |
+| **Estudiantes activos** | Porcentaje de estudiantes que han accedido respecto al total registrado (ej. "674 de 936") |
+
+Estos indicadores complementan las tarjetas de metricas ofreciendo una perspectiva de penetracion: no solo cuantos usuarios hay activos, sino que proporcion del total representan.
+
+### Tarjetas de tareas
+
+Dos tarjetas resumen el estado de las tareas de la escuela, desglosadas por tipo:
+
+**Tareas evaluativas:**
+
+| Metrica | Descripcion |
+|---------|-------------|
+| **Completado** | Porcentaje global de tareas evaluativas completadas |
+| **Tareas completadas** | Numero absoluto de tareas completadas respecto al total (ej. "848 de 1179") |
+| **Calificacion media** | Nota media obtenida en las tareas evaluativas |
+
+**Tareas formativas:**
+
+| Metrica | Descripcion |
+|---------|-------------|
+| **Completado** | Porcentaje global de tareas formativas completadas |
+| **Tareas completadas** | Numero absoluto de tareas completadas respecto al total (ej. "1290 de 1634") |
+| **Tiempo medio** | Tiempo medio dedicado a cada tarea formativa |
+
+<Tip>
+  La distincion entre tareas evaluativas y formativas permite al administrador evaluar tanto el rendimiento academico (evaluativas) como el nivel de practica y refuerzo (formativas) de los estudiantes.
+</Tip>
+
+### Consumo de materiales por tipo
+
+Un grafico de barras verticales muestra la distribucion del consumo de materiales educativos por tipo:
+
+| Tipo de material | Descripcion |
+|-----------------|-------------|
+| **Programa** | Contenido del programa digital |
+| **Imagenes** | Recursos visuales |
+| **Interactivo** | Contenido interactivo y actividades |
+| **Audios** | Recursos de audio |
+| **Links** | Enlaces externos |
+
+El eje vertical muestra el porcentaje de consumo relativo, facilitando la identificacion de que tipos de contenido son mas utilizados por los usuarios.
+
+### Consumo por dispositivo y modo
+
+Dos graficos de donut presentan informacion complementaria sobre como acceden los usuarios:
+
+**Consumo por dispositivo:**
+
+| Dispositivo | Ejemplo de datos |
+|-------------|-----------------|
+| **PC/Desktop** | Porcentaje de visitas desde ordenadores de escritorio |
+| **Tablet** | Porcentaje de visitas desde tablets |
+| **Movil** | Porcentaje de visitas desde dispositivos moviles |
+
+Cada segmento incluye el numero absoluto de visitas registradas.
+
+**Modo de consumo:**
+
+| Modo | Descripcion |
+|------|-------------|
+| **Horario escolar** | Porcentaje de uso durante horas lectivas |
+| **En casa** | Porcentaje de uso fuera del horario escolar |
+
+Este desglose permite al administrador entender los patrones de uso de la plataforma y tomar decisiones sobre infraestructura (ej. si la mayoria accede desde tablets, priorizar la experiencia movil).
+
+### Consumo de materiales por nivel educativo
+
+Un segundo grafico de barras verticales muestra la distribucion del consumo de materiales por nivel educativo:
+
+- Educacion Infantil
+- Educacion Primaria
+- Educacion Secundaria
+- Bachillerato
+
+Este grafico complementa la vision por tipo de material, mostrando que niveles educativos generan mayor actividad con los contenidos de la plataforma.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El dashboard muestra valores que no corresponden a la actividad real">
+    La seccion de analitica puede utilizar datos precargados (mock) en entornos donde la integracion completa de metricas aun no esta activa. Si los valores no parecen reflejar la actividad real de la escuela, contactar al soporte tecnico de la editorial para verificar que la recopilacion de datos de analitica esta habilitada.
+  </Accordion>
+  <Accordion title="Los graficos de docentes y estudiantes muestran los mismos datos">
+    En configuraciones de prueba o desarrollo, es posible que ambos graficos compartan los mismos datos de ejemplo. Esto se normaliza cuando la integracion con el backend de analiticas esta completamente configurada.
+  </Accordion>
+  <Accordion title="No veo la seccion de analitica en el menu de navegacion">
+    La seccion de analitica se accede por URL directa: `/analytic/usage`, `/analytic/licenses` o `/analytic/programs`. Una vez dentro de cualquiera de estas rutas, el menu lateral muestra las pestanas de navegacion entre los tres dashboards. Si las rutas no cargan, puede deberse a que la funcionalidad de analitica no esta habilitada para la escuela.
+  </Accordion>
+  <Accordion title="El porcentaje de tareas completadas es muy bajo">
+    Un porcentaje bajo de tareas completadas no necesariamente indica un problema. Puede deberse a que muchas tareas aun no han alcanzado su fecha de entrega, o a que los docentes han asignado tareas que los estudiantes aun no han comenzado. El administrador puede cruzar esta informacion con el calendario academico para determinar si requiere atencion.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Analitica de licencias" icon="chart-pie" href="/admin-escuela/analitica/analitica-licencias">
+    Metricas de licencias emitidas, activadas y tasa de conversion con desglose por rol y etapa.
+  </Card>
+  <Card title="Analitica de programas" icon="chart-bar" href="/admin-escuela/analitica/analitica-programas">
+    Metricas de uso por programa digital con detalle de actividades, materiales y calificaciones.
+  </Card>
+  <Card title="Gestion de usuarios" icon="users" href="/admin-escuela/usuarios/gestion-usuarios">
+    Gestionar los usuarios de la escuela: docentes y estudiantes.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Analitica > Uso
+  - Ruta: /analytic/usage
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/analytics/AnalyticUsagePage/
+    - frontend: src/app/modules/analytics/AnalyticUsage/
+  - Ultima revision: 2026-03-31
+*/}

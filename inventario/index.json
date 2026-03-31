@@ -65,27 +65,27 @@
     }
   },
   "stats": {
-    "total": 87,
+    "total": 88,
     "byApp": {
-      "backoffice": 58,
-      "frontoffice-teacher": 17,
+      "backoffice": 43,
+      "frontoffice-teacher": 16,
       "frontoffice-student": 9,
-      "admin-school": 3
+      "admin-school": 20
     },
     "byPriority": {
-      "P1": 41,
-      "P2": 33,
-      "P3": 10,
-      "P4": 3
+      "P1": 36,
+      "P2": 41,
+      "P3": 11,
+      "P4": 0
     },
     "byStatus": {
-      "documented": 39,
-      "pending": 48,
+      "documented": 74,
+      "pending": 14,
       "in_progress": 0,
       "needs_review": 0,
       "blocked": 0
     },
-    "lastCalculated": "2026-03-30"
+    "lastCalculated": "2026-03-31"
   },
   "knownTenants": [
     {

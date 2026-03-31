@@ -1,0 +1,156 @@
+---
+title: "Configuracion de contenido"
+description: "Configurar escala de evaluacion, periodos y modelo de evaluacion para los contenidos de un grupo"
+icon: "sliders"
+---
+
+## Descripcion
+
+La pagina de **Configuracion de contenido** permite al administrador de escuela definir los parametros de evaluacion para los programas digitales asignados a un grupo. Esta configuracion incluye la seleccion de una escala de evaluacion, la asignacion de periodos de evaluacion y la eleccion de un modelo de evaluacion para cada periodo.
+
+La configuracion puede realizarse de forma **individual** (un contenido a la vez) o **en lote** (todos los contenidos de un mismo periodo de evaluacion simultaneamente).
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+<Note>
+  Esta funcionalidad solo esta disponible cuando el feature flag **enableEvaluationModel** esta activo en la configuracion del tenant. Sin este flag, la opcion de configuracion de contenido no aparece en la interfaz.
+</Note>
+
+## Como acceder
+
+### Configuracion individual
+
+<Steps>
+  <Step title="Navegar al detalle del grupo">
+    Desde el [listado de grupos](/admin-escuela/grupos/gestion-grupos), el administrador selecciona un grupo para acceder a su detalle.
+  </Step>
+  <Step title="Ir a la pestana Cursos">
+    En el detalle del grupo, seleccionar la pestana **Cursos** para ver los contenidos asignados.
+  </Step>
+  <Step title="Acceder a la configuracion">
+    Hacer clic en el icono de **engranaje** de la tarjeta del contenido que se desea configurar. El sistema navega a la pagina de configuracion individual.
+  </Step>
+</Steps>
+
+### Configuracion en lote
+
+<Steps>
+  <Step title="Navegar al detalle del grupo">
+    Desde el [listado de grupos](/admin-escuela/grupos/gestion-grupos), el administrador selecciona un grupo.
+  </Step>
+  <Step title="Ir a la pestana Cursos">
+    Seleccionar la pestana **Cursos**.
+  </Step>
+  <Step title="Iniciar configuracion en lote">
+    Hacer clic en el boton **+ Configurar en lote** que aparece junto al subtitulo de cada periodo de evaluacion. El sistema navega a la pagina de configuracion en modo lote.
+  </Step>
+</Steps>
+
+## Cabecera
+
+La cabecera de la pagina muestra informacion diferente segun el modo:
+
+| Modo | Informacion mostrada |
+|------|---------------------|
+| **Individual** | Nombre del programa, nivel educativo y curso |
+| **En lote** | Titulo "Configurar en lote", nivel educativo y curso del grupo |
+
+En modo lote, ademas se muestra un resumen indicando la cantidad de cursos que se van a configurar y el periodo de evaluacion (ej. "5 Cursos \| Trimestral").
+
+## Formulario de configuracion
+
+El formulario se compone de dos secciones principales:
+
+### 1. Escala de evaluacion
+
+El selector **Escala de evaluacion** permite elegir la escala que se aplicara a los contenidos del grupo. Las escalas disponibles son las configuradas en la seccion de [Configuracion de la escuela](/admin-escuela).
+
+La seleccion de escala es obligatoria.
+
+### 2. Periodos de evaluacion
+
+Debajo de la escala, el sistema muestra una fila por cada **periodo** definido en la configuracion de la escuela que corresponda al tipo de evaluacion del contenido (ej. si el contenido es trimestral, se muestran los tres trimestres).
+
+Cada fila de periodo incluye dos selectores:
+
+| Selector | Descripcion | Obligatorio |
+|----------|-------------|-------------|
+| **Periodo de evaluacion** | Selecciona uno de los periodos de evaluacion configurados en la escuela (con sus fechas de inicio y fin) | Si |
+| **Modelo de evaluacion** | Selecciona el modelo de evaluacion que define las categorias y pesos de calificacion | Si |
+
+<Note>
+  Los periodos de evaluacion ya seleccionados en otros periodos del mismo contenido no aparecen como opcion disponible, evitando asignaciones duplicadas.
+</Note>
+
+### Validaciones
+
+El formulario aplica las siguientes validaciones antes de permitir guardar:
+
+| Validacion | Descripcion |
+|-----------|-------------|
+| **Escala obligatoria** | Debe seleccionarse una escala de evaluacion |
+| **Periodos completos** | Todos los periodos deben tener un periodo de evaluacion y un modelo asignados |
+| **Numero de periodos** | El numero de periodos configurados debe coincidir con los periodos definidos para el tipo de evaluacion del contenido |
+| **Fechas consecutivas** | Las fechas de los periodos seleccionados deben ser consecutivas (sin solapamientos). Si las fechas se solapan, se muestra un mensaje de error |
+| **Cambios pendientes** | El boton Guardar se habilita solo cuando hay cambios respecto a la configuracion guardada |
+
+### Advertencia al modificar un curso en uso
+
+Cuando un contenido configurado individualmente ya ha comenzado (la fecha de inicio del periodo ha pasado), al intentar guardar cambios el sistema muestra un dialogo de confirmacion. Esto alerta al administrador de que los cambios pueden afectar evaluaciones en curso.
+
+<Warning>
+  Modificar la configuracion de un contenido que ya esta en uso puede afectar a las calificaciones y evaluaciones existentes. El sistema solicita confirmacion explícita antes de guardar.
+</Warning>
+
+## Diferencia entre modo individual y modo lote
+
+| Aspecto | Individual | En lote |
+|---------|-----------|---------|
+| **Alcance** | Un solo contenido | Todos los contenidos editoriales de un periodo |
+| **Cabecera** | Nombre del programa | "Configurar en lote" + resumen |
+| **Advertencia de curso en uso** | Si, si la fecha de inicio ha pasado | No se muestra |
+| **Guardar** | Crea o actualiza la configuracion del contenido individual | Aplica la configuracion a todos los contenidos del periodo de forma simultanea |
+
+<Tip>
+  La configuracion en lote es especialmente util al inicio del ano escolar, cuando el administrador necesita establecer la misma escala, periodos y modelo de evaluacion para todos los contenidos de un periodo. Las configuraciones individuales pueden ajustarse despues para contenidos con necesidades especificas.
+</Tip>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No aparecen periodos en el formulario">
+    Si la seccion de periodos esta vacia y se muestra un mensaje indicando que no hay periodos configurados, es porque la escuela no tiene periodos de evaluacion definidos para el tipo de evaluacion del contenido. El administrador debe configurar los periodos desde la seccion de Configuracion de la escuela antes de poder configurar contenidos.
+  </Accordion>
+  <Accordion title="Las fechas de los periodos se solapan">
+    Si al seleccionar periodos de evaluacion las fechas se solapan entre periodos consecutivos, el sistema muestra un error y el boton Guardar permanece deshabilitado. El administrador debe seleccionar periodos con fechas que no se solapen, o ajustar las fechas de los periodos desde la configuracion de la escuela.
+  </Accordion>
+  <Accordion title="El boton Guardar esta deshabilitado">
+    El boton se deshabilita en los siguientes casos: no se ha seleccionado escala, faltan periodos o modelos por asignar, las fechas se solapan, o no hay cambios respecto a la configuracion actual. Revisar que todos los campos esten completos y las validaciones se cumplan.
+  </Accordion>
+  <Accordion title="No encuentro la opcion de configurar contenido">
+    La configuracion de contenido solo esta disponible cuando el feature flag `enableEvaluationModel` esta activo. Si no se ve el icono de engranaje en las tarjetas de contenido ni el boton de configurar en lote, este flag no esta habilitado para la escuela.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Detalle de grupo" icon="users" href="/admin-escuela/grupos/detalle-grupo">
+    Volver al detalle del grupo para gestionar estudiantes, docentes y contenidos.
+  </Card>
+  <Card title="Gestion de grupos" icon="list" href="/admin-escuela/grupos/gestion-grupos">
+    Listado completo de grupos de la escuela.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Grupos > Detalle > Configuracion de contenido
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/class/ClassContentConfigPage/, src/app/modules/class/ClassContentConfig/
+  - Ultima revision: 2026-03-31
+*/}

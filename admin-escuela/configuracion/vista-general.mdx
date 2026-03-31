@@ -1,0 +1,78 @@
+---
+title: "Configuracion"
+description: "Seccion de configuracion de la escuela: asignaturas, escalas de evaluacion, categorias evaluables, periodos y modelos de evaluacion"
+icon: "gear"
+---
+
+## Descripcion
+
+La seccion **Configuracion** agrupa las herramientas que permiten al administrador de escuela definir los parametros academicos fundamentales para el sistema de evaluacion. Estas configuraciones afectan directamente como se estructuran las calificaciones, los periodos academicos y los modelos de evaluacion aplicados a los grupos de la escuela.
+
+La seccion se organiza en un menu lateral con las siguientes subsecciones:
+
+| Subseccion | Descripcion |
+|------------|-------------|
+| **Asignaturas** | Asignaturas propias de la escuela, independientes de las definidas por la editorial |
+| **Escalas de evaluacion** | Escalas numericas y cualitativas para calificar el desempeño de los estudiantes |
+| **Categorias evaluables** | Categorias que agrupan los criterios de evaluacion (participacion, examenes, tareas, etc.) |
+| **Periodos de evaluacion** | Division temporal del ano escolar en periodos de calificacion (trimestres, bimestres, etc.) |
+| **Modelos de evaluacion** | Plantillas que combinan categorias, escalas y pesos para definir como se calcula la calificacion final |
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde la barra de navegacion lateral, el administrador selecciona **Configuracion**. El sistema muestra la primera subseccion disponible (Asignaturas si el feature flag `enableSchoolProgram` esta activado, o Escalas de evaluacion en caso contrario). Las subsecciones restantes son accesibles desde el menu lateral interno de la seccion.
+
+<Note>
+  La subseccion **Asignaturas** solo aparece en el menu de Configuracion cuando el feature flag `enableSchoolProgram` esta activado. Las demas subsecciones estan siempre disponibles.
+</Note>
+
+## Relacion entre las configuraciones
+
+Los elementos de Configuracion estan interrelacionados y se utilizan de forma combinada:
+
+1. **Asignaturas** definen las materias que se imparten en la escuela
+2. **Escalas de evaluacion** establecen el sistema de calificacion (por ejemplo, 0-10 numerico o A-F cualitativo)
+3. **Categorias evaluables** determinan los componentes que se evaluan (examenes, tareas, participacion)
+4. **Periodos de evaluacion** dividen el ano escolar en intervalos de calificacion
+5. **Modelos de evaluacion** integran escalas y categorias con pesos porcentuales, creando la plantilla de calificacion que se asigna a los grupos
+
+<Tip>
+  El orden recomendado para configurar una escuela desde cero es: primero crear las escalas de evaluacion, luego las categorias evaluables, despues los periodos de evaluacion, y finalmente los modelos de evaluacion que combinan los tres elementos anteriores.
+</Tip>
+
+## Selector de escuela
+
+Si el administrador gestiona varias escuelas, un selector de escuela aparece en la cabecera de la pagina. Todas las configuraciones son especificas de la escuela seleccionada y se recargan automaticamente al cambiar de escuela.
+
+## Origen de los datos: escuela vs editorial
+
+Varias subsecciones (escalas, categorias, periodos) muestran elementos creados tanto por la **escuela** como por la **editorial**. Los elementos de editorial aparecen como referencia pero no pueden ser editados ni eliminados por el administrador de escuela.
+
+| Origen | Editable | Eliminable |
+|--------|----------|------------|
+| **Escuela** | Si | Si (si no esta en uso) |
+| **Editorial** | No | No |
+
+## Subsecciones
+
+<CardGroup cols={2}>
+  <Card title="Asignaturas" icon="book" href="/admin-escuela/configuracion/asignaturas">
+    Gestionar las asignaturas propias de la escuela con nombre, icono y color personalizados.
+  </Card>
+  <Card title="Escalas de evaluacion" icon="ruler" href="/admin-escuela/configuracion/escalas-evaluacion">
+    Configurar escalas numericas y cualitativas para calificar a los estudiantes.
+  </Card>
+  <Card title="Categorias evaluables" icon="tags" href="/admin-escuela/configuracion/categorias-evaluables">
+    Definir las categorias que componen el modelo de evaluacion de la escuela.
+  </Card>
+  <Card title="Periodos de evaluacion" icon="calendar" href="/admin-escuela/configuracion/periodos-evaluacion">
+    Establecer los periodos academicos del ano escolar asociados a anos escolares activos.
+  </Card>
+  <Card title="Modelos de evaluacion" icon="scale-balanced" href="/admin-escuela/configuracion/modelos-evaluacion">
+    Crear modelos que combinan categorias, escalas y pesos para calcular calificaciones.
+  </Card>
+</CardGroup>

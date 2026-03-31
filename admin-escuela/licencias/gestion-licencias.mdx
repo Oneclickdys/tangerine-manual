@@ -1,0 +1,95 @@
+---
+title: "Licencias"
+description: "Consultar las licencias asignadas a la escuela, con informacion de consumo por docentes y estudiantes, y filtros por nivel educativo y asignatura"
+icon: "key"
+---
+
+## Descripcion
+
+La seccion **Licencias** permite al administrador de escuela consultar las licencias asociadas a la escuela para el ano escolar activo. Cada licencia representa un contrato que otorga acceso a determinados programas digitales y contenidos, con un numero maximo de plazas para docentes y estudiantes.
+
+La vista es de **solo lectura**: el administrador de escuela no crea ni modifica licencias. Estas son gestionadas desde el Backoffice por la editorial y asignadas a la escuela a traves del contrato del ano escolar.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde la barra de navegacion lateral, el administrador selecciona **Licencias**. La pantalla muestra el listado de todas las licencias asociadas a la escuela seleccionada para el ano escolar activo.
+
+Si el administrador gestiona varias escuelas, un selector de escuela aparece en la cabecera. Las licencias se recargan automaticamente al cambiar de escuela.
+
+![Listado de licencias de la escuela](/assets/screenshots/admin-school/licenses/lista-licencias.png)
+
+## Estructura del listado
+
+Cada licencia se presenta como una fila con la siguiente informacion:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Nombre del programa** | Nombre del programa digital asociado a la licencia. Si la licencia tiene programas vinculados, se muestra el nombre del primer programa; en caso contrario, se muestra el nombre de la publicacion |
+| **Periodo de vigencia** | Rango de fechas de la licencia, mostrado como "Desde el DD/MM/AAAA hasta el DD/MM/AAAA" |
+| **Barra de consumo Docentes** | Barra de progreso que indica cuantas plazas de docente estan ocupadas respecto al maximo (ej. "1/12") con el porcentaje de uso |
+| **Barra de consumo Estudiantes** | Barra de progreso que indica cuantas plazas de estudiante estan ocupadas respecto al maximo (ej. "1/12") con el porcentaje de uso |
+
+Las barras de consumo permiten al administrador identificar rapidamente que licencias tienen plazas disponibles y cuales estan proximas a agotarse.
+
+### Cabecera de la pagina
+
+La cabecera incluye:
+
+- **Contador de licencias**: muestra el numero total de licencias disponibles (ej. "2 licencias")
+- **Buscador**: campo de texto para buscar licencias por nombre
+- **Boton Filtrar**: abre el panel lateral de filtros con un indicador numerico de filtros activos
+
+<Note>
+  No existe boton de creacion en esta seccion. Las licencias se gestionan exclusivamente desde el Backoffice de la editorial.
+</Note>
+
+## Filtros disponibles
+
+El panel lateral de filtros permite refinar el listado segun dos criterios:
+
+![Panel de filtros de licencias](/assets/screenshots/admin-school/licenses/filtros-licencias.png)
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Nivel educativo** | Filtra por el nivel educativo y ano escolar asociados a las licencias |
+| **Asignaturas** | Filtra por la asignatura (disciplina) de los programas vinculados a la licencia |
+
+Los botones **Limpiar todo** y **Aplicar** permiten restablecer o confirmar los filtros seleccionados, respectivamente.
+
+## Acceder al detalle de una licencia
+
+Al hacer clic en cualquier licencia del listado, el sistema navega a la [pagina de detalle de la licencia](/admin-escuela/licencias/detalle-licencia), donde se puede consultar la lista de usuarios asignados y los contenidos incluidos.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El listado de licencias aparece vacio">
+    Las licencias que se muestran en Admin Escuela provienen del contrato asociado al ano escolar activo de la escuela. Si el listado esta vacio, puede deberse a que:
+    - La escuela no tiene un ano escolar activo configurado.
+    - El ano escolar activo no tiene un contrato de licencias asociado.
+    - El contrato no incluye licencias con programas digitales.
+
+    En cualquiera de estos casos, el administrador debe contactar a la editorial para verificar la configuracion del contrato de la escuela.
+  </Accordion>
+  <Accordion title="Las barras de consumo muestran 0%">
+    Un consumo de 0% indica que ningun usuario de la escuela ha sido vinculado a esa licencia todavia. Esto es normal en escuelas recien configuradas o al inicio del ano escolar.
+  </Accordion>
+  <Accordion title="No veo una licencia que deberia aparecer">
+    Las licencias se filtran por el ano escolar activo. Si la licencia pertenece a un contrato de un ano escolar anterior o inactivo, no aparecera en el listado. El administrador debe verificar con la editorial que la licencia este asociada al contrato del ano escolar vigente.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Detalle de licencia" icon="file-lines" href="/admin-escuela/licencias/detalle-licencia">
+    Consultar los usuarios asignados a una licencia y los contenidos que incluye.
+  </Card>
+  <Card title="Gestion de usuarios" icon="users" href="/admin-escuela/usuarios/gestion-usuarios">
+    Gestionar los usuarios de la escuela que consumen las plazas de las licencias.
+  </Card>
+</CardGroup>

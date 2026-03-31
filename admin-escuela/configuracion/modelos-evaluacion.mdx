@@ -1,0 +1,164 @@
+---
+title: "Modelos de evaluacion"
+description: "Crear y gestionar modelos de evaluacion que combinan categorias, escalas y pesos porcentuales para definir la estructura de calificacion"
+icon: "scale-balanced"
+---
+
+## Descripcion
+
+La subseccion **Modelos de evaluacion** permite al administrador de escuela crear plantillas de calificacion que definen como se calcula la nota final de los estudiantes. Cada modelo combina una o mas **categorias evaluables** con sus respectivas **escalas de evaluacion** y un **peso porcentual** que determina la contribucion de cada categoria al resultado final.
+
+Los modelos de evaluacion son la pieza central del sistema de calificaciones: se asignan a los contenidos de cada grupo en la configuracion de contenido, estableciendo la estructura evaluativa para cada asignatura.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde **Configuracion** en la barra de navegacion lateral, el administrador selecciona **Modelos de evaluacion** en el menu interno de la seccion.
+
+## Estructura del listado
+
+La tabla muestra todos los modelos de evaluacion creados para la escuela:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre del modelo de evaluacion |
+| **Estado** | Chip indicando "En uso" si el modelo esta asignado a algun grupo o contenido |
+
+La cabecera incluye:
+
+- **Contador de modelos**: muestra el numero total de modelos (ej. "3 Modelos de evaluacion")
+- **Boton de creacion (+)**: abre el dialogo para crear un nuevo modelo
+
+Cada fila tiene un icono de ojo para ver el detalle del modelo, y un menu contextual con las opciones **Editar** y **Eliminar**.
+
+### Estado vacio
+
+Cuando no existen modelos, el sistema muestra un mensaje informativo con un boton para crear el primer modelo.
+
+## Crear un modelo de evaluacion
+
+El boton **+** en la cabecera abre un dialogo con la siguiente estructura:
+
+### Campos del modelo
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Nombre** | Texto | Si | Nombre descriptivo del modelo (ej. "Modelo trimestral Primaria") |
+
+### Categorias del modelo
+
+Cada modelo contiene una o mas filas de categorias. Cada fila tiene tres campos:
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Categoria evaluable** | Selector | Si | Seleccionar una de las categorias evaluables de la escuela. Las categorias ya seleccionadas aparecen deshabilitadas para evitar duplicados |
+| **Escala de evaluacion** | Selector | Si | Seleccionar una de las escalas activas disponibles (escuela + editorial) |
+| **Peso** | Numero | Si | Porcentaje que esta categoria contribuye a la calificacion final. Debe ser mayor que 0 |
+
+La interfaz permite:
+
+- **Anadir nueva categoria** mediante el boton "+ Agregar categoria", que se habilita solo cuando todos los campos de la fila actual estan completos
+- **Eliminar una categoria** mediante el menu contextual (icono de tres puntos verticales) en cada fila
+
+### Logica de pesos
+
+Los pesos de todas las categorias deben sumar exactamente **100%**. El sistema valida en tiempo real:
+
+- Si el peso de una categoria es negativo, se muestra un error
+- Si la suma total de pesos no es igual a 100, se muestra un mensaje de error en la categoria modificada
+- El boton de confirmacion se habilita unicamente cuando la suma es exactamente 100, todos los campos estan completos y el modelo tiene nombre
+
+<Warning>
+  La suma de los pesos de todas las categorias debe ser exactamente **100**. Si la suma es mayor o menor, el boton de confirmacion permanece deshabilitado y se muestra un error indicando el problema.
+</Warning>
+
+### Comportamiento al agregar y eliminar categorias
+
+- Al **anadir una nueva categoria**, el sistema asigna automaticamente como peso el porcentaje restante hasta llegar a 100 (ej. si ya hay una categoria con peso 60, la nueva categoria recibe peso 40)
+- Al **eliminar una categoria**, el sistema redistribuye proporcionalmente los pesos entre las categorias restantes para que sumen 100
+- Si se elimina la unica categoria, el sistema crea una nueva categoria vacia con peso 100
+
+El boton **Anadir** confirma la creacion del modelo.
+
+## Ver detalle de un modelo
+
+El icono de ojo en cada fila abre un dialogo de solo lectura que muestra:
+
+- **Nombre del modelo**
+- Para cada categoria:
+  - Nombre de la categoria evaluable
+  - Nombre de la escala de evaluacion asociada
+  - Peso porcentual
+
+## Editar un modelo
+
+Al seleccionar **Editar** en el menu contextual, el sistema verifica si el modelo esta en uso:
+
+- **Si no esta en uso**: se abre directamente el dialogo de edicion con los valores actuales precargados
+- **Si esta en uso**: se muestra primero un dialogo de advertencia informando que el modelo esta en uso y que la edicion puede afectar las calificaciones existentes. Al aceptar, se abre el dialogo de edicion
+
+El dialogo de edicion tiene la misma estructura que el de creacion, con los campos precargados. El boton cambia a **Actualizar**.
+
+<Warning>
+  Editar un modelo de evaluacion que esta en uso puede afectar las calificaciones de los estudiantes que tienen asignado ese modelo. El sistema muestra una advertencia antes de permitir la edicion.
+</Warning>
+
+## Eliminar un modelo
+
+La opcion **Eliminar** del menu contextual abre un dialogo de confirmacion. El mensaje varia segun el estado:
+
+- **Modelo no en uso**: muestra un mensaje confirmando la eliminacion con el nombre del modelo
+- **Modelo en uso**: la opcion de eliminacion aparece deshabilitada en el menu contextual
+
+<Warning>
+  Un modelo que esta en uso no puede ser eliminado. Para eliminarlo, primero debe desvincularse de todos los grupos y contenidos que lo referencian.
+</Warning>
+
+## Prerrequisitos
+
+Para crear un modelo de evaluacion es necesario haber configurado previamente:
+
+1. Al menos una **categoria evaluable** (para poder seleccionarla en el modelo)
+2. Al menos una **escala de evaluacion** activa (para poder asociarla a la categoria)
+
+Si no existen categorias o escalas, los selectores del dialogo de creacion apareceran vacios y no sera posible completar el modelo.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No puedo crear un modelo porque los selectores estan vacios">
+    Para crear un modelo de evaluacion es necesario tener al menos una categoria evaluable y una escala de evaluacion activa. Si los selectores aparecen vacios, se deben crear primero estos elementos en sus respectivas subsecciones de Configuracion.
+  </Accordion>
+  <Accordion title="Los pesos no suman 100 y no puedo guardar">
+    El sistema exige que la suma de pesos sea exactamente 100. Se puede ajustar manualmente el peso de cada categoria hasta alcanzar la suma correcta. Al eliminar o agregar categorias, el sistema redistribuye automaticamente los pesos, lo que puede facilitar el ajuste.
+  </Accordion>
+  <Accordion title="No puedo seleccionar una categoria que ya esta en el modelo">
+    Cada categoria solo puede aparecer una vez en un modelo de evaluacion. Las categorias ya seleccionadas aparecen deshabilitadas en el selector para evitar duplicados.
+  </Accordion>
+  <Accordion title="Que ocurre si elimino una categoria de un modelo en uso">
+    Al editar un modelo en uso y eliminar una categoria, el sistema redistribuye los pesos entre las categorias restantes. Sin embargo, las calificaciones ya registradas bajo la categoria eliminada podrian verse afectadas. Se recomienda revisar las calificaciones tras modificar un modelo en uso.
+  </Accordion>
+  <Accordion title="No aparece la opcion de eliminar un modelo">
+    Los modelos que estan en uso tienen la opcion de eliminacion deshabilitada. Si necesita eliminarlo, primero debe desvincular el modelo de todos los contenidos y grupos que lo utilizan.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Categorias evaluables" icon="tags" href="/admin-escuela/configuracion/categorias-evaluables">
+    Las categorias definen los criterios de evaluacion que se combinan en el modelo.
+  </Card>
+  <Card title="Escalas de evaluacion" icon="ruler" href="/admin-escuela/configuracion/escalas-evaluacion">
+    Las escalas determinan el sistema de calificacion aplicado a cada categoria del modelo.
+  </Card>
+  <Card title="Periodos de evaluacion" icon="calendar" href="/admin-escuela/configuracion/periodos-evaluacion">
+    Los periodos definen los intervalos temporales donde se aplican los modelos de evaluacion.
+  </Card>
+  <Card title="Configuracion de contenido por grupo" icon="sliders" href="/admin-escuela/grupos/configuracion-contenido">
+    Los modelos de evaluacion se asignan a los contenidos de cada grupo a traves de esta configuracion.
+  </Card>
+</CardGroup>

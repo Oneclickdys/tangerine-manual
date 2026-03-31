@@ -1,0 +1,198 @@
+---
+title: "Detalle de programa"
+description: "Contenidos, recursos y carga docente de un programa digital con gestion de unidades y lecciones"
+icon: "book-open-check"
+---
+
+## Descripcion
+
+El detalle de un programa digital muestra toda la informacion estructural del programa: sus contenidos organizados en unidades y lecciones, los recursos asociados por periodo y la carga docente con un calendario semanal de sesiones. Es la vista principal para que el administrador de escuela comprenda y, cuando corresponda, modifique la estructura de un programa.
+
+La vista se divide en pestanas cuyo numero varia segun el tipo de programa:
+
+| Pestana | Programa editorial | Programa escuela |
+|---------|-------------------|-----------------|
+| **Contenidos** | Si | Si |
+| **Recursos** | Si | No |
+| **Carga docente** | Si | No |
+
+Los programas escuela y los creados por un docente-administrador solo muestran la pestana de **Contenidos**, ya que los recursos y la carga docente son funcionalidades exclusivas de los programas editoriales.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde el [listado de programas digitales](/admin-escuela/programas-digitales/programas-digitales), el administrador hace clic en la imagen de la tarjeta del programa o en el icono de **Editar** (lapiz). El sistema muestra la cabecera del programa con su nombre, curso/nivel e imagen, junto con los grupos asignados como chips.
+
+Si el programa esta asignado a algun grupo, un icono de **Cuaderno de calificaciones** aparece en la esquina superior derecha. Este boton abre el frontoffice en la vista de calificaciones del programa.
+
+{/* TODO: Screenshot - cabecera del detalle de programa */}
+
+## Editabilidad del programa
+
+No todos los programas se pueden editar. La editabilidad depende del tipo de programa y del feature flag `enableOverlays`:
+
+| Escenario | Editable |
+|-----------|----------|
+| Programa escuela no asignado a grupo | Si |
+| Programa escuela asignado a grupo | Si |
+| Programa editorial con `enableOverlays` activo y no asignado a grupo | Si (superposiciones) |
+| Programa editorial con `enableOverlays` desactivo y asignado a grupo | Si |
+| Programa editorial con `enableOverlays` activo y asignado a grupo | No (solo lectura) |
+
+Cuando un programa es editable, la pestana de contenidos muestra opciones adicionales para crear, reordenar y eliminar unidades y lecciones. En modo solo lectura, el administrador puede consultar la estructura sin realizar cambios.
+
+## Pestana: Contenidos
+
+La pestana de contenidos muestra la estructura del programa organizada segun su configuracion de periodos y niveles de estructura.
+
+### Organizacion por periodo de evaluacion
+
+Si el programa tiene un periodo de evaluacion configurado (trimestral, bimestral, etc.), los contenidos se agrupan en acordeones por periodo. Cada acordeon muestra el nombre del periodo y un resumen con el numero de modulos y submodulos.
+
+Si el programa no tiene periodo de evaluacion, los contenidos se muestran en una vista plana sin agrupacion por periodos.
+
+### Niveles de estructura
+
+La jerarquia de contenidos depende del valor de **Niveles de estructura** elegido al crear el programa:
+
+| Niveles | Jerarquia |
+|---------|-----------|
+| **1 nivel** | Periodo > Lecciones |
+| **2 niveles** | Periodo > Unidades > Lecciones |
+
+#### Unidades (solo 2 niveles)
+
+Cada unidad se muestra como un bloque expandible con:
+
+- **Nombre** de la unidad
+- **Etiqueta de estado**: "Borrador" o "Publicado", segun si la unidad tiene contenido en estado borrador o publicado
+- **Lecciones** contenidas, expandibles a su vez
+
+Si el programa es editable, el administrador puede:
+- **Crear unidades**: Mediante un boton de agregar
+- **Reordenar unidades**: Arrastrar y soltar entre unidades del mismo periodo
+- **Eliminar unidades**: Desde las opciones de la unidad
+
+#### Lecciones
+
+Cada leccion se muestra con su nombre y contiene los materiales (contenidos) asignados. Los materiales se muestran con icono de tipo, nombre, tipo de contenido y el autor si aplica.
+
+Si el programa es editable, dentro de cada leccion el administrador puede:
+- **Agregar contenidos**: Desde la biblioteca de contenidos o creando nuevos
+- **Reordenar materiales**: Arrastrar y soltar dentro de la leccion
+- **Editar materiales**: Abrir el detalle del material
+- **Eliminar materiales**: Desde las opciones del material
+
+### Menu flotante de edicion
+
+Cuando el programa es editable, un menu flotante lateral aparece con opciones contextuales para la tabla de contenidos. Este menu permite navegar rapidamente entre secciones y gestionar cambios pendientes.
+
+Si hay cambios de ordenacion pendientes, una barra de notificacion aparece en la parte superior con opciones para guardar o descartar los cambios.
+
+{/* TODO: Screenshot - pestana de contenidos con unidades y lecciones */}
+
+## Pestana: Recursos
+
+La pestana de recursos muestra los materiales complementarios del programa, organizados por periodo. Los recursos se dividen en:
+
+- **Recursos anuales**: Materiales que aplican a todo el programa, sin restriccion de periodo
+- **Recursos por periodo**: Materiales asociados a un periodo especifico (trimestre, bimestre, etc.)
+
+Cada recurso se muestra como una tarjeta con el nombre del contenido, el tipo (Documento, Video, Audio, PDF, Enlace, Imagen, Tarea, Quiz, SCORM, Interactivo, Videoleccion, LTI, entre otros) y opciones de accion.
+
+Si no hay recursos disponibles, la pestana muestra un estado vacio con un mensaje informativo.
+
+<Note>
+  La pestana de recursos solo esta disponible para programas editoriales. Los programas escuela y los creados por docentes-administradores no muestran esta pestana.
+</Note>
+
+{/* TODO: Screenshot - pestana de recursos con recursos anuales y por periodo */}
+
+## Pestana: Carga docente
+
+La pestana de carga docente proporciona un calendario semanal donde se visualizan y gestionan las sesiones del programa. Permite planificar la distribucion de sesiones a lo largo de las semanas del periodo academico.
+
+### Selectores de filtro
+
+La parte superior muestra selectores para ajustar la vista:
+
+| Selector | Descripcion |
+|----------|-------------|
+| **Periodo** | Selector del periodo de evaluacion (trimestre, bimestre, etc.) |
+| **Modulo** | Selector de la unidad o modulo dentro del periodo |
+| **Submodulo** | Selector de la leccion o submodulo (solo si el programa tiene 2 niveles de estructura) |
+
+### Calendario semanal
+
+El calendario muestra una cuadricula de 5 columnas (lunes a viernes) con navegacion entre semanas. Cada celda puede contener sesiones asignadas representadas como chips de color.
+
+- **Panel izquierdo**: Lista de sesiones disponibles para arrastrar al calendario (solo en modo editable). Muestra el nombre del programa y el numero de sesion, con un contador de sesiones asignadas vs. totales.
+- **Panel derecho**: Cuadricula semanal con navegacion anterior/siguiente semana.
+
+### Asignacion de sesiones por drag and drop
+
+Cuando el programa es editable, el administrador puede:
+
+1. **Arrastrar una sesion** desde el panel izquierdo a un dia del calendario para asignarla
+2. **Mover una sesion** entre dias arrastrando desde una celda del calendario a otra
+3. **Desasignar una sesion** arrastrandola de vuelta al panel izquierdo
+
+El sistema valida el orden de las sesiones: no permite asignar una sesion con orden inferior en un dia posterior a una sesion con orden superior del mismo modulo. Si se intenta una asignacion invalida, el sistema muestra un mensaje de error.
+
+<Warning>
+  Solo se puede arrastrar la sesion con el menor numero de orden disponible. Las sesiones posteriores se desbloquean conforme se asignan las anteriores, asegurando que se mantenga la secuencia correcta.
+</Warning>
+
+### Vista consolidada
+
+Un switch **Mostrar toda la carga docente** permite alternar entre la vista de sesiones del programa actual y una vista consolidada que muestra las sesiones de todos los programas del mismo nivel educativo en la misma semana. Esta vista es util para detectar conflictos de carga horaria.
+
+<Note>
+  La pestana de carga docente solo esta disponible para programas editoriales. Los programas escuela no muestran esta pestana.
+</Note>
+
+{/* TODO: Screenshot - pestana de carga docente con calendario semanal */}
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Solo veo la pestana de Contenidos">
+    Los programas creados por la escuela o por un docente-administrador solo muestran la pestana de Contenidos. Las pestanas de Recursos y Carga docente son exclusivas de los programas editoriales.
+  </Accordion>
+  <Accordion title="No puedo editar los contenidos del programa">
+    La editabilidad depende del tipo de programa y del feature flag `enableOverlays`. Los programas editoriales requieren `enableOverlays` activo para ser editados. Los programas asignados a grupo pueden tener restricciones adicionales. Consultar la tabla de editabilidad en esta pagina.
+  </Accordion>
+  <Accordion title="El programa muestra un error 401">
+    Si el administrador no tiene acceso al programa (por ejemplo, pertenece a otra escuela o no tiene licencia asociada), el sistema muestra una pantalla de error indicando que no tiene permisos para ver el programa.
+  </Accordion>
+  <Accordion title="Las sesiones no se pueden arrastrar en el calendario">
+    Solo la sesion con el menor numero de orden disponible es arrastrable. Las demas aparecen deshabilitadas. Ademas, si el switch "Mostrar toda la carga docente" esta activado, las sesiones se muestran en modo solo lectura.
+  </Accordion>
+  <Accordion title="Aparece un error al soltar una sesion en el calendario">
+    El sistema valida que el orden de las sesiones sea coherente. No se permite colocar una sesion anterior en un dia posterior a una sesion con orden superior. El mensaje "Orden de sesion invalido" indica que la asignacion violaria la secuencia.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Programas digitales" icon="book-open" href="/admin-escuela/programas-digitales/programas-digitales">
+    Listado completo de programas digitales de la escuela.
+  </Card>
+  <Card title="Detalle de grupo" icon="users" href="/admin-escuela/grupos/detalle-grupo">
+    Configuracion del grupo donde se asignan los programas.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Programas Digitales > Detalle
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/programs/ProgramDetailPage/, src/app/modules/programs/ProgramDetail/, src/app/modules/programs/ProgramContents/, src/app/modules/programs/ProgramResources/, src/app/modules/programs/ProgramTeachingLoad/
+  - Ultima revision: 2026-03-31
+*/}

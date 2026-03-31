@@ -1,0 +1,122 @@
+---
+title: "Periodos de evaluacion"
+description: "Configurar los periodos academicos de la escuela asociados a anos escolares activos"
+icon: "calendar"
+---
+
+## Descripcion
+
+La subseccion **Periodos de evaluacion** permite al administrador de escuela definir los intervalos temporales en los que se divide el ano escolar para efectos de calificacion. Los periodos representan las divisiones academicas habituales como trimestres, bimestres, cuatrimestres o semestres.
+
+Cada periodo esta vinculado a un **ano escolar** y tiene un rango de fechas (inicio y fin). Los periodos se utilizan en la configuracion de contenido de los grupos para determinar los intervalos de evaluacion.
+
+Los periodos pueden provenir de dos origenes: los creados por la **escuela** (editables y eliminables) y los predefinidos por la **editorial** (solo lectura).
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde **Configuracion** en la barra de navegacion lateral, el administrador selecciona **Periodos de evaluacion** en el menu interno de la seccion.
+
+## Estructura del listado
+
+La tabla muestra todos los periodos definidos para la escuela:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre del periodo (ej. "Primer trimestre", "Bimestre 1") |
+| **Fecha inicio** | Fecha de inicio del periodo en formato de fecha |
+| **Fecha fin** | Fecha de finalizacion del periodo |
+| **Ano escolar** | Nombre del ano escolar al que pertenece el periodo |
+| **Ano escolar activo** | Indicador de si el ano escolar asociado esta activo o inactivo |
+| **Creado por** | Chip indicando "Escuela" o "Editorial" |
+
+La cabecera incluye:
+
+- **Contador de periodos**: muestra el numero total de periodos (ej. "6 Periodos de evaluacion")
+- **Boton de creacion (+)**: abre el dialogo para crear un nuevo periodo
+
+Las filas de periodos creados por la escuela muestran un menu contextual con las opciones **Editar** y **Eliminar**. Los periodos de la editorial no muestran este menu.
+
+### Estado vacio
+
+Cuando no existen periodos, el sistema muestra un mensaje informativo con un boton para crear el primer periodo.
+
+## Crear un periodo
+
+El boton **+** en la cabecera abre un dialogo con los siguientes campos:
+
+| Campo | Tipo | Obligatorio | Validacion | Descripcion |
+|-------|------|-------------|------------|-------------|
+| **Nombre** | Texto | Si | No vacio | Nombre descriptivo del periodo (ej. "Primer trimestre 2025-2026") |
+| **Ano escolar** | Selector | Si | Solo se muestran anos escolares activos | El ano escolar al que pertenece el periodo |
+| **Fecha inicio** | Fecha | Si | Debe ser anterior a la fecha fin | Fecha de inicio del periodo |
+| **Fecha fin** | Fecha | Si | Debe ser posterior a la fecha inicio | Fecha de finalizacion del periodo. El selector no permite seleccionar fechas anteriores a la fecha de inicio |
+
+El boton **Anadir** se habilita cuando todos los campos obligatorios estan completos, hay un ano escolar seleccionado y las fechas son coherentes (inicio anterior a fin).
+
+<Note>
+  El selector de ano escolar solo muestra los anos escolares que estan **activos**. Si no aparece ningun ano escolar en el selector, se debe verificar en el backoffice que existe al menos un ano escolar activo para la escuela.
+</Note>
+
+<Tip>
+  Al definir los periodos de evaluacion, es recomendable que las fechas cubran todo el ano escolar sin solapamientos ni vacios. Por ejemplo, para un esquema trimestral: septiembre-diciembre, enero-marzo, abril-junio.
+</Tip>
+
+## Editar un periodo
+
+La opcion **Editar** del menu contextual abre el mismo dialogo con los valores actuales precargados. El boton cambia a **Actualizar**. Se pueden modificar el nombre, el ano escolar, la fecha de inicio y la fecha de fin.
+
+Solo los periodos creados por la escuela pueden editarse. Los de la editorial no muestran la opcion de edicion.
+
+## Eliminar un periodo
+
+La opcion **Eliminar** del menu contextual abre un dialogo de confirmacion. El mensaje del dialogo varia segun el contexto:
+
+- Si el periodo no esta en uso, se muestra un mensaje confirmando la eliminacion
+- Si el periodo pertenece a un ano escolar activo, la opcion de eliminacion aparece deshabilitada
+
+<Warning>
+  Los periodos vinculados a un ano escolar activo no pueden eliminarse. La opcion **Eliminar** aparece deshabilitada en el menu contextual. Para eliminar un periodo de un ano escolar activo, primero se debe desactivar o cambiar el ano escolar.
+</Warning>
+
+## Validacion de nombres duplicados
+
+Si se intenta crear o editar un periodo con un nombre que ya existe, el sistema muestra un dialogo informando de la duplicidad e indicando que se debe elegir un nombre diferente.
+
+## Validacion de fechas
+
+El sistema valida en tiempo real que la fecha de inicio sea anterior a la fecha de fin. Si las fechas son incoherentes:
+
+- Se muestra un mensaje de error debajo de ambos campos de fecha
+- El boton de confirmacion se deshabilita
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No aparecen anos escolares en el selector al crear un periodo">
+    El selector solo muestra anos escolares activos. Si el listado esta vacio, no hay anos escolares activos definidos para la escuela. El administrador debe contactar a la editorial o verificar en el backoffice que existe al menos un ano escolar activo.
+  </Accordion>
+  <Accordion title="No puedo eliminar un periodo que esta asociado a un ano escolar activo">
+    Los periodos de anos escolares activos no permiten eliminacion. Esto protege la integridad de los datos de evaluacion del curso en progreso.
+  </Accordion>
+  <Accordion title="Puedo tener periodos solapados en fechas">
+    El sistema no valida automaticamente el solapamiento entre periodos. Es responsabilidad del administrador asegurarse de que las fechas no se solapen. Los periodos solapados pueden causar inconsistencias en las calificaciones.
+  </Accordion>
+  <Accordion title="Que ocurre con las calificaciones si cambio las fechas de un periodo">
+    Modificar las fechas de un periodo no elimina las calificaciones registradas, pero puede afectar la visibilidad de las actividades en el calendario y los reportes que dependen de los rangos de fechas.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Modelos de evaluacion" icon="scale-balanced" href="/admin-escuela/configuracion/modelos-evaluacion">
+    Los modelos de evaluacion se aplican dentro de los periodos de evaluacion para calcular calificaciones.
+  </Card>
+  <Card title="Configuracion de contenido por grupo" icon="sliders" href="/admin-escuela/grupos/configuracion-contenido">
+    Los periodos se asignan a contenidos de grupo para definir los intervalos de evaluacion.
+  </Card>
+</CardGroup>

@@ -1,63 +1,386 @@
 {
   "app": "admin-school",
-  "lastUpdated": "2025-12-18",
+  "lastUpdated": "2026-03-31",
   "features": {
-    "dashboard": {
-      "name": "Dashboard de la escuela",
-      "description": "Panel principal con metricas y estadisticas de la escuela",
-      "section": "Dashboard",
-      "route": "/dashboard",
-      "priority": "P1",
-      "status": "pending",
-      "complexity": "dashboard",
-      "docFile": null,
-      "codeFiles": {
-        "frontend": ["src/core/lite/views/DashboardView/"],
-        "backend": []
-      },
-      "tenantVariations": [],
-      "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
-    },
     "users/list": {
-      "name": "Gestion de usuarios de la escuela",
-      "description": "Ver y gestionar usuarios (docentes y estudiantes) de la escuela",
+      "name": "Gestion de usuarios",
+      "description": "Listado de usuarios de la escuela con busqueda, filtros, creacion, importacion masiva y cambio de estado",
       "section": "Usuarios",
       "route": "/users",
       "priority": "P1",
-      "status": "pending",
+      "status": "documented",
       "complexity": "crud-complete",
-      "docFile": null,
+      "docFile": "admin-escuela/usuarios/gestion-usuarios.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/UsersView/"],
+        "frontend": ["src/app/pages/users/UsersPage/", "src/app/modules/users/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "relatedFeatures": ["users/detail", "users/import"],
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD completo: crear, editar, eliminar, filtrar, buscar. Selector de escuela en la cabecera si el admin gestiona varias. Boton de importacion masiva."
     },
-    "reports/view": {
-      "name": "Reportes de la escuela",
-      "description": "Ver reportes de uso y rendimiento de la escuela",
+    "users/detail": {
+      "name": "Detalle de usuario",
+      "description": "Ficha de usuario con pestanas para clases y contenidos asignados",
+      "section": "Usuarios",
+      "route": "/user/:guid",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "admin-escuela/usuarios/detalle-usuario.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/users/UserDetailPage/", "src/app/modules/users/UserDetail/", "src/app/modules/users/UserClass/", "src/app/modules/users/UserContents/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["users/list"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Detalle del usuario con pestanas: datos personales, clases asignadas, contenidos asignados."
+    },
+    "users/import": {
+      "name": "Importacion masiva de usuarios",
+      "description": "Importar multiples usuarios desde archivo CSV o Excel",
+      "section": "Usuarios",
+      "route": "/users (modal)",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "admin-escuela/usuarios/importacion-masiva.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/modules/users/UserImport/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["users/list"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Importacion de usuarios por lote. Accesible desde el boton en la lista de usuarios."
+    },
+    "groups/list": {
+      "name": "Gestion de grupos",
+      "description": "Listado de grupos/clases de la escuela con creacion, filtros y descarga de codigos",
+      "section": "Grupos",
+      "route": "/class",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "crud-complete",
+      "docFile": "admin-escuela/grupos/gestion-grupos.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/class/ClassPage/", "src/app/modules/class/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableEvaluationModel"],
+      "relatedFeatures": ["groups/detail"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Lista de grupos con nombre, codigo, estado. Boton 'Descargar codigos' para exportar codigos de todos los grupos. Filtro por ano escolar. Columna de estado controlada por enableEvaluationModel."
+    },
+    "groups/detail": {
+      "name": "Detalle de grupo",
+      "description": "Configuracion de un grupo: estudiantes, docentes, contenidos y configuracion de contenido",
+      "section": "Grupos",
+      "route": "/class/:guid",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "complex-workflow",
+      "docFile": "admin-escuela/grupos/detalle-grupo.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/class/ClassDetailPage/", "src/app/modules/class/ClassDetail/", "src/app/modules/class/ClassStudents/", "src/app/modules/class/ClassTeachers/", "src/app/modules/class/ClassContents/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableEvaluationModel", "enableSchoolProgram", "enableAdvancedProgramming"],
+      "relatedFeatures": ["groups/list", "groups/content-config"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Pestanas: estudiantes (roster), docentes asignados, contenidos del grupo. Permite importar usuarios al grupo. Contenidos agrupados por periodo de evaluacion cuando enableEvaluationModel activo. Programas escuela controlados por enableSchoolProgram."
+    },
+    "groups/content-config": {
+      "name": "Configuracion de contenido por grupo",
+      "description": "Configurar opciones de contenido especifico para un grupo",
+      "section": "Grupos",
+      "route": "/class/:guid/config/:contentGuid",
+      "priority": "P3",
+      "status": "documented",
+      "complexity": "simple-form",
+      "docFile": "admin-escuela/grupos/configuracion-contenido.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/class/ClassContentConfigPage/", "src/app/modules/class/ClassContentConfig/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableEvaluationModel"],
+      "relatedFeatures": ["groups/detail"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Configuracion individual o por lote de contenido asignado a un grupo. Incluye escala de evaluacion, periodos y modelos. Modo batch via query param ?mode=batch. Validacion de fechas consecutivas."
+    },
+    "programs/list": {
+      "name": "Programas digitales",
+      "description": "Listado de programas digitales disponibles para la escuela agrupados por nivel o asignatura",
+      "section": "Programas Digitales",
+      "route": "/programs",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "admin-escuela/programas-digitales/programas-digitales.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/programs/ProgramsPage/", "src/app/modules/programs/Programs/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableOverlays"],
+      "relatedFeatures": ["programs/detail"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Vista de programas con opciones de agrupacion por nivel, asignatura o total. Permite crear programas escuela. Feature flag enableOverlays controla la editabilidad de programas editoriales."
+    },
+    "programs/detail": {
+      "name": "Detalle de programa",
+      "description": "Ver contenidos, recursos y carga docente de un programa digital",
+      "section": "Programas Digitales",
+      "route": "/program/:guid",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "interactive-view",
+      "docFile": "admin-escuela/programas-digitales/detalle-programa.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/programs/ProgramDetailPage/", "src/app/modules/programs/ProgramDetail/", "src/app/modules/programs/ProgramContents/", "src/app/modules/programs/ProgramResources/", "src/app/modules/programs/ProgramTeachingLoad/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableOverlays"],
+      "relatedFeatures": ["programs/list"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Pestanas: contenidos (lecciones del programa), recursos, carga docente. Permite gestionar contenidos dentro de lecciones. Programas escuela solo muestran Contenidos. Editabilidad controlada por enableOverlays y tipo de programa."
+    },
+    "library/list": {
+      "name": "Biblioteca de contenidos",
+      "description": "Explorar y gestionar la biblioteca de contenidos de la escuela con permisos de acceso",
+      "section": "Biblioteca",
+      "route": "/library",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "interactive-view",
+      "docFile": "admin-escuela/biblioteca/biblioteca-contenidos.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/library/LibraryListPage/", "src/app/modules/library/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableLibrary"],
+      "relatedFeatures": [],
+      "lastDocumented": "2026-03-31",
+      "notes": "Lista de contenidos con tipo, permisos de acceso (docentes/estudiantes), nivel, asignatura y autor. Permite crear contenidos en 3 pasos (info, archivo/link, permisos), editar info, configurar permisos y eliminar. Solo recursos creados por docentes/estudiantes permiten edicion; los de editorial son solo lectura. Controlado por feature flag enableLibrary."
+    },
+    "licenses/list": {
+      "name": "Licencias",
+      "description": "Consultar licencias asignadas a la escuela con filtros por asignatura y ano escolar",
+      "section": "Licencias",
+      "route": "/licenses",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "admin-escuela/licencias/gestion-licencias.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/licenses/LicensesPage/", "src/app/modules/licenses/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["licenses/detail"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Vista de solo lectura de las licencias de la escuela. Filtros por asignatura y ano escolar. Licencias provienen del contrato del ano escolar activo."
+    },
+    "licenses/detail": {
+      "name": "Detalle de licencia",
+      "description": "Ver detalle de una licencia y los usuarios que la tienen asignada",
+      "section": "Licencias",
+      "route": "/license/:discipline/:search",
+      "priority": "P3",
+      "status": "documented",
+      "complexity": "simple-list",
+      "docFile": "admin-escuela/licencias/detalle-licencia.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/licenses/LicenseDetailPage/", "src/app/modules/licenses/LicenseDetail/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["licenses/list"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Detalle de licencia con lista de usuarios asignados. Tres pestanas: Estudiantes, Docentes, Contenidos. Tarjeta de consumo con barra de progreso. Accion Ver perfil por usuario."
+    },
+    "reports/list": {
+      "name": "Boletas / Reportes",
+      "description": "Crear y gestionar boletas de calificaciones con constructor visual",
       "section": "Reportes",
       "route": "/reports",
       "priority": "P2",
-      "status": "pending",
-      "complexity": "dashboard",
-      "docFile": null,
+      "status": "documented",
+      "complexity": "complex-workflow",
+      "docFile": ["admin-escuela/reportes/vista-general", "admin-escuela/reportes/crear-boleta", "admin-escuela/reportes/descarga-reportes"],
       "codeFiles": {
-        "frontend": ["src/core/lite/views/ReportsView/"],
+        "frontend": ["src/app/pages/reports/ReportsPage/", "src/app/pages/reports/ReportCreatePage/", "src/app/pages/reports/ReportDownloadPage/", "src/app/modules/reports/"],
         "backend": []
       },
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": [],
-      "lastDocumented": null,
-      "notes": ""
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD de boletas con constructor visual (pestanas: general, escuela, tarjeta, avanzado). Preview en tiempo real. Descarga de reportes. No aparece en el menu lateral por defecto - accesible via URL directa /reports. Puede estar controlado por feature flags o permisos de rol."
+    },
+    "analytics/licenses": {
+      "name": "Analitica de licencias",
+      "description": "Estadisticas de licencias emitidas, activadas y tasa de conversion con graficos",
+      "section": "Analitica",
+      "route": "/analytic/licenses",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "dashboard",
+      "docFile": "admin-escuela/analitica/analitica-licencias.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/analytics/AnalyticLicensesPage/", "src/app/modules/analytics/AnalyticLicenses/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["analytics/programs", "analytics/usage"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Dashboard con: total emitidas/activadas, tasa de conversion, grafico temporal, donut por rol (docente/estudiante), barras por etapa, top 5 licencias. Filtro por periodo temporal. No aparece en el menu lateral pero es accesible via /analytic/licenses."
+    },
+    "analytics/programs": {
+      "name": "Analitica de programas",
+      "description": "Metricas de uso de programas digitales con filtros",
+      "section": "Analitica",
+      "route": "/analytic/programs",
+      "priority": "P3",
+      "status": "documented",
+      "complexity": "dashboard",
+      "docFile": "admin-escuela/analitica/analitica-programas.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/analytics/AnalyticProgramsPage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["analytics/licenses", "analytics/usage"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Tabla de programas con metricas de uso. Detalle por programa disponible en /analytic/program/:guid."
+    },
+    "analytics/usage": {
+      "name": "Analitica de uso",
+      "description": "Estadisticas generales de uso de la plataforma (usuarios, actividades, tareas)",
+      "section": "Analitica",
+      "route": "/analytic/usage",
+      "priority": "P3",
+      "status": "documented",
+      "complexity": "dashboard",
+      "docFile": "admin-escuela/analitica/analitica-uso.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/analytics/AnalyticUsagePage/", "src/app/modules/analytics/AnalyticUsage/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["analytics/licenses", "analytics/programs"],
+      "lastDocumented": "2026-03-31",
+      "notes": "Overview de uso: usuarios activos, tareas, actividades."
+    },
+    "settings/disciplines": {
+      "name": "Asignaturas escuela",
+      "description": "Gestion de asignaturas/disciplinas propias de la escuela",
+      "section": "Configuracion",
+      "route": "/settings-disciplines",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "crud-complete",
+      "docFile": "admin-escuela/configuracion/asignaturas.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsDisciplines/", "src/app/modules/settings/SettingsDisciplines/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/scales", "settings/categories", "settings/periods", "settings/evaluation-models"],
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD de asignaturas de la escuela. Columnas: nombre, en uso. Pagina inicial de Configuracion. Controlada por feature flag enableSchoolProgram. Campos: nombre (max 50), icono (imagen con crop), color (hex). Pagina overview en admin-escuela/configuracion/vista-general.mdx."
+    },
+    "settings/scales": {
+      "name": "Escalas de evaluacion",
+      "description": "Configuracion de escalas de calificacion para la escuela",
+      "section": "Configuracion",
+      "route": "/settings-scales",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "crud-complete",
+      "docFile": "admin-escuela/configuracion/escalas-evaluacion.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsEvaluationScalesPage/", "src/app/modules/settings/SettingsEvaluationScales/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/disciplines", "settings/categories"],
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD de escalas numericas y cualitativas para la escuela. Dos tipos: numeric (min/max/decimales) y qualitative (rangos con etiqueta/desde/hasta/equivalencia). Escalas de editorial son solo lectura. Toggle de disponibilidad solo para escalas de escuela. Deteccion de duplicados por nombre (HTTP 409). Recalculo de calificaciones al editar cualitativa en uso."
+    },
+    "settings/categories": {
+      "name": "Categorias evaluables",
+      "description": "Gestion de categorias para evaluaciones de la escuela",
+      "section": "Configuracion",
+      "route": "/settings-evaluable-categories",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "crud-complete",
+      "docFile": "admin-escuela/configuracion/categorias-evaluables.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsEvaluationCategoriesPage/", "src/app/modules/settings/SettingsEvaluableCategories/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/scales", "settings/disciplines"],
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD de categorias evaluables de la escuela. Columnas: nombre, estado (en uso), creado por (Escuela/Editorial). Categorias de editorial son solo lectura. Eliminacion deshabilitada si en uso. Deteccion de duplicados por nombre (HTTP 409). Dialogo de creacion con campo unico: nombre."
+    },
+    "settings/periods": {
+      "name": "Periodos de evaluacion",
+      "description": "Configuracion de periodos academicos de la escuela",
+      "section": "Configuracion",
+      "route": "/settings-periods",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "crud-complete",
+      "docFile": "admin-escuela/configuracion/periodos-evaluacion.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsEvaluationPeriodsPage/", "src/app/modules/settings/SettingsEvaluationPeriods/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/disciplines"],
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD de periodos de evaluacion (trimestres, bimestres, etc.) para la escuela. Columnas: nombre, fecha inicio, fecha fin, ano escolar, ano escolar activo, creado por. Periodos de editorial son solo lectura. Eliminacion deshabilitada si ano escolar activo. Selector de ano escolar solo muestra activos. Validacion de fechas en tiempo real. Deteccion de duplicados (HTTP 409)."
+    },
+    "settings/evaluation-models": {
+      "name": "Modelos de evaluacion",
+      "description": "Configuracion de modelos/plantillas de evaluacion para la escuela",
+      "section": "Configuracion",
+      "route": "/settings-evaluation-models",
+      "priority": "P3",
+      "status": "documented",
+      "complexity": "crud-complete",
+      "docFile": "admin-escuela/configuracion/modelos-evaluacion.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/settings/SettingsEvaluationModelsPage/", "src/app/modules/settings/SettingsEvaluationModels/"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/scales", "settings/categories", "settings/periods"],
+      "lastDocumented": "2026-03-31",
+      "notes": "CRUD de modelos de evaluacion que combinan escalas, categorias y periodos. Columnas: nombre, estado (en uso). Cada modelo tiene N categorias con: categoria evaluable, escala de evaluacion, peso. Pesos deben sumar 100%. Redistribucion automatica al agregar/eliminar categorias. Warning al editar modelo en uso. Eliminacion deshabilitada si en uso. Dialogo de detalle con vista de solo lectura. Carga selectores de categorias y escalas activas al abrir dialogo."
     }
   }
 }

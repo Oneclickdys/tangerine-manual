@@ -1,0 +1,153 @@
+---
+title: "Programas digitales"
+description: "Listado de programas digitales disponibles para la escuela, agrupados por nivel educativo o asignatura, con creacion de programas escuela"
+icon: "book-open"
+---
+
+## Descripcion
+
+La seccion **Programas digitales** permite al administrador de escuela consultar todos los programas digitales disponibles y crear programas propios de la escuela. Los programas se muestran como tarjetas visuales agrupadas por nivel educativo o por asignatura, con un contador total e indicadores de cuantos son de la editorial y cuantos de la escuela.
+
+Existen dos tipos de programas:
+
+- **Programa editorial** (version publicada): creado por la editorial desde el Backoffice. El administrador de escuela puede consultarlo y, si el feature flag `enableOverlays` esta activo, editarlo con superposiciones.
+- **Programa escuela**: creado por el propio administrador de escuela. Se gestiona completamente desde esta seccion: creacion, edicion de configuracion y eliminacion.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde la barra de navegacion lateral, el administrador selecciona **Programas digitales**. La pantalla muestra todas las tarjetas de programas agrupadas por nivel educativo de forma predeterminada.
+
+Si el administrador gestiona varias escuelas, un selector de escuela aparece en la cabecera. Los programas se recargan automaticamente al cambiar de escuela.
+
+## Agrupacion de programas
+
+Un selector **Agrupar por** en la parte superior permite alternar entre dos modos de visualizacion:
+
+| Modo | Descripcion |
+|------|-------------|
+| **Todos los niveles educativos** | Agrupa los programas en acordeones por nivel educativo (Primaria, Secundaria, etc.) y dentro de cada nivel por curso/grado. Es la agrupacion predeterminada |
+| **Todas las asignaturas** | Agrupa los programas en acordeones por asignatura (Matematicas, Ingles, etc.) |
+
+En ambos modos, cada acordeon muestra un subtitulo con el conteo de programas desglosado en **programas editorial** y **programas escuela**.
+
+{/* TODO: Screenshot - vista de programas agrupados por nivel educativo */}
+
+## Tarjeta de programa
+
+Cada programa se presenta como una tarjeta visual que muestra:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Imagen o icono** | Imagen del programa o, en su defecto, un recuadro con el color e icono de la asignatura |
+| **Tipo** | Etiqueta que indica "Version editorial" (con icono de programa) o "Version escuela" (con icono de escuela) |
+| **Autor** | Avatar y nombre del creador (solo para programas escuela) |
+| **Nombre** | Titulo del programa |
+| **Asignatura** | Nombre de la asignatura asociada |
+| **Nivel y curso** | Curso y nivel educativo (ej. "4.o Primaria") |
+| **Grupos asignados** | Chips con los nombres de los grupos donde el programa esta asignado |
+| **Alerta de configuracion** | Icono de advertencia si el programa escuela no tiene configuracion de evaluacion asignada |
+
+Al hacer clic en la imagen o el icono del lapiz, el administrador accede al [detalle del programa](/admin-escuela/programas-digitales/detalle-programa).
+
+### Acciones por tipo de programa
+
+Las acciones disponibles en cada tarjeta varian segun el tipo de programa:
+
+| Accion | Programa editorial | Programa escuela |
+|--------|-------------------|-----------------|
+| **Editar** (acceder al detalle) | Solo si `enableOverlays` esta activo | Siempre |
+| **Configurar** (abrir dialogo de configuracion) | No | Siempre |
+| **Eliminar** | No | Siempre |
+
+<Note>
+  Los programas editoriales no pueden eliminarse ni reconfigurarse desde Admin Escuela. Solo se permite acceder a su detalle para ediciones con superposiciones cuando el feature flag `enableOverlays` esta habilitado.
+</Note>
+
+## Crear un programa escuela
+
+El boton **+** (FAB) en la esquina de la cabecera abre un dialogo de creacion en dos pasos. Si no hay programas disponibles, se muestra una pantalla vacia con un boton **Anadir programa digital** que cumple la misma funcion.
+
+### Paso 1: Datos del programa
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Nombre del programa** | Texto | Si | Nombre identificativo del programa |
+| **Asignatura** | Selector | Si | Asignatura de la escuela |
+| **Nivel educativo** | Selector | Si | Nivel educativo (Primaria, Secundaria, etc.) |
+| **Curso** | Selector (filtrado por nivel) | Si | Curso dentro del nivel seleccionado |
+| **Periodo de evaluacion** | Selector | Si | Tipo de periodicidad (anual, trimestral, bimestral, etc.). No editable despues de la creacion |
+| **Niveles de estructura** | Selector | Si | Define la jerarquia de contenidos: 1 nivel (solo lecciones) o 2 niveles (unidades y lecciones). No editable despues de la creacion |
+
+El boton **Siguiente** se habilita cuando todos los campos estan completos y sin errores.
+
+<Warning>
+  Los campos **Periodo de evaluacion** y **Niveles de estructura** no se pueden modificar despues de crear el programa. El administrador debe asegurarse de elegir los valores correctos en este paso.
+</Warning>
+
+### Paso 2: Evaluacion
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Escala de evaluacion** | Selector | Si | Escala numerica o cualitativa configurada para la escuela |
+| **Modelo de evaluacion** (por periodo) | Selector (uno por cada periodo) | Si | Modelo de evaluacion para cada periodo segun la periodicidad elegida en el paso 1 |
+
+El numero de selectores de modelo de evaluacion depende del periodo seleccionado. Por ejemplo, si se eligio periodicidad trimestral, apareceran tres selectores: uno para cada trimestre.
+
+El boton **Crear** se habilita cuando la escala y todos los modelos de evaluacion estan seleccionados.
+
+{/* TODO: Screenshot - dialogo de creacion paso 1 */}
+{/* TODO: Screenshot - dialogo de creacion paso 2 */}
+
+### Editar la configuracion de un programa escuela
+
+Al hacer clic en el icono de **Configurar** (engranaje) en la tarjeta, se abre el mismo dialogo con los datos precargados. Los campos de periodo de evaluacion y niveles de estructura aparecen deshabilitados. El boton cambia a **Editar** y solo se habilita si hay cambios respecto a la configuracion actual.
+
+## Eliminar un programa escuela
+
+Al hacer clic en el icono de **Eliminar** (papelera) en la tarjeta, el sistema muestra un dialogo de confirmacion con el nombre del programa y un mensaje de advertencia.
+
+<Warning>
+  La eliminacion de un programa escuela es permanente. Todos los contenidos, lecciones y la estructura del programa se eliminan. Si el programa esta asignado a grupos, estos pierden la asociacion.
+</Warning>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="La tarjeta muestra un icono de alerta naranja">
+    El icono de advertencia aparece cuando un programa escuela no tiene configuracion de evaluacion asignada (`course_config` vacio). El administrador debe usar la accion **Configurar** para completar la escala y los modelos de evaluacion.
+  </Accordion>
+  <Accordion title="No aparecen opciones de edicion en un programa editorial">
+    Los programas editoriales solo muestran el icono de edicion (lapiz) cuando el feature flag `enableOverlays` esta activo. Sin este flag, los programas editoriales solo se pueden consultar desde el detalle sin posibilidad de modificacion.
+  </Accordion>
+  <Accordion title="No hay programas disponibles">
+    Si la escuela no tiene programas asignados ni programas escuela creados, la pantalla muestra un estado vacio con la opcion de crear el primer programa. Los programas editoriales dependen de las licencias asignadas a la escuela desde el Backoffice.
+  </Accordion>
+  <Accordion title="Al cambiar de escuela no aparecen los mismos programas">
+    Cada escuela tiene sus propios programas. Los programas editoriales dependen de las publicaciones asociadas a las licencias de cada escuela, y los programas escuela son exclusivos del centro donde se crearon.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Detalle de programa" icon="book-open-check" href="/admin-escuela/programas-digitales/detalle-programa">
+    Contenidos, recursos y carga docente de un programa digital.
+  </Card>
+  <Card title="Detalle de grupo" icon="users" href="/admin-escuela/grupos/detalle-grupo">
+    Configuracion del grupo donde se asignan programas y contenidos.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Programas Digitales
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/programs/ProgramsPage/, src/app/modules/programs/Programs/, src/app/modules/programs/ProgramCreate/
+  - Ultima revision: 2026-03-31
+*/}

@@ -1,0 +1,102 @@
+---
+title: "Categorias evaluables"
+description: "Gestionar las categorias de evaluacion de la escuela para estructurar el modelo de calificacion"
+icon: "tags"
+---
+
+## Descripcion
+
+La subseccion **Categorias evaluables** permite al administrador de escuela crear y gestionar las categorias que componen el sistema de evaluacion. Las categorias representan los distintos criterios o componentes mediante los cuales se evalua a los estudiantes, como por ejemplo: examenes, tareas, participacion en clase, proyectos o trabajos practicos.
+
+Estas categorias son uno de los pilares de los **modelos de evaluacion**: cada modelo asigna un peso porcentual a una o mas categorias, determinando como contribuye cada criterio a la calificacion final.
+
+Las categorias pueden provenir de dos origenes: las creadas por la **escuela** (editables y eliminables) y las predefinidas por la **editorial** (solo lectura).
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde **Configuracion** en la barra de navegacion lateral, el administrador selecciona **Categorias evaluables** en el menu interno de la seccion.
+
+## Estructura del listado
+
+La tabla muestra todas las categorias disponibles para la escuela:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre de la categoria evaluable |
+| **Estado** | Chip indicando "En uso" si la categoria esta asignada a algun modelo de evaluacion |
+| **Creado por** | Chip indicando "Escuela" o "Editorial" |
+
+La cabecera incluye:
+
+- **Contador de categorias**: muestra el numero total de categorias (ej. "6 Categorias evaluables")
+- **Boton de creacion (+)**: abre el dialogo para crear una nueva categoria
+
+Las categorias creadas por la escuela muestran un menu contextual con las opciones **Editar** y **Eliminar**. Las categorias de la editorial no muestran este menu.
+
+### Estado vacio
+
+Cuando no existen categorias, el sistema muestra un mensaje informativo con un boton para crear la primera categoria.
+
+## Crear una categoria
+
+El boton **+** en la cabecera abre un dialogo con un unico campo:
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Nombre** | Texto | Si | Nombre de la categoria evaluable (ej. "Examenes", "Participacion") |
+
+El boton **Anadir** confirma la creacion. La nueva categoria aparece inmediatamente en el listado con el origen "Escuela" y sin estado "En uso".
+
+<Tip>
+  Las categorias evaluables representan los criterios de calificacion de la escuela. Ejemplos comunes son: "Examenes parciales", "Tareas y trabajos", "Participacion en clase", "Proyectos", "Laboratorios". Es recomendable definirlas antes de crear los modelos de evaluacion.
+</Tip>
+
+## Editar una categoria
+
+La opcion **Editar** del menu contextual abre el mismo dialogo con el nombre actual precargado. El boton cambia a **Actualizar**.
+
+Solo las categorias creadas por la escuela pueden editarse. Las de la editorial no muestran la opcion de edicion.
+
+## Eliminar una categoria
+
+La opcion **Eliminar** del menu contextual abre un dialogo de confirmacion que varia segun el estado de la categoria:
+
+- **Categoria no en uso**: el dialogo muestra un mensaje indicando que se eliminara la categoria con su nombre
+- **Categoria en uso**: el dialogo muestra un mensaje advirtiendo que la categoria esta siendo utilizada y la eliminacion podria afectar los modelos de evaluacion asociados
+
+<Warning>
+  Las categorias que estan en uso no permiten eliminacion. La opcion **Eliminar** aparece deshabilitada en el menu contextual. Para eliminar una categoria en uso, primero debe desvincularse de todos los modelos de evaluacion que la referencian.
+</Warning>
+
+## Validacion de nombres duplicados
+
+Si se intenta crear o editar una categoria con un nombre que ya existe, el sistema muestra un dialogo informando de la duplicidad e indicando que se debe elegir un nombre diferente.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No puedo editar ni eliminar una categoria">
+    Solo las categorias creadas por la escuela muestran las opciones de edicion y eliminacion. Las categorias predefinidas por la editorial son de solo lectura. Ademas, las categorias en uso tienen la opcion de eliminacion deshabilitada.
+  </Accordion>
+  <Accordion title="Que ocurre si cambio el nombre de una categoria en uso">
+    El cambio de nombre se refleja en todos los modelos de evaluacion que referencian esa categoria. No es necesario actualizar los modelos manualmente.
+  </Accordion>
+  <Accordion title="Cuantas categorias deberia crear">
+    El numero de categorias depende del modelo pedagogico de la escuela. Normalmente, las escuelas definen entre 2 y 6 categorias que cubren los principales criterios de evaluacion (examenes, tareas, participacion, proyectos, etc.). Los modelos de evaluacion permiten asignar pesos porcentuales a cada categoria.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Escalas de evaluacion" icon="ruler" href="/admin-escuela/configuracion/escalas-evaluacion">
+    Las escalas definen el sistema de calificacion que se aplica a cada categoria dentro del modelo.
+  </Card>
+  <Card title="Modelos de evaluacion" icon="scale-balanced" href="/admin-escuela/configuracion/modelos-evaluacion">
+    Los modelos combinan categorias con escalas y pesos para definir la estructura de calificacion.
+  </Card>
+</CardGroup>

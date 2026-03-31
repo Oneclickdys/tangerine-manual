@@ -1,0 +1,154 @@
+---
+title: "Analitica de licencias"
+description: "Dashboard de estadisticas de licencias emitidas, activadas y tasa de conversion, con graficos temporales, desglose por rol y top de licencias mas utilizadas"
+icon: "chart-pie"
+---
+
+## Descripcion
+
+El dashboard de **Analitica de licencias** ofrece una vision global del estado de las licencias de la escuela. Presenta metricas clave como el total de licencias emitidas, el total de activadas y la tasa de conversion, complementadas con graficos que desglosan la informacion por periodo temporal, por rol (docente/estudiante) y por etapa educativa.
+
+Este dashboard permite al administrador de escuela evaluar la adopcion de la plataforma e identificar areas donde la activacion de licencias requiere atencion.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+<Note>
+  Este dashboard no aparece en el menu lateral de navegacion de forma predeterminada. Se accede directamente a traves de la URL `/analytic/licenses` o desde las pestanas de navegacion de la seccion de analitica.
+</Note>
+
+## Como acceder
+
+La seccion de analitica cuenta con un menu lateral propio que incluye tres pestanas:
+
+| Pestana | Ruta |
+|---------|------|
+| **Uso** | `/analytic/usage` |
+| **Licencias** | `/analytic/licenses` |
+| **Programas** | `/analytic/programs` |
+
+El administrador navega a cualquiera de estas rutas y utiliza el menu lateral para cambiar entre los dashboards disponibles.
+
+Si el administrador gestiona varias escuelas, un selector de escuela en la cabecera permite cambiar el contexto. Los datos del dashboard se actualizan automaticamente al seleccionar una escuela diferente.
+
+## Filtros
+
+### Filtro de periodo temporal
+
+En la parte superior del dashboard, un selector de periodo permite acotar el rango de tiempo de los datos mostrados. Las opciones disponibles son:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Hoy** | Datos del dia actual |
+| **Ultimos 7 dias** | Datos de la ultima semana (seleccion por defecto) |
+| **Ultimos 30 dias** | Datos del ultimo mes |
+| **Ultimos 60 dias** | Datos de los ultimos dos meses |
+| **Ultimos 90 dias** | Datos del ultimo trimestre |
+| **Ultimos 12 meses** | Datos del ultimo ano |
+| **Personalizado** | Permite seleccionar un rango de fechas a medida mediante un selector de fechas |
+
+### Panel de filtros avanzados
+
+El boton **Filtrar** (esquina superior derecha) abre un panel lateral con filtros adicionales para refinar los datos:
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Pais** | Filtra por pais de la escuela |
+| **Escuela** | Filtra por escuela especifica |
+| **Nivel educativo** | Filtra por nivel educativo (Infantil, Primaria, Secundaria, Bachillerato) |
+| **Asignatura** | Filtra por disciplina o asignatura |
+| **Tipo de usuario** | Filtra por rol: docente o estudiante |
+| **Idioma** | Filtra por idioma de la licencia |
+
+Los botones **Limpiar todo** y **Aplicar** en el panel de filtros permiten restablecer o confirmar los criterios seleccionados. Un badge numerico junto al boton Filtrar indica cuantos filtros estan activos.
+
+## Secciones del dashboard
+
+### Tarjetas de metricas principales
+
+Tres tarjetas resumen en la parte superior del dashboard muestran:
+
+| Metrica | Descripcion |
+|---------|-------------|
+| **Total licencias emitidas** | Numero total de licencias entregadas para la escuela en el periodo seleccionado |
+| **Total licencias activadas** | Numero de licencias que han sido canjeadas o asignadas a usuarios |
+| **Tasa de conversion** | Porcentaje de licencias activadas respecto al total emitido |
+
+Cada tarjeta incluye un indicador de tendencia (positiva o negativa) que compara con el periodo anterior, expresado en porcentaje.
+
+### Grafico temporal de licencias
+
+Un grafico de area muestra la evolucion temporal de las licencias, con dos series diferenciadas por color:
+
+- **Licencias emitidas** (violeta)
+- **Licencias activadas** (turquesa)
+
+El eje horizontal representa las fechas y el eje vertical el numero de licencias, permitiendo visualizar la velocidad de activacion y detectar picos o caidas.
+
+### Circulos de activacion por rol
+
+Dos graficos circulares muestran el porcentaje de activacion de licencias desglosado por tipo de usuario:
+
+| Grafico | Datos |
+|---------|-------|
+| **Licencias docentes** | Porcentaje de licencias de docente activadas respecto al total asignado (ej. "411 de 548") |
+| **Licencias estudiantes** | Porcentaje de licencias de estudiante activadas respecto al total asignado (ej. "840 de 2000") |
+
+Estos indicadores permiten identificar rapidamente si la adopcion es mayor entre docentes o estudiantes.
+
+### Graficos de barras por etapa educativa
+
+Dos graficos de barras horizontales muestran la distribucion de licencias emitidas y activadas por etapa educativa (Bachillerato, Secundaria, Primaria, Infantil), uno para licencias de docentes y otro para licencias de estudiantes.
+
+Cada barra muestra dos valores superpuestos:
+- **Licencias emitidas** (violeta oscuro)
+- **Licencias activadas** (violeta claro)
+
+Esta vista permite comparar la penetracion de la plataforma entre los distintos niveles educativos.
+
+### Top 5 licencias mas utilizadas
+
+Un grafico de barras horizontales muestra las cinco licencias con mayor numero de activaciones, identificadas por el nombre de la asignatura o programa asociado. Cada barra tiene un color distinto para facilitar la diferenciacion.
+
+Este ranking ayuda al administrador a entender que programas generan mayor demanda en la escuela.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El dashboard muestra datos de ejemplo o no refleja datos reales">
+    La seccion de analitica puede estar en estado de desarrollo parcial o utilizar datos de ejemplo (mock) en determinadas configuraciones. Si los datos no parecen corresponder a la actividad real de la escuela, el administrador debe verificar con la editorial que la integracion de analiticas esta habilitada para su entorno.
+  </Accordion>
+  <Accordion title="No encuentro la opcion de analitica en el menu lateral">
+    Las secciones de analitica no aparecen en el menu lateral de navegacion de forma predeterminada. El administrador puede acceder directamente a traves de la URL (`/analytic/licenses`) o utilizar el menu interno de la seccion de analitica una vez que haya accedido a cualquiera de las tres pestanas.
+  </Accordion>
+  <Accordion title="Los filtros avanzados no producen cambios en los graficos">
+    Es posible que la funcionalidad de filtrado avanzado este en proceso de integracion completa con el backend. Si al aplicar filtros los graficos no se actualizan, los datos podrian estar utilizando valores precargados. Contactar al soporte tecnico de la editorial para verificar el estado de la integracion.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Analitica de uso" icon="chart-line" href="/admin-escuela/analitica/analitica-uso">
+    Estadisticas generales de uso de la plataforma, incluyendo usuarios activos, sesiones, tareas y materiales.
+  </Card>
+  <Card title="Analitica de programas" icon="chart-bar" href="/admin-escuela/analitica/analitica-programas">
+    Metricas de uso por programa digital con detalle de actividades, materiales y calificaciones.
+  </Card>
+  <Card title="Licencias" icon="key" href="/admin-escuela/licencias/gestion-licencias">
+    Consultar las licencias asignadas a la escuela y su consumo por docentes y estudiantes.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Analitica > Licencias
+  - Ruta: /analytic/licenses
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/analytics/AnalyticLicensesPage/
+    - frontend: src/app/modules/analytics/AnalyticLicenses/
+  - Ultima revision: 2026-03-31
+*/}

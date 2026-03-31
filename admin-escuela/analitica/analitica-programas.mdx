@@ -1,0 +1,175 @@
+---
+title: "Analitica de programas"
+description: "Metricas de uso de programas digitales con tabla comparativa, detalle por programa y estadisticas de actividades y materiales"
+icon: "chart-bar"
+---
+
+## Descripcion
+
+El dashboard de **Analitica de programas** presenta una vision comparativa del uso de los programas digitales de la escuela. A traves de una tabla con metricas clave, el administrador puede identificar que programas tienen mayor actividad, cuantos usuarios los utilizan y cual es la calificacion media.
+
+Ademas, cada programa dispone de una pagina de detalle con estadisticas granulares de uso, actividades y materiales.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+<Note>
+  Este dashboard no aparece en el menu lateral de navegacion de forma predeterminada. Se accede directamente a traves de la URL `/analytic/programs` o desde las pestanas de navegacion de la seccion de analitica.
+</Note>
+
+## Como acceder
+
+La seccion de analitica cuenta con un menu lateral propio con tres pestanas: **Uso**, **Licencias** y **Programas**. El administrador selecciona **Programas** para acceder a este dashboard.
+
+Si el administrador gestiona varias escuelas, el selector de escuela en la cabecera permite cambiar el contexto.
+
+## Filtros
+
+### Filtro de periodo temporal
+
+Un selector de periodo en la parte superior permite acotar el rango temporal de los datos. Las opciones son las mismas que en los otros dashboards de analitica:
+
+- Hoy, Ultimos 7 dias, Ultimos 30 dias, Ultimos 60 dias, Ultimos 90 dias, Ultimos 12 meses y Personalizado.
+
+### Busqueda por nombre
+
+Un campo de busqueda permite localizar programas especificos por nombre dentro de la tabla.
+
+### Panel de filtros
+
+El boton **Filtrar** abre un panel lateral con dos criterios de filtrado:
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Nivel educativo** | Filtra los programas por el nivel educativo asociado |
+| **Asignatura** | Filtra por la disciplina o asignatura del programa |
+
+## Tabla de programas
+
+La tabla principal muestra un listado de todos los programas digitales con las siguientes columnas:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Programa** | Nombre del programa digital. Funciona como enlace al detalle del programa |
+| **Asignatura** | Asignatura asociada, mostrada como chip de texto |
+| **Nivel educativo** | Nivel educativo del programa (Infantil, Primaria, Secundaria, Bachillerato) |
+| **Usuarios activos** | Numero de usuarios que han interactuado con el programa en el periodo seleccionado |
+| **Calificacion media** | Nota media obtenida por los estudiantes en las actividades del programa |
+| **Uso** | Indicador visual (barra o grafico inline) que muestra el nivel de uso del programa |
+
+Al hacer clic en el nombre de un programa, el sistema navega a la pagina de detalle de ese programa (`/analytic/program/:guid`).
+
+## Detalle de un programa
+
+La vista de detalle de un programa presenta tres pestanas con informacion especifica:
+
+### Pestana Uso
+
+El dashboard de uso del programa individual muestra:
+
+**Tarjetas de metricas:**
+
+| Metrica | Descripcion |
+|---------|-------------|
+| **Docentes** | Numero de docentes activos en este programa, con indicador de tendencia |
+| **Estudiantes** | Numero de estudiantes activos en este programa, con indicador de tendencia |
+| **Tiempo medio de sesion** | Duracion media de las sesiones en el programa (formato HH:MM:SS) |
+
+**Grafico temporal de actividad de usuarios:**
+Un grafico de area muestra la evolucion de la actividad de docentes y estudiantes en el programa a lo largo del tiempo, con series diferenciadas por color.
+
+**Circulos de activacion:**
+Dos indicadores circulares muestran el porcentaje de docentes y estudiantes activos respecto al total asignado al programa.
+
+**Tareas evaluativas y formativas:**
+Dos tarjetas resumen las metricas de tareas, desglosadas por tipo:
+
+| Tipo | Metricas |
+|------|----------|
+| **Tareas evaluativas** | Porcentaje completado, numero de tareas completadas sobre el total, calificacion media |
+| **Tareas formativas** | Porcentaje completado, numero de tareas completadas sobre el total, tiempo medio |
+
+**Consumo de materiales:**
+Un grafico de barras verticales muestra la distribucion del consumo por tipo de material (programa, imagenes, interactivo, audios, links).
+
+**Consumo por dispositivo y modo:**
+Dos graficos de donut muestran la distribucion de acceso por tipo de dispositivo (PC/Desktop, Tablet, Movil) y por modo de uso (horario escolar vs. en casa).
+
+### Pestana Actividades
+
+Una tabla detalla las actividades del programa con las siguientes columnas:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Descripcion** | Nombre de la actividad con su subtipo |
+| **Unidad / Leccion** | Ubicacion de la actividad dentro de la estructura del programa |
+| **Tipo** | Tipo de actividad (evaluativa, formativa, etc.) |
+| **Completado** | Numero o porcentaje de estudiantes que completaron la actividad |
+| **Calificacion media** | Nota media obtenida en la actividad |
+
+Los filtros disponibles para esta pestana son:
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Tipo de actividad** | Filtra por tipo (evaluativa, formativa, etc.) |
+| **Grupos** | Filtra por grupo de estudiantes |
+| **Calificacion** | Filtra por rango de calificacion |
+
+### Pestana Materiales
+
+Una tabla detalla los materiales del programa con las siguientes columnas:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Descripcion** | Nombre del material con su subtipo |
+| **Visualizaciones** | Numero total de veces que se ha abierto el material |
+| **Tiempo medio** | Duracion media que los usuarios dedican al material |
+| **Proyecciones** | Numero de veces que el material se ha proyectado en clase |
+
+Los filtros disponibles para esta pestana son:
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Tipo de contenido** | Filtra por tipo de material (video, audio, enlace, etc.) |
+| **Calificacion** | Filtra por calificacion asociada |
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="La tabla de programas aparece vacia">
+    La tabla muestra los programas digitales vinculados a la escuela a traves de sus licencias. Si esta vacia, puede deberse a que la escuela no tiene programas asignados o a que el periodo temporal seleccionado no incluye actividad registrada. El administrador debe verificar que la escuela tiene licencias activas con programas digitales asociados.
+  </Accordion>
+  <Accordion title="Las metricas del detalle de un programa no reflejan datos reales">
+    El detalle del programa puede mostrar datos de ejemplo en configuraciones donde la integracion de analiticas aun no esta completamente activa. Contactar al soporte tecnico de la editorial para confirmar la disponibilidad.
+  </Accordion>
+  <Accordion title="No puedo filtrar por calificacion en la pestana de actividades">
+    Los filtros de la pestana Actividades incluyen tipo de actividad, grupos y calificacion. Si alguno de estos filtros no aparece, puede tratarse de una configuracion especifica del tenant. Verificar con el equipo de soporte.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Analitica de uso" icon="chart-line" href="/admin-escuela/analitica/analitica-uso">
+    Estadisticas generales de uso de la plataforma: usuarios activos, sesiones, tareas y materiales.
+  </Card>
+  <Card title="Analitica de licencias" icon="chart-pie" href="/admin-escuela/analitica/analitica-licencias">
+    Metricas de licencias emitidas, activadas y tasa de conversion con graficos de desglose.
+  </Card>
+  <Card title="Programas digitales" icon="book-open" href="/admin-escuela/programas-digitales/programas-digitales">
+    Gestion de los programas digitales de la escuela: contenidos, recursos y carga docente.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Analitica > Programas
+  - Ruta: /analytic/programs (listado), /analytic/program/:guid (detalle)
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/analytics/AnalyticProgramsPage/
+    - frontend: src/app/modules/analytics/AnalyticPrograms/
+  - Ultima revision: 2026-03-31
+*/}

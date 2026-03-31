@@ -1,0 +1,156 @@
+---
+title: "Detalle de usuario"
+description: "Ficha de usuario con pestanas para datos personales, grupos asignados y contenidos"
+icon: "user"
+---
+
+## Descripcion
+
+La ficha de detalle de usuario permite al administrador de escuela consultar y editar la informacion de un usuario especifico. La vista se organiza en tres pestanas: **General** (datos personales), **Grupos** (clases asignadas) y **Contenidos** (cursos a los que tiene acceso). Desde aqui tambien es posible cambiar la contrasena del usuario y modificar su estado (activo/inactivo).
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde el [listado de usuarios](/admin-escuela/usuarios/gestion-usuarios), el administrador hace clic sobre el nombre de cualquier usuario. El sistema navega a la ruta `/user/:guid`, donde se muestra la ficha completa.
+
+## Cabecera
+
+La cabecera de la ficha muestra:
+
+- **Avatar e inicial** del nombre del usuario
+- **Nombre completo** y correo electronico
+- **Toggle de Estado** (activo/inactivo) en la esquina superior derecha
+
+<Note>
+  El toggle de estado aparece deshabilitado para usuarios con rol Administrador. Solo es posible cambiar el estado de usuarios con rol Estudiante o Docente.
+</Note>
+
+## Pestana General
+
+La pestana **General** es la vista predeterminada y contiene el formulario de datos personales del usuario.
+
+![Pestana General del detalle de usuario](/assets/screenshots/admin-school/users/detalle-usuario-general.png)
+
+### Campos editables
+
+| Campo | Tipo | Obligatorio | Validacion |
+|-------|------|-------------|------------|
+| **Nombre** | Texto | Si | Maximo 50 caracteres |
+| **Apellidos** | Texto | Si | Maximo 50 caracteres |
+| **Avatar** | Imagen | No | Subida de archivo de imagen |
+| **Nombre de usuario** | Email | Si | Maximo 200 caracteres |
+
+El **rol** del usuario se muestra como una etiqueta de solo lectura (ej. "Estudiante"). No es posible cambiar el rol de un usuario una vez creado.
+
+### Guardar cambios
+
+El boton **Guardar** en la parte inferior de la pagina se habilita unicamente cuando hay modificaciones pendientes en alguno de los campos. Al guardar, el sistema confirma la operacion con un mensaje de exito.
+
+<Warning>
+  Si el administrador navega a otra pestana sin guardar, el sistema muestra un dialogo de confirmacion para evitar la perdida de cambios no guardados.
+</Warning>
+
+### Cambiar contrasena
+
+Debajo del formulario de datos personales aparece el enlace **Cambiar contrasena**, que abre un dialogo con los siguientes campos:
+
+| Campo | Descripcion |
+|-------|-------------|
+| **Contrasena** | Nueva contrasena para el usuario |
+| **Repetir contrasena** | Debe coincidir con el campo anterior |
+| **Notificar al usuario** | Checkbox que, al activarse, obliga al usuario a cambiar la contrasena en su proximo inicio de sesion |
+
+El boton **Guardar** del dialogo se habilita solo cuando ambos campos de contrasena coinciden.
+
+<Tip>
+  La opcion "Notificar al usuario" es util cuando el administrador establece una contrasena temporal. El usuario recibira un aviso para definir su propia contrasena al iniciar sesion.
+</Tip>
+
+## Pestana Grupos
+
+La pestana **Grupos** muestra las clases a las que el usuario esta asignado y permite gestionar sus asignaciones.
+
+![Pestana Grupos del detalle de usuario](/assets/screenshots/admin-school/users/detalle-usuario-grupos.png)
+
+### Informacion mostrada
+
+Cada grupo asignado se presenta como una tarjeta con:
+
+- **Nombre del grupo** (ej. "4o Primaria - A")
+- **Nivel educativo y curso** (ej. "Primaria 4.o")
+- **Menu de acciones** (icono de tres puntos)
+
+En la parte superior se indica el numero total de grupos asignados.
+
+### Acciones disponibles
+
+| Accion | Descripcion |
+|--------|-------------|
+| **Anadir grupo** | El boton **+** abre un dialogo para seleccionar uno o mas grupos de la escuela. Los grupos ya asignados aparecen preseleccionados. |
+| **Ver grupo** | Navega al detalle del grupo seleccionado (se abre en nueva pestana) |
+| **Eliminar del grupo** | Muestra un dialogo de confirmacion indicando el nombre del grupo y del usuario antes de proceder |
+
+<Note>
+  Si el usuario no tiene ningun grupo asignado, la pestana muestra un estado vacio con el mensaje "Este usuario aun no tiene grupos" y un boton para anadir el primer grupo.
+</Note>
+
+### Errores de licencias al asignar grupos
+
+Al asignar un usuario a un grupo, el sistema verifica que existan licencias disponibles para los contenidos del grupo. Si no hay licencias suficientes, se muestra un dialogo informando cuantas licencias se necesitan y cuantas estan disponibles, desglosado por contenido y tipo de usuario (docente/estudiante).
+
+## Pestana Contenidos
+
+La pestana **Contenidos** muestra una vista de solo lectura con los cursos y contenidos a los que el usuario tiene acceso, organizados por grupo.
+
+![Pestana Contenidos del detalle de usuario](/assets/screenshots/admin-school/users/detalle-usuario-contenidos.png)
+
+### Estructura de la informacion
+
+Los contenidos se agrupan por clase. Para cada grupo se muestra:
+
+- **Numero de contenidos** asignados
+- **Nombre del grupo**
+- **Nivel educativo y curso**
+- **Tarjetas de contenido** con: imagen de portada, nombre del curso, asignatura y nivel
+
+<Note>
+  Si el usuario no tiene contenidos asignados, la pestana muestra el mensaje "Este usuario aun no tiene contenidos". Los contenidos se asignan indirectamente a traves de los grupos: al anadir un usuario a un grupo que tiene contenidos configurados, el usuario hereda automaticamente el acceso a esos contenidos.
+</Note>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No puedo editar los datos de un usuario">
+    Los campos del formulario se deshabilitan cuando el administrador no tiene permisos de edicion. Esto ocurre en escuelas con integracion de terceros, donde los datos de usuario se gestionan desde un sistema externo.
+  </Accordion>
+  <Accordion title="Los contenidos no aparecen tras asignar un grupo">
+    Los contenidos se cargan de forma independiente. Si el grupo tiene contenidos configurados, pueden tardar unos segundos en reflejarse en la pestana Contenidos. Si el grupo no tiene contenidos asignados, la pestana mostrara el estado vacio.
+  </Accordion>
+  <Accordion title="No aparece la opcion de cambiar contrasena">
+    La opcion solo es visible para administradores con permisos de edicion. En escuelas con integracion de terceros, esta opcion no esta disponible.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de usuarios" icon="users" href="/admin-escuela/usuarios/gestion-usuarios">
+    Listado completo de usuarios con busqueda, filtros y creacion.
+  </Card>
+  <Card title="Importacion masiva" icon="upload" href="/admin-escuela/usuarios/importacion-masiva">
+    Importar multiples usuarios desde un archivo Excel o CSV.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Usuarios > Detalle
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/users/UserDetailPage/, src/app/modules/users/UserDetail/, src/app/modules/users/UserClass/, src/app/modules/users/UserContents/
+  - Ultima revision: 2026-03-31
+*/}

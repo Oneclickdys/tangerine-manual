@@ -1,0 +1,93 @@
+---
+title: "Asignaturas"
+description: "Gestion de asignaturas propias de la escuela con nombre, icono y color personalizados"
+icon: "book"
+---
+
+## Descripcion
+
+La subseccion **Asignaturas** permite al administrador de escuela crear y gestionar las asignaturas (disciplinas) propias de la escuela. Estas asignaturas son independientes de las definidas por la editorial y se utilizan para organizar la oferta academica de la institucion.
+
+Cada asignatura se define con un nombre, un icono representativo y un color asociado. La tabla principal muestra todas las asignaturas de la escuela con dos columnas: el nombre y un indicador de si la asignatura esta actualmente en uso en algun grupo o programa.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+<Note>
+  Esta subseccion solo esta disponible cuando el feature flag `enableSchoolProgram` esta activado. Si no aparece en el menu de Configuracion, la escuela no tiene habilitada la funcionalidad de programas escuela.
+</Note>
+
+## Como acceder
+
+Desde la barra de navegacion lateral, el administrador selecciona **Configuracion**. Si el feature flag `enableSchoolProgram` esta activo, la subseccion **Asignaturas** es la primera opcion visible en el menu interno de Configuracion.
+
+## Estructura del listado
+
+La tabla muestra las asignaturas con paginacion de 15 elementos por pagina. Las columnas son:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre de la asignatura, acompanado de su icono y color asociado |
+| **En uso** | Indicador visual (icono de check) que senala si la asignatura esta siendo utilizada en algun grupo o programa de la escuela |
+
+La cabecera de la tabla incluye:
+
+- **Boton de creacion (+)**: abre el dialogo para anadir una nueva asignatura
+- **Boton de filtros**: permite filtrar el listado
+
+### Estado vacio
+
+Cuando la escuela no tiene asignaturas creadas, el sistema muestra un mensaje informativo con un boton para crear la primera asignatura.
+
+## Crear una asignatura
+
+El boton **+** en la cabecera de la tabla abre un dialogo con los siguientes campos:
+
+| Campo | Tipo | Obligatorio | Validacion | Descripcion |
+|-------|------|-------------|------------|-------------|
+| **Nombre** | Texto | Si | Maximo 50 caracteres | Nombre de la asignatura |
+| **Icono** | Imagen | No | Formato de imagen valido | Icono representativo. Se puede recortar la imagen antes de guardarla |
+| **Color** | Selector de color | No | Valor hexadecimal valido | Color asociado a la asignatura (por defecto: blanco `#ffffff`) |
+
+El boton **Anadir** se habilita cuando el campo nombre tiene contenido valido. Al guardar, si se ha seleccionado un icono, el sistema lo sube como recurso de imagen antes de crear la asignatura.
+
+## Editar una asignatura
+
+Al hacer clic en una asignatura de la tabla, se abre el mismo dialogo de creacion con los valores actuales precargados. El boton cambia a **Editar**. La edicion permite modificar el nombre, el icono y el color.
+
+## Eliminar una asignatura
+
+El menu contextual de cada fila incluye la opcion de eliminacion. El sistema solicita confirmacion antes de proceder con un dialogo que muestra dos lineas de texto explicativo.
+
+<Warning>
+  Una asignatura que esta en uso (indicada por el icono de check en la columna "En uso") no puede ser eliminada. La opcion de eliminacion aparece deshabilitada en el menu contextual para estas asignaturas.
+</Warning>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No veo la subseccion Asignaturas en el menu de Configuracion">
+    La subseccion Asignaturas esta controlada por el feature flag `enableSchoolProgram`. Si no aparece, la editorial no ha habilitado la funcionalidad de programas escuela para este tenant.
+  </Accordion>
+  <Accordion title="No puedo eliminar una asignatura">
+    Las asignaturas que estan en uso en algun grupo o programa no pueden eliminarse. La columna "En uso" indica con un icono de check cuales asignaturas tienen dependencias activas. Para poder eliminarla, primero se deben desvincular todos los grupos o programas asociados.
+  </Accordion>
+  <Accordion title="El icono no se muestra despues de guardarlo">
+    La subida del icono requiere que el archivo sea una imagen valida. Si la imagen no se muestra correctamente, se recomienda probar con otro formato de imagen (PNG o JPG).
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Escalas de evaluacion" icon="ruler" href="/admin-escuela/configuracion/escalas-evaluacion">
+    Las escalas definen como se califica a los estudiantes en cada asignatura.
+  </Card>
+  <Card title="Modelos de evaluacion" icon="scale-balanced" href="/admin-escuela/configuracion/modelos-evaluacion">
+    Los modelos de evaluacion pueden asociarse a grupos que cursan estas asignaturas.
+  </Card>
+  <Card title="Programas digitales" icon="book-open" href="/admin-escuela/programas-digitales/programas-digitales">
+    Los programas digitales pueden estar vinculados a las asignaturas de la escuela.
+  </Card>
+</CardGroup>

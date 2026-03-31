@@ -219,6 +219,69 @@
             "pages": [
               "admin-escuela/introduccion"
             ]
+          },
+          {
+            "group": "Usuarios",
+            "pages": [
+              "admin-escuela/usuarios/gestion-usuarios",
+              "admin-escuela/usuarios/detalle-usuario",
+              "admin-escuela/usuarios/importacion-masiva"
+            ]
+          },
+          {
+            "group": "Grupos",
+            "pages": [
+              "admin-escuela/grupos/gestion-grupos",
+              "admin-escuela/grupos/detalle-grupo",
+              "admin-escuela/grupos/configuracion-contenido"
+            ]
+          },
+          {
+            "group": "Programas Digitales",
+            "pages": [
+              "admin-escuela/programas-digitales/programas-digitales",
+              "admin-escuela/programas-digitales/detalle-programa"
+            ]
+          },
+          {
+            "group": "Licencias",
+            "pages": [
+              "admin-escuela/licencias/gestion-licencias",
+              "admin-escuela/licencias/detalle-licencia"
+            ]
+          },
+          {
+            "group": "Biblioteca",
+            "pages": [
+              "admin-escuela/biblioteca/biblioteca-contenidos"
+            ]
+          },
+          {
+            "group": "Reportes",
+            "pages": [
+              "admin-escuela/reportes/vista-general",
+              "admin-escuela/reportes/crear-boleta",
+              "admin-escuela/reportes/descarga-reportes"
+            ]
+          },
+          {
+            "group": "Analitica",
+            "pages": [
+              "admin-escuela/analitica/analitica-uso",
+              "admin-escuela/analitica/analitica-licencias",
+              "admin-escuela/analitica/analitica-programas"
+            ]
+          },
+          {
+            "group": "Configuracion",
+            "pages": [
+              "admin-escuela/configuracion/vista-general",
+              "admin-escuela/configuracion/asignaturas",
+              "admin-escuela/configuracion/escalas-evaluacion",
+              "admin-escuela/configuracion/categorias-evaluables",
+              "admin-escuela/configuracion/periodos-evaluacion",
+              "admin-escuela/configuracion/modelos-evaluacion"
+            ]
           }
         ]
       }

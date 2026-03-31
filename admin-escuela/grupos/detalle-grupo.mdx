@@ -1,0 +1,215 @@
+---
+title: "Detalle de grupo"
+description: "Configuracion de un grupo: gestion de estudiantes, docentes y contenidos asignados"
+icon: "settings"
+---
+
+## Descripcion
+
+La pagina de detalle de grupo permite al administrador de escuela gestionar la composicion y los contenidos de una clase. Se organiza en tres pestanas: **Estudiantes**, **Docentes** y **Cursos** (contenidos). Desde cada pestana es posible asignar y eliminar usuarios o programas, importar usuarios desde archivo y, cuando el modelo de evaluacion esta habilitado, configurar los contenidos.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Navegar al listado de grupos">
+    Desde la barra de navegacion lateral, el administrador selecciona **Grupos** para acceder al [listado de grupos](/admin-escuela/grupos/gestion-grupos).
+  </Step>
+  <Step title="Seleccionar un grupo">
+    El administrador hace clic en el nombre de un grupo en la tabla. El sistema navega a la pagina de detalle.
+  </Step>
+</Steps>
+
+## Cabecera del grupo
+
+La cabecera muestra:
+
+- **Nombre del grupo** en texto destacado
+- **Nivel educativo y curso** como subtitulo (ej. "Primaria 4.o")
+- **Toggle de estado** (si el administrador tiene permiso `updateStatus`): permite activar o desactivar el grupo directamente desde el detalle
+
+Al modificar el estado del grupo mediante el toggle, el cambio se guarda automaticamente al pulsar el boton **Guardar**.
+
+## Pestana Estudiantes
+
+La pestana **Estudiantes** muestra el listado de todos los estudiantes asignados al grupo, con un contador total (ej. "12 estudiantes").
+
+### Informacion de cada estudiante
+
+Cada estudiante se muestra como una tarjeta con:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Avatar** | Imagen de perfil o iniciales del nombre |
+| **Nombre completo** | Nombre y apellidos del estudiante |
+| **Correo electronico** | Direccion de email del estudiante |
+| **Menu contextual** | Opciones de ver perfil y eliminar del grupo |
+
+### Asignar estudiantes
+
+El boton **+** en la esquina superior derecha despliega un menu con dos opciones:
+
+- **Seleccionar estudiantes** — Abre un dialogo de seleccion donde el administrador busca y marca los estudiantes de la escuela que desea asignar al grupo. Los estudiantes que ya estan en el grupo aparecen preseleccionados
+- **Importar lista** — Abre el flujo de importacion masiva de usuarios, similar al disponible en la [seccion de usuarios](/admin-escuela/usuarios/importacion-masiva), pero vinculando automaticamente a los usuarios importados con este grupo
+
+<Note>
+  Al asignar un estudiante al grupo, el sistema verifica que tenga las licencias necesarias. Si algun estudiante no cumple con los requisitos de licencia, se muestra un dialogo indicando que usuarios no pudieron ser asignados y el motivo.
+</Note>
+
+### Eliminar un estudiante del grupo
+
+Desde el menu contextual (icono de tres puntos) de cada tarjeta, la opcion **Eliminar del grupo** muestra un dialogo de confirmacion que indica el nombre del estudiante y el grupo. Al confirmar, el estudiante se desvincula del grupo pero permanece en la escuela.
+
+### Ver perfil del estudiante
+
+La opcion **Ver perfil** del menu contextual abre el [detalle del usuario](/admin-escuela/usuarios/detalle-usuario) en una nueva pestana del navegador.
+
+### Estado vacio
+
+Si el grupo no tiene estudiantes asignados, se muestra un mensaje invitando al administrador a anadir estudiantes, con un boton de accion directa.
+
+## Pestana Docentes
+
+La pestana **Docentes** funciona de forma analoga a la de estudiantes. Muestra el listado de docentes asignados al grupo con un contador total.
+
+### Informacion de cada docente
+
+Cada docente se muestra como una tarjeta con:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Avatar** | Imagen de perfil o iniciales del nombre |
+| **Nombre completo** | Nombre y apellidos del docente |
+| **Correo electronico** | Direccion de email |
+| **Menu contextual** | Opciones de ver perfil y eliminar del grupo |
+
+### Asignar docentes
+
+El boton **+** ofrece las mismas dos opciones que en la pestana de estudiantes:
+
+- **Seleccionar docentes** — Dialogo de seleccion filtrado por el rol docente
+- **Importar lista** — Importacion masiva vinculada al grupo
+
+### Eliminar un docente del grupo
+
+El proceso es identico al de estudiantes: desde el menu contextual, confirmar la desvinculacion.
+
+<Warning>
+  Eliminar un docente del grupo no elimina su cuenta de la escuela. Solo se desvincula del grupo, y puede seguir apareciendo en otros grupos o en el listado general de usuarios.
+</Warning>
+
+## Pestana Cursos (Contenidos)
+
+La pestana **Cursos** muestra los programas digitales y contenidos asignados al grupo. Dependiendo de la configuracion del tenant, esta pestana puede mostrar diferentes tipos de contenidos y opciones.
+
+### Tipos de contenidos
+
+Los contenidos se organizan en dos categorias:
+
+| Tipo | Descripcion |
+|------|-------------|
+| **Cursos editoriales** | Programas digitales creados por la editorial (ej. Math 26, English 26). Provienen de las publicaciones del publisher |
+| **Cursos escuela** | Programas creados por la propia escuela (solo si el feature flag `enableSchoolProgram` esta activo) |
+
+Cada contenido se muestra como una tarjeta con:
+
+- **Imagen** del programa o icono de la asignatura
+- **Nombre** del contenido
+- **Asignatura**, nivel educativo y curso
+- **Usuarios asignados** (stack de avatares, solo para programas escuela)
+- **Icono de configuracion** o menu contextual segun el modo
+
+### Anadir contenidos al grupo
+
+<Tabs>
+  <Tab title="Modo estandar">
+    Cuando el feature flag `enableSchoolProgram` **no** esta activo, el boton **+** abre un dialogo de seleccion de programas digitales. El dialogo filtra automaticamente los programas por el nivel educativo y curso del grupo.
+
+    Los contenidos ya asignados aparecen preseleccionados y no pueden duplicarse.
+  </Tab>
+  <Tab title="Modo programas escuela">
+    Cuando el feature flag `enableSchoolProgram` esta activo, el boton **+** abre un dialogo de seleccion de programas de la escuela. Este modo permite seleccionar programas creados desde la configuracion de la escuela.
+  </Tab>
+</Tabs>
+
+### Configurar contenidos (modelo de evaluacion)
+
+Cuando el feature flag **enableEvaluationModel** esta activo, los contenidos editoriales muestran opciones adicionales de configuracion:
+
+- **Boton de configuracion** (icono de engranaje) en cada tarjeta de contenido: navega a la [configuracion de contenido individual](/admin-escuela/grupos/configuracion-contenido)
+- **Boton "+ Configurar en lote"** por periodo de evaluacion: permite configurar todos los contenidos de un periodo de evaluacion de forma simultanea
+
+Los contenidos sin configurar muestran un borde rojo y un icono de alerta con el tooltip "Sin configurar contenido".
+
+Los contenidos se agrupan por **periodo de evaluacion** (ej. trimestral, bimestral) y cada grupo muestra un subtitulo con el numero de cursos y el nombre del periodo.
+
+### Asignar usuarios a programas escuela
+
+Para los contenidos de tipo **programa escuela**, el menu contextual ofrece opciones adicionales:
+
+- **Asignar docentes** — Abre un dialogo para asignar docentes al programa de la escuela
+- **Asignar estudiantes** — Abre un dialogo para asignar estudiantes al programa de la escuela
+
+Estas asignaciones son independientes de la asignacion de usuarios al grupo.
+
+### Eliminar contenidos del grupo
+
+La opcion **Eliminar** del menu contextual abre un dialogo de confirmacion que solicita escribir un texto de verificacion antes de proceder. Esto previene eliminaciones accidentales.
+
+<Warning>
+  Eliminar un contenido del grupo desasocia el programa de la clase. Si el contenido ya tiene configuracion de evaluacion, esa configuracion tambien se elimina.
+</Warning>
+
+### Abrir un programa
+
+Al hacer clic en la tarjeta de un contenido (cuando la configuracion esta habilitada o es un programa escuela), el sistema navega a la vista del programa donde el administrador puede explorar su contenido.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Al asignar usuarios aparece un error de licencias">
+    Cuando un estudiante o docente no tiene una licencia valida que cubra los contenidos del grupo, el sistema muestra un dialogo de error indicando que usuarios no pudieron ser asignados. El administrador debe asignar las licencias necesarias desde el [detalle del usuario](/admin-escuela/usuarios/detalle-usuario) o contactar al publisher para obtener mas licencias.
+  </Accordion>
+  <Accordion title="No veo el boton de configuracion en los contenidos">
+    Los botones de configuracion (engranaje e icono de configurar en lote) solo aparecen cuando el feature flag `enableEvaluationModel` esta activo. Sin este flag, los contenidos se muestran sin opciones de configuracion de evaluacion.
+  </Accordion>
+  <Accordion title="No puedo anadir contenidos al grupo">
+    Si el boton **+** no aparece en la pestana de cursos, puede deberse a que el administrador no tiene el permiso `contentCreate`, o a que el flag `enableAdvancedProgramming` esta activo (en cuyo caso la gestion de contenidos se realiza de forma diferente). Tambien desaparece cuando `enableEvaluationModel` esta activo ya que la asignacion de contenidos puede estar gestionada de otra forma.
+  </Accordion>
+  <Accordion title="Los contenidos muestran un borde rojo con icono de alerta">
+    Esto indica que el contenido no tiene configurada la evaluacion (escala, periodos y modelo). El administrador debe acceder a la [configuracion del contenido](/admin-escuela/grupos/configuracion-contenido) para completar la configuracion antes del inicio del periodo escolar.
+  </Accordion>
+  <Accordion title="No puedo eliminar un usuario del grupo">
+    La opcion de eliminar en el menu contextual solo aparece si el administrador tiene el permiso `userDelete`. En escuelas con integracion de terceros donde el roster se sincroniza externamente, las opciones de eliminacion pueden estar deshabilitadas.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de grupos" icon="list" href="/admin-escuela/grupos/gestion-grupos">
+    Listado completo de grupos de la escuela con creacion y filtros.
+  </Card>
+  <Card title="Configuracion de contenido" icon="settings" href="/admin-escuela/grupos/configuracion-contenido">
+    Configurar escala, periodos y modelo de evaluacion para los contenidos del grupo.
+  </Card>
+  <Card title="Detalle de usuario" icon="user" href="/admin-escuela/usuarios/detalle-usuario">
+    Ficha del usuario con datos personales, grupos y contenidos asignados.
+  </Card>
+  <Card title="Importacion masiva" icon="upload" href="/admin-escuela/usuarios/importacion-masiva">
+    Importar multiples usuarios desde archivo y asignarlos al grupo.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Grupos > Detalle
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/class/ClassDetailPage/, src/app/modules/class/ClassDetail/, src/app/modules/class/ClassStudents/, src/app/modules/class/ClassTeachers/, src/app/modules/class/ClassContents/
+  - Ultima revision: 2026-03-31
+*/}

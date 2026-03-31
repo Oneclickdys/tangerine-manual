@@ -1,0 +1,150 @@
+---
+title: "Gestion de grupos"
+description: "Listado de grupos de la escuela con creacion, edicion, filtros, cambio de estado y descarga de codigos"
+icon: "users"
+---
+
+## Descripcion
+
+La seccion **Grupos** permite al administrador de escuela gestionar las clases del centro educativo. Desde este listado se pueden crear nuevos grupos, editar los existentes, activar o desactivar grupos, eliminarlos y descargar un archivo Excel con los codigos de todos los grupos del ano escolar activo.
+
+Cada grupo representa una clase con un nombre, un nivel educativo, un curso y un codigo unico que los estudiantes y docentes pueden usar para unirse en el modelo self-service.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde la barra de navegacion lateral, el administrador selecciona **Grupos**. La pantalla muestra la tabla de grupos filtrada por el ano escolar activo.
+
+Si el administrador gestiona varias escuelas, un selector de escuela aparece en la esquina superior derecha de la pagina. Los datos de la tabla se filtran automaticamente segun la escuela seleccionada.
+
+## Estructura de la tabla
+
+La tabla de grupos muestra las siguientes columnas:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Grupo** | Nombre del grupo y debajo el nivel educativo y curso (ej. "Primaria 4.o"). Enlaza al [detalle del grupo](/admin-escuela/grupos/detalle-grupo) |
+| **Codigo de clase** | Codigo unico del grupo, mostrado como chip. Es el codigo que estudiantes y docentes usan para unirse |
+| **Estado** | Icono de alerta que indica si el grupo tiene contenidos sin configurar (solo visible cuando el modelo de evaluacion esta habilitado) |
+
+<Note>
+  La columna de estado con icono de alerta solo aparece cuando el feature flag **enableEvaluationModel** esta activo. En ese caso, los grupos que tienen contenidos sin configuracion de evaluacion muestran un icono de advertencia con el tooltip "Sin configurar contenido".
+</Note>
+
+Cada fila del grupo enlaza al [detalle del grupo](/admin-escuela/grupos/detalle-grupo) al hacer clic sobre el nombre, siempre que el administrador tenga permisos de lectura de detalle.
+
+## Busqueda y filtros
+
+### Busqueda por texto
+
+El campo **Buscar** en la cabecera permite localizar grupos por nombre. La busqueda se ejecuta en tiempo real conforme el administrador escribe.
+
+### Panel de filtros
+
+El boton **Filtrar** abre un panel lateral con los siguientes criterios:
+
+| Filtro | Descripcion | Tipo |
+|--------|-------------|------|
+| **Nivel educativo y curso** | Permite seleccionar uno o varios niveles y cursos | Checkbox (seleccion multiple) |
+| **Estado** | Activado o Desactivado | Radio (seleccion unica) |
+
+<Note>
+  El filtro de estado solo aparece si el administrador tiene permiso para modificar el estado de los grupos (`updateStatus`).
+</Note>
+
+Los filtros se aplican al pulsar **Aplicar** y se restablecen con **Limpiar todo**. Los filtros activos se persisten en la URL como parametros de query, lo que permite compartir enlaces filtrados.
+
+## Crear un grupo
+
+El boton **+** en la cabecera abre un dialogo de creacion con los siguientes campos:
+
+| Campo | Tipo | Obligatorio | Validacion |
+|-------|------|-------------|------------|
+| **Nivel educativo** | Selector | Si | Debe seleccionarse un nivel |
+| **Curso** | Selector (filtrado por nivel) | Si | Debe seleccionarse un curso |
+| **Nombre** | Texto | Si | Maximo 50 caracteres |
+
+El selector de **Curso** se filtra automaticamente segun el nivel educativo seleccionado. El boton **Anadir** permanece deshabilitado hasta que los tres campos estan completos.
+
+Tras la creacion exitosa, el sistema redirige automaticamente al [detalle del grupo](/admin-escuela/grupos/detalle-grupo) recien creado, donde el administrador puede comenzar a asignar estudiantes, docentes y contenidos.
+
+### Editar un grupo
+
+Al hacer clic en la opcion **Editar** del menu contextual de un grupo, el sistema abre el mismo dialogo con los datos precargados. Los campos de nivel educativo y curso se muestran con los valores actuales. El boton cambia a **Editar** en lugar de **Anadir**.
+
+<Warning>
+  Al editar un grupo, solo se puede modificar el nombre y el curso/nivel. El codigo del grupo es inmutable y se asigna automaticamente en la creacion.
+</Warning>
+
+## Descargar codigos
+
+El boton **Descargar codigos** (visible junto al boton de creacion si el administrador tiene el permiso `importCodes`) genera un archivo Excel (.xls) con los codigos de todos los grupos del ano escolar activo.
+
+El archivo contiene las siguientes columnas:
+
+| Columna del Excel | Descripcion |
+|-------------------|-------------|
+| **Nombre** | Nombre del grupo |
+| **Codigo** | Codigo unico del grupo |
+| **Nivel** | Nivel educativo y curso combinados |
+| **Ano escolar** | Nombre del ano escolar |
+
+<Tip>
+  Esta funcionalidad es util para distribuir los codigos de clase a los docentes al inicio del ano escolar, especialmente en centros que combinan el modelo administrado con el self-service.
+</Tip>
+
+## Activar y desactivar grupos
+
+Cada grupo puede activarse o desactivarse desde el menu contextual de la fila. La accion de cambio de estado se refleja inmediatamente en la tabla.
+
+- **Activado**: El grupo esta operativo; los usuarios asignados pueden acceder a los contenidos
+- **Desactivado**: El grupo queda inactivo; los datos se conservan pero el acceso queda restringido
+
+## Eliminar un grupo
+
+La opcion **Eliminar** del menu contextual muestra un dialogo de confirmacion con dos mensajes de advertencia antes de proceder. La eliminacion es permanente y elimina las asociaciones de usuarios y contenidos del grupo.
+
+<Warning>
+  La eliminacion de un grupo es irreversible. Todos los estudiantes y docentes asignados pierden su vinculacion con ese grupo, y los contenidos configurados se desasocian.
+</Warning>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No aparece el boton de Descargar codigos">
+    El boton solo se muestra si el administrador tiene el permiso `importCodes`. En escuelas con permisos restringidos o integracion de terceros, este boton puede no estar disponible.
+  </Accordion>
+  <Accordion title="La columna de estado no aparece en la tabla">
+    La columna de estado (con icono de alerta) solo se muestra cuando el feature flag `enableEvaluationModel` esta activo en la configuracion del tenant. Sin este flag, la tabla solo muestra las columnas de nombre y codigo.
+  </Accordion>
+  <Accordion title="No puedo crear grupos porque no tengo ano escolar seleccionado">
+    El boton de creacion se deshabilita si no hay un ano escolar activo seleccionado. El administrador debe verificar que exista un ano escolar configurado para la escuela. Los anos escolares se gestionan desde el Backoffice.
+  </Accordion>
+  <Accordion title="El grupo no aparece en la tabla despues de crearlo">
+    Si el grupo recien creado no aparece, verificar que el filtro de ano escolar corresponde al ano escolar activo. Los grupos se asocian al ano escolar vigente en el momento de la creacion.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Detalle de grupo" icon="users" href="/admin-escuela/grupos/detalle-grupo">
+    Configuracion completa del grupo: estudiantes, docentes y contenidos asignados.
+  </Card>
+  <Card title="Gestion de usuarios" icon="user" href="/admin-escuela/usuarios/gestion-usuarios">
+    Listado y creacion de usuarios de la escuela.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Grupos
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/class/ClassPage/, src/app/modules/class/
+  - Ultima revision: 2026-03-31
+*/}

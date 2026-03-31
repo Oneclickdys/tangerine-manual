@@ -1,0 +1,143 @@
+---
+title: "Gestion de usuarios"
+description: "Listado de usuarios de la escuela con busqueda, filtros, creacion individual y cambio de estado"
+icon: "users"
+---
+
+## Descripcion
+
+La seccion **Usuarios** es el punto central de gestion del roster escolar en Admin Escuela. Desde aqui el administrador puede consultar todos los usuarios de la escuela (estudiantes, docentes y administradores), buscar por nombre o correo, aplicar filtros avanzados, crear nuevos usuarios y activar o desactivar cuentas existentes.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde la barra de navegacion lateral, el administrador selecciona **Usuarios**. Es la primera opcion del menu y la pantalla predeterminada al iniciar sesion.
+
+![Listado de usuarios de la escuela](/assets/screenshots/admin-school/users/lista-usuarios.png)
+
+## Estructura de la tabla
+
+La tabla de usuarios muestra las siguientes columnas:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Usuarios** | Nombre completo, correo electronico y avatar del usuario |
+| **Rol** | Rol asignado: Estudiante, Docente o Administrador |
+| **Nivel educativo** | Nivel y curso (ej. "Primaria 4.o") derivado de los grupos asignados |
+| **Grupo** | Nombre del grupo o grupos a los que pertenece |
+| **Estado** | Toggle que indica si la cuenta esta activa o desactivada |
+
+Cada fila enlaza al [detalle del usuario](/admin-escuela/usuarios/detalle-usuario) al hacer clic sobre el nombre.
+
+<Note>
+  Si el administrador gestiona varias escuelas, aparece un selector de escuela en la cabecera de la pagina. Los datos de la tabla se filtran segun la escuela seleccionada.
+</Note>
+
+## Busqueda y filtros
+
+### Busqueda por texto
+
+El campo **Buscar** en la parte superior permite localizar usuarios por nombre o correo electronico. La busqueda se ejecuta en tiempo real a medida que el administrador escribe.
+
+### Panel de filtros
+
+El boton **Filtrar** abre un panel lateral con tres criterios combinables:
+
+![Panel de filtros expandido](/assets/screenshots/admin-school/users/filtros-expandidos.png)
+
+| Filtro | Opciones | Tipo |
+|--------|----------|------|
+| **Nivel educativo** | Infantil, Primaria, ESO, Bachillerato | Checkbox (seleccion multiple) |
+| **Rol** | Estudiante, Docente, Administrador | Radio (seleccion unica) |
+| **Estado** | Activado, Desactivado | Radio (seleccion unica) |
+
+Los filtros se aplican al pulsar el boton **Aplicar**. El boton **Limpiar todo** restablece todos los criterios. Un contador junto al boton Filtrar indica cuantos filtros estan activos.
+
+## Crear un usuario
+
+El boton **+** en la esquina superior derecha despliega un menu con dos opciones:
+
+![Menu de acciones: Anadir usuario e Importar lista](/assets/screenshots/admin-school/users/menu-agregar.png)
+
+- **Anadir usuario** — Abre un dialogo para crear un usuario de forma individual
+- **Importar lista** — Abre el flujo de [importacion masiva](/admin-escuela/usuarios/importacion-masiva)
+
+### Dialogo de creacion individual
+
+Al seleccionar **Anadir usuario**, el sistema muestra un dialogo con los siguientes campos:
+
+![Formulario de creacion de usuario](/assets/screenshots/admin-school/users/dialogo-crear-usuario.png)
+
+| Campo | Tipo | Obligatorio | Validacion |
+|-------|------|-------------|------------|
+| **Nombre** | Texto | Si | Maximo 50 caracteres |
+| **Apellidos** | Texto | Si | Maximo 50 caracteres |
+| **Avatar** | Imagen | No | Subida de archivo de imagen |
+| **Rol** | Radio | Si | Estudiante (por defecto) o Docente |
+| **Nombre de usuario** | Email | Si | Maximo 200 caracteres, formato email valido |
+| **Contrasena** | Texto | Si | Campo con opcion de mostrar/ocultar |
+
+El boton **Anadir** permanece deshabilitado hasta que todos los campos obligatorios estan completos y las validaciones son correctas.
+
+<Warning>
+  Si el correo electronico ya esta registrado en el sistema, la creacion falla con el error "El usuario ya existe". Esto aplica tanto dentro de la misma escuela como en otras escuelas del publisher.
+</Warning>
+
+Tras la creacion exitosa, el sistema redirige automaticamente al [detalle del usuario](/admin-escuela/usuarios/detalle-usuario) recien creado.
+
+## Activar y desactivar usuarios
+
+Cada fila de la tabla incluye un toggle de **Estado** que permite activar o desactivar la cuenta del usuario directamente desde el listado.
+
+- **Activado**: El usuario puede iniciar sesion y acceder a la plataforma
+- **Desactivado**: El usuario no puede iniciar sesion; sus datos se conservan pero el acceso queda bloqueado
+
+<Note>
+  El toggle de estado del usuario con rol **Administrador** aparece deshabilitado. No es posible desactivar un administrador desde este panel.
+</Note>
+
+## Eliminar usuarios
+
+Al hacer clic derecho o acceder al menu contextual de un usuario, el sistema permite eliminar la cuenta. Antes de proceder, se muestra un dialogo de confirmacion con el nombre del usuario afectado.
+
+<Warning>
+  La eliminacion de un usuario es permanente. Los datos del usuario, incluyendo sus asignaciones a grupos, se eliminan del sistema.
+</Warning>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No puedo cambiar el estado de un usuario administrador">
+    El toggle de estado esta deshabilitado para usuarios con rol Administrador. Esto es una restriccion de seguridad para evitar que un administrador se bloquee a si mismo u a otros administradores del centro. La gestion de administradores se realiza desde el Backoffice.
+  </Accordion>
+  <Accordion title="El boton + no aparece en la cabecera">
+    El boton de creacion solo se muestra si el administrador tiene permisos de creacion de usuarios. En escuelas con integracion de terceros (sincronizacion externa), las opciones de creacion, edicion y eliminacion se deshabilitan porque el roster se gestiona desde el sistema externo.
+  </Accordion>
+  <Accordion title="Un usuario aparece en el listado pero sin grupo">
+    Es posible crear usuarios sin asignarlos a ningun grupo. Estos usuarios existen en la escuela pero no participan en ninguna clase hasta que el administrador los asigne desde la pestana Grupos del detalle del usuario.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Detalle de usuario" icon="user" href="/admin-escuela/usuarios/detalle-usuario">
+    Ficha completa del usuario con pestanas para datos personales, grupos y contenidos.
+  </Card>
+  <Card title="Importacion masiva" icon="upload" href="/admin-escuela/usuarios/importacion-masiva">
+    Importar multiples usuarios desde un archivo Excel o CSV.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Usuarios
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/users/UsersPage/, src/app/modules/users/
+  - Ultima revision: 2026-03-31
+*/}

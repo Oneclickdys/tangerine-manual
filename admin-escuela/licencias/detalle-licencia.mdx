@@ -1,0 +1,95 @@
+---
+title: "Detalle de licencia"
+description: "Consultar los usuarios asignados a una licencia y los programas digitales incluidos, con indicadores de consumo por rol"
+icon: "file-lines"
+---
+
+## Descripcion
+
+La pagina de detalle de una licencia muestra informacion completa sobre una licencia especifica de la escuela: que usuarios la tienen asignada (separados por rol) y que programas digitales incluye. Esta vista es de **solo lectura** y permite al administrador de escuela supervisar el uso de cada licencia.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde el [listado de licencias](/admin-escuela/licencias/gestion-licencias), el administrador hace clic en la licencia que desea consultar. El sistema navega a la pagina de detalle mostrando la informacion de esa licencia.
+
+## Cabecera del detalle
+
+La cabecera de la pagina muestra:
+
+- **Nombre del programa**: el nombre del programa digital principal asociado a la licencia
+- **Periodo de vigencia**: rango de fechas de la licencia, mostrado como "Desde el DD/MM/AAAA hasta el DD/MM/AAAA"
+- **Boton de retroceso**: permite volver al listado de licencias
+
+## Pestanas del detalle
+
+La pagina se organiza en tres pestanas: **Estudiantes**, **Docentes** y **Contenidos**.
+
+### Pestana Estudiantes
+
+![Detalle de licencia - pestana Estudiantes](/assets/screenshots/admin-school/licenses/detalle-licencia-estudiantes.png)
+
+Muestra los estudiantes de la escuela que tienen asignada esta licencia. Incluye:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Tarjeta de consumo** | Indicador con el numero de plazas de estudiante usadas respecto al maximo (ej. "1/12"), porcentaje de uso y barra de progreso visual |
+| **Contador de usuarios** | Numero total de estudiantes asignados (ej. "1 ESTUDIANTE") |
+| **Tarjetas de usuario** | Cada estudiante asignado se muestra en una tarjeta con avatar, nombre completo y correo electronico |
+
+Cada tarjeta de usuario incluye un menu contextual (icono de opciones) con la accion **Ver perfil**, que abre el detalle del usuario en una nueva pestana del navegador.
+
+Si no hay estudiantes asignados a la licencia, la pestana muestra un mensaje indicando que no hay estudiantes vinculados.
+
+### Pestana Docentes
+
+![Detalle de licencia - pestana Docentes](/assets/screenshots/admin-school/licenses/detalle-licencia-docentes.png)
+
+Tiene la misma estructura que la pestana de Estudiantes, pero muestra los docentes asignados a la licencia. La tarjeta de consumo refleja las plazas de docente (ej. "1/12").
+
+<Note>
+  La clasificacion entre docentes y estudiantes se realiza por el rol del usuario. Los usuarios con rol de estudiante aparecen en la pestana Estudiantes; todos los demas roles (docente, administrador docente) aparecen en la pestana Docentes.
+</Note>
+
+### Pestana Contenidos
+
+![Detalle de licencia - pestana Contenidos](/assets/screenshots/admin-school/licenses/detalle-licencia-contenidos.png)
+
+Muestra los programas digitales incluidos en la licencia. Cada programa se presenta como una tarjeta con:
+
+| Elemento | Descripcion |
+|----------|-------------|
+| **Imagen del programa** | Miniatura del programa digital |
+| **Nombre del programa** | Titulo del programa (ej. "El sistema solar - Flipped") |
+| **Asignatura** | Disciplina o asignatura asociada al programa (ej. "Geography") |
+| **Nivel educativo** | Etapa y ano del programa (ej. "ESO 2.o") |
+
+Si la licencia no tiene programas asociados, la pestana muestra un mensaje indicando que no hay contenidos.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Un usuario aparece en la licencia pero ya no esta activo en la escuela">
+    La lista de usuarios refleja todos los usuarios que tienen la licencia asignada, independientemente de su estado actual en la escuela. Si un usuario ha sido desactivado pero conserva la licencia, seguira apareciendo en el listado y ocupando una plaza.
+  </Accordion>
+  <Accordion title="El consumo muestra mas usuarios de los esperados">
+    El contador de consumo refleja todos los usuarios vinculados a la licencia en el contexto de la escuela. Si hay usuarios que ya no deberian tener la licencia, el administrador debe contactar a la editorial para gestionar la desvinculacion desde el Backoffice.
+  </Accordion>
+  <Accordion title="La pestana Contenidos no muestra ningun programa">
+    Algunas licencias pueden estar asociadas unicamente a publicaciones sin programas digitales vinculados. En ese caso, la pestana Contenidos aparecera vacia. El administrador puede verificar con la editorial que publicaciones y programas incluye la licencia.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Licencias" icon="key" href="/admin-escuela/licencias/gestion-licencias">
+    Volver al listado general de licencias de la escuela con indicadores de consumo.
+  </Card>
+  <Card title="Detalle de usuario" icon="user" href="/admin-escuela/usuarios/detalle-usuario">
+    Consultar la ficha completa de un usuario, incluyendo sus clases y contenidos asignados.
+  </Card>
+</CardGroup>

@@ -1,0 +1,159 @@
+---
+title: "Escalas de evaluacion"
+description: "Configurar escalas numericas y cualitativas para calificar el desempeno de los estudiantes"
+icon: "ruler"
+---
+
+## Descripcion
+
+La subseccion **Escalas de evaluacion** permite al administrador de escuela crear y gestionar las escalas de calificacion que se utilizaran para evaluar a los estudiantes. Las escalas definen el sistema de puntuacion aplicado en los modelos de evaluacion y, en ultima instancia, determinan como se expresan las calificaciones en la plataforma.
+
+Existen dos tipos de escalas:
+
+- **Numerica**: define un rango de valores continuos (por ejemplo, 0-10 o 0-100) con un numero configurable de decimales.
+- **Cualitativa**: define una serie de rangos con etiquetas descriptivas (por ejemplo, Excelente, Bien, Suficiente, Insuficiente), cada uno con un rango porcentual y un valor de equivalencia numerica.
+
+Las escalas pueden tener dos origenes: las creadas por la **escuela** (editables y eliminables) y las predefinidas por la **editorial** (solo lectura). Ambas se muestran en la misma tabla pero con permisos diferentes.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+Desde **Configuracion** en la barra de navegacion lateral, el administrador selecciona **Escalas de evaluacion** en el menu interno de la seccion.
+
+## Estructura del listado
+
+La tabla muestra todas las escalas disponibles para la escuela (tanto las creadas localmente como las predefinidas por la editorial):
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre descriptivo de la escala |
+| **Tipo** | Chip indicando "Numerica" o "Cualitativa" |
+| **Rango** | Para escalas numericas: el rango min-max (ej. "0-10"). Para cualitativas: lista de etiquetas de cada rango |
+| **Creado por** | Chip indicando "Escuela" o "Editorial" |
+| **Estado** | Chip indicando "En uso" si la escala esta asignada a algun modelo de evaluacion |
+
+La cabecera incluye:
+
+- **Contador de escalas**: muestra el numero total de escalas (ej. "5 escalas")
+- **Boton de creacion (+)**: abre el dialogo para crear una nueva escala
+
+Cada fila tiene un icono de ojo que permite ver el detalle de la escala sin editarla.
+
+### Columna de disponibilidad
+
+Las escalas creadas por la escuela muestran un toggle de disponibilidad que permite activar o desactivar la escala. Las escalas de editorial no muestran este control.
+
+### Estado vacio
+
+Cuando no existen escalas, el sistema muestra un mensaje informativo con un boton para crear la primera escala.
+
+## Crear una escala
+
+El boton **+** en la cabecera abre un dialogo cuyo contenido varia segun el tipo de escala seleccionado.
+
+### Campos comunes
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Nombre** | Texto | Si | Nombre descriptivo de la escala |
+| **Tipo** | Selector | Si | Tipo de escala: "Numerica" o "Cualitativa". Por defecto: Numerica |
+
+### Escala numerica
+
+Cuando el tipo seleccionado es **Numerica**, aparecen los siguientes campos adicionales:
+
+| Campo | Tipo | Obligatorio | Validacion | Descripcion |
+|-------|------|-------------|------------|-------------|
+| **Minimo** | Numero | Si | Debe ser mayor o igual a 0 y menor que el maximo. Campo deshabilitado (se fija en el valor configurado) | Valor minimo de la escala |
+| **Maximo** | Numero | Si | Debe ser mayor que el minimo | Valor maximo de la escala |
+| **Decimales** | Selector | Si | Valor numerico (0, 1, 2, etc.) | Cantidad de decimales permitidos en las calificaciones |
+
+### Escala cualitativa
+
+Cuando el tipo seleccionado es **Cualitativa**, el dialogo muestra una lista de rangos con la siguiente estructura:
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Etiqueta** | Texto | Si | Nombre descriptivo del rango (ej. "Excelente", "Bien") |
+| **Desde** | Numero | Automatico | Limite superior del rango porcentual. El primer rango siempre inicia en 100. Los siguientes toman automaticamente el valor "Hasta" del rango anterior |
+| **Hasta** | Numero | Si | Limite inferior del rango porcentual. Debe ser menor que el valor "Desde" del mismo rango |
+| **Equivalencia** | Numero | Si | Valor numerico equivalente del rango. Debe estar dentro del rango definido por "Desde" y "Hasta" |
+
+La interfaz permite:
+
+- **Anadir nuevo rango** mediante el boton "+ Nuevo rango", que se habilita cuando el ultimo rango esta completo. El nuevo rango toma como limite superior el valor "Hasta" del rango anterior.
+- **Eliminar un rango** mediante el menu contextual de opciones (icono de tres puntos verticales) disponible en todos los rangos excepto el primero.
+
+<Note>
+  Para que la escala cualitativa sea valida, el ultimo rango debe tener el campo "Hasta" con valor **0**. Esto asegura que toda la escala porcentual (100% a 0%) quede cubierta sin huecos.
+</Note>
+
+El boton **Anadir** se habilita cuando:
+- Para escalas numericas: nombre, minimo, maximo y decimales estan completos sin errores de validacion
+- Para escalas cualitativas: nombre esta completo, todos los rangos tienen sus campos rellenos sin errores, y el ultimo rango llega hasta 0
+
+## Ver detalle de una escala
+
+El icono de ojo en cada fila abre un dialogo de solo lectura que muestra la informacion completa de la escala:
+
+- Para escalas **numericas**: nombre, tipo, rango (min-max) y numero de decimales
+- Para escalas **cualitativas**: nombre, tipo, y la lista de rangos con etiqueta, rango porcentual (desde-hasta) y equivalencia
+
+## Editar una escala
+
+Al hacer clic en una escala creada por la escuela, el sistema verifica si esta en uso:
+
+- **Si no esta en uso**: se abre directamente el dialogo de edicion con los valores actuales precargados
+- **Si esta en uso**: se muestra primero un dialogo de advertencia informando que la escala esta en uso. Al aceptar, se abre el dialogo de edicion
+
+Las escalas creadas por la **editorial** no muestran opciones de edicion ni el menu contextual de acciones.
+
+<Warning>
+  Editar una escala cualitativa que esta en uso recalcula automaticamente las calificaciones existentes de los estudiantes que usan esa escala. Este proceso se ejecuta en segundo plano tras guardar los cambios.
+</Warning>
+
+## Eliminar una escala
+
+La eliminacion esta disponible solo para escalas creadas por la escuela que no estan en uso. El dialogo de confirmacion indica el nombre de la escala y las consecuencias de la eliminacion.
+
+<Warning>
+  Una escala que esta en uso no puede ser eliminada. La opcion de eliminacion aparece deshabilitada en el menu contextual. Para eliminarla, primero debe desvincularse de todos los modelos de evaluacion que la referencian.
+</Warning>
+
+## Validacion de nombres duplicados
+
+Si se intenta crear o editar una escala con un nombre que ya existe, el sistema muestra un dialogo informando que ya existe una escala con ese nombre e indicando que se debe elegir uno diferente.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No puedo editar una escala de la editorial">
+    Las escalas creadas por la editorial son de solo lectura. El administrador de escuela puede verlas y usarlas en sus modelos de evaluacion, pero no puede modificarlas ni eliminarlas. Si necesita una variante, puede crear una nueva escala con parametros personalizados.
+  </Accordion>
+  <Accordion title="El toggle de disponibilidad no aparece en una escala">
+    Solo las escalas creadas por la escuela muestran el toggle de disponibilidad. Las escalas de editorial no tienen este control porque su estado lo gestiona la editorial desde el Backoffice.
+  </Accordion>
+  <Accordion title="Se recalcularon las calificaciones tras editar una escala cualitativa">
+    Cuando se edita una escala cualitativa que esta en uso, el sistema recalcula automaticamente las calificaciones de los estudiantes que utilizan esa escala. Este comportamiento es esperado y garantiza la consistencia entre la escala y las calificaciones registradas.
+  </Accordion>
+  <Accordion title="No puedo guardar la escala cualitativa">
+    Para que una escala cualitativa sea valida, el campo "Hasta" del ultimo rango debe ser exactamente **0**. Esto asegura que el rango porcentual completo (de 100 a 0) quede cubierto. Tambien es necesario que todos los campos de equivalencia esten dentro del rango definido por "Desde" y "Hasta".
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Categorias evaluables" icon="tags" href="/admin-escuela/configuracion/categorias-evaluables">
+    Las categorias y las escalas se combinan dentro de los modelos de evaluacion.
+  </Card>
+  <Card title="Modelos de evaluacion" icon="scale-balanced" href="/admin-escuela/configuracion/modelos-evaluacion">
+    Los modelos de evaluacion referencian las escalas para definir como se califica cada categoria.
+  </Card>
+  <Card title="Configuracion de contenido por grupo" icon="sliders" href="/admin-escuela/grupos/configuracion-contenido">
+    Las escalas se asignan a contenidos de grupo a traves de la configuracion de contenido.
+  </Card>
+</CardGroup>

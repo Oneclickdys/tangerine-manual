@@ -1,0 +1,176 @@
+---
+title: "Biblioteca de contenidos"
+description: "Explorar, crear y gestionar los recursos de la biblioteca de la escuela con permisos de acceso por nivel, asignatura y disponibilidad"
+icon: "book-open"
+---
+
+## Descripcion
+
+La seccion **Biblioteca** permite al administrador de escuela explorar y gestionar los recursos de contenido disponibles para docentes y estudiantes. Cada recurso tiene asociados permisos de acceso que determinan a que niveles educativos y asignaturas esta vinculado, y si esta disponible solo para docentes o tambien para estudiantes.
+
+Los recursos de la biblioteca pueden provenir de dos origenes:
+
+- **Editorial**: contenidos creados desde el Backoffice por el equipo editorial. El administrador de escuela puede verlos pero no editarlos ni eliminarlos.
+- **Docentes o administradores de escuela**: contenidos anadidos por usuarios con rol de docente, estudiante o administrador docente. Estos recursos si permiten edicion de informacion, configuracion de permisos y eliminacion.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+<Note>
+  La seccion Biblioteca solo aparece en el menu lateral cuando el feature flag `enableLibrary` esta activado para el tenant. Si no se ve esta opcion, el administrador debe contactar a la editorial para verificar la configuracion.
+</Note>
+
+## Como acceder
+
+Desde la barra de navegacion lateral, el administrador selecciona **Biblioteca**. La pantalla muestra el listado de todos los recursos de la biblioteca de la escuela seleccionada.
+
+Si el administrador gestiona varias escuelas, un selector de escuela aparece en la cabecera. Los recursos se recargan automaticamente al cambiar de escuela.
+
+![Listado de la biblioteca de contenidos](/assets/screenshots/admin-school/library/lista-biblioteca.png)
+
+## Estructura del listado
+
+La tabla muestra los siguientes campos para cada recurso:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Informacion del recurso** | Icono del tipo de contenido (PDF, Video, Imagen, etc.), nombre del recurso y, opcionalmente, asignatura y nivel educativo del contenido |
+| **Permisos de acceso** | Chips que indican la disponibilidad (Docentes / Docentes y estudiantes) y los niveles y asignaturas asociados como permisos. Si hay mas de 6, se muestra un indicador "+N" |
+| **Fecha de creacion** | Fecha en la que se creo el recurso |
+| **Anadido por** | Avatar y nombre del autor. Indica "Editorial" cuando el recurso fue creado desde el Backoffice |
+
+### Cabecera de la pagina
+
+La cabecera incluye:
+
+- **Contador de recursos**: muestra el numero total de recursos en la biblioteca (ej. "9 recursos")
+- **Buscador**: campo de texto para buscar recursos por nombre
+- **Boton Filtrar**: abre el panel lateral de filtros con un indicador numerico de filtros activos
+- **Boton de creacion (+)**: abre el dialogo para anadir un nuevo recurso a la biblioteca
+
+## Filtros disponibles
+
+El panel lateral de filtros permite refinar la vista de la biblioteca segun cinco criterios. Cada filtro se presenta como un acordeon desplegable.
+
+![Panel de filtros de la biblioteca](/assets/screenshots/admin-school/library/filtros-biblioteca.png)
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Tipo de contenido** | Filtra por el formato del recurso. Los tipos disponibles son: Audio, HTML Interactivo, Imagen, Libro Digital Fixed Layout, Link, OFFICE, PDF, Tin-can xApi y Video |
+| **Nivel educativo** | Filtra por los niveles educativos asociados a los permisos del recurso |
+| **Asignaturas** | Filtra por las asignaturas asociadas a los permisos del recurso |
+| **Disponible para** | Filtra segun la audiencia del recurso: solo docentes o docentes y estudiantes |
+| **Anadido por** | Filtra por el rol del creador del recurso |
+
+Los botones **Limpiar todo** y **Aplicar** permiten restablecer o confirmar los filtros seleccionados, respectivamente.
+
+## Crear un recurso
+
+El boton **+** en la cabecera abre un dialogo de creacion en tres pasos.
+
+### Paso 1: Informacion del recurso
+
+![Paso 1 - Configurar informacion del recurso](/assets/screenshots/admin-school/library/crear-recurso-paso1.png)
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Titulo** | Texto | Si | Nombre del recurso. Debe tener al menos 3 caracteres |
+| **Disponibilidad** | Selector | Si | Define si el recurso es visible para "Docentes y estudiantes" o solo para "Docentes". Por defecto se selecciona "Docentes y estudiantes" |
+| **Etapa** | Selector multiple | No | Nivel educativo del contenido (Primaria, Secundaria, etc.) |
+| **Nivel educativo** | Selector multiple | No | Curso o grado dentro de la etapa. Se habilita despues de seleccionar una etapa |
+| **Asignatura** | Selector multiple | No | Asignatura del contenido |
+| **Descripcion** | Texto largo | No | Descripcion del recurso |
+
+El boton **Siguiente** se habilita cuando el titulo tiene al menos 3 caracteres y la disponibilidad esta seleccionada.
+
+### Paso 2: Tipo de recurso
+
+Este paso permite seleccionar el formato del contenido. Dos opciones estan disponibles mediante botones de radio:
+
+| Opcion | Descripcion |
+|--------|-------------|
+| **Archivo** | El administrador sube un archivo desde su dispositivo. El tipo de contenido se detecta automaticamente segun la extension del archivo |
+| **Link** | El administrador introduce una URL valida. El sistema valida que sea una URL con formato correcto |
+
+El boton **Siguiente** se habilita cuando se ha subido un archivo (opcion Archivo) o se ha introducido una URL valida (opcion Link). Un boton **Atras** permite volver al paso anterior.
+
+### Paso 3: Permisos de acceso
+
+Este paso define a que niveles educativos y asignaturas se asociara el recurso como permisos de acceso. Estos permisos determinan que usuarios podran ver el recurso en la biblioteca.
+
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Etapa** | Selector multiple | Si | Niveles educativos asociados al permiso |
+| **Nivel educativo** | Selector multiple | Si | Cursos dentro de las etapas seleccionadas |
+| **Asignatura** | Selector multiple | Si | Asignaturas del permiso |
+
+<Tip>
+  Si en el Paso 1 se completaron los campos de etapa, nivel y asignatura, la casilla **"Usar los mismos datos del recurso"** permite copiar automaticamente esos valores a los permisos del Paso 3, evitando tener que seleccionarlos de nuevo.
+</Tip>
+
+El boton **Guardar** confirma la creacion. Se habilita solo cuando los tres campos de permisos estan completos. Al guardar, el sistema crea primero el contenido, sube el archivo si corresponde, y luego asocia el recurso a la biblioteca de la escuela con los permisos indicados.
+
+## Acciones sobre recursos existentes
+
+Las acciones disponibles sobre cada recurso dependen del origen del contenido:
+
+| Accion | Recursos de editorial | Recursos de docentes/admin |
+|--------|----------------------|---------------------------|
+| **Ver contenido** | Si (clic en el nombre) | Si (clic en el nombre) |
+| **Editar informacion** | No | Si |
+| **Configurar permisos** | No | Si |
+| **Eliminar** | No | Si |
+
+<Note>
+  Los recursos creados desde el Backoffice por la editorial aparecen con el autor "Editorial" y no muestran el menu contextual de acciones. Solo los recursos anadidos por usuarios con rol de docente, estudiante o administrador docente permiten edicion y eliminacion.
+</Note>
+
+### Ver contenido
+
+Al hacer clic en el nombre de un recurso, se abre un dialogo de previsualizacion que muestra el contenido del recurso (nombre, tipo y un visor embebido segun el formato).
+
+### Editar informacion
+
+La opcion **Editar informacion** del menu contextual de la fila abre un dialogo con los mismos campos del Paso 1 de la creacion: titulo, disponibilidad, etapa, nivel educativo, asignatura y descripcion. Los campos se precargan con los valores actuales del recurso.
+
+El boton **Aceptar** se habilita solo cuando se ha modificado al menos un campo respecto a los valores originales y el titulo tiene al menos 3 caracteres.
+
+### Configurar permisos
+
+La opcion **Configurar permisos** (icono de engranaje) abre un dialogo con los mismos campos del Paso 3 de la creacion: etapa, nivel educativo y asignatura. Los valores actuales se precargan y el boton **Aceptar** se habilita solo cuando se ha realizado al menos un cambio y ningun campo de permisos queda vacio.
+
+### Eliminar recurso
+
+La opcion **Eliminar recurso** (icono de papelera) solicita una confirmacion antes de proceder. Una vez confirmada, la eliminacion es irreversible.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No veo la seccion Biblioteca en el menu lateral">
+    La Biblioteca esta controlada por el feature flag `enableLibrary`. Si no aparece en el menu, significa que el tenant no tiene esta funcionalidad habilitada. El administrador debe contactar a la editorial para solicitar su activacion.
+  </Accordion>
+  <Accordion title="No puedo editar ni eliminar un recurso">
+    Solo los recursos creados por usuarios con rol de docente, estudiante o administrador docente muestran las opciones de edicion y eliminacion. Los recursos creados por la editorial desde el Backoffice son de solo lectura para el administrador de escuela.
+  </Accordion>
+  <Accordion title="Los permisos de acceso no se muestran completos">
+    Cuando un recurso tiene mas de 6 permisos asociados (combinacion de niveles y asignaturas), la tabla muestra los primeros chips y un indicador "+N" con el conteo restante.
+  </Accordion>
+  <Accordion title="El selector de nivel educativo aparece deshabilitado al crear un recurso">
+    El campo **Nivel educativo** depende de la seleccion de **Etapa**. Hasta que no se seleccione al menos una etapa, el campo de nivel permanece deshabilitado, tanto en el Paso 1 (informacion) como en el Paso 3 (permisos).
+  </Accordion>
+  <Accordion title="Que tipos de archivo se pueden subir">
+    La biblioteca admite los siguientes tipos de contenido: Audio, Imagen, Libro Digital Fixed Layout, HTML Interactivo, Link, documentos OFFICE, PDF, paquetes Tin-can xApi y Video. El tipo de contenido se detecta automaticamente segun la extension del archivo subido.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de grupos" icon="users" href="/admin-escuela/grupos/gestion-grupos">
+    Los recursos de la biblioteca pueden complementar los contenidos asignados a los grupos de la escuela.
+  </Card>
+  <Card title="Programas digitales" icon="book-open" href="/admin-escuela/programas-digitales/programas-digitales">
+    Los programas digitales contienen contenidos estructurados por lecciones, mientras que la biblioteca ofrece recursos individuales.
+  </Card>
+</CardGroup>

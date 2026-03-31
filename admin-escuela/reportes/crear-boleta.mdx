@@ -1,0 +1,277 @@
+---
+title: "Crear una boleta"
+description: "Constructor visual de boletas de calificaciones con configuracion general, avanzada y de informacion escolar"
+icon: "plus"
+---
+
+## Descripcion
+
+El constructor de boletas permite al administrador de escuela configurar todos los aspectos de una boleta de calificaciones a traves de un formulario organizado en tres pestanas: **General**, **Avanzada** y **Escuela**. El panel derecho muestra una vista previa en tiempo real que refleja los cambios a medida que se configuran.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Acceder a la lista de reportes">
+    El administrador navega a `/reports` desde el menu lateral o la URL directa.
+  </Step>
+  <Step title="Iniciar la creacion">
+    Desde la lista de reportes, el administrador hace clic en el boton **+** de la cabecera. Si no hay boletas, el boton **Crear boleta** del estado vacio cumple la misma funcion.
+
+    El sistema navega a `/report/create` y muestra el constructor con la pestana **General** activa.
+
+    ![Constructor de boleta - Pestana General](/assets/screenshots/admin-school/reports/crear-boleta-general.png)
+  </Step>
+</Steps>
+
+## Pestana General
+
+La pestana General contiene la configuracion principal de la boleta, organizada en tres secciones: datos basicos, filtros y apariencia.
+
+### Datos basicos
+
+<Steps>
+  <Step title="Titulo de la boleta">
+    Campo de texto libre obligatorio. El titulo identifica la boleta en la lista y aparece como nombre del archivo al descargar.
+
+    Ejemplo: *Boleta Trimestre 1 - 4to Primaria*
+  </Step>
+  <Step title="Tipo de boleta">
+    Selector de tipo con cuatro opciones mutuamente excluyentes. Cada opcion incluye una breve descripcion de lo que genera:
+
+    - **Estandar**: Notas por estudiante, organizadas por grupo y materia.
+    - **Compacta**: Notas por estudiante, organizadas por materia (sin promedios del grupo).
+    - **Calificacion**: Notas por nivel educativo, detalladas por tipos de item evaluable.
+    - **Estudiante**: Todas las calificaciones de todos los estudiantes de la escuela.
+
+    <Warning>
+      Cambiar el tipo de boleta cuando ya hay configuracion reinicia todos los valores del formulario. El sistema muestra un dialogo de confirmacion antes de aplicar el cambio.
+    </Warning>
+  </Step>
+</Steps>
+
+### Filtros
+
+La seccion de filtros se adapta segun el tipo de boleta seleccionado. Para los tipos **Estandar** y **Compacta**, muestra todos los filtros. Para **Calificacion**, omite el grupo y los estudiantes. Para **Estudiante**, no muestra filtros.
+
+![Formulario completo con filtros y vista previa](/assets/screenshots/admin-school/reports/crear-boleta-formulario-completo.png)
+
+<Steps>
+  <Step title="Nivel educativo">
+    Selector obligatorio que muestra todos los niveles y anos educativos disponibles en la escuela (Infantil, Primaria, ESO, Bachillerato). Al cambiar el nivel educativo, se reinician el grupo, los estudiantes y los periodos de evaluacion.
+  </Step>
+  <Step title="Grupo">
+    Selector obligatorio (solo para tipos Estandar y Compacta) que muestra los grupos filtrados por el nivel educativo seleccionado. Al seleccionar un grupo, el sistema carga automaticamente los estudiantes y los periodos de evaluacion disponibles.
+  </Step>
+  <Step title="Periodos de evaluacion">
+    Dos modos de seleccion de periodos:
+
+    - **Periodos estandar**: Muestra checkboxes con los periodos de evaluacion detectados en los cursos del grupo. Por defecto, todos los periodos quedan seleccionados.
+    - **Periodos personalizados**: Permite crear subperiodos personalizados con fechas de inicio y fin especificas dentro de cada periodo de evaluacion.
+
+    <Tip>
+      Los periodos estandar y personalizados son mutuamente excluyentes. Al seleccionar periodos estandar, los personalizados se deseleccionan y viceversa.
+    </Tip>
+  </Step>
+  <Step title="Estudiantes del grupo">
+    Toggle **Mostrar solo alumnos del grupo** (activo por defecto) y lista de estudiantes con checkboxes. Al seleccionar un grupo, todos los estudiantes quedan seleccionados automaticamente. El administrador puede deseleccionar estudiantes individuales para excluirlos de la boleta.
+
+    La lista incluye busqueda por nombre y avatar de cada estudiante.
+  </Step>
+</Steps>
+
+### Apariencia
+
+<Steps>
+  <Step title="Orientacion de la pagina">
+    Selector con dos opciones:
+    - **Vertical** (por defecto): Formato retrato.
+    - **Horizontal**: Formato apaisado, util cuando hay muchos periodos de evaluacion.
+  </Step>
+  <Step title="Maximo de columnas por pagina">
+    Campo numerico que controla cuantas columnas de periodos se muestran en cada tabla antes de continuar en una nueva tabla. El valor minimo es **3** y el valor por defecto es **10**.
+  </Step>
+  <Step title="Tamano de la fuente">
+    Selector con tres opciones:
+    - **Pequena (12px)**
+    - **Mediana (14px)** (por defecto)
+    - **Grande (16px)**
+  </Step>
+</Steps>
+
+## Pestana Avanzada
+
+La pestana Avanzada permite configurar como se calculan y visualizan los promedios y las categorias de evaluacion en la boleta.
+
+![Pestana Avanzada del constructor](/assets/screenshots/admin-school/reports/crear-boleta-avanzada-completa.png)
+
+<Steps>
+  <Step title="Escala del promedio final">
+    Selector obligatorio que determina la escala de calificacion utilizada para calcular los promedios finales. Solo aparecen las escalas marcadas como "Disponibles" en **Configuracion > Escalas de evaluacion**.
+
+    <Warning>
+      Si no hay escalas disponibles, el selector mostrara "No hay opciones..." y no sera posible guardar la boleta. El administrador debe habilitar al menos una escala desde la configuracion de la escuela antes de crear reportes.
+    </Warning>
+  </Step>
+  <Step title="Visualizacion de promedios">
+    Checkboxes independientes que controlan que promedios se incluyen en la boleta:
+
+    | Opcion | Descripcion |
+    |--------|-------------|
+    | **Promedios finales** | Muestra el promedio general del estudiante al final de la boleta. |
+    | **Promedios por periodo** | Muestra el promedio de cada periodo de evaluacion. |
+    | **Promedios por materia** | Muestra una columna de promedio por materia. |
+    | **Promedios del grupo** | Muestra el promedio del grupo completo. No disponible para el tipo Compacta. |
+  </Step>
+  <Step title="Visualizacion de categorias de evaluacion">
+    Toggle que, cuando esta activo, muestra el desglose por categorias evaluables (tareas, quizzes, actividades, etc.) dentro de cada materia.
+  </Step>
+  <Step title="Visualizacion de materias">
+    Toggle que, cuando esta activo, incluye las materias especificas creadas por la escuela ademas de las materias del programa editorial.
+  </Step>
+</Steps>
+
+## Pestana Escuela
+
+La pestana Escuela configura la informacion institucional que aparece en el encabezado, pie y margenes de la boleta. Cada seccion tiene un toggle que permite activarla o desactivarla.
+
+![Pestana Escuela del constructor](/assets/screenshots/admin-school/reports/crear-boleta-escuela.png)
+
+### Informacion de la escuela
+
+<Steps>
+  <Step title="Activar la seccion">
+    El toggle **Mostrar informacion de la escuela** controla la visibilidad de esta seccion. Al activarlo, se precarga automaticamente el nombre de la escuela activa.
+  </Step>
+  <Step title="Nombre de la escuela">
+    Campo de texto editable que aparece en el encabezado de la boleta. Se precarga con el nombre registrado de la escuela.
+  </Step>
+  <Step title="Logotipo">
+    Permite subir o seleccionar un logotipo que aparece en la esquina del encabezado. Se precarga con el logo de marca de la escuela si esta disponible. Acepta un solo archivo de imagen.
+  </Step>
+</Steps>
+
+### Firmas digitales
+
+<Steps>
+  <Step title="Activar firmas">
+    El toggle **Mostrar firmas digitales** habilita dos columnas de firma (izquierda y derecha) que aparecen al pie de la boleta.
+  </Step>
+  <Step title="Configurar cada firma">
+    Cada firma (izquierda y derecha) permite configurar:
+    - **Titulo del cargo**: Por ejemplo, "Director/a" o "Tutor/a".
+    - **Nombre completo**: Nombre de la persona que firma.
+    - **Imagen de firma**: Imagen digitalizada de la firma manuscrita.
+  </Step>
+</Steps>
+
+### Informacion de contacto
+
+<Steps>
+  <Step title="Activar informacion de contacto">
+    El toggle **Mostrar informacion de contacto** habilita los campos de contacto que aparecen al pie de la boleta.
+  </Step>
+  <Step title="Completar datos de contacto">
+    Tres campos disponibles:
+    - **Direccion de la escuela**: Campo de texto multilínea.
+    - **Telefono**: Campo de texto.
+    - **Correo electronico**: Campo de texto.
+  </Step>
+</Steps>
+
+### Reconocimientos
+
+<Steps>
+  <Step title="Activar reconocimientos">
+    El toggle **Mostrar reconocimientos de la escuela** habilita la seccion de logos de certificaciones o acreditaciones.
+  </Step>
+  <Step title="Subir imagenes">
+    Permite subir multiples imagenes de certificaciones o sellos de calidad que aparecen al final de la boleta.
+  </Step>
+</Steps>
+
+## Vista previa en tiempo real
+
+El panel derecho del constructor muestra una representacion en tiempo real de como lucira la boleta. La vista previa incluye:
+
+- **Encabezado**: Logotipo, nombre de la escuela, nombre del primer estudiante seleccionado, periodo escolar y fecha.
+- **Tabla de calificaciones**: Estructura con materias, categorias (si estan activas) y columnas por periodo de evaluacion. Muestra datos de ejemplo con valores "0,0".
+- **Firmas**: Imagenes de firma y nombres de los firmantes.
+- **Informacion de contacto**: Direccion, telefono y correo electronico.
+- **Reconocimientos**: Logos de certificaciones.
+
+<Note>
+  La vista previa muestra datos de ejemplo, no calificaciones reales. Su proposito es verificar la estructura y el formato del documento antes de generarlo.
+</Note>
+
+## Guardar la boleta
+
+Al hacer clic en **Guardar boleta**, el sistema ejecuta las siguientes validaciones en orden:
+
+1. El titulo no puede estar vacio.
+2. El tipo de boleta debe estar seleccionado.
+3. El nivel educativo es obligatorio (excepto para tipo Estudiante).
+4. El grupo es obligatorio (solo para tipos Estandar y Compacta).
+5. La escala del promedio final es obligatoria.
+6. Debe haber al menos un estudiante seleccionado (solo para tipos Estandar y Compacta).
+
+Si alguna validacion falla, el sistema muestra un dialogo informativo indicando el campo requerido.
+
+![Dialogo de validacion de campos requeridos](/assets/screenshots/admin-school/reports/validacion-campos-requeridos.png)
+
+Una vez superadas las validaciones, el sistema inicia la generacion de la boleta en segundo plano y redirige a la lista de reportes con un mensaje de confirmacion. El proceso puede tardar unos segundos dependiendo de la cantidad de datos.
+
+## Editar una boleta existente
+
+Al seleccionar **Editar** desde el menu contextual de la lista de reportes, el constructor se abre en la ruta `/report/edit/:guid` con toda la configuracion precargada:
+
+- La cabecera muestra **Editar boleta** en lugar de **Crear boleta**.
+- Todos los campos se rellenan con los valores guardados previamente.
+- Los estudiantes, periodos y filtros se restauran automaticamente.
+
+Al guardar, el sistema actualiza la configuracion y regenera la boleta.
+
+<Note>
+  Al salir del constructor sin guardar, el sistema muestra un dialogo de confirmacion para evitar la perdida de cambios no guardados.
+</Note>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El selector de escalas muestra 'No hay opciones...'">
+    Las escalas deben estar marcadas como "Disponibles" en **Configuracion > Escalas de evaluacion**. Solo las escalas con el toggle de disponibilidad activo aparecen en el selector del constructor de boletas.
+  </Accordion>
+  <Accordion title="No aparecen estudiantes al seleccionar un grupo">
+    El grupo seleccionado no tiene estudiantes asignados. El administrador debe asignar estudiantes al grupo desde la seccion **Grupos > Detalle del grupo** antes de crear la boleta.
+  </Accordion>
+  <Accordion title="Los periodos de evaluacion aparecen vacios">
+    Los periodos se obtienen de los cursos asignados al grupo. Si el grupo no tiene cursos con periodos de evaluacion configurados, la lista estara vacia. El administrador debe verificar la asignacion de contenidos y la configuracion de periodos en el grupo.
+  </Accordion>
+  <Accordion title="Cambiar el tipo de boleta reinicia el formulario">
+    Es el comportamiento esperado. Al cambiar el tipo, las secciones de filtros cambian significativamente, por lo que el sistema reinicia todos los valores para evitar inconsistencias. El dialogo de confirmacion avisa antes de aplicar el cambio.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Boletas y Reportes" icon="file-text" href="/admin-escuela/reportes/vista-general">
+    Vision general del modulo de reportes y la lista de boletas.
+  </Card>
+  <Card title="Descarga de reportes" icon="download" href="/admin-escuela/reportes/descarga-reportes">
+    Como visualizar y descargar las boletas generadas en PDF y Excel.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: /report/create, /report/edit/:guid
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/reports/ReportCreatePage/, src/app/modules/reports/ReportConfiguration*, src/app/modules/reports/ReportDraft/
+  - Ultima revision: 2026-03-31
+*/}

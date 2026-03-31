@@ -1,0 +1,163 @@
+---
+title: "Importacion masiva de usuarios"
+description: "Importar multiples usuarios a la escuela desde un archivo Excel o CSV"
+icon: "upload"
+---
+
+## Descripcion
+
+La importacion masiva permite al administrador de escuela registrar multiples usuarios de forma simultanea a partir de un archivo Excel (.xlsx, .xls) o CSV. El proceso consta de dos fases: subida del archivo y validacion previa a la importacion. Esto resulta especialmente util al inicio del curso escolar, cuando es necesario dar de alta a decenas o cientos de estudiantes y docentes.
+
+<Info>
+  **Rol requerido:** Administrador de escuela
+</Info>
+
+## Como acceder
+
+<Steps>
+  <Step title="Abrir el menu de creacion">
+    Desde el [listado de usuarios](/admin-escuela/usuarios/gestion-usuarios), el administrador hace clic en el boton **+** de la esquina superior derecha.
+  </Step>
+  <Step title="Seleccionar Importar lista">
+    En el menu desplegable, selecciona **Importar lista**.
+
+    ![Menu con las opciones Anadir usuario e Importar lista](/assets/screenshots/admin-school/users/menu-agregar.png)
+  </Step>
+</Steps>
+
+## Fase 1: Subida del archivo
+
+Al seleccionar **Importar lista**, el sistema muestra un dialogo para cargar el archivo de usuarios.
+
+![Dialogo de importacion de usuarios](/assets/screenshots/admin-school/users/dialogo-importar-usuarios.png)
+
+### Formato del archivo
+
+El archivo debe contener las siguientes columnas:
+
+| Columna | Obligatoria | Descripcion |
+|---------|-------------|-------------|
+| **name** | Si | Nombre del usuario |
+| **lastname** | Si | Apellidos del usuario |
+| **email** | Si | Correo electronico (se usa tambien como nombre de usuario) |
+| **password** | Si | Contrasena inicial del usuario |
+| **role** | Si | `student` para estudiante, `teacher` para docente |
+| **group** | No | Codigo del grupo al que se asigna el usuario. Puede contener varios codigos separados por comas |
+
+<Tip>
+  El dialogo incluye un enlace **Plantilla modelo** en la esquina inferior izquierda que permite descargar un archivo Excel con la estructura correcta y columnas de ejemplo. Se recomienda utilizar esta plantilla como punto de partida.
+</Tip>
+
+### Formatos aceptados
+
+El sistema acepta archivos en los siguientes formatos:
+
+- **CSV** (`.csv`)
+- **Excel** (`.xls`, `.xlsx`)
+
+El boton **Anadir** se habilita una vez que el administrador selecciona o arrastra un archivo valido al area de carga.
+
+## Fase 2: Validacion y confirmacion
+
+Tras cargar el archivo, el sistema valida cada registro contra la base de datos y muestra una tabla de prevalidacion a pantalla completa. Esta tabla permite al administrador revisar el resultado antes de confirmar la importacion.
+
+### Columnas de la tabla de validacion
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Nombre** | Nombre del usuario tal como aparece en el archivo |
+| **Apellidos** | Apellidos del usuario |
+| **Email** | Correo electronico |
+| **Contrasena** | Contrasena del archivo (visible en texto) |
+| **Rol** | Rol traducido (Estudiante o Docente) |
+| **Codigo de clase** | Grupo(s) asignado(s) |
+| **Estado** | Icono de validacion (ver abajo) |
+| **Eliminar** | Boton para descartar un registro individual |
+
+### Estados de validacion
+
+Cada fila tiene un indicador de estado con semaforo:
+
+| Estado | Significado | Accion requerida |
+|--------|-------------|-----------------|
+| **Verde (exito)** | El usuario es valido y se creara correctamente | Ninguna |
+| **Amarillo (advertencia)** | El email ya existe en la escuela | Decidir si actualizar datos del usuario existente |
+| **Rojo (error)** | Hay un problema que impide la importacion | Corregir o eliminar la fila |
+
+### Tipos de errores detectados
+
+El sistema detecta y notifica los siguientes problemas:
+
+- **Grupo invalido**: El codigo de grupo no existe en la escuela
+- **Nombre invalido**: El campo nombre esta vacio o tiene formato incorrecto
+- **Apellido invalido**: El campo apellido esta vacio o tiene formato incorrecto
+- **Contrasena invalida**: El campo contrasena esta vacio
+- **Rol invalido**: El rol no es `student` ni `teacher`
+- **Email duplicado**: El mismo email aparece mas de una vez en el archivo
+- **Licencias insuficientes**: No hay licencias disponibles para los contenidos del grupo
+- **Usuario en otra escuela**: El email ya esta registrado en una escuela diferente
+
+El resumen en la cabecera de la tabla muestra el total de usuarios, cuantos tienen errores y cuantos son usuarios existentes (advertencias).
+
+### Actualizar usuarios existentes
+
+Cuando el archivo contiene emails que ya existen en la escuela (estado amarillo), el administrador puede activar el toggle **Actualizar usuarios** en la esquina superior derecha de la tabla de validacion. Al activarlo:
+
+1. El sistema solicita confirmacion mediante un dialogo
+2. El administrador decide si desea **mantener las contrasenas actuales** (checkbox "Mantener contrasenas", activado por defecto) o sobrescribirlas con las del archivo
+3. Al confirmar, las filas amarillas pasan a estado verde y se incluyen en la importacion
+
+<Warning>
+  Si se desactiva la casilla "Mantener contrasenas", las contrasenas de los usuarios existentes se sobrescriben con las del archivo. Esto puede afectar a usuarios que ya estan usando la plataforma.
+</Warning>
+
+### Eliminar registros individuales
+
+El icono de papelera en cada fila permite descartar registros con errores o que no se desean importar. Al eliminar un registro, el sistema revalida automaticamente el resto (por ejemplo, un duplicado de email que pasaria a ser valido).
+
+### Confirmar importacion
+
+El boton **Importar lista** al pie del dialogo ejecuta la importacion. Este boton se habilita unicamente cuando:
+
+- Hay al menos un usuario en la lista
+- No quedan registros con estado de error ni advertencia
+
+Tras la importacion exitosa, el sistema muestra un mensaje de confirmacion y el listado de usuarios se actualiza automaticamente.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El archivo tiene formatos mixtos en la columna email">
+    El sistema valida que cada email tenga formato correcto. Los registros con emails invalidos apareceran con estado de error en la tabla de validacion. El administrador puede eliminarlos individualmente y corregir el archivo original para una segunda importacion.
+  </Accordion>
+  <Accordion title="Quiero asignar un usuario a varios grupos">
+    En la columna `group` del archivo, el administrador puede incluir varios codigos de grupo separados por comas (ej. `GRP001,GRP002`). El sistema asignara al usuario a todos los grupos indicados.
+  </Accordion>
+  <Accordion title="No tengo licencias suficientes para los contenidos del grupo">
+    Si los grupos del archivo tienen contenidos configurados y no hay licencias disponibles, el sistema muestra un error de licencias en la cabecera de la tabla de validacion, indicando cuantas licencias se necesitan y cuantas hay disponibles para cada contenido. Es necesario resolver la disponibilidad de licencias antes de poder importar.
+  </Accordion>
+  <Accordion title="Puedo importar administradores de escuela">
+    No. La importacion masiva solo admite los roles `student` (estudiante) y `teacher` (docente). Los administradores de escuela deben crearse desde el Backoffice.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de usuarios" icon="users" href="/admin-escuela/usuarios/gestion-usuarios">
+    Listado completo de usuarios con busqueda, filtros y creacion individual.
+  </Card>
+  <Card title="Detalle de usuario" icon="user" href="/admin-escuela/usuarios/detalle-usuario">
+    Ficha del usuario con datos personales, grupos y contenidos asignados.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicacion: admin-escuela
+  - Seccion UI: Usuarios (modal desde listado)
+  - Archivos de codigo relacionados:
+    - frontend: src/app/modules/users/UserImport/
+  - Ultima revision: 2026-03-31
+*/}
