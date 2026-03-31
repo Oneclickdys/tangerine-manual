@@ -257,14 +257,6 @@
             ]
           },
           {
-            "group": "Reportes",
-            "pages": [
-              "admin-escuela/reportes/vista-general",
-              "admin-escuela/reportes/crear-boleta",
-              "admin-escuela/reportes/descarga-reportes"
-            ]
-          },
-          {
             "group": "Analitica",
             "pages": [
               "admin-escuela/analitica/analitica-uso",

@@ -211,25 +211,6 @@
       "lastDocumented": "2026-03-31",
       "notes": "Detalle de licencia con lista de usuarios asignados. Tres pestanas: Estudiantes, Docentes, Contenidos. Tarjeta de consumo con barra de progreso. Accion Ver perfil por usuario."
     },
-    "reports/list": {
-      "name": "Boletas / Reportes",
-      "description": "Crear y gestionar boletas de calificaciones con constructor visual",
-      "section": "Reportes",
-      "route": "/reports",
-      "priority": "P2",
-      "status": "documented",
-      "complexity": "complex-workflow",
-      "docFile": ["admin-escuela/reportes/vista-general", "admin-escuela/reportes/crear-boleta", "admin-escuela/reportes/descarga-reportes"],
-      "codeFiles": {
-        "frontend": ["src/app/pages/reports/ReportsPage/", "src/app/pages/reports/ReportCreatePage/", "src/app/pages/reports/ReportDownloadPage/", "src/app/modules/reports/"],
-        "backend": []
-      },
-      "tenantVariations": [],
-      "featureFlags": [],
-      "relatedFeatures": [],
-      "lastDocumented": "2026-03-31",
-      "notes": "CRUD de boletas con constructor visual (pestanas: general, escuela, tarjeta, avanzado). Preview en tiempo real. Descarga de reportes. No aparece en el menu lateral por defecto - accesible via URL directa /reports. Puede estar controlado por feature flags o permisos de rol."
-    },
     "analytics/licenses": {
       "name": "Analitica de licencias",
       "description": "Estadisticas de licencias emitidas, activadas y tasa de conversion con graficos",

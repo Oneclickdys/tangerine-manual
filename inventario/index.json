@@ -65,21 +65,21 @@
     }
   },
   "stats": {
-    "total": 88,
+    "total": 87,
     "byApp": {
       "backoffice": 43,
       "frontoffice-teacher": 16,
       "frontoffice-student": 9,
-      "admin-school": 20
+      "admin-school": 19
     },
     "byPriority": {
       "P1": 36,
-      "P2": 41,
+      "P2": 40,
       "P3": 11,
       "P4": 0
     },
     "byStatus": {
-      "documented": 74,
+      "documented": 73,
       "pending": 14,
       "in_progress": 0,
       "needs_review": 0,
