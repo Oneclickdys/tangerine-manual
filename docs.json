@@ -128,6 +128,7 @@
             "group": "Curso",
             "pages": [
               "frontoffice-docentes/curso/vista-curso",
+              "frontoffice-docentes/curso/configurar-curso",
               "frontoffice-docentes/curso/programa",
               "frontoffice-docentes/curso/personalizar-programa",
               "frontoffice-docentes/curso/stream",

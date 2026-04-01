@@ -268,6 +268,25 @@
       "lastDocumented": "2026-03-29",
       "notes": "Tres variantes de calendario segun configuracion del tenant: avanzado con horas (por defecto), semanal sin horas (MX/Santillana Piloto), legacy (isLegacyCalendar). Drag & drop de sesiones disponible en variantes semanal sin horas y legacy."
     },
+    "course/configure": {
+      "name": "Configurar curso",
+      "description": "Dialogo para definir fechas de periodos academicos y horarios semanales de un curso, distribuyendo automaticamente las sesiones en el calendario",
+      "section": "Curso/Aula",
+      "route": "/home (dialogo desde tarjeta de curso)",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "multi-step-form",
+      "docFile": "frontoffice-docentes/curso/configurar-curso.mdx",
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/ConfigureCourseAdvancedView/", "src/core/modules/components/dialogs/DialogConfigureCourseAdvanced/", "src/core/modules/components/cards/CourseCard/CourseCard.js"],
+        "backend": ["v3/front/course/{guid}/config/periods"]
+      },
+      "tenantVariations": ["Santillana Piloto usa ConfigureCourseView estandar en lugar de ConfigureCourseAdvancedView"],
+      "featureFlags": ["enableTeacherConfigCourse"],
+      "relatedFeatures": ["calendar/view", "course/program", "home/classrooms"],
+      "lastDocumented": "2026-04-01",
+      "notes": "Dos versiones: Advanced (por defecto, usa API v3) y Standard (legacy, para Santillana Piloto y tenants con isLegacyCalendar). El boton directo 'Configurar curso' solo aparece en cursos sin configuracion (hasTimetable=false). Periodos segun evaluation_period del curso: anual (1), semestral (2), trimestral (3), bimestral (4). Al guardar, las sesiones existentes se recalculan."
+    },
     "tasks/list": {
       "name": "Gestor de tareas",
       "description": "Vista de todas las tareas pendientes de revisar",

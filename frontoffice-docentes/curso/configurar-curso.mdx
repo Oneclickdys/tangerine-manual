@@ -1,0 +1,183 @@
+---
+title: "Configurar curso"
+description: "Define las fechas de los períodos académicos y los horarios semanales de cada curso para distribuir automáticamente las sesiones en el calendario"
+icon: "calendar-cog"
+---
+
+La configuración del curso permite al docente establecer cuándo se imparten las sesiones de un programa digital: en qué fechas arranca y termina cada período académico, y en qué días y horas de la semana se dan las clases. A partir de esta configuración, la plataforma distribuye automáticamente el contenido del programa en el calendario.
+
+<Info>
+  **Rol requerido:** Docente
+</Info>
+
+<Note>
+  Esta funcionalidad requiere que el setting **enableTeacherConfigCourse** esté activado para el tenant. Si el botón "Configurar curso" no aparece en las tarjetas de curso, es posible que la institución no tenga esta opción habilitada.
+</Note>
+
+## Cuándo configurar un curso
+
+La configuración del curso es el primer paso que el docente debe completar antes de empezar a trabajar con el calendario y la programación de sesiones. Sin ella, el calendario no tiene información sobre cuándo distribuir las sesiones del programa.
+
+Es recomendable configurar el curso:
+
+- **Al inicio del año escolar**, para que las sesiones se distribuyan correctamente desde el primer día
+- **Cuando cambia el horario semanal**, por ejemplo al pasar de un trimestre a otro con distinta carga lectiva
+- **Cuando se necesita ajustar las fechas** de un período académico
+
+<Warning>
+  Si el curso ya tiene sesiones distribuidas en el calendario y se guarda una nueva configuración, **las fechas de las sesiones existentes se pierden** y se recalculan según la nueva configuración. La plataforma muestra un diálogo de confirmación antes de guardar.
+</Warning>
+
+## Acceder a la configuración
+
+El acceso a "Configurar curso" se realiza desde la pantalla principal (Home) del docente, en la sección **Grupos**.
+
+<Steps>
+  <Step title="Localizar el curso">
+    Desde el Home, en la pestaña **Grupos**, el docente localiza la tarjeta del curso que desea configurar dentro de su grupo escolar.
+
+    <Frame>
+      <img src="/assets/screenshots/frontoffice-docente/configurar-curso/01-boton-configurar-curso.png" alt="Tarjeta de curso con el botón Configurar curso visible en la parte inferior" />
+    </Frame>
+  </Step>
+  <Step title="Abrir la configuración">
+    Existen dos formas de acceder:
+
+    - **Botón directo:** Si el curso aún no ha sido configurado, aparece un botón **Configurar curso** con un icono de calendario directamente en la tarjeta del curso. Al hacer clic, se abre el diálogo de configuración.
+    - **Menú de acciones:** En la esquina superior derecha de la tarjeta del curso hay un icono de tres puntos (⋮). Al hacer clic, se despliega un menú con la opción **Configurar curso**.
+
+    <Tip>
+      El botón directo solo aparece en cursos que aún no tienen configuración. Una vez configurado, la opción solo está disponible desde el menú de tres puntos.
+    </Tip>
+  </Step>
+</Steps>
+
+## Estructura del diálogo de configuración
+
+Al abrir la configuración, se muestra un diálogo a pantalla completa con los siguientes elementos:
+
+### Cabecera
+
+La cabecera muestra la información del curso: nombre del programa, nivel educativo, nombre de la clase e imagen del programa. Esto ayuda a confirmar que se está configurando el curso correcto.
+
+### Períodos académicos
+
+El contenido principal se organiza en **acordeones**, uno por cada período académico del curso. El número de períodos depende de la configuración del período de evaluación definido para el curso:
+
+| Período de evaluación | Períodos a configurar |
+|-----------------------|----------------------|
+| **Anual** | 1 período (Año escolar) |
+| **Semestral** | 2 períodos (Semestre 1, Semestre 2) |
+| **Trimestral** | 3 períodos (Trimestre 1, Trimestre 2, Trimestre 3) |
+| **Bimestral** | 4 períodos (Bimestre 1, Bimestre 2, Bimestre 3, Bimestre 4) |
+
+Cada período se expande por defecto al abrir el diálogo y contiene dos secciones: **Fechas** y **Horarios**.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/configurar-curso/05-trimestre-con-horarios.png" alt="Diálogo de configuración de curso mostrando el Trimestre 1 con fechas y horarios configurados, y el Trimestre 2 con los horarios copiados" />
+</Frame>
+
+## Configurar las fechas del período
+
+Cada período tiene un rango de fechas que define cuándo empieza y cuándo termina.
+
+<Steps>
+  <Step title="Establecer la fecha de inicio">
+    En la sección **Fechas**, el campo **Desde** permite seleccionar la fecha de inicio del período mediante un selector de fecha (formato DD/MM/AAAA). Los fines de semana están excluidos del selector.
+  </Step>
+  <Step title="Establecer la fecha de fin">
+    El campo **Hasta** permite seleccionar la fecha de finalización del período. La fecha de fin debe ser igual o posterior a la fecha de inicio.
+  </Step>
+</Steps>
+
+<Note>
+  Las fechas de períodos consecutivos no pueden solaparse. El selector de fechas restringe automáticamente los rangos disponibles para evitar conflictos entre períodos.
+</Note>
+
+## Configurar los horarios semanales
+
+La sección **Horarios** define en qué días y horas de la semana se imparte el curso durante ese período.
+
+<Steps>
+  <Step title="Seleccionar el día de la semana">
+    El primer campo es un selector desplegable con los días de la semana (Lunes a Domingo). El docente selecciona el día en que se imparte la clase.
+  </Step>
+  <Step title="Definir el rango horario">
+    Junto al selector de día aparece un rango de horas (inicio y fin) en formato HH:MM. El docente establece la hora de inicio y fin de la sesión para ese día.
+  </Step>
+  <Step title="Añadir más días">
+    Si el curso se imparte en varios días de la semana, el docente hace clic en el botón **+** (añadir) para agregar líneas adicionales de día y horario. Cada línea puede tener un día y rango horario distinto.
+  </Step>
+  <Step title="Eliminar un día">
+    Para quitar un día del horario, el docente hace clic en el icono de papelera junto a la línea correspondiente. Si solo queda una línea, el icono de eliminar no se muestra.
+  </Step>
+</Steps>
+
+<Tip>
+  Un mismo día puede aparecer varias veces si el curso tiene múltiples sesiones ese día (por ejemplo, Lunes de 9:00 a 10:00 y Lunes de 11:00 a 12:00).
+</Tip>
+
+### Aplicar el mismo horario a todos los períodos
+
+Cuando el curso tiene más de un período, el primer período muestra una casilla **"Aplicar en todos los períodos"**. Al activarla, el horario configurado en el primer período se copia automáticamente a los demás períodos. Esto resulta útil cuando el horario semanal es el mismo durante todo el año escolar.
+
+<Note>
+  Al aplicar el mismo horario, solo se copian los días y horas, no las fechas de inicio y fin. Cada período mantiene sus propias fechas.
+</Note>
+
+## Guardar la configuración
+
+<Steps>
+  <Step title="Finalizar la configuración">
+    Una vez completados todos los períodos, el docente hace clic en el botón **Finalizar** en la parte inferior del diálogo.
+  </Step>
+  <Step title="Confirmar los cambios">
+    La plataforma muestra un diálogo de confirmación con el mensaje: **"Si has realizado cambios en las fechas de las sesiones, se perderán cuando guardes esta configuración. ¿Deseas continuar?"**. El docente confirma haciendo clic en **Guardar configuración**.
+  </Step>
+  <Step title="Verificar en el calendario">
+    Tras guardar, las sesiones del programa se distribuyen automáticamente en el [calendario](/frontoffice-docentes/calendario/vista-calendario) según las fechas y horarios configurados.
+  </Step>
+</Steps>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Qué ocurre si el curso no tiene configuración previa?">
+    Si es la primera vez que se configura el curso, los períodos aparecen vacíos (sin fechas ni horarios). Al intentar guardar sin haber completado la información, la plataforma muestra un mensaje indicando que no se encontró configuración y cierra el diálogo sin realizar cambios.
+  </Accordion>
+  <Accordion title="¿Se pueden modificar las fechas después de guardar?">
+    Sí. El docente puede volver a abrir la configuración desde el menú de tres puntos de la tarjeta del curso y ajustar las fechas y horarios. Sin embargo, al guardar la nueva configuración, las sesiones previamente distribuidas en el calendario se recalculan.
+  </Accordion>
+  <Accordion title="¿Cómo afecta a las sesiones ya planificadas en el calendario?">
+    Al guardar una nueva configuración, las sesiones existentes se eliminan y se redistribuyen según los nuevos parámetros. Cualquier personalización manual que el docente haya realizado sobre sesiones individuales en el calendario se perderá.
+  </Accordion>
+  <Accordion title="¿El período de evaluación se puede cambiar desde aquí?">
+    No. El período de evaluación (anual, trimestral, etc.) está definido a nivel del curso y no se modifica desde esta pantalla. El número de períodos que aparecen en la configuración refleja la estructura ya establecida.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Calendario general" icon="calendar" href="/frontoffice-docentes/calendario/vista-calendario">
+    Las sesiones distribuidas se visualizan en el calendario del docente.
+  </Card>
+  <Card title="Programa del curso" icon="book-open" href="/frontoffice-docentes/curso/programa">
+    El contenido del programa se distribuye en sesiones según esta configuración.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: frontoffice-docente
+  - Sección UI: Home > Tarjeta de curso > Configurar curso
+  - Archivos de código relacionados:
+    - frontend: src/core/lite/views/ConfigureCourseAdvancedView/
+    - frontend: src/core/modules/components/dialogs/DialogConfigureCourseAdvanced/
+    - frontend: src/core/modules/components/cards/CourseCard/CourseCard.js
+    - frontend: src/core/services/courseConfig.service.ts
+    - backend: GET/PUT v3/front/course/{guid}/config/periods
+  - Feature flags: enableTeacherConfigCourse
+  - Última revisión: 2026-04-01
+*/}
