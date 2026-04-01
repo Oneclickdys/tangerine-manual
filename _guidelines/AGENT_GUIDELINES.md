@@ -492,6 +492,19 @@ El tono debe ser profesional pero no académico — referencia: documentación d
 ✅ "El formulario incluye los campos obligatorios: Nombre y Fecha de entrega"
 ```
 
+### No enumeres filtros ni controles autoexplicativos
+
+Si una vista tiene un panel de filtros, un buscador o controles de ordenación cuyos labels ya son descriptivos, no los listes en una tabla con descripciones individuales. Eso añade volumen sin valor: el lector entiende qué hace un filtro llamado "País" o "Tipo de contenido" sin necesidad de una fila que lo explique.
+
+```
+❌ | Filtro | Descripción |
+   | País | Filtra por país |
+   | Nivel educativo | Filtra por nivel educativo |
+   | Disciplinas | Filtra por disciplinas |
+
+✅ (no incluir sección de filtros — los labels se explican solos)
+```
+
 ### No incluyas validaciones técnicas de formularios
 
 La audiencia no necesita límites de caracteres, reglas de validación min/max, tiempos de debounce ni detalles de implementación. Solo menciona restricciones cuando sean relevantes para el usuario final de forma práctica.
@@ -520,6 +533,18 @@ La audiencia no necesita límites de caracteres, reglas de validación min/max, 
 - Secciones "## Validaciones" con listas de campos obligatorios y límites
 - Columnas "Validación" en tablas con solo límites técnicos
 - Detalles de implementación (debounce, throttle, regex)
+
+### Ortografía española correcta: acentos, eñes y signos
+
+Todo el texto en español debe llevar ortografía correcta: tildes (á, é, í, ó, ú), eñes (ñ), diéresis (ü) y signos de apertura (¿, ¡). Esto aplica a todo el contenido del MDX: frontmatter, encabezados, tablas, callouts, acordeones y comentarios internos.
+
+```
+❌ "Descripcion", "seccion", "ano educativo", "pestana", "anadir", "boton"
+✅ "Descripción", "sección", "año educativo", "pestaña", "añadir", "botón"
+
+❌ "Que tipos de contenido se pueden anadir"
+✅ "Qué tipos de contenido se pueden añadir"
+```
 
 ### Usa callouts para información importante
 

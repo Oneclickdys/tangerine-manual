@@ -24,7 +24,6 @@ Lanza DOS agentes en paralelo:
 Explora los `codeFiles` del inventario en el monorepo (`/Users/camilolopez/DEVS/repos/tangerine-global/`). Debe extraer:
 - Campos del formulario (nombres, validaciones, obligatoriedad)
 - Columnas de la tabla (si es listado)
-- Filtros disponibles
 - Acciones/botones y permisos por rol
 - Feature flags que afectan el comportamiento
 - Variantes multipaís u otras configuraciones condicionales
