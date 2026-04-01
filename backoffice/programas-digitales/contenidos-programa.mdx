@@ -65,9 +65,6 @@ Los módulos representan la primera capa de organización del contenido (equival
   <Step title="Introducir el nombre del módulo">
     El diálogo de creación presenta un editor de texto enriquecido donde se introduce el nombre del módulo. El nombre admite formato básico (negrita, cursiva).
 
-    **Validaciones:**
-    - Mínimo 2 caracteres
-    - Máximo 65.535 caracteres
   </Step>
   <Step title="Confirmar la creación">
     El botón **Añadir** crea el módulo y lo posiciona al final de la lista del período correspondiente. El módulo se numera automáticamente de forma secuencial.
@@ -113,7 +110,7 @@ Los submódulos (lecciones) son la segunda capa de organización, dentro de cada
     El usuario hace clic en la cabecera del módulo para expandirlo y ver sus submódulos existentes. Al final de la lista de submódulos, aparece el botón **Añadir submódulo**.
   </Step>
   <Step title="Introducir el nombre">
-    El diálogo de creación presenta un editor de texto enriquecido donde se introduce el nombre del submódulo. Las mismas validaciones de módulo aplican (2-65.535 caracteres).
+    El diálogo de creación presenta un editor de texto enriquecido donde se introduce el nombre del submódulo. Las mismas reglas de módulo aplican.
   </Step>
   <Step title="Configurar opciones adicionales">
     - **Duración en sesiones**: número de sesiones previstas para el submódulo (visible si el feature flag `showProgramming` no está activo, ya que con programación activa las sesiones se gestionan desde esa pestaña)
@@ -164,7 +161,7 @@ El diálogo de Material es el más completo y se presenta en dos pasos:
 <Steps>
   <Step title="Paso 1: Metadatos del material">
     - **Visible para estudiantes** (switch): determina si los estudiantes pueden ver el material o solo los docentes
-    - **Título** (obligatorio): nombre descriptivo del material (2 a 65.535 caracteres)
+    - **Título** (obligatorio): nombre descriptivo del material
     - **Sección**: si el submódulo tiene secciones creadas, permite asignar el material a una sección específica
     - **Incluir en cuaderno de calificaciones**: marca el material como evaluable
     - **Descripción** (opcional): texto descriptivo del material
@@ -185,7 +182,7 @@ El diálogo de Material es el más completo y se presenta en dos pasos:
 
 El diálogo de Tarea permite crear una actividad con los siguientes campos:
 
-- **Título** (obligatorio): nombre de la tarea (mínimo 2 caracteres)
+- **Título** (obligatorio): nombre de la tarea
 - **Sección**: asigna la tarea a una sección del submódulo
 - **Evaluable**: indica si la tarea es evaluable o formativa
 - **Incluir en cuaderno de calificaciones**: marca la tarea para seguimiento

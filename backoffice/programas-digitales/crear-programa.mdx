@@ -33,7 +33,7 @@ El formulario de creación de programa digital esta organizado en una sección d
 
 | Campo | Tipo | Descripción |
 |-------|------|-------------|
-| **Nombre del Programa** | Texto | Nombre identificativo del programa (mínimo 3, máximo 250 caracteres) |
+| **Nombre del Programa** | Texto | Nombre identificativo del programa |
 | **País** | Selector | País para el cual se crea el programa |
 | **Asignaturas** | Selector | Disciplina o materia del programa |
 | **Etapa** | Selector | Nivel educativo (Primaria, Secundaria, etc.) |
@@ -46,8 +46,8 @@ El formulario de creación de programa digital esta organizado en una sección d
 | Campo | Tipo | Descripción |
 |-------|------|-------------|
 | **Idioma / Version** | Selector | Idioma del contenido del programa |
-| **ISBN alumno** | Texto | Código ISBN del libro del alumno (máximo 80 caracteres) |
-| **ISBN profesor** | Texto | Código ISBN del libro del profesor (máximo 80 caracteres) |
+| **ISBN alumno** | Texto | Código ISBN del libro del alumno |
+| **ISBN profesor** | Texto | Código ISBN del libro del profesor |
 | **Plantilla** | Selector | Plantilla visual del programa |
 | **Estructura editorial** | Selector | Organizacion del contenido (Modulos o Modulos y submodulos) |
 
@@ -182,23 +182,6 @@ País → Asignaturas (se filtran por país)
 <Note>
   Cuando cambias un selector padre, los selectores dependientes se reinician automáticamente.
 </Note>
-
-## Validaciones
-
-El formulario incluye las siguientes validaciones:
-
-- **Nombre del Programa**: Obligatorio, mínimo 3 caracteres, máximo 250 caracteres
-- **País**: Obligatorio (si la organización es multi-país)
-- **Asignaturas**: Obligatorio
-- **Etapa**: Obligatorio
-- **Año / serie**: Obligatorio
-- **Período evaluación**: Obligatorio (si esta configurado en el sistema)
-- **Publicación**: Obligatorio
-- **ISBN alumno/profesor**: Máximo 80 caracteres cada uno
-
-<Warning>
-  El botón **Crear** permanece deshabilitado hasta que todos los campos obligatorios esten completos y validos.
-</Warning>
 
 ## Casos de uso
 

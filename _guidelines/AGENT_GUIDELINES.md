@@ -242,7 +242,7 @@ El botón se muestra con el texto configurado por el publisher (por defecto: "As
 
 ### `simple-form` / `crud-complete`
 - Documentación media (2-3 páginas)
-- Descripción de campos y validaciones
+- Descripción de campos y su propósito
 - Screenshots del formulario
 - Casos de error comunes
 
@@ -255,7 +255,7 @@ El botón se muestra con el texto configurado por el publisher (por defecto: "As
 ### `multi-step-form`
 - Documentación detallada (3-5 páginas)
 - Cada paso como sección separada
-- Validaciones y mensajes de error
+- Restricciones de negocio relevantes (no validaciones técnicas)
 - Screenshots de cada paso
 - Casos edge y situaciones especiales
 
@@ -489,8 +489,37 @@ El tono debe ser profesional pero no académico — referencia: documentación d
 ✅ "El botón **Publicar** (esquina superior derecha) confirma la acción"
 
 ❌ "El formulario se completa"
-✅ "El formulario incluye los campos obligatorios: Nombre (máx. 100 caracteres) y Fecha de entrega"
+✅ "El formulario incluye los campos obligatorios: Nombre y Fecha de entrega"
 ```
+
+### No incluyas validaciones técnicas de formularios
+
+La audiencia no necesita límites de caracteres, reglas de validación min/max, tiempos de debounce ni detalles de implementación. Solo menciona restricciones cuando sean relevantes para el usuario final de forma práctica.
+
+```
+❌ "Nombre del programa (mínimo 3, máximo 250 caracteres)"
+✅ "Nombre del programa"
+
+❌ "Validaciones:
+    - Mínimo 2 caracteres
+    - Máximo 65.535 caracteres"
+✅ (no incluir sección de validaciones técnicas)
+
+❌ "La búsqueda tiene un debounce de 200ms"
+✅ (omitir detalles de implementación)
+```
+
+**Qué sí documentar:**
+- Campos obligatorios (marcar con "obligatorio" o "Sí" en tablas)
+- Restricciones de negocio relevantes (ej: "el nombre debe ser único", "las fechas no pueden solaparse")
+- Formatos aceptados de archivos (JPG, PNG, PDF)
+- Límites prácticos de tamaño de archivo (5 MB, 10 MB)
+
+**Qué no documentar:**
+- Límites de caracteres (min/max)
+- Secciones "## Validaciones" con listas de campos obligatorios y límites
+- Columnas "Validación" en tablas con solo límites técnicos
+- Detalles de implementación (debounce, throttle, regex)
 
 ### Usa callouts para información importante
 

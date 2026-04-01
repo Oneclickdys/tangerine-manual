@@ -44,8 +44,8 @@ La pestana principal muestra el formulario de datos basicos del estudiante.
 | Campo | Editable | Descripcion |
 |-------|----------|-------------|
 | **Avatar** | Si (condicional) | Imagen de perfil. Los estudiantes seleccionan entre avatares predefinidos, a menos que el tenant active la opcion de avatar personalizado |
-| **Nombre** | Si (condicional) | Nombre del usuario. Maximo 50 caracteres. Editable solo si el tenant permite `canEditProfileInfo` |
-| **Apellidos** | Si (condicional) | Apellidos del usuario. Maximo 50 caracteres. Misma condicion que el nombre |
+| **Nombre** | Si (condicional) | Nombre del usuario. Editable solo si el tenant permite `canEditProfileInfo` |
+| **Apellidos** | Si (condicional) | Apellidos del usuario. Misma condicion que el nombre |
 | **Rol** | No | Muestra el rol asignado (por ejemplo, "Alumno"). Campo de solo lectura |
 
 <Tip>
@@ -65,7 +65,7 @@ La pestana **Cuenta** permite al estudiante ver su email y cambiar su contrasena
 En la parte superior se muestra el **email** asociado a la cuenta (solo lectura, no editable). A continuacion, el formulario de cambio de contrasena solicita:
 
 1. **Contrasena actual** — la contrasena vigente del usuario
-2. **Nueva contrasena** — la nueva contrasena deseada (minimo 3 caracteres)
+2. **Nueva contrasena** — la nueva contrasena deseada
 
 Al pulsar **Cambiar contrasena**, el sistema valida la contrasena actual contra el servidor. Si es correcta, se aplica el cambio y se muestra una notificacion de exito. Si la contrasena actual no coincide, se muestra un mensaje de error.
 

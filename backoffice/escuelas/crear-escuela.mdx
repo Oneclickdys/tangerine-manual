@@ -31,10 +31,10 @@ El formulario de creación de escuela incluye los siguientes campos:
 
 | Campo | Tipo | Obligatorio | Descripción |
 |-------|------|-------------|-------------|
-| **Nombre del colegio** | Texto | Sí | Nombre identificativo de la escuela (máximo 200 caracteres) |
+| **Nombre del colegio** | Texto | Sí | Nombre identificativo de la escuela |
 | **País** | Selector | Sí | País donde se encuentra la escuela |
 | **Estado/Provincia** | Selector | Sí | Estado o provincia del país seleccionado |
-| **Dirección** | Texto | Sí | Dirección física de la escuela (máximo 200 caracteres) |
+| **Dirección** | Texto | Sí | Dirección física de la escuela |
 | **Código postal** | Texto | Sí | Código postal de la ubicación |
 | **Localidad** | Selector | Sí | Ciudad o localidad dentro del estado seleccionado |
 | **Admin escuela** | Checkbox | No | Habilita el acceso de administrador escolar |
@@ -123,21 +123,6 @@ El formulario de creación de escuela incluye los siguientes campos:
     Si, puedes habilitar o deshabilitar esta opción en cualquier momento desde la página de detalle de la escuela.
   </Accordion>
 </AccordionGroup>
-
-## Validaciones
-
-El formulario incluye las siguientes validaciones:
-
-- **Nombre del colegio**: Obligatorio, máximo 200 caracteres
-- **País**: Obligatorio, debe seleccionarse de la lista
-- **Estado/Provincia**: Obligatorio, debe seleccionarse después de elegir el país
-- **Dirección**: Obligatorio, máximo 200 caracteres
-- **Código postal**: Obligatorio
-- **Localidad**: Obligatorio, debe seleccionarse después de elegir el estado
-
-<Warning>
-  El botón **Añadir** permanece deshabilitado hasta que todos los campos obligatorios esten completos.
-</Warning>
 
 ## Casos de uso
 

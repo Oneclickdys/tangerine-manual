@@ -84,18 +84,6 @@ Cada fila de periodo incluye dos selectores:
   Los periodos de evaluacion ya seleccionados en otros periodos del mismo contenido no aparecen como opcion disponible, evitando asignaciones duplicadas.
 </Note>
 
-### Validaciones
-
-El formulario aplica las siguientes validaciones antes de permitir guardar:
-
-| Validacion | Descripcion |
-|-----------|-------------|
-| **Escala obligatoria** | Debe seleccionarse una escala de evaluacion |
-| **Periodos completos** | Todos los periodos deben tener un periodo de evaluacion y un modelo asignados |
-| **Numero de periodos** | El numero de periodos configurados debe coincidir con los periodos definidos para el tipo de evaluacion del contenido |
-| **Fechas consecutivas** | Las fechas de los periodos seleccionados deben ser consecutivas (sin solapamientos). Si las fechas se solapan, se muestra un mensaje de error |
-| **Cambios pendientes** | El boton Guardar se habilita solo cuando hay cambios respecto a la configuracion guardada |
-
 ### Advertencia al modificar un curso en uso
 
 Cuando un contenido configurado individualmente ya ha comenzado (la fecha de inicio del periodo ha pasado), al intentar guardar cambios el sistema muestra un dialogo de confirmacion. Esto alerta al administrador de que los cambios pueden afectar evaluaciones en curso.

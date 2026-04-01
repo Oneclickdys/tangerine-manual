@@ -53,13 +53,13 @@ Documenta la(s) siguiente(s) feature(s) del inventario de Tangerine LMS.
 ## Instrucciones
 Sigue EXACTAMENTE el proceso de /document-feature:
 
-1. **Exploración de código**: Explora los codeFiles en el monorepo (/Users/camilolopez/DEVS/repos/tangerine-global/). Extrae campos, validaciones, acciones, permisos, flags, variantes.
+1. **Exploración de código**: Explora los codeFiles en el monorepo (/Users/camilolopez/DEVS/repos/tangerine-global/). Extrae campos, obligatoriedad, acciones, permisos, flags, variantes.
 
 2. **Screenshots**: Lee credenciales de /Users/camilolopez/DEVS/repos/tangerine-global/manual/.credentials.json. Usa Chrome DevTools MCP para navegar, autenticarte y capturar screenshots. Guarda en assets/screenshots/{app}/{feature-slug}/.
 
 3. **Decidir estructura**: Si la feature es demasiado grande para el rango de páginas de su complexity, subdivídela en subsecciones (ver _guidelines/AGENT_GUIDELINES.md sección 2).
 
-4. **Generar MDX**: Lee _guidelines/AGENT_GUIDELINES.md y _templates/PLANTILLA.mdx. Genera las páginas MDX siguiendo las directrices. Tercera persona descriptiva, tono Stripe/Twilio, acentos correctos.
+4. **Generar MDX**: Lee _guidelines/AGENT_GUIDELINES.md y _templates/PLANTILLA.mdx. Genera las páginas MDX siguiendo las directrices. Tercera persona descriptiva, tono Stripe/Twilio, acentos correctos. NO incluir validaciones técnicas (límites de caracteres, min/max, debounce) — solo restricciones de negocio relevantes.
 
 5. **Actualizar navegación e inventario**:
    - Actualiza docs.json con las nuevas páginas

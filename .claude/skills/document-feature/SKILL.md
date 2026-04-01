@@ -27,7 +27,7 @@ Lanza DOS agentes en paralelo:
 
 **Agente A — Código fuente:**
 Explora los `codeFiles` del inventario en el monorepo (`/Users/camilolopez/DEVS/repos/tangerine-global/`). Debe extraer:
-- Campos del formulario (nombres, validaciones, obligatoriedad)
+- Campos del formulario (nombres, obligatoriedad, propósito)
 - Columnas de la tabla (si es listado)
 - Filtros disponibles
 - Acciones/botones y permisos por rol
@@ -85,6 +85,7 @@ Lee las directrices completas en `_guidelines/AGENT_GUIDELINES.md` y usa `_templ
 **Reglas clave:**
 - Tercera persona descriptiva ("El administrador accede...", "El sistema muestra...")
 - Tono profesional tipo Stripe/Twilio
+- NO incluir validaciones técnicas (límites de caracteres, min/max, debounce). Solo restricciones de negocio relevantes
 - Incluir sección "Configuración y variantes" con `<Tabs>` si hay comportamiento condicional
 - Incluir sección "Situaciones especiales" con edge cases reales
 - Los screenshots deben tener propósito claro — no capturar pantallas obvias

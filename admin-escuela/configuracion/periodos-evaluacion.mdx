@@ -48,12 +48,12 @@ Cuando no existen periodos, el sistema muestra un mensaje informativo con un bot
 
 El boton **+** en la cabecera abre un dialogo con los siguientes campos:
 
-| Campo | Tipo | Obligatorio | Validacion | Descripcion |
-|-------|------|-------------|------------|-------------|
-| **Nombre** | Texto | Si | No vacio | Nombre descriptivo del periodo (ej. "Primer trimestre 2025-2026") |
-| **Ano escolar** | Selector | Si | Solo se muestran anos escolares activos | El ano escolar al que pertenece el periodo |
-| **Fecha inicio** | Fecha | Si | Debe ser anterior a la fecha fin | Fecha de inicio del periodo |
-| **Fecha fin** | Fecha | Si | Debe ser posterior a la fecha inicio | Fecha de finalizacion del periodo. El selector no permite seleccionar fechas anteriores a la fecha de inicio |
+| Campo | Tipo | Obligatorio | Descripcion |
+|-------|------|-------------|-------------|
+| **Nombre** | Texto | Si | Nombre descriptivo del periodo (ej. "Primer trimestre 2025-2026") |
+| **Ano escolar** | Selector | Si | El ano escolar al que pertenece el periodo. Solo se muestran anos escolares activos |
+| **Fecha inicio** | Fecha | Si | Fecha de inicio del periodo |
+| **Fecha fin** | Fecha | Si | Fecha de finalizacion del periodo. El selector no permite seleccionar fechas anteriores a la fecha de inicio |
 
 El boton **Anadir** se habilita cuando todos los campos obligatorios estan completos, hay un ano escolar seleccionado y las fechas son coherentes (inicio anterior a fin).
 

@@ -159,13 +159,6 @@ Una vez entregado el quiz:
 
 Algunos tipos de pregunta tienen un comportamiento particular dentro del quiz:
 
-### Preguntas de texto largo
-
-Para preguntas de tipo `longtextV2` o `Essay with rich text`, el guardado automático tiene una lógica adicional:
-- Se ignora el primer cambio (para evitar guardar el estado inicial vacío)
-- Se requiere un mínimo de 2 caracteres de texto para considerar la respuesta válida
-- Se aplica un throttle de 500ms entre guardados
-
 ### Preguntas con subida de archivo
 
 Para preguntas de tipo `uploadfile`, `audiorecorder` o `pencil`:

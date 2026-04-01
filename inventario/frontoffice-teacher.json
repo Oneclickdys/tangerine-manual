@@ -1,6 +1,6 @@
 {
   "app": "frontoffice-teacher",
-  "lastUpdated": "2025-12-26",
+  "lastUpdated": "2026-04-01",
   "features": {
     "home/classrooms": {
       "name": "Ver mis aulas",
@@ -19,7 +19,7 @@
       "featureFlags": ["tenantConfig.canCreateGroup", "tenantConfig.canCreateCourse"],
       "relatedFeatures": ["classroom/create", "students/list"],
       "lastDocumented": "2025-12-21",
-      "notes": "Vista principal del docente. Incluye tabs para Clases, Programas y Mi biblioteca. Boton de importar Google Classroom disponible para algunos clientes."
+      "notes": "Vista principal del docente. Incluye tabs: Grupos (clases), Programas (programas agrupados por materia con ordenacion), Mi biblioteca (biblioteca personal con carpetas y materiales — ver library/my-library). Boton de importar Google Classroom disponible para algunos clientes. Icono de Biblioteca en el header navega a la Biblioteca general (/library — ver library/general)."
     },
     "classroom/create": {
       "name": "Crear nueva aula",
@@ -305,6 +305,44 @@
       "relatedFeatures": [],
       "lastDocumented": null,
       "notes": "Feature flag controlado - no disponible para todos los tenants"
+    },
+    "library/general": {
+      "name": "Biblioteca general",
+      "description": "Pagina para explorar los recursos compartidos de la biblioteca general. Permite buscar, filtrar por tipo/nivel/disciplina/propietario, previsualizar recursos y añadirlos a la biblioteca personal.",
+      "section": "Biblioteca",
+      "route": "/library",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/LibraryView/", "src/core/modules/containers/LibraryTableContents/"],
+        "backend": ["v3/front/library/items"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableLibrary"],
+      "relatedFeatures": ["library/my-library", "home/classrooms"],
+      "lastDocumented": null,
+      "notes": "Accesible desde icono de Biblioteca en el header y desde boton 'Explorar biblioteca' en Mi biblioteca (estado vacio). Layout con sidebar de filtros a la izquierda y tabla de resultados paginada (9 items/pagina). Filtros: tipo de contenido (Audio, Video, PDF, Link, Imagen, Interactivo, xAPI, Ejercicio), nivel educativo, disciplina, propietario (docentes, admin escuela, editorial). Columnas: titulo recurso, apropiado para (niveles, disciplinas), visibilidad (Publico/Estudiantes/Solo docentes), añadido por (con avatar/rol). Acciones: previsualizar recurso en modal, añadir a mi biblioteca. Estado vacio: 'No hay recursos disponibles en la Biblioteca General'."
+    },
+    "library/my-library": {
+      "name": "Mi biblioteca",
+      "description": "Biblioteca personal del docente con gestion de carpetas y materiales propios. Permite subir archivos, añadir enlaces, crear ejercicios, organizar en carpetas con drag & drop, y compartir con la biblioteca general.",
+      "section": "Biblioteca",
+      "route": "/home (tab Mi biblioteca)",
+      "priority": "P2",
+      "status": "pending",
+      "complexity": "interactive-view",
+      "docFile": null,
+      "codeFiles": {
+        "frontend": ["src/core/lite/views/MyClassroomsView/MyClassroomsViewMyLibrary/", "src/core/modules/components/dialogs/DialogAddLibraryMaterial/", "src/core/modules/components/dialogs/DialogAddLibraryFolder/", "src/core/modules/components/dialogs/DialogEditLibraryFolder/", "src/core/modules/components/dialogs/DialogDeleteLibraryFolder/", "src/core/modules/components/dialogs/DialogDeleteLibraryResource/", "src/core/modules/components/dialogs/DialogShareContentInLibrary/"],
+        "backend": ["v3/front/library/:user_id/items", "v3/front/library/:user_id/folders"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["enableLibrary"],
+      "relatedFeatures": ["library/general", "home/classrooms"],
+      "lastDocumented": null,
+      "notes": "Tab 'Mi biblioteca' en la pagina Home del docente. Funcionalidades: (1) Gestion de carpetas: crear (min 4 chars, max configurable), renombrar, eliminar (opcion de conservar o eliminar contenido). (2) Añadir material: flujo de 4 pasos — seleccionar tipo (Archivo/Enlace/Ejercicio), subir contenido, info del material (titulo, descripcion), clasificar (nivel, disciplina, visibilidad, recurso anual). (3) Drag & drop para organizar contenido en carpetas (FolderTableDnD). (4) Compartir a biblioteca general (DialogShareContentInLibrary - crea copia). (5) Asignar como recurso anual a cursos especificos (DialogShareContentInProgram). (6) Busqueda y filtrado. (7) Previsualizar recursos. Estado vacio: 'No tienes ningun recurso todavia' con botones 'Explorar biblioteca' y 'Añadir material'."
     }
   }
 }
