@@ -1,0 +1,199 @@
+---
+title: "Programación del Programa"
+description: "Planificación temporal de sesiones docentes dentro de un programa digital"
+icon: "calendar-days"
+---
+
+## Descripción
+
+La **Programación** permite distribuir los contenidos de un programa digital en sesiones docentes a lo largo del calendario escolar. El administrador define cuántas sesiones dedicar a cada lección o submódulo, creando una guía temporal que los docentes pueden seguir desde el frontoffice.
+
+Cada programa digital puede tener una única programación activa, que pasa por tres estados: **Borrador**, **Finalizada** y **Publicada**.
+
+<Info>
+  **Rol requerido:** Administrador o Gestor de contenidos
+</Info>
+
+## Cómo acceder
+
+<Steps>
+  <Step title="Abrir el programa digital">
+    Desde el menú superior, el usuario navega a **Contenidos** > **Programas digitales** y selecciona el programa que desea programar.
+  </Step>
+  <Step title="Seleccionar la pestaña Programación">
+    En la vista de configuración del programa, el usuario hace clic en la pestaña **Programación** (tercera pestaña).
+
+    ![Pestaña Programación sin programaciones creadas](/assets/screenshots/backoffice/programacion/programacion-vacia.png)
+  </Step>
+</Steps>
+
+<Note>
+  La pestaña **Programación** solo aparece si la plataforma tiene la funcionalidad de programación activada. Si no está visible, contactar con el equipo de soporte de Tangerine para verificar la configuración.
+</Note>
+
+## Vista general
+
+La cabecera de la pestaña muestra los metadatos del programa:
+
+- **Nombre del programa**
+- **Período de evaluación** (ej. Semestral, Trimestral)
+- **Nivel educativo y etapa**
+- **Asignatura**
+- **Publicación asociada**
+
+Si no existe ninguna programación, se muestra el mensaje "No hay programaciones creadas" con el botón **Crear programación**.
+
+## Crear una programación
+
+<Steps>
+  <Step title="Iniciar la creación">
+    El usuario hace clic en el botón **Crear programación**. Se abre un diálogo con dos campos:
+
+    - **Título** (obligatorio): nombre descriptivo para la programación
+    - **Descripción** (opcional): contexto adicional sobre la planificación
+
+    ![Diálogo de creación de programación](/assets/screenshots/backoffice/programacion/dialogo-crear-programacion.png)
+  </Step>
+  <Step title="Confirmar la creación">
+    El botón **Crear programación** del diálogo se habilita cuando se introduce un título. Al confirmar, el sistema crea la programación en estado **Borrador** y abre automáticamente el editor de sesiones.
+  </Step>
+</Steps>
+
+## Asignar sesiones
+
+El editor de sesiones muestra todos los módulos y submódulos del programa organizados por período de evaluación.
+
+![Editor de sesiones con la estructura del programa](/assets/screenshots/backoffice/programacion/editar-programacion-sesiones.png)
+
+### Estructura del editor
+
+- **Pestañas de período**: si el programa tiene un período de evaluación configurado (ej. Semestral), aparecen pestañas para cada período (Semestral 1, Semestral 2). Cada pestaña muestra solo los módulos correspondientes a ese período.
+- **Módulos**: cada módulo indica su nombre, número de submódulos y el total de sesiones asignadas.
+- **Submódulos/lecciones**: cada lección tiene una imagen de portada, su nombre y un **selector de sesiones**.
+
+### Seleccionar número de sesiones
+
+El selector desplegable permite asignar entre 1 y 20 sesiones a cada lección.
+
+![Selector de sesiones desplegado](/assets/screenshots/backoffice/programacion/selector-sesiones-abierto.png)
+
+Al seleccionar un valor, el sistema guarda automáticamente el cambio y actualiza el contador de sesiones del módulo. No es necesario pulsar ningún botón de guardar: el indicador **"Guardando..."** aparece brevemente en la cabecera y desaparece cuando el guardado se completa.
+
+<Tip>
+  El número de sesiones define la carga temporal de cada lección. Un módulo que suma 6 sesiones ocupará el doble de tiempo que uno de 3 sesiones en el calendario del docente.
+</Tip>
+
+## Estados de la programación
+
+La programación pasa por tres estados secuenciales:
+
+| Estado | Descripción | Acciones disponibles |
+|--------|-------------|---------------------|
+| **Borrador** | Estado inicial. Las sesiones se pueden editar libremente | Editar sesiones, marcar como completada |
+| **Finalizada** | La programación se considera completa. Las sesiones aún se pueden modificar | Editar sesiones, publicar, volver a borrador |
+| **Publicada** | La programación es visible en el frontoffice para los docentes. El número de sesiones ya no se puede modificar | Solo lectura |
+
+### Marcar como completada
+
+Dentro del editor de sesiones, la casilla **"Marcar como completada"** cambia el estado de la programación de Borrador a Finalizada.
+
+![Programación en estado Finalizada con el botón Publicar activo](/assets/screenshots/backoffice/programacion/programacion-finalizada.png)
+
+Al marcar la casilla, el estado pasa a **FINALIZADA** y el botón **Publicar** se habilita en la vista principal. El cambio se guarda automáticamente.
+
+<Note>
+  Es posible marcar como completada una programación sin haber asignado sesiones a todos los submódulos. El sistema no obliga a completar todos los módulos antes de finalizar.
+</Note>
+
+### Publicar la programación
+
+El botón **Publicar** aparece en la vista principal cuando la programación está en estado Finalizada. Al hacer clic, se muestra un diálogo de confirmación:
+
+![Diálogo de confirmación de publicación](/assets/screenshots/backoffice/programacion/dialogo-publicar-programacion.png)
+
+El diálogo advierte que la programación publicada será visible en el frontoffice y que el número de sesiones ya no se podrá modificar. El usuario confirma con **Aceptar** o cancela con **Cancelar**.
+
+<Warning>
+  Una vez publicada, la programación no permite cambiar el número de sesiones de las lecciones. Es recomendable revisar todas las asignaciones antes de publicar.
+</Warning>
+
+## Tarjeta de la programación
+
+Una vez creada, la programación aparece como una tarjeta en la vista principal de la pestaña con:
+
+- El **nombre** de la programación
+- El **estado** actual (BORRADOR, FINALIZADA o PUBLICADA)
+- El botón **Publicar** (solo si está Finalizada)
+
+![Vista principal con programación creada](/assets/screenshots/backoffice/programacion/vista-programacion-creada.png)
+
+Al hacer clic en la tarjeta se abre el editor de sesiones.
+
+## Configuración y variantes
+
+<Tabs>
+  <Tab title="Programación Essential">
+    Es la modalidad descrita en esta página. Permite definir el **número de sesiones** por cada lección o submódulo del programa. Los docentes ven en el frontoffice cuántas sesiones dedica cada lección y pueden organizar su planificación en consecuencia.
+
+    **Disponible cuando:** la plataforma tiene el setting `enable_programing` activado.
+  </Tab>
+  <Tab title="Programación Avanzada">
+    Extiende la modalidad Essential con un editor a pantalla completa que permite definir **atómicamente el contenido de cada sesión**:
+
+    - **Panel izquierdo**: muestra la jerarquía completa del programa (períodos, módulos, lecciones, secciones y materiales). Los materiales son **arrastrables**.
+    - **Panel derecho**: muestra las sesiones de cada lección con pestañas (Sesión 01, Sesión 02...) y permite **soltar materiales** en cada sesión.
+    - **Guías docentes**: si la funcionalidad está habilitada, cada sesión puede tener una guía en formato PDF con paginación configurable (desde página X hasta página Y).
+    - **Recursos de lección**: materiales asociados a nivel de lección (no vinculados a una sesión específica).
+
+    El editor utiliza **drag-and-drop** para asignar materiales del panel izquierdo a las sesiones del panel derecho. Cada material muestra un contador que indica en cuántas sesiones está siendo utilizado.
+
+    Los docentes en el frontoffice ven no solo el número de sesiones, sino el contenido detallado y los recursos asignados a cada una.
+
+    **Disponible cuando:** la plataforma tiene el setting `enable_advanced_programming` activado. Este modo reemplaza los selectores de sesiones de la modalidad Essential por un botón **Planificación** que abre el editor avanzado.
+  </Tab>
+</Tabs>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede tener más de una programación por programa?">
+    No. Cada programa digital admite una única programación. El botón **Crear programación** se deshabilita cuando ya existe una programación creada.
+  </Accordion>
+  <Accordion title="¿Se puede eliminar una programación?">
+    Sí. La tarjeta de la programación incluye un menú de acciones con la opción **Eliminar**, que solicita confirmación antes de borrar. Eliminar una programación publicada afecta a los docentes que la estén utilizando en el frontoffice.
+  </Accordion>
+  <Accordion title="¿Qué ocurre si se modifican los contenidos del programa después de crear la programación?">
+    Si se añaden nuevos módulos o submódulos al programa, estos aparecen en el editor de sesiones sin sesiones asignadas. Si se eliminan módulos que ya tenían sesiones asignadas, esas asignaciones se pierden.
+  </Accordion>
+  <Accordion title="¿Se puede volver a Borrador desde Finalizada?">
+    Sí. Desmarcando la casilla **"Marcar como completada"** en el editor de sesiones, la programación vuelve a estado Borrador.
+  </Accordion>
+  <Accordion title="¿Los módulos sin submódulos aparecen en el editor?">
+    Sí, pero sin selectores de sesiones. Los módulos que no tienen submódulos o lecciones muestran "0 submódulo - 0 sesiones" y no ofrecen opciones de configuración.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Editar programa digital" icon="pen-to-square" href="/backoffice/programas-digitales/editar-programa">
+    Vista general de todas las pestañas de configuración del programa.
+  </Card>
+  <Card title="Contenidos del programa" icon="folder-tree" href="/backoffice/programas-digitales/contenidos-programa">
+    Gestión de la estructura de módulos, submódulos y materiales que se programan.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: backoffice
+  - Sección UI: /program/:guid/3
+  - Archivos de código relacionados:
+    - frontend Essential: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormProgramming/
+    - frontend Avanzada: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormProgrammingAdvanced/
+    - hook: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormProgramming/useProgramFormProgramming.js
+    - crud: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormProgramming/programming.crud.js
+  - Feature flags: showProgramming (enable_programing), showProgrammingAdvanced (enable_advanced_programming)
+  - Última revisión: 2026-04-01
+*/}

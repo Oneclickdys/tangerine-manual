@@ -57,7 +57,8 @@
             "pages": [
               "backoffice/programas-digitales/crear-programa",
               "backoffice/programas-digitales/editar-programa",
-              "backoffice/programas-digitales/contenidos-programa"
+              "backoffice/programas-digitales/contenidos-programa",
+              "backoffice/programas-digitales/programacion-programa"
             ]
           },
           {

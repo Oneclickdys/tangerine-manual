@@ -369,9 +369,9 @@
       "section": "Programas Digitales",
       "route": "/program/:guid/3",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "complex-workflow",
-      "docFile": null,
+      "docFile": "backoffice/programas-digitales/programacion-programa.mdx",
       "codeFiles": {
         "frontend": ["src/app/modules/programs/ProgramForm/ProgramFormProgramming/", "src/app/modules/programs/ProgramForm/ProgramFormProgrammingAdvanced/"],
         "backend": []
@@ -379,8 +379,8 @@
       "tenantVariations": [],
       "featureFlags": ["showProgramming", "showProgrammingAdvanced"],
       "relatedFeatures": ["programs/detail"],
-      "lastDocumented": null,
-      "notes": "Dos modalidades: Essential (sesiones por modulo, disponible en latest) y Avanzada (contenido atomico por sesion con recursos y guias, no disponible en latest). La Essential se puede documentar con el entorno actual. Documentar en su propia seccion."
+      "lastDocumented": "2026-04-01",
+      "notes": "Dos modalidades: Essential (sesiones por modulo, disponible en latest) y Avanzada (contenido atomico por sesion con recursos y guias, no disponible en latest). Essential documentada con screenshots reales. Avanzada documentada a partir del codigo fuente (no disponible en latest)."
     },
     "settings/periods": {
       "name": "Periodos de evaluacion",
