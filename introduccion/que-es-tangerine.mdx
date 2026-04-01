@@ -1,116 +1,58 @@
 ---
-title: "Qué es Tangerine LMS"
-description: "Plataforma de aprendizaje Tangerine y sus principales características"
-icon: "graduation-cap"
+title: "Documentación de Tangerine LMS"
+description: "Documentación de producto de Tangerine LMS: guías, conceptos y referencia para administradores, docentes, estudiantes y administradores de escuela"
+icon: "book-open"
 ---
 
-## Tangerine LMS
+Tangerine es un **Sistema de Gestión de Aprendizaje (LMS)** diseñado para instituciones educativas que buscan digitalizar y potenciar su proceso de enseñanza-aprendizaje. Esta documentación cubre todas las aplicaciones de la plataforma y está orientada a equipos de implantación, formación, Product Managers y Service Desk.
 
-Tangerine es un **Sistema de Gestión de Aprendizaje (LMS)** diseñado para instituciones educativas que buscan digitalizar y potenciar su proceso de enseñanza-aprendizaje.
+## Explora por aplicación
 
 <CardGroup cols={2}>
-  <Card title="Docentes" icon="chalkboard-user">
-    Gestión de clases, evaluaciones, calificaciones y comunicación con estudiantes.
+  <Card title="Backoffice" icon="gear" href="/backoffice/usuarios/gestion-usuarios">
+    Panel de administración editorial. Gestión de usuarios, licencias, contenidos, publicaciones, programas digitales y escuelas.
   </Card>
-  <Card title="Estudiantes" icon="user-graduate">
-    Acceso a contenido, entrega de tareas y consulta de progreso.
+  <Card title="Docentes" icon="chalkboard-user" href="/frontoffice-docentes/mis-grupos/ver-mis-grupos">
+    Aplicación para profesores. Gestión de grupos, cursos, lecciones, evaluaciones, calificaciones y biblioteca.
   </Card>
-  <Card title="Administradores" icon="gear">
-    Configuración de la plataforma, usuarios, licencias y contenidos.
+  <Card title="Estudiantes" icon="user-graduate" href="/estudiantes/mis-clases/ver-clases">
+    Aplicación para alumnos. Acceso a clases, lecciones, tareas, evaluaciones y calificaciones.
   </Card>
-  <Card title="Admin Escuela" icon="school">
-    Gestión centralizada de usuarios, grupos y configuración del centro.
+  <Card title="Admin Escuela" icon="school" href="/admin-escuela/introduccion">
+    Panel de administración de centro. Gestión centralizada de usuarios, grupos, licencias y analítica.
   </Card>
 </CardGroup>
 
-## Aplicaciones disponibles
+## Explora por necesidad
 
-Tangerine se compone de diferentes aplicaciones según el tipo de usuario:
+<CardGroup cols={3}>
+  <Card title="Gestionar usuarios" icon="users" href="/backoffice/usuarios/gestion-usuarios">
+    Crear, editar y administrar cuentas de estudiantes, docentes y administradores.
+  </Card>
+  <Card title="Administrar licencias" icon="key" href="/backoffice/licencias/gestion-licencias">
+    Crear licencias, asignar publicaciones y gestionar el acceso a contenidos.
+  </Card>
+  <Card title="Crear contenido" icon="file-plus" href="/backoffice/contenidos/gestion-contenidos">
+    Gestionar contenidos educativos, publicaciones y programas digitales.
+  </Card>
+  <Card title="Evaluar estudiantes" icon="clipboard-check" href="/frontoffice-docentes/evaluaciones/crear-evaluacion">
+    Crear evaluaciones, quizzes y consultar resultados desde la perspectiva docente.
+  </Card>
+  <Card title="Gestionar calificaciones" icon="chart-line" href="/frontoffice-docentes/libro-calificaciones/vista-general">
+    Libro de calificaciones, cuaderno de evaluación, escalas y exportación.
+  </Card>
+  <Card title="Administrar una escuela" icon="building" href="/admin-escuela/introduccion">
+    Gestión centralizada de usuarios, grupos, programas y analítica del centro.
+  </Card>
+</CardGroup>
 
-### Backoffice (Administradores)
-
-El **Backoffice** es el panel de administración donde se gestiona:
-
-- Usuarios y permisos
-- Licencias de contenido
-- Escuelas y grupos
-- Programas educativos
-- Contenidos y publicaciones
-- Analíticas de uso
-
-<Info>
-  El acceso al Backoffice está restringido a usuarios con rol de administrador.
-</Info>
-
-### Frontoffice (Docentes y Estudiantes)
-
-El **Frontoffice** es la aplicación principal donde docentes y estudiantes interactúan:
-
-**Para docentes:**
-- Visualizar y gestionar sus clases
-- Crear y calificar evaluaciones
-- Publicar contenido y recursos
-- Comunicarse con estudiantes
-- Gestionar el libro de calificaciones
-
-**Para estudiantes:**
-- Acceder a sus clases y contenido
-- Entregar tareas
-- Consultar calificaciones
-- Participar en el muro social
-
-### Admin Escuela
-
-El panel de **Admin Escuela** permite a los administradores de centro gestionar de forma centralizada:
-
-- Usuarios del centro (estudiantes y docentes)
-- Grupos y asignaciones
-- Reportes de uso y progreso
-
-<Info>
-  El Admin Escuela es una alternativa al modelo self-service. En vez de que cada docente y estudiante se registre individualmente, el administrador del centro gestiona todo desde un único panel.
-</Info>
-
-## Requisitos técnicos
-
-<AccordionGroup>
-  <Accordion title="Navegadores soportados">
-    - Google Chrome (recomendado)
-    - Mozilla Firefox
-    - Microsoft Edge
-    - Safari (iOS/macOS)
-  </Accordion>
-  <Accordion title="Dispositivos">
-    - Computadora de escritorio o laptop
-    - Tablet
-    - Smartphone (experiencia optimizada)
-  </Accordion>
-  <Accordion title="Conexión a internet">
-    Se requiere conexión a internet estable para el uso de la plataforma.
-  </Accordion>
-</AccordionGroup>
-
-## Primeros pasos
-
-<Steps>
-  <Step title="Acceder a la plataforma">
-    El usuario accede a la URL proporcionada por su institución.
-  </Step>
-  <Step title="Iniciar sesión">
-    El sistema solicita las credenciales proporcionadas por el administrador.
-  </Step>
-  <Step title="Explorar el dashboard">
-    El dashboard muestra las opciones disponibles según el rol del usuario.
-  </Step>
-</Steps>
-
-## Explorar la documentación
+## Antes de empezar
 
 <CardGroup cols={2}>
-  <Card title="Docentes" icon="book" href="/frontoffice-docentes/mis-grupos/ver-mis-grupos">
-    Gestión de grupos, evaluaciones y calificaciones.
+  <Card title="Conceptos clave" icon="lightbulb" href="/introduccion/conceptos-clave">
+    Modos de funcionamiento, aplicaciones del ecosistema, variantes de configuración y glosario de términos.
   </Card>
-  <Card title="Estudiantes" icon="book-open" href="/estudiantes/mis-clases/ver-clases">
-    Acceso a clases, tareas y contenido.
+  <Card title="Guía rápida por rol" icon="route" href="/introduccion/guia-rapida">
+    Orientación personalizada según el perfil: administrador, docente, estudiante o admin de escuela.
   </Card>
 </CardGroup>

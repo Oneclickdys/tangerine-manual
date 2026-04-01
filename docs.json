@@ -13,15 +13,20 @@
   },
   "favicon": "/assets/favicon.svg",
   "navigation": {
-    "groups": [
-      {
-        "group": "Introducción",
-        "pages": [
-          "introduccion/que-es-tangerine"
-        ]
-      }
-    ],
     "tabs": [
+      {
+        "tab": "Inicio",
+        "groups": [
+          {
+            "group": "Introducción",
+            "pages": [
+              "introduccion/que-es-tangerine",
+              "introduccion/conceptos-clave",
+              "introduccion/guia-rapida"
+            ]
+          }
+        ]
+      },
       {
         "tab": "Backoffice",
         "groups": [

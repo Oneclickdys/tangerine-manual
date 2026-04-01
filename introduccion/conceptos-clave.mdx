@@ -1,0 +1,109 @@
+---
+title: "Conceptos clave"
+description: "Modos de funcionamiento, aplicaciones, variantes de configuración y glosario de Tangerine LMS"
+icon: "lightbulb"
+---
+
+## Modos de funcionamiento
+
+Tangerine ofrece dos modos para organizar a docentes y estudiantes. Ambos pueden coexistir en una misma implantación.
+
+<Tabs>
+  <Tab title="Self-service">
+    Modelo similar a Google Classroom. Los usuarios se registran de forma autónoma:
+
+    1. El estudiante y el docente se registran utilizando una **licencia**
+    2. El docente **crea un grupo** y obtiene un **código de clase**
+    3. El docente comparte el código con sus estudiantes
+    4. Los estudiantes **se unen al grupo** introduciendo el código
+
+    Este modo es ideal cuando no existe un administrador de centro o cuando se busca agilidad en la creación de clases.
+  </Tab>
+  <Tab title="Administrador de escuela">
+    Modelo de gestión centralizada. Un administrador de centro organiza todo:
+
+    1. El administrador crea los **grupos** del centro
+    2. El administrador da de alta a **docentes y estudiantes**
+    3. El administrador **asigna usuarios a grupos**
+    4. Los usuarios acceden directamente sin necesidad de códigos ni auto-registro
+
+    Este modo se gestiona desde la aplicación **Admin Escuela** y es habitual en implantaciones institucionales.
+  </Tab>
+</Tabs>
+
+## Aplicaciones del ecosistema
+
+Tangerine se compone de varias aplicaciones, cada una orientada a un tipo de usuario:
+
+| Aplicación | Usuarios | Función principal |
+|------------|----------|-------------------|
+| **Backoffice** | Administradores de la editorial | Gestión global: usuarios, licencias, contenidos, publicaciones, programas digitales, escuelas y configuración |
+| **Frontoffice** | Docentes y estudiantes | Experiencia de enseñanza-aprendizaje: grupos, cursos, lecciones, evaluaciones, calificaciones, tareas y biblioteca |
+| **Admin Escuela** | Administradores de centro | Gestión del centro: usuarios, grupos, programas, licencias, analítica y configuración académica |
+
+<Note>
+  Docentes y estudiantes comparten la misma aplicación (Frontoffice), pero cada rol tiene acceso a funcionalidades diferentes. La documentación los separa en las secciones **Docentes** y **Estudiantes**.
+</Note>
+
+## Variantes de configuración
+
+Algunas funcionalidades cambian significativamente según la configuración del tenant. Las dos variantes principales son:
+
+<AccordionGroup>
+  <Accordion title="Planeador Avanzado vs Essential">
+    El **Planeador Avanzado** permite que los programas digitales definan de forma atómica el contenido de cada sesión, no solo el número de sesiones. Esto afecta directamente al calendario y la planificación del curso.
+
+    En modo **Essential**, el programa define la estructura general pero el docente tiene más libertad para organizar el contenido de cada sesión.
+
+    La documentación indica explícitamente cuándo una funcionalidad se comporta diferente según esta variante.
+  </Accordion>
+  <Accordion title="Cuaderno de calificaciones vs Cuaderno de evaluación">
+    El **Cuaderno de evaluación** activa funcionalidades adicionales: escalas de calificación, modelos de evaluación, categorías evaluables y un sistema de calificaciones más completo.
+
+    El **Cuaderno de calificaciones** estándar ofrece un registro más sencillo centrado en notas numéricas.
+
+    Las páginas de calificaciones documentan ambos comportamientos cuando difieren.
+  </Accordion>
+</AccordionGroup>
+
+## Herramientas de autor
+
+Tangerine incluye dos editores integrados para la creación de contenido educativo:
+
+<CardGroup cols={2}>
+  <Card title="Lemonade" icon="puzzle-piece" href="/backoffice/herramientas-autor/editor-lemonade">
+    Editor de actividades evaluativas. Permite crear preguntas de selección, arrastrar y soltar, completar texto, matemáticas y más. Disponible desde el Backoffice y desde el Frontoffice del docente.
+  </Card>
+  <Card title="Mint" icon="palette" href="/backoffice/herramientas-autor/editor-mint">
+    Editor de páginas HTML interactivas, similar a Articulate Rise. Permite construir contenido educativo con componentes visuales. Disponible desde el Backoffice y desde el Frontoffice del docente.
+  </Card>
+</CardGroup>
+
+## Glosario
+
+<AccordionGroup>
+  <Accordion title="Programa digital">
+    Estructura educativa que contiene módulos y lecciones organizados. Un programa define qué contenido se imparte y, opcionalmente, en qué orden y ritmo. Los programas se crean en el Backoffice y se asignan a los usuarios a través de licencias.
+  </Accordion>
+  <Accordion title="Publicación">
+    Paquete de contenido que se distribuye a través de licencias. Una publicación puede contener uno o más programas digitales. La relación es: la licencia incluye publicaciones, y las publicaciones contienen programas.
+  </Accordion>
+  <Accordion title="Licencia">
+    Mecanismo de acceso al contenido. Una licencia tiene un número de usos, una duración y un conjunto de publicaciones asociadas. Los usuarios redimen licencias para acceder a los programas digitales incluidos.
+  </Accordion>
+  <Accordion title="Grupo">
+    Agrupación de estudiantes bajo uno o más docentes. En modo self-service, el docente crea el grupo y los estudiantes se unen con un código. En modo admin escuela, el administrador crea y gestiona los grupos.
+  </Accordion>
+  <Accordion title="Curso">
+    Instancia de un programa digital dentro de un grupo. Cuando un grupo tiene asignado un programa, se genera un curso que el docente puede personalizar: reordenar lecciones, añadir contenido, configurar evaluaciones.
+  </Accordion>
+  <Accordion title="Lección">
+    Unidad de contenido dentro de un curso. Puede contener páginas, actividades, recursos y evaluaciones. El docente puede proyectar lecciones en clase o asignarlas como tarea.
+  </Accordion>
+  <Accordion title="Escuela">
+    Entidad que agrupa usuarios y grupos bajo una institución. Las escuelas se crean en el Backoffice y pueden tener un administrador de escuela con su propio panel de gestión.
+  </Accordion>
+  <Accordion title="Tenant">
+    Instancia de la plataforma personalizada para una editorial o cliente. Cada tenant puede tener su propia marca, configuración, contenidos y usuarios. Tangerine es un producto white-label y cada editorial opera en su propio tenant.
+  </Accordion>
+</AccordionGroup>
