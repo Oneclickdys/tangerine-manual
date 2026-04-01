@@ -79,13 +79,13 @@
       "P4": 0
     },
     "byStatus": {
-      "documented": 73,
-      "pending": 14,
+      "documented": 76,
+      "pending": 11,
       "in_progress": 0,
       "needs_review": 0,
       "blocked": 0
     },
-    "lastCalculated": "2026-03-31"
+    "lastCalculated": "2026-04-01"
   },
   "knownTenants": [
     {

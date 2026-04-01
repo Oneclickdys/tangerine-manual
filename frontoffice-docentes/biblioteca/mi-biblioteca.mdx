@@ -1,0 +1,219 @@
+---
+title: "Mi Biblioteca"
+description: "Organizar materiales personales en carpetas, subir archivos, crear enlaces y compartir recursos con la comunidad educativa"
+icon: "folder"
+---
+
+## Descripcion
+
+**Mi Biblioteca** es el espacio personal del docente para gestionar sus propios materiales educativos. Desde aqui puede subir archivos, agregar enlaces, crear ejercicios, organizar todo en carpetas y compartir recursos con la Biblioteca General o asignarlos como recursos anuales a sus cursos.
+
+Los materiales en Mi Biblioteca tienen dos origenes:
+
+- **Creados por el docente**: archivos subidos, enlaces anadidos o ejercicios creados directamente. El docente puede editarlos, clasificarlos y eliminarlos
+- **Vinculados desde la Biblioteca General**: recursos anadidos desde la Biblioteca General. Estos solo pueden eliminarse del vinculo, no editarse
+
+<Info>
+  **Rol requerido:** Docente
+</Info>
+
+<Note>
+  Mi Biblioteca solo esta disponible cuando el feature flag `enableLibrary` esta activado para el tenant.
+</Note>
+
+## Como acceder
+
+Mi Biblioteca se encuentra como una pestana en la pagina principal (Home) del docente, junto a las pestanas **Grupos** y **Programas**. El docente selecciona la pestana **Mi Biblioteca** para acceder a sus materiales.
+
+![Mi Biblioteca - Estado vacío](/assets/screenshots/frontoffice-docente/mi-biblioteca/vista-principal.png)
+
+## Estructura de la vista
+
+La vista muestra los materiales organizados en dos secciones:
+
+- **Carpetas**: cada carpeta se muestra como una fila expandible. Al desplegarla, se ven los recursos contenidos en ella
+- **Contenidos sin carpeta**: debajo de las carpetas, se listan los recursos que no estan asignados a ninguna carpeta
+
+Cada recurso muestra su icono de tipo, nombre, visibilidad (Docentes / Estudiantes), autor y fecha. Un menu contextual (icono de tres puntos) ofrece las acciones disponibles segun el tipo de recurso.
+
+### Busqueda y filtros
+
+Un campo de busqueda permite filtrar materiales por nombre. Ademas, los mismos filtros de la Biblioteca General estan disponibles: tipo de contenido, nivel, disciplina y propietario.
+
+## Gestion de carpetas
+
+Las carpetas permiten organizar los materiales por temas, unidades o cualquier criterio que el docente prefiera.
+
+### Crear carpeta
+
+El boton **Anadir carpeta** abre un dialogo donde el docente introduce el nombre de la carpeta. El sistema muestra cuantas carpetas tiene disponibles.
+
+<Note>
+  El numero maximo de carpetas esta definido por la configuracion del tenant (por defecto, 10 carpetas). Cuando se alcanza el limite, el sistema informa que no es posible crear mas carpetas.
+</Note>
+
+### Renombrar carpeta
+
+La opcion **Renombrar** del menu contextual de la carpeta abre un dialogo para modificar el nombre.
+
+### Eliminar carpeta
+
+La opcion **Eliminar carpeta** ofrece dos alternativas:
+
+- **Solo la carpeta, dejando los recursos sueltos**: los materiales contenidos pasan a la seccion de contenidos sin carpeta
+- **Carpeta y recursos**: elimina la carpeta y todos los recursos que contiene
+
+<Warning>
+  Al eliminar una carpeta con recursos, los materiales personales se eliminan permanentemente. Sin embargo, los recursos que fueron compartidos en la Biblioteca General permanecen alli — solo se elimina la copia local del docente.
+</Warning>
+
+### Organizar con arrastrar y soltar
+
+Los materiales pueden moverse entre carpetas arrastrando y soltando. Para mover un recurso a una carpeta, el docente lo arrastra sobre la fila de la carpeta deseada. Para sacarlo de una carpeta, lo arrastra a la zona de "soltar aqui" que aparece en la parte inferior de la lista.
+
+<Tip>
+  La organizacion por arrastrar y soltar solo esta disponible cuando existe al menos una carpeta creada.
+</Tip>
+
+## Anadir material
+
+El boton **Anadir material** inicia un flujo de cuatro pasos para crear un nuevo recurso.
+
+### Paso 1: Seleccionar tipo
+
+El docente elige el tipo de material que desea crear:
+
+| Tipo | Descripcion |
+|------|-------------|
+| **Archivo** | Sube un archivo desde su dispositivo (imagen, video, PDF, documento, etc.) |
+| **Enlace** | Introduce una URL a un recurso externo |
+| **Ejercicio** | Crea una actividad evaluativa (redirige al editor de ejercicios) |
+
+### Paso 2: Informacion del material
+
+| Campo | Obligatorio | Descripcion |
+|-------|-------------|-------------|
+| **Titulo** | Si | Nombre del recurso |
+| **Descripcion** | No | Descripcion del material |
+
+### Paso 3: Contenido
+
+Segun el tipo seleccionado en el Paso 1:
+
+- **Archivo**: el docente sube el archivo desde su dispositivo
+- **Enlace**: el docente introduce la URL del recurso externo
+
+### Paso 4: Clasificar contenido
+
+| Campo | Obligatorio | Descripcion |
+|-------|-------------|-------------|
+| **Disciplina** | Si | Asignatura del material |
+| **Nivel educativo** | Si | Etapa educativa |
+| **Ano educativo** | Si | Curso o grado |
+| **Solo para docentes** | No | Si se activa, el recurso solo sera visible para docentes y no para estudiantes |
+
+![Añadir material - Selección de tipo](/assets/screenshots/frontoffice-docente/mi-biblioteca/anadir-material-tipo.png)
+
+## Acciones sobre recursos
+
+Las acciones disponibles en el menu contextual dependen del origen del recurso:
+
+### Recursos creados por el docente
+
+| Accion | Descripcion |
+|--------|-------------|
+| **Editar** | Abre el formulario de edicion con el titulo, descripcion y tipo del material |
+| **Clasificar contenido** | Permite modificar la clasificacion (disciplina, nivel, ano, visibilidad) |
+| **Usar como recurso anual** | Asigna el material como recurso anual a uno o varios cursos |
+| **Compartir en biblioteca** | Publica una copia del recurso en la Biblioteca General para que otros docentes puedan verlo |
+| **Eliminar recurso** | Elimina el material de la biblioteca personal |
+
+### Recursos vinculados desde la Biblioteca General
+
+| Accion | Descripcion |
+|--------|-------------|
+| **Usar como recurso anual** | Asigna el material como recurso anual a uno o varios cursos |
+| **Quitar de mi biblioteca** | Elimina el vinculo con el recurso de la Biblioteca General |
+
+## Compartir en la Biblioteca General
+
+La opcion **Compartir en biblioteca** crea una copia del recurso en la Biblioteca General. Una vez compartido:
+
+- La copia en la Biblioteca General es independiente: si el docente edita o elimina su recurso original, la copia compartida permanece
+- Otros docentes pueden ver y anadir el recurso compartido a sus propias bibliotecas
+
+Un dialogo de confirmacion informa al docente sobre este comportamiento antes de proceder.
+
+## Usar como recurso anual
+
+La opcion **Usar como recurso anual** permite que un material aparezca como recurso permanente en la seccion de recursos de uno o varios cursos del docente. Un dialogo muestra la lista de cursos disponibles, y el docente selecciona en cuales desea que el recurso aparezca.
+
+<Note>
+  Los materiales marcados como "solo para docentes" no pueden asignarse como recurso anual visible para estudiantes. El sistema informa de esta restriccion si se intenta.
+</Note>
+
+Para carpetas, la opcion **Usar como recurso anual** aplica a todos los recursos de la carpeta de forma individual (sin mantener la estructura de carpeta en el curso).
+
+## Estado vacio
+
+Cuando el docente no tiene ningun material en su biblioteca, la pantalla muestra el mensaje "No tienes ningun recurso todavia" con dos acciones:
+
+- **Explorar biblioteca**: redirige a la Biblioteca General para descubrir recursos disponibles
+- **Anadir material**: abre el flujo de creacion de material
+
+## Limites de la biblioteca
+
+La configuracion del tenant define dos limites:
+
+| Limite | Valor por defecto | Descripcion |
+|--------|-------------------|-------------|
+| **Carpetas** | 10 | Numero maximo de carpetas que el docente puede crear |
+| **Contenidos por carpeta** | 10 | Numero maximo de recursos dentro de una misma carpeta |
+
+Cuando se alcanza alguno de estos limites, el sistema informa al docente y deshabilita la accion correspondiente.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No veo la pestana Mi Biblioteca en la pagina principal">
+    Mi Biblioteca requiere el feature flag `enableLibrary` activado. Si la pestana no aparece junto a Grupos y Programas, la funcionalidad no esta habilitada para el tenant.
+  </Accordion>
+  <Accordion title="He alcanzado el limite de carpetas">
+    El numero maximo de carpetas esta definido por la configuracion del tenant (por defecto, 10). Si se necesitan mas, es necesario eliminar carpetas existentes o solicitar al administrador que aumente el limite en la configuracion del sistema.
+  </Accordion>
+  <Accordion title="Un recurso compartido en la Biblioteca General fue eliminado de mi biblioteca">
+    La copia compartida en la Biblioteca General es independiente del recurso original. Aunque el docente elimine su material de Mi Biblioteca, la copia en la Biblioteca General permanece disponible para otros docentes.
+  </Accordion>
+  <Accordion title="No puedo editar un recurso que anadi desde la Biblioteca General">
+    Los recursos vinculados desde la Biblioteca General son de solo lectura en Mi Biblioteca. Solo se pueden quitar del vinculo. Para editarlos, es necesario contactar al autor original del recurso.
+  </Accordion>
+  <Accordion title="Al eliminar una carpeta, algunos recursos no se eliminaron">
+    Si se elige la opcion "Carpeta y recursos", los recursos que fueron compartidos previamente en la Biblioteca General no se eliminan de alli — solo se elimina la copia local. Los recursos personales no compartidos si se eliminan permanentemente.
+  </Accordion>
+  <Accordion title="No puedo arrastrar y soltar recursos">
+    La funcionalidad de arrastrar y soltar requiere al menos una carpeta creada. Si no hay carpetas, los recursos se muestran en una lista plana sin posibilidad de organizacion por arrastre.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Biblioteca General" icon="book" href="/frontoffice-docentes/biblioteca/biblioteca-general">
+    Desde la Biblioteca General el docente puede descubrir recursos compartidos por la editorial y otros docentes para anadirlos a su biblioteca personal.
+  </Card>
+  <Card title="Recursos del curso" icon="book-open" href="/frontoffice-docentes/curso/recursos">
+    Los materiales de Mi Biblioteca pueden asignarse como recursos anuales a cursos especificos desde la opcion "Usar como recurso anual".
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: Home > Mi Biblioteca
+  - Archivos de codigo relacionados:
+    - frontend: src/core/lite/views/MyClassroomsView/MyClassroomsViewMyLibrary/, src/core/modules/components/dialogs/DialogAddLibraryMaterial/
+    - backend: v3/front/library/:user_id/items, v3/front/library/:user_id/folders
+  - Feature flag: enableLibrary
+  - Ultima revision: 2026-04-01
+*/}

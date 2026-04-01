@@ -312,9 +312,9 @@
       "section": "Biblioteca",
       "route": "/library",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/biblioteca/biblioteca-general.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/LibraryView/", "src/core/modules/containers/LibraryTableContents/"],
         "backend": ["v3/front/library/items"]
@@ -322,7 +322,7 @@
       "tenantVariations": [],
       "featureFlags": ["enableLibrary"],
       "relatedFeatures": ["library/my-library", "home/classrooms"],
-      "lastDocumented": null,
+      "lastDocumented": "2026-04-01",
       "notes": "Accesible desde icono de Biblioteca en el header y desde boton 'Explorar biblioteca' en Mi biblioteca (estado vacio). Layout con sidebar de filtros a la izquierda y tabla de resultados paginada (9 items/pagina). Filtros: tipo de contenido (Audio, Video, PDF, Link, Imagen, Interactivo, xAPI, Ejercicio), nivel educativo, disciplina, propietario (docentes, admin escuela, editorial). Columnas: titulo recurso, apropiado para (niveles, disciplinas), visibilidad (Publico/Estudiantes/Solo docentes), añadido por (con avatar/rol). Acciones: previsualizar recurso en modal, añadir a mi biblioteca. Estado vacio: 'No hay recursos disponibles en la Biblioteca General'."
     },
     "library/my-library": {
@@ -331,9 +331,9 @@
       "section": "Biblioteca",
       "route": "/home (tab Mi biblioteca)",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "frontoffice-docentes/biblioteca/mi-biblioteca.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/MyClassroomsView/MyClassroomsViewMyLibrary/", "src/core/modules/components/dialogs/DialogAddLibraryMaterial/", "src/core/modules/components/dialogs/DialogAddLibraryFolder/", "src/core/modules/components/dialogs/DialogEditLibraryFolder/", "src/core/modules/components/dialogs/DialogDeleteLibraryFolder/", "src/core/modules/components/dialogs/DialogDeleteLibraryResource/", "src/core/modules/components/dialogs/DialogShareContentInLibrary/"],
         "backend": ["v3/front/library/:user_id/items", "v3/front/library/:user_id/folders"]
@@ -341,7 +341,7 @@
       "tenantVariations": [],
       "featureFlags": ["enableLibrary"],
       "relatedFeatures": ["library/general", "home/classrooms"],
-      "lastDocumented": null,
+      "lastDocumented": "2026-04-01",
       "notes": "Tab 'Mi biblioteca' en la pagina Home del docente. Funcionalidades: (1) Gestion de carpetas: crear (min 4 chars, max configurable), renombrar, eliminar (opcion de conservar o eliminar contenido). (2) Añadir material: flujo de 4 pasos — seleccionar tipo (Archivo/Enlace/Ejercicio), subir contenido, info del material (titulo, descripcion), clasificar (nivel, disciplina, visibilidad, recurso anual). (3) Drag & drop para organizar contenido en carpetas (FolderTableDnD). (4) Compartir a biblioteca general (DialogShareContentInLibrary - crea copia). (5) Asignar como recurso anual a cursos especificos (DialogShareContentInProgram). (6) Busqueda y filtrado. (7) Previsualizar recursos. Estado vacio: 'No tienes ningun recurso todavia' con botones 'Explorar biblioteca' y 'Añadir material'."
     }
   }

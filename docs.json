@@ -76,6 +76,12 @@
             ]
           },
           {
+            "group": "Biblioteca",
+            "pages": [
+              "backoffice/biblioteca/biblioteca"
+            ]
+          },
+          {
             "group": "Herramientas de Autor",
             "pages": [
               "backoffice/herramientas-autor/editor-lemonade",
@@ -143,6 +149,13 @@
               "frontoffice-docentes/lecciones/vista-power",
               "frontoffice-docentes/lecciones/gestion-contenidos",
               "frontoffice-docentes/lecciones/modo-proyeccion"
+            ]
+          },
+          {
+            "group": "Biblioteca",
+            "pages": [
+              "frontoffice-docentes/biblioteca/biblioteca-general",
+              "frontoffice-docentes/biblioteca/mi-biblioteca"
             ]
           },
           {

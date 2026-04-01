@@ -1,0 +1,166 @@
+---
+title: "Biblioteca"
+description: "Gestionar la biblioteca de recursos compartidos con docentes, configurando permisos de acceso por nivel, disciplina y coleccion"
+icon: "book-open"
+---
+
+## Descripcion
+
+La **Biblioteca** permite al equipo editorial curar y distribuir recursos educativos a los docentes de la plataforma. Cada recurso se anade con permisos de acceso que determinan que docentes y estudiantes pueden verlo, segun su pais, nivel educativo, disciplina y coleccion.
+
+A diferencia de la seccion **Contenidos** (donde se gestionan todos los materiales de la editorial), la Biblioteca es un escaparate controlado: solo los recursos que el equipo editorial decide compartir aparecen en la Biblioteca General que ven los docentes desde el frontoffice.
+
+<Info>
+  **Rol requerido:** Administrador o Editor. Los usuarios con rol Help Desk o Publisher no pueden acceder a esta seccion.
+</Info>
+
+<Note>
+  La seccion Biblioteca solo aparece cuando el setting `system.enable_library` esta activado para el tenant. Si no se ve en el menu, el administrador debe verificar la configuracion del sistema.
+</Note>
+
+## Como acceder
+
+La Biblioteca se encuentra como la quinta pestana dentro de la seccion **Contenidos** del menu lateral, junto a Contenidos, Publicaciones, Colecciones y Programas Digitales. El administrador navega a **Contenidos** y selecciona la pestana **Biblioteca**.
+
+![Listado de la biblioteca](/assets/screenshots/backoffice/biblioteca/listado-biblioteca.png)
+
+## Estructura del listado
+
+La tabla muestra los recursos compartidos en la biblioteca con las siguientes columnas:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Informacion del recurso** | Icono del tipo de contenido y nombre del recurso. Al hacer clic en el nombre se abre una previsualizacion del contenido |
+| **Permisos de acceso** | Chips que muestran los anos educativos, disciplinas y colecciones asociados al recurso. Si hay mas de uno, se muestra un indicador con el conteo restante |
+| **Anadido por** | Avatar del usuario que anadio el recurso, con la fecha de creacion |
+
+### Cabecera
+
+La cabecera de la pagina incluye:
+
+- **Buscador**: campo de texto para buscar recursos por nombre
+- **Boton Anadir recurso a la biblioteca**: abre el flujo de dos pasos para anadir nuevos recursos
+
+## Filtros disponibles
+
+El panel lateral de filtros permite refinar la vista segun varios criterios:
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Pais** | Solo aparece en tenants multipaís. Al seleccionar un pais, los filtros de niveles educativos y disciplinas se filtran automaticamente por ese pais |
+| **Tipo de contenido** | Audio, Video, PDF, Imagen, Link, HTML Interactivo, Office, Fixed Layout, xAPI, ZIP |
+| **Nivel educativo** | Filtra por los niveles educativos asociados a los permisos del recurso |
+| **Anos educativos** | Filtra por los anos o grados educativos |
+| **Disciplinas** | Filtra por las asignaturas o disciplinas asociadas |
+| **Colecciones** | Filtra por las colecciones de contenido |
+
+<Tip>
+  En tenants multipaís, seleccionar un pais es el primer paso recomendado: los demas filtros se ajustan automaticamente para mostrar solo los valores relevantes de ese pais.
+</Tip>
+
+## Anadir un recurso a la biblioteca
+
+El boton **Anadir recurso a la biblioteca** inicia un flujo de dos pasos.
+
+### Paso 1: Configurar permisos de acceso
+
+Este paso define que usuarios podran ver el recurso en la biblioteca. Los permisos determinan la visibilidad segun la clasificacion educativa del docente o estudiante.
+
+| Campo | Obligatorio | Descripcion |
+|-------|-------------|-------------|
+| **Pais** | Si (solo multipaís) | Pais al que se asocia el recurso. Solo aparece en tenants multipaís |
+| **Niveles educativos** | Si | Etapas educativas (Primaria, Secundaria, etc.) |
+| **Anos educativos** | Si | Cursos o grados dentro de los niveles seleccionados |
+| **Disciplinas** | Si | Asignaturas a las que se asocia el recurso |
+| **Colecciones** | No | Colecciones de contenido opcionales |
+
+El boton **Siguiente** se habilita cuando todos los campos obligatorios estan completos. En tenants multipaís, los campos de niveles y disciplinas permanecen deshabilitados hasta seleccionar un pais.
+
+### Paso 2: Seleccionar recursos
+
+Una tabla muestra los contenidos disponibles para anadir a la biblioteca. Solo se muestran contenidos de tipo Material (imagenes, videos, documentos, enlaces, etc.).
+
+Cada fila muestra el nombre del contenido, ano educativo, nivel, disciplinas y colecciones. El administrador selecciona uno o varios recursos mediante las casillas de verificacion.
+
+El boton **Guardar** indica el numero de recursos seleccionados (ej. "Guardar (3)") y se habilita cuando hay al menos un recurso seleccionado. Un boton **Atras** permite volver al paso anterior para modificar los permisos.
+
+![Configurar permisos de acceso](/assets/screenshots/backoffice/biblioteca/anadir-recurso-paso1.png)
+
+## Editar permisos de un recurso
+
+La opcion **Configurar permisos** del menu contextual de cada fila abre un dialogo que permite modificar los permisos de acceso de un recurso ya publicado en la biblioteca.
+
+Los campos son los mismos del Paso 1 de la creacion (pais, niveles, anos, disciplinas, colecciones) y se precargan con los valores actuales. El boton **Guardar** se habilita solo cuando se ha realizado al menos un cambio respecto a la configuracion original.
+
+<Note>
+  Modificar los permisos de un recurso afecta inmediatamente a su visibilidad. Los docentes que antes podian verlo pueden dejar de hacerlo si se eliminan niveles o disciplinas de sus permisos.
+</Note>
+
+## Eliminar un recurso de la biblioteca
+
+La opcion **Eliminar de la biblioteca** del menu contextual retira el recurso de la biblioteca compartida. Una confirmacion solicita la accion antes de proceder.
+
+Eliminar un recurso de la biblioteca **no borra el contenido original**: el material sigue disponible en la seccion Contenidos. Solo deja de ser visible en la Biblioteca General que ven los docentes.
+
+### Permisos de eliminacion
+
+| Rol | Puede eliminar |
+|-----|----------------|
+| Administrador | Si |
+| Editor | Si |
+| Publisher | No |
+| Help Desk | No (no tiene acceso a la biblioteca) |
+
+## Configuracion y variantes
+
+<Tabs>
+  <Tab title="Tenant monopaís">
+    El filtro de pais no aparece. Todos los campos de permisos estan habilitados directamente al abrir el formulario de configuracion.
+  </Tab>
+  <Tab title="Tenant multipaís">
+    El filtro de pais aparece como primer campo y es obligatorio. Los campos de niveles educativos y disciplinas permanecen deshabilitados hasta seleccionar un pais. Al cambiar de pais, todos los campos dependientes se reinician.
+  </Tab>
+</Tabs>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No veo la pestana Biblioteca en la seccion Contenidos">
+    La Biblioteca requiere el setting `system.enable_library` activado. Si la pestana no aparece, el administrador del sistema debe verificar la configuracion del tenant.
+  </Accordion>
+  <Accordion title="No puedo eliminar un recurso">
+    Los usuarios con rol Publisher no tienen permiso de eliminacion en la biblioteca. Solo los roles Administrador y Editor pueden eliminar recursos. Si el recurso fue anadido por otro usuario, la eliminacion sigue siendo posible para estos roles.
+  </Accordion>
+  <Accordion title="Un recurso eliminado de la biblioteca sigue apareciendo en Contenidos">
+    Es el comportamiento esperado. Eliminar de la biblioteca solo retira la visibilidad en la Biblioteca General de los docentes. El contenido original permanece intacto en la seccion Contenidos.
+  </Accordion>
+  <Accordion title="Los filtros de nivel y disciplina aparecen deshabilitados">
+    En tenants multipaís, estos filtros requieren primero seleccionar un pais. Una vez seleccionado, los campos se habilitan y muestran solo los valores disponibles para ese pais.
+  </Accordion>
+  <Accordion title="Que tipos de contenido se pueden anadir a la biblioteca">
+    Solo contenidos de tipo Material: Audio, Fixed Layout, HTML Interactivo, Imagen, Link, Office, PDF, Video, xAPI y ZIP. Los contenidos de tipo Actividad o Pagina no estan disponibles para la biblioteca.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Gestion de contenidos" icon="folder-open" href="/backoffice/contenidos/gestion-contenidos">
+    Los recursos de la biblioteca provienen de la seccion Contenidos. Cualquier material creado alli puede compartirse a traves de la biblioteca.
+  </Card>
+  <Card title="Biblioteca General (Docentes)" icon="book" href="/frontoffice-docentes/biblioteca/biblioteca-general">
+    Los recursos publicados en esta biblioteca aparecen en la Biblioteca General que los docentes exploran desde el frontoffice.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicacion: backoffice
+  - Seccion UI: Contenidos > Biblioteca
+  - Archivos de codigo relacionados:
+    - frontend: src/app/pages/library/LibraryPage/, src/app/modules/library/
+    - backend: v3/library/items
+  - Feature flag: system.enable_library
+  - Ultima revision: 2026-04-01
+*/}

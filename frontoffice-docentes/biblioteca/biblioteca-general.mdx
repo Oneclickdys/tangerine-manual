@@ -1,0 +1,125 @@
+---
+title: "Biblioteca General"
+description: "Explorar los recursos compartidos por la editorial y la escuela, previsualizarlos y anadirlos a la biblioteca personal"
+icon: "book"
+---
+
+## Descripcion
+
+La **Biblioteca General** es un repositorio de recursos educativos compartidos por la editorial, los administradores de escuela y otros docentes. Desde aqui, el docente puede explorar materiales disponibles, previsualizarlos y anadirlos a su biblioteca personal para organizarlos y utilizarlos en sus cursos.
+
+Los recursos de la Biblioteca General provienen de tres fuentes:
+
+- **Editorial**: materiales publicados por el equipo editorial desde el Backoffice
+- **Administrador de escuela**: recursos compartidos por el administrador de la escuela
+- **Otros docentes**: materiales que otros profesores han decidido compartir con la comunidad
+
+<Info>
+  **Rol requerido:** Docente
+</Info>
+
+<Note>
+  La Biblioteca General solo esta disponible cuando el feature flag `enableLibrary` esta activado para el tenant. Si no aparece el icono de biblioteca en la cabecera, la funcionalidad no esta habilitada.
+</Note>
+
+## Como acceder
+
+El docente puede acceder a la Biblioteca General de dos formas:
+
+- **Desde la cabecera**: seleccionando el icono de **Biblioteca** en la barra superior de navegacion
+- **Desde Mi Biblioteca**: cuando la biblioteca personal esta vacia, el boton **Explorar biblioteca** redirige a la Biblioteca General
+
+![Biblioteca General - Estado vacío](/assets/screenshots/frontoffice-docente/biblioteca-general/vista-vacia.png)
+
+## Estructura de la vista
+
+La Biblioteca General se organiza con un panel de filtros a la izquierda y una tabla de resultados paginada a la derecha.
+
+### Tabla de recursos
+
+Cada recurso se muestra en una fila con la siguiente informacion:
+
+| Columna | Descripcion |
+|---------|-------------|
+| **Titulo del recurso** | Icono del tipo de contenido y nombre. Al hacer clic se abre la previsualizacion |
+| **Apropiado para** | Tags con los niveles educativos, anos, disciplinas y colecciones asociados al recurso |
+| **Visibilidad** | Indica si el recurso esta disponible para "Docentes" o para "Estudiantes" |
+| **Anadido por** | Avatar y nombre del autor con su rol (Editorial, Admin Escuela, Docente) y la fecha de publicacion |
+
+La tabla muestra **9 recursos por pagina** con controles de paginacion en la parte inferior.
+
+### Filtros
+
+El panel lateral permite refinar los resultados por cuatro criterios:
+
+| Filtro | Descripcion |
+|--------|-------------|
+| **Tipo** | Formato del recurso: Audio, Video, PDF, Link, Imagen, Interactivo, xAPI, Ejercicio |
+| **Nivel** | Niveles educativos derivados de los cursos del docente |
+| **Disciplina** | Asignaturas derivadas de los cursos del docente |
+| **Propietario** | Origen del recurso: Editorial, Admin Escuela, Otros docentes, Anadidos por mi |
+
+<Tip>
+  Los filtros de nivel y disciplina se construyen automaticamente a partir de los cursos asignados al docente. Esto asegura que los resultados sean relevantes para su contexto educativo.
+</Tip>
+
+Un campo de **busqueda** en la parte superior permite filtrar por nombre del recurso.
+
+## Previsualizar un recurso
+
+Al hacer clic en el titulo de un recurso, se abre un dialogo de previsualizacion con:
+
+- Nombre y tipo del recurso
+- Visor embebido del contenido (segun el formato)
+- Boton **Ver contenido** para abrir el recurso completo en una nueva pestana
+- Boton **Anadir a mi biblioteca** o **Quitar de mi biblioteca** (segun el estado actual)
+
+## Anadir a Mi Biblioteca
+
+Desde la tabla de resultados o desde la previsualizacion, el docente puede anadir cualquier recurso a su biblioteca personal. El recurso se vincula (no se copia) a la biblioteca del docente, de modo que cualquier actualizacion del recurso original se refleja automaticamente.
+
+Para quitar un recurso previamente anadido, el docente utiliza la misma accion que cambia a **Quitar de mi biblioteca** una vez vinculado.
+
+## Estado vacio
+
+Cuando no hay recursos disponibles en la Biblioteca General (o los filtros no devuelven resultados), la pantalla muestra el mensaje "No hay recursos disponibles en la Biblioteca General".
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No veo el icono de Biblioteca en la cabecera">
+    La Biblioteca General requiere el feature flag `enableLibrary` activado. Si el icono no aparece en la barra de navegacion, la funcionalidad no esta habilitada para el tenant. El docente debe contactar a su administrador.
+  </Accordion>
+  <Accordion title="Los filtros de nivel y disciplina no muestran opciones">
+    Estos filtros se generan a partir de los cursos asignados al docente. Si el docente no tiene cursos activos, los filtros pueden aparecer vacios. Es necesario tener al menos un curso asignado para que se muestren las opciones de filtrado.
+  </Accordion>
+  <Accordion title="Un recurso que anadi a mi biblioteca ya no aparece">
+    Si la editorial o el administrador de escuela retira un recurso de la Biblioteca General, este deja de estar disponible tambien en la biblioteca personal del docente. El recurso vinculado depende de la existencia del recurso original.
+  </Accordion>
+  <Accordion title="Los recursos muestran 'Editorial' como autor">
+    Los recursos publicados desde el Backoffice por el equipo editorial muestran un icono generico de editorial en lugar de un avatar personal. Esto permite distinguir los materiales oficiales de los creados por otros docentes o administradores.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Mi Biblioteca" icon="folder" href="/frontoffice-docentes/biblioteca/mi-biblioteca">
+    Los recursos anadidos desde la Biblioteca General se gestionan en Mi Biblioteca, donde el docente puede organizarlos en carpetas y compartirlos con sus cursos.
+  </Card>
+  <Card title="Recursos del curso" icon="book-open" href="/frontoffice-docentes/curso/recursos">
+    Los materiales de Mi Biblioteca pueden asignarse como recursos anuales a cursos especificos.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicacion: frontoffice-docente
+  - Seccion UI: Biblioteca General (/library)
+  - Archivos de codigo relacionados:
+    - frontend: src/core/lite/views/LibraryView/, src/core/modules/containers/LibraryTableContents/
+    - backend: v3/front/library/items
+  - Feature flag: enableLibrary
+  - Ultima revision: 2026-04-01
+*/}

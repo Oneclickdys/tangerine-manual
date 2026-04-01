@@ -521,9 +521,9 @@
       "section": "Biblioteca",
       "route": "/library",
       "priority": "P2",
-      "status": "pending",
+      "status": "documented",
       "complexity": "interactive-view",
-      "docFile": null,
+      "docFile": "backoffice/biblioteca/biblioteca.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/library/LibraryPage/", "src/app/modules/library/LibraryHead/", "src/app/modules/library/LibraryFilter/", "src/app/modules/library/LibraryAddResources/", "src/app/modules/library/LibraryEditResources/"],
         "backend": ["v3/library/items"]
@@ -531,7 +531,7 @@
       "tenantVariations": [],
       "featureFlags": ["system.enable_library"],
       "relatedFeatures": ["contents/list"],
-      "lastDocumented": null,
+      "lastDocumented": "2026-04-01",
       "notes": "Tab dentro de la seccion Contenidos (junto a Contenidos, Publicaciones, Colecciones, Programas digitales). Solo visible si enable_library esta activo y el usuario tiene permisos (todos excepto helpDesk). Funcionalidades: (1) Listado con tabla (Info recurso, Permisos de acceso, Añadido por), busqueda por nombre, filtros (pais, tipo contenido, niveles educativos, anos, disciplinas, colecciones), customizacion de tabla. (2) Añadir recurso: flujo de 2 pasos — configurar permisos de acceso (pais, niveles, anos, disciplinas, colecciones, visibilidad docentes/estudiantes) y seleccionar recursos a añadir. (3) Editar permisos: modal para modificar permisos de acceso de un recurso existente. (4) Eliminar: quita el recurso de la biblioteca (no borra el contenido). Solo tipos Material permitidos (imagenes, videos, docs, etc). Permisos de eliminacion: todos excepto helpDesk y publisher."
     },
     "contents/batch-upload": {
