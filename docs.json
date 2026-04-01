@@ -105,16 +105,16 @@
         "tab": "Docentes",
         "groups": [
           {
-            "group": "Mis Aulas",
+            "group": "Mis Grupos",
             "pages": [
-              "frontoffice-docentes/mis-aulas/ver-mis-aulas"
+              "frontoffice-docentes/mis-grupos/ver-mis-grupos"
             ]
           },
           {
-            "group": "Gestión de Aulas",
+            "group": "Gestión de Grupos",
             "pages": [
-              "frontoffice-docentes/gestion-aula/crear-aula",
-              "frontoffice-docentes/gestion-aula/ver-estudiantes"
+              "frontoffice-docentes/gestion-grupo/crear-grupo",
+              "frontoffice-docentes/gestion-grupo/ver-estudiantes"
             ]
           },
           {

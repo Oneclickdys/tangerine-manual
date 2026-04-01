@@ -3,14 +3,14 @@
   "lastUpdated": "2026-04-01",
   "features": {
     "home/classrooms": {
-      "name": "Ver mis aulas",
-      "description": "Pantalla principal con todas las aulas/cursos del docente",
-      "section": "Mis Aulas",
+      "name": "Ver mis grupos",
+      "description": "Pantalla principal con todos los grupos/cursos del docente",
+      "section": "Mis Grupos",
       "route": "/home",
       "priority": "P1",
       "status": "documented",
       "complexity": "interactive-view",
-      "docFile": "frontoffice-docentes/mis-aulas/ver-mis-aulas.mdx",
+      "docFile": "frontoffice-docentes/mis-grupos/ver-mis-grupos.mdx",
       "codeFiles": {
         "frontend": ["src/app/pages/HomePage/", "src/core/lite/views/MyClassroomsView/"],
         "backend": []
@@ -22,14 +22,14 @@
       "notes": "Vista principal del docente. Incluye tabs: Grupos (clases), Programas (programas agrupados por materia con ordenacion), Mi biblioteca (biblioteca personal con carpetas y materiales — ver library/my-library). Boton de importar Google Classroom disponible para algunos clientes. Icono de Biblioteca en el header navega a la Biblioteca general (/library — ver library/general)."
     },
     "classroom/create": {
-      "name": "Crear nueva aula",
-      "description": "Formulario para crear una nueva aula/clase",
-      "section": "Mis Aulas",
+      "name": "Crear nuevo grupo",
+      "description": "Formulario para crear un nuevo grupo/clase",
+      "section": "Mis Grupos",
       "route": "/new-classroom",
       "priority": "P1",
       "status": "documented",
       "complexity": "multi-step-form",
-      "docFile": "frontoffice-docentes/gestion-aula/crear-aula.mdx",
+      "docFile": "frontoffice-docentes/gestion-grupo/crear-grupo.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/NewClassroomView/"],
         "backend": []
@@ -43,7 +43,7 @@
     "course/view": {
       "name": "Vista del curso",
       "description": "Vista principal del curso con tabs (Stream, Program, Resources, Grades)",
-      "section": "Curso/Aula",
+      "section": "Curso/Grupo",
       "route": "/course/:guid",
       "priority": "P1",
       "status": "documented",
@@ -62,7 +62,7 @@
     "course/stream": {
       "name": "Stream (muro social)",
       "description": "Muro social del curso para comunicacion con estudiantes",
-      "section": "Curso/Aula",
+      "section": "Curso/Grupo",
       "route": "/course/:guid (tab Stream)",
       "priority": "P1",
       "status": "documented",
@@ -81,7 +81,7 @@
     "course/program": {
       "name": "Programa del curso",
       "description": "Vista del programa/contenido del curso organizado por unidades y lecciones",
-      "section": "Curso/Aula",
+      "section": "Curso/Grupo",
       "route": "/course/:guid (tab Program)",
       "priority": "P1",
       "status": "documented",
@@ -100,7 +100,7 @@
     "course/resources": {
       "name": "Recursos del curso",
       "description": "Biblioteca de recursos adicionales del curso",
-      "section": "Curso/Aula",
+      "section": "Curso/Grupo",
       "route": "/course/:guid (tab Resources)",
       "priority": "P2",
       "status": "documented",
@@ -119,7 +119,7 @@
     "course/grades": {
       "name": "Calificaciones del curso",
       "description": "Libro de calificaciones del curso",
-      "section": "Curso/Aula",
+      "section": "Curso/Grupo",
       "route": "/course/:guid (tab Grades)",
       "priority": "P1",
       "status": "documented",
@@ -231,14 +231,14 @@
       "notes": "Funcionalidad core muy usada. Dos variantes: cuaderno de calificaciones (GradesContainer) y cuaderno de evaluacion (GradesPeriods) controladas por enableEvaluationModel. Subpaginas: vista-general.mdx, cuaderno-evaluacion.mdx, configuracion-y-exportacion.mdx"
     },
     "students/list": {
-      "name": "Ver estudiantes del aula",
-      "description": "Listado de estudiantes matriculados en el aula",
+      "name": "Ver estudiantes del grupo",
+      "description": "Listado de estudiantes matriculados en el grupo",
       "section": "Gestion de Estudiantes",
       "route": "/home (modal desde avatares de estudiantes)",
       "priority": "P1",
       "status": "documented",
       "complexity": "simple-list",
-      "docFile": "frontoffice-docentes/gestion-aula/ver-estudiantes.mdx",
+      "docFile": "frontoffice-docentes/gestion-grupo/ver-estudiantes.mdx",
       "codeFiles": {
         "frontend": ["src/core/lite/views/ClassroomUsersView/", "src/core/modules/components/lists/classroom-users/"],
         "backend": ["src/core/crud/groups.crud.js"]

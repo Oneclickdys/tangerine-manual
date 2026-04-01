@@ -676,7 +676,7 @@ Antes de considerar una página completa, verifica:
 │   │   └── gestion-licencias.mdx
 │   └── ...
 ├── frontoffice-docentes/
-│   ├── gestion-aula/
+│   ├── gestion-grupo/
 │   ├── evaluaciones/
 │   └── ...
 ├── estudiantes/

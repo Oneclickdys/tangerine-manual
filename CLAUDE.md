@@ -106,8 +106,8 @@ manual/
 │   ├── escuelas/
 │   └── programas-digitales/
 ├── frontoffice-docentes/  # App de profesores
-│   ├── mis-aulas/
-│   ├── gestion-aula/
+│   ├── mis-grupos/
+│   ├── gestion-grupo/
 │   ├── evaluaciones/
 │   ├── curso/
 │   └── lecciones/

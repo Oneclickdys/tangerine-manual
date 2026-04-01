@@ -1,12 +1,12 @@
 ---
-title: "Ver Estudiantes del Aula"
-description: "Visualiza y gestiona los estudiantes y docentes matriculados en tu aula virtual"
+title: "Ver Estudiantes del Grupo"
+description: "Visualiza y gestiona los estudiantes y docentes matriculados en tu grupo virtual"
 icon: "users"
 ---
 
 ## Descripción
 
-La funcionalidad de **Ver Estudiantes del Aula** permite a los docentes visualizar todos los usuarios matriculados en un aula específica: tanto estudiantes como otros docentes. Desde esta pantalla puedes consultar información de cada usuario, ver los cursos en los que estan inscritos, importar usuarios desde Google Classroom y gestionar la composicion de tu aula.
+La funcionalidad de **Ver Estudiantes del Grupo** permite a los docentes visualizar todos los usuarios matriculados en un grupo específico: tanto estudiantes como otros docentes. Desde esta pantalla puedes consultar información de cada usuario, ver los cursos en los que estan inscritos, importar usuarios desde Google Classroom y gestionar la composicion de tu grupo.
 
 <Info>
   **Rol requerido:** Docente
@@ -18,21 +18,21 @@ La funcionalidad de **Ver Estudiantes del Aula** permite a los docentes visualiz
   <Step title="Inicia sesion como docente">
     Accede a la plataforma con tus credenciales de docente.
   </Step>
-  <Step title="Navega a Mis Aulas">
-    Desde el menú principal, accede a la sección **Clases** en el Home. Veras todas tus aulas organizadas por nivel educativo.
+  <Step title="Navega a Mis Grupos">
+    Desde el menú principal, accede a la sección **Clases** en el Home. Veras todos tus grupos organizados por nivel educativo.
 
-    ![Pantalla de inicio con aulas](/assets/screenshots/frontoffice-docente/gestion-aula/home-aulas.png)
+    ![Pantalla de inicio con grupos](/assets/screenshots/frontoffice-docente/gestion-grupo/home-aulas.png)
   </Step>
   <Step title="Haz clic en los estudiantes">
-    En cada aula verás los avatares de los estudiantes matriculados. Haz clic sobre ellos para abrir el panel de integrantes.
+    En cada grupo verás los avatares de los estudiantes matriculados. Haz clic sobre ellos para abrir el panel de integrantes.
   </Step>
 </Steps>
 
 ## Vista general
 
-Al hacer clic en los estudiantes de un aula, se abre un panel modal con la información completa de los integrantes:
+Al hacer clic en los estudiantes de un grupo, se abre un panel modal con la información completa de los integrantes:
 
-![Panel de integrantes del aula](/assets/screenshots/frontoffice-docente/gestion-aula/dropdown-estudiantes.png)
+![Panel de integrantes del grupo](/assets/screenshots/frontoffice-docente/gestion-grupo/dropdown-estudiantes.png)
 
 ### Panel principal - Lista de Estudiantes
 
@@ -40,21 +40,21 @@ Este panel muestra:
 
 | Elemento | Descripción |
 |----------|-------------|
-| **Título del aula** | Nombre de la clase (ej: "Integrantes de 1º A") |
+| **Título del grupo** | Nombre de la clase (ej: "Integrantes de 1º A") |
 | **Contador de alumnos** | Número total de estudiantes matriculados |
 | **Lista de estudiantes** | Cada estudiante con su avatar, nombre, email y cursos asignados |
 | **Cursos por estudiante** | Etiquetas (tags) mostrando los cursos en que esta inscrito cada estudiante |
 
-### Panel lateral - Información del Aula
+### Panel lateral - Información del Grupo
 
 | Elemento | Descripción |
 |----------|-------------|
-| **Código de clase** | Código único del aula que los estudiantes pueden usar para unirse |
+| **Código de clase** | Código único del grupo que los estudiantes pueden usar para unirse |
 | **Importar de Classroom** | Botón para importar usuarios desde Google Classroom |
-| **Profesor** | Nombre del docente principal del aula |
+| **Profesor** | Nombre del docente principal del grupo |
 
 <Tip>
-  El código de clase es útil para compartir con nuevos estudiantes que necesiten unirse al aula de forma autonoma.
+  El código de clase es útil para compartir con nuevos estudiantes que necesiten unirse al grupo de forma autonoma.
 </Tip>
 
 ---
@@ -79,7 +79,7 @@ Este panel muestra:
   </Step>
 </Steps>
 
-### Eliminar un estudiante del aula
+### Eliminar un estudiante del grupo
 
 <Steps>
   <Step title="Localiza al estudiante">
@@ -95,26 +95,26 @@ Este panel muestra:
     En el diálogo de confirmacion, haz clic en **Eliminar de clase** para confirmar.
 
     <Warning>
-      Esta acción eliminará al estudiante del aula. El estudiante perdera acceso a los contenidos y actividades de esta aula.
+      Esta acción eliminará al estudiante del grupo. El estudiante perdera acceso a los contenidos y actividades de este grupo.
     </Warning>
   </Step>
 </Steps>
 
-### Eliminar un docente del aula
+### Eliminar un docente del grupo
 
 <Steps>
   <Step title="Localiza al docente">
     En el panel izquierdo, busca al docente en la sección de **Docentes**.
   </Step>
   <Step title="Haz clic en el icono de eliminar">
-    Si hay más de un docente en el aula, aparecerá un icono de papelera junto a cada docente (excepto tu propio usuario).
+    Si hay más de un docente en el grupo, aparecerá un icono de papelera junto a cada docente (excepto tu propio usuario).
 
     <Info>
-      No puedes eliminarte a ti mismo del aula. Siempre debe haber al menos un docente.
+      No puedes eliminarte a ti mismo del grupo. Siempre debe haber al menos un docente.
     </Info>
   </Step>
   <Step title="Confirma la acción">
-    En el diálogo de confirmacion, confirma que deseas eliminar al docente del aula.
+    En el diálogo de confirmacion, confirma que deseas eliminar al docente del grupo.
   </Step>
 </Steps>
 
@@ -131,7 +131,7 @@ Este panel muestra:
     Una vez conectado, podrás seleccionar que usuarios de tu clase de Google Classroom deseas importar.
   </Step>
   <Step title="Confirma la importacion">
-    Los usuarios seleccionados seran agregados al aula de Tangerine.
+    Los usuarios seleccionados seran agregados al grupo de Tangerine.
 
     <Tip>
       Esta funcionalidad es especialmente útil si ya tienes tus clases organizadas en Google Classroom y quieres migrar a Tangerine.
@@ -146,7 +146,7 @@ Este panel muestra:
 <AccordionGroup>
   <Accordion title="Verificar quienes estan en mi clase">
     Al inicio del curso o cuando necesites confirmar la lista de estudiantes:
-    1. Accede a la vista de usuarios del aula
+    1. Accede a la vista de usuarios del grupo
     2. Revisa la lista de estudiantes en el panel derecho
     3. Verifica que todos los estudiantes esperados esten presentes
     4. Revisa que los docentes co-asignados sean los correctos
@@ -156,14 +156,14 @@ Este panel muestra:
     1. Localiza al estudiante en la lista
     2. Usa el menú de opciones y selecciona **Eliminar**
     3. Confirma la eliminación
-    4. El estudiante podrá ser agregado a su nueva aula
+    4. El estudiante podrá ser agregado a su nuevo grupo
   </Accordion>
   <Accordion title="Compartir el código de clase con nuevos estudiantes">
     Para que estudiantes se unan de forma autonoma:
-    1. Accede a la vista de usuarios del aula
+    1. Accede a la vista de usuarios del grupo
     2. Localiza el **Código de clase** en el panel izquierdo
     3. Comparte este código con los estudiantes
-    4. Los estudiantes podran usar este código para unirse al aula
+    4. Los estudiantes podran usar este código para unirse al grupo
   </Accordion>
   <Accordion title="Migrar estudiantes desde Google Classroom">
     Si usas Google Classroom y quieres que tus estudiantes accedan a Tangerine:
@@ -183,10 +183,10 @@ Este panel muestra:
     La agregación manual de estudiantes se realiza desde otra sección. Esta vista esta enfocada en visualizar y gestionar los usuarios existentes, e importar desde Google Classroom. Para agregar estudiantes individualmente, consulta con el administrador del centro o usa el código de clase.
   </Accordion>
   <Accordion title="Que pasa cuando elimino un estudiante?">
-    El estudiante pierde acceso al aula y sus contenidos. Sin embargo, su cuenta de usuario no se elimina del sistema, solo se desvincula del aula. Un administrador puede volver a agregarlo si es necesario.
+    El estudiante pierde acceso al grupo y sus contenidos. Sin embargo, su cuenta de usuario no se elimina del sistema, solo se desvincula del grupo. Un administrador puede volver a agregarlo si es necesario.
   </Accordion>
   <Accordion title="Por que no puedo eliminar a un docente?">
-    Solo puedes eliminar a otros docentes si hay más de un docente en el aula. No puedes eliminarte a ti mismo. Si solo hay un docente (tu), no verás la opción de eliminar.
+    Solo puedes eliminar a otros docentes si hay más de un docente en el grupo. No puedes eliminarte a ti mismo. Si solo hay un docente (tu), no verás la opción de eliminar.
   </Accordion>
   <Accordion title="Los estudiantes importados de Google necesitan crear cuenta nueva?">
     Depende de la configuración del sistema. En general, los usuarios importados pueden acceder con sus credenciales de Google o se les creara una cuenta automáticamente.
@@ -200,7 +200,7 @@ Este panel muestra:
 <Warning>
   **Problema:** No veo el botón de eliminar junto a los docentes.
 
-  **Solución:** El botón de eliminar solo aparece si hay más de un docente en el aula. No puedes eliminarte a ti mismo.
+  **Solución:** El botón de eliminar solo aparece si hay más de un docente en el grupo. No puedes eliminarte a ti mismo.
 </Warning>
 
 <Warning>
@@ -212,7 +212,7 @@ Este panel muestra:
 <Warning>
   **Problema:** Un estudiante no aparece en la lista.
 
-  **Solución:** Verifica que el estudiante esta correctamente matriculado en el aula. Si usaste el código de clase, asegúrate de que lo introdujo correctamente.
+  **Solución:** Verifica que el estudiante esta correctamente matriculado en el grupo. Si usaste el código de clase, asegúrate de que lo introdujo correctamente.
 </Warning>
 
 ---
@@ -220,11 +220,11 @@ Este panel muestra:
 ## Relacionado
 
 <CardGroup cols={2}>
-  <Card title="Ver Mis Aulas" icon="home" href="/frontoffice-docentes/inicio/mis-aulas">
-    Pantalla principal con todas tus aulas.
+  <Card title="Ver Mis Grupos" icon="home" href="/frontoffice-docentes/mis-grupos/ver-mis-grupos">
+    Pantalla principal con todos tus grupos.
   </Card>
-  <Card title="Crear Nueva Aula" icon="plus" href="/frontoffice-docentes/gestion-aula/crear-aula">
-    Aprende a crear una nueva aula virtual.
+  <Card title="Crear Nuevo Grupo" icon="plus" href="/frontoffice-docentes/gestion-grupo/crear-grupo">
+    Aprende a crear un nuevo grupo virtual.
   </Card>
 </CardGroup>
 
