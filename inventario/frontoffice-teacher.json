@@ -249,6 +249,25 @@
       "lastDocumented": "2025-12-19",
       "notes": "Incluye funcionalidad de importar desde Google Classroom. Se accede desde el Home haciendo clic en los avatares de estudiantes."
     },
+    "classroom/manage-courses": {
+      "name": "Gestionar cursos del grupo",
+      "description": "Añadir o eliminar cursos (programas digitales) en un grupo existente seleccionando las publicaciones disponibles",
+      "section": "Gestión de Grupos",
+      "route": "/home (diálogo desde menú del grupo)",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "interactive-view",
+      "docFile": "frontoffice-docentes/gestion-grupo/gestionar-cursos.mdx",
+      "codeFiles": {
+        "frontend": ["src/core/modules/components/cards/ClassRoomCard/ClassRoomCard.js", "src/core/lite/views/NewClassroomView/NewClassroomViewStepBooks.js", "src/core/lite/views/NewClassroomView/NewClassroom/useDataNewClassroom.js"],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": ["canCreateCourse"],
+      "relatedFeatures": ["home/classrooms", "classroom/create", "course/configure"],
+      "lastDocumented": "2026-04-01",
+      "notes": "Reutiliza el componente NewClassroom con onlyStep=1 para mostrar solo el paso de seleccion de publicaciones. Las publicaciones ya asignadas aparecen deshabilitadas. Permite canjear licencias desde el dialogo via DialogAddCode. Crea un curso (entidad Course) por cada publicacion seleccionada."
+    },
     "calendar/view": {
       "name": "Calendario general",
       "description": "Vista de calendario con eventos y tareas",

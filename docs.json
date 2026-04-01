@@ -114,6 +114,7 @@
             "group": "Gestión de Grupos",
             "pages": [
               "frontoffice-docentes/gestion-grupo/crear-grupo",
+              "frontoffice-docentes/gestion-grupo/gestionar-cursos",
               "frontoffice-docentes/gestion-grupo/ver-estudiantes"
             ]
           },

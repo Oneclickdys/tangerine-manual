@@ -1,0 +1,118 @@
+---
+title: "Gestionar cursos del grupo"
+description: "Añade o elimina cursos (programas digitales) en un grupo existente seleccionando las publicaciones disponibles en la licencia del docente"
+icon: "book-plus"
+---
+
+Cada grupo escolar puede tener uno o más cursos asociados. Un curso es una instancia de un programa digital (como "Matemáticas 26" o "English 26") asignada a ese grupo concreto. La gestión de cursos permite al docente ampliar la oferta de su grupo añadiendo nuevos programas sin necesidad de crear un grupo nuevo.
+
+<Info>
+  **Rol requerido:** Docente
+</Info>
+
+<Note>
+  Esta funcionalidad requiere que el setting **canCreateCourse** esté activado para el tenant. Si no aparece la opción "Gestionar cursos" ni el botón "Añadir curso", la institución puede no tener esta capacidad habilitada.
+</Note>
+
+## Cuándo gestionar cursos
+
+La gestión de cursos es útil cuando:
+
+- El docente **recibe acceso a un nuevo programa digital** y quiere incorporarlo a un grupo existente
+- Se necesita **añadir una asignatura complementaria** al grupo (por ejemplo, añadir Inglés a un grupo que solo tenía Matemáticas)
+- El docente **canjea una nueva licencia** y las publicaciones asociadas deben asignarse a sus grupos
+
+## Acceder a la gestión de cursos
+
+<Steps>
+  <Step title="Localizar el grupo">
+    Desde el Home, en la pestaña **Grupos**, el docente localiza la tarjeta del grupo al que desea añadir cursos.
+  </Step>
+  <Step title="Abrir el menú del grupo">
+    En la esquina superior derecha de la tarjeta del grupo aparece un icono de tres puntos (⋮). Al hacer clic, se despliega un menú con las opciones disponibles.
+
+    <Frame>
+      <img src="/assets/screenshots/frontoffice-docente/gestionar-cursos/01-menu-gestionar-cursos.png" alt="Menú desplegable del grupo con las opciones Editar, Gestionar cursos y Borrar" />
+    </Frame>
+  </Step>
+  <Step title="Seleccionar Gestionar cursos">
+    El docente hace clic en **Gestionar cursos**. Se abre un diálogo a pantalla completa con las publicaciones disponibles.
+  </Step>
+</Steps>
+
+## Seleccionar publicaciones
+
+El diálogo muestra una vista de **Biblioteca** con todas las publicaciones a las que el docente tiene acceso a través de sus licencias, organizadas en tarjetas con la imagen del programa, su nombre y la disciplina.
+
+<Frame>
+  <img src="/assets/screenshots/frontoffice-docente/gestionar-cursos/03-publicacion-seleccionada.png" alt="Diálogo de selección de publicaciones mostrando Matemáticas 26 ya asignada, English 26 seleccionada y otras disponibles" />
+</Frame>
+
+Cada tarjeta de publicación tiene uno de tres estados:
+
+| Estado | Indicador visual | Significado |
+|--------|-----------------|-------------|
+| **Ya asignada** | Sin icono, aspecto atenuado | El programa ya está vinculado como curso en este grupo |
+| **Disponible** | Botón **+** naranja | El programa puede añadirse como nuevo curso |
+| **Seleccionada** | Check **✓** naranja con borde | El programa se añadirá al guardar |
+
+<Steps>
+  <Step title="Seleccionar los programas deseados">
+    El docente hace clic en las tarjetas de los programas que desea añadir. Cada clic alterna entre seleccionado y no seleccionado. Se pueden seleccionar varios programas a la vez.
+  </Step>
+  <Step title="Guardar los cambios">
+    Una vez seleccionados los programas, el docente hace clic en el botón **Guardar** (esquina inferior derecha). El sistema crea un curso para cada programa seleccionado y los asocia al grupo.
+
+    <Tip>
+      El botón **Guardar** solo se activa cuando hay al menos una publicación nueva seleccionada.
+    </Tip>
+  </Step>
+</Steps>
+
+Tras guardar, el docente regresa al Home donde la tarjeta del grupo muestra los nuevos cursos añadidos. Cada curso nuevo mostrará el botón [Configurar curso](/frontoffice-docentes/curso/configurar-curso) para definir su calendario de sesiones.
+
+### Añadir una licencia desde el diálogo
+
+Si el docente necesita acceder a programas que no aparecen en la lista, puede canjear una nueva licencia directamente desde este diálogo haciendo clic en el enlace **Añade una licencia** (esquina superior derecha). Al introducir un código de licencia válido, las publicaciones asociadas aparecerán inmediatamente en la lista para su selección.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se pueden eliminar cursos desde aquí?">
+    No. La gestión de cursos desde este diálogo solo permite añadir nuevos programas. Para eliminar un curso existente, el docente debe usar el menú de tres puntos de la tarjeta del curso individual (no del grupo) y seleccionar **Borrar**.
+  </Accordion>
+  <Accordion title="¿Qué ocurre si un programa ya está asignado?">
+    Las publicaciones que ya tienen un curso creado en el grupo aparecen atenuadas y sin botón de selección. No es posible duplicar un mismo programa en el mismo grupo.
+  </Accordion>
+  <Accordion title="¿Los estudiantes del grupo acceden automáticamente a los nuevos cursos?">
+    Sí. Los estudiantes matriculados en el grupo acceden automáticamente a todos los cursos del grupo. No es necesario realizar una asignación adicional.
+  </Accordion>
+  <Accordion title="¿Qué pasa si no aparece ninguna publicación?">
+    Si la lista está vacía, el docente puede no tener licencias activas con publicaciones disponibles. Puede canjear una licencia usando el enlace "Añade una licencia" o contactar a su administrador.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear grupo" icon="users-plus" href="/frontoffice-docentes/gestion-grupo/crear-grupo">
+    Crear un grupo nuevo desde cero con publicaciones y estudiantes.
+  </Card>
+  <Card title="Configurar curso" icon="calendar-cog" href="/frontoffice-docentes/curso/configurar-curso">
+    Definir las fechas y horarios de un curso recién añadido.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS (no se muestran al usuario)
+
+  - Aplicación: frontoffice-docente
+  - Sección UI: Home > Menú del grupo > Gestionar cursos
+  - Archivos de código relacionados:
+    - frontend: src/core/modules/components/cards/ClassRoomCard/ClassRoomCard.js
+    - frontend: src/core/lite/views/MyClassroomsView/useViewMyClassroomsView.js
+    - frontend: src/core/lite/views/NewClassroomView/NewClassroomViewStepBooks.js
+    - frontend: src/core/lite/views/NewClassroomView/NewClassroom/useDataNewClassroom.js
+  - Feature flags: canCreateCourse
+  - Última revisión: 2026-04-01
+*/}
