@@ -55,7 +55,8 @@
       "mcp__plugin_oneclick_context7__query-docs",
       "mcp__plugin_oneclick_context7__resolve-library-id",
       "WebFetch(domain:www.mintlify.com)",
-      "Skill(oneclick:commit)"
+      "Skill(oneclick:commit)",
+      "mcp__plugin_oneclick_linear__get_project"
     ]
   }
 }
