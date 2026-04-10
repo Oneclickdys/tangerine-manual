@@ -246,8 +246,8 @@
       "tenantVariations": [],
       "featureFlags": [],
       "relatedFeatures": ["schools/list"],
-      "lastDocumented": "2025-12-19",
-      "notes": "Documentado con tabs Detalles, Ano escolar, Grupos y Usuarios. Incluye modales de creacion."
+      "lastDocumented": "2026-04-10",
+      "notes": "Documentado con tabs Detalles, Ano escolar, Grupos, Usuarios y Programas Escuela. Incluye modales de creacion. Tab Programas Escuela con screenshots de busqueda, seleccion y licencias."
     },
     "contents/list": {
       "name": "Listar contenidos",

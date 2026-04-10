@@ -35,9 +35,14 @@ La página de detalle se organiza en pestañas (tabs) que agrupan diferentes asp
 | **Año escolar** | Gestión de periodos académicos |
 | **Grupos** | Clases y grupos de estudiantes |
 | **Usuarios** | Docentes, estudiantes y administradores asignados |
+| **Programas Escuela** | Publicaciones y programas digitales asignados a la escuela (solo visible cuando **Admin escuela** o **LTI conexión** están habilitados) |
 
 <Note>
   Si la escuela tiene habilitada la opción **LTI conexión**, la pestaña de **Grupos** no estará disponible, ya que los grupos se gestionan desde el sistema externo.
+</Note>
+
+<Note>
+  La pestaña **Programas Escuela** solo aparece cuando la escuela tiene habilitada la opción **Admin escuela** o **LTI conexión**. Si ninguna de las dos está activa, la pestaña no se muestra.
 </Note>
 
 ## Tab Detalles
@@ -218,6 +223,69 @@ Usa el campo **Buscar** para filtrar usuarios por nombre o email.
   Solo puedes agregar usuarios que ya existen en la plataforma. Si necesitas crear un nuevo usuario, ve primero a la sección de **Usuarios** del Backoffice.
 </Info>
 
+## Tab Programas Escuela
+
+La pestaña **Programas Escuela** permite gestionar las publicaciones y programas digitales que la escuela tiene disponibles para sus usuarios. Cada programa asignado define cuántas licencias de estudiante y docente están disponibles.
+
+![Pestaña Programas Escuela con publicación asignada](/assets/screenshots/backoffice/escuelas/detalle-escuela-tab-programas-escuela.png)
+
+### Información mostrada
+
+La tabla de programas muestra:
+
+| Columna | Descripción |
+|---------|-------------|
+| **Publicación + Programa** | Nombre del programa digital y la publicación asociada |
+| **Colección** | Colección a la que pertenece el contenido |
+| **Usos estudiantes** | Licencias consumidas sobre el total disponible para estudiantes |
+| **Usos profesores** | Licencias consumidas sobre el total disponible para docentes |
+| **Curso** | Nivel educativo asociado |
+| **Versión** | Versiones idiomáticas disponibles |
+| **Año lectivo** | Año escolar al que pertenece la asignación |
+
+El selector **Año escolar** en la parte superior permite filtrar los programas por período académico.
+
+### Añadir un programa a la escuela
+
+<Steps>
+  <Step title="Abrir el diálogo de búsqueda">
+    El administrador hace clic en el botón **Añadir programas escuela** en la esquina superior derecha de la tabla.
+
+    ![Diálogo de búsqueda de programas](/assets/screenshots/backoffice/escuelas/dialogo-anadir-programa-busqueda.png)
+  </Step>
+  <Step title="Buscar y seleccionar programas">
+    El diálogo muestra un buscador por nombre o ISBN. El administrador localiza los programas deseados y marca la casilla junto a cada uno. Es posible seleccionar varios programas a la vez.
+
+    ![Programa seleccionado en el diálogo](/assets/screenshots/backoffice/escuelas/dialogo-anadir-programa-seleccion.png)
+
+    Una vez seleccionados, el botón **Siguiente** se habilita en la parte inferior.
+  </Step>
+  <Step title="Configurar licencias de uso">
+    En el segundo paso, el sistema solicita la cantidad máxima de licencias:
+
+    - **Max. estudiantes**: número máximo de estudiantes que podrán acceder al programa
+    - **Max. profesores**: número máximo de docentes que podrán acceder al programa
+
+    ![Configuración de licencias de uso](/assets/screenshots/backoffice/escuelas/dialogo-anadir-programa-licencias-completo.png)
+
+    El enlace **Volver a buscar** permite regresar al paso anterior para modificar la selección.
+  </Step>
+  <Step title="Confirmar la asignación">
+    El administrador hace clic en **Añadir** para asignar los programas seleccionados a la escuela. La tabla se actualiza automáticamente con los nuevos programas.
+  </Step>
+</Steps>
+
+### Editar o eliminar un programa
+
+Cada fila de la tabla dispone de un menú de opciones (icono de tres puntos) con las acciones:
+
+- **Editar**: permite modificar el número máximo de licencias de estudiantes y docentes
+- **Eliminar**: retira el programa de la escuela
+
+<Warning>
+  Al eliminar un programa de la escuela, los usuarios que ya lo tenían asignado perderán el acceso al contenido. Esta acción afecta a todos los grupos de la escuela que utilizaban ese programa.
+</Warning>
+
 ## Navegación entre pestañas
 
 Usa los botones **Anterior** y **Siguiente** en la parte inferior de la pantalla para navegar entre las pestañas, o haz clic directamente en el nombre de la pestaña deseada.
@@ -226,10 +294,11 @@ Usa los botones **Anterior** y **Siguiente** en la parte inferior de la pantalla
 
 <AccordionGroup>
   <Accordion title="Configurar un nuevo colegio después de crearlo">
-    Después de crear un colegio, sigue estos pasos:
+    Después de crear un colegio, el flujo típico de configuración es:
     1. Ve a la pestaña **Año escolar** y crea el período académico actual
-    2. Ve a la pestaña **Grupos** y crea las clases necesarias
-    3. Ve a la pestaña **Usuarios** y asigna docentes y estudiantes
+    2. Ve a la pestaña **Programas Escuela** y asigna las publicaciones que la escuela necesita, definiendo las licencias disponibles
+    3. Ve a la pestaña **Grupos** y crea las clases necesarias
+    4. Ve a la pestaña **Usuarios** y asigna docentes y estudiantes
   </Accordion>
   <Accordion title="Preparar el colegio para un nuevo año escolar">
     Al inicio de cada año escolar:
@@ -332,7 +401,9 @@ Usa los botones **Anterior** y **Siguiente** en la parte inferior de la pantalla
       - SchoolFormSchoolYear: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormSchoolYear/
       - SchoolFormGroups: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormGroups/
       - SchoolFormUsers: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormUsers/
+    - SchoolFormContents: tangerine-backoffice/src/app/modules/schools/SchoolForm/SchoolFormContents/
     - crud: tangerine-backoffice/src/app/crud/schools.crud.js
+    - crud contents: tangerine-backoffice/src/app/crud/schoolsContents.crud.js
     - service: tangerine-backoffice/src/app/services/schools.service.js
-  - Última revision: 2025-12-19
+  - Última revisión: 2026-04-10
 */}
