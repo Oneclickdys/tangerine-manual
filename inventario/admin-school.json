@@ -94,8 +94,8 @@
       "tenantVariations": [],
       "featureFlags": ["enableEvaluationModel", "enableSchoolProgram", "enableAdvancedProgramming"],
       "relatedFeatures": ["groups/list", "groups/content-config"],
-      "lastDocumented": "2026-03-31",
-      "notes": "Pestanas: estudiantes (roster), docentes asignados, contenidos del grupo. Permite importar usuarios al grupo. Contenidos agrupados por periodo de evaluacion cuando enableEvaluationModel activo. Programas escuela controlados por enableSchoolProgram."
+      "lastDocumented": "2026-04-11",
+      "notes": "Pestanas: estudiantes (roster), docentes asignados, contenidos del grupo. Permite importar usuarios al grupo. Contenidos agrupados por periodo de evaluacion cuando enableEvaluationModel activo. Programas escuela controlados por enableSchoolProgram. Screenshots añadidos: estudiantes, docentes (estado vacio, menu, dialogo seleccion, resultado), cursos vacio."
     },
     "groups/content-config": {
       "name": "Configuracion de contenido por grupo",

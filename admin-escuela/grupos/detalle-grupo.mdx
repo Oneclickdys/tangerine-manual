@@ -35,7 +35,9 @@ Al modificar el estado del grupo mediante el toggle, el cambio se guarda automat
 
 ## Pestana Estudiantes
 
-La pestana **Estudiantes** muestra el listado de todos los estudiantes asignados al grupo, con un contador total (ej. "12 estudiantes").
+![Pestaña Estudiantes con listado de estudiantes asignados](/assets/screenshots/admin-school/groups/detalle-grupo-estudiantes.png)
+
+La pestana **Estudiantes** muestra el listado de todos los estudiantes asignados al grupo, con un contador total (ej. "48 estudiantes").
 
 ### Informacion de cada estudiante
 
@@ -73,6 +75,8 @@ Si el grupo no tiene estudiantes asignados, se muestra un mensaje invitando al a
 
 ## Pestana Docentes
 
+![Pestaña Docentes con docente asignado](/assets/screenshots/admin-school/groups/detalle-grupo-docente-asignado.png)
+
 La pestana **Docentes** funciona de forma analoga a la de estudiantes. Muestra el listado de docentes asignados al grupo con un contador total.
 
 ### Informacion de cada docente
@@ -88,10 +92,15 @@ Cada docente se muestra como una tarjeta con:
 
 ### Asignar docentes
 
-El boton **+** ofrece las mismas dos opciones que en la pestana de estudiantes:
+El boton **+** en la esquina superior derecha despliega un menu con dos opciones:
 
-- **Seleccionar docentes** — Dialogo de seleccion filtrado por el rol docente
-- **Importar lista** — Importacion masiva vinculada al grupo
+![Menú desplegable con opciones Seleccionar docentes e Importar lista](/assets/screenshots/admin-school/groups/detalle-grupo-menu-anadir-docente.png)
+
+- **Seleccionar docentes** — Abre un dialogo donde el administrador busca docentes de la escuela por nombre o email y los selecciona marcando la casilla correspondiente. El boton **Añadir** indica entre parentesis cuantos docentes se han seleccionado
+
+![Diálogo de selección de docentes con búsqueda y docente seleccionado](/assets/screenshots/admin-school/groups/dialogo-seleccionar-docente-seleccionado.png)
+
+- **Importar lista** — Abre el flujo de importacion masiva vinculada al grupo, similar al disponible en la [seccion de usuarios](/admin-escuela/usuarios/importacion-masiva)
 
 ### Eliminar un docente del grupo
 
@@ -102,6 +111,8 @@ El proceso es identico al de estudiantes: desde el menu contextual, confirmar la
 </Warning>
 
 ## Pestana Cursos (Contenidos)
+
+![Pestaña Cursos en estado vacío con botón Añadir contenidos](/assets/screenshots/admin-school/groups/detalle-grupo-cursos-vacio.png)
 
 La pestana **Cursos** muestra los programas digitales y contenidos asignados al grupo. Dependiendo de la configuracion del tenant, esta pestana puede mostrar diferentes tipos de contenidos y opciones.
 
@@ -211,5 +222,5 @@ Al hacer clic en la tarjeta de un contenido (cuando la configuracion esta habili
   - Seccion UI: Grupos > Detalle
   - Archivos de codigo relacionados:
     - frontend: src/app/pages/class/ClassDetailPage/, src/app/modules/class/ClassDetail/, src/app/modules/class/ClassStudents/, src/app/modules/class/ClassTeachers/, src/app/modules/class/ClassContents/
-  - Ultima revision: 2026-03-31
+  - Ultima revisión: 2026-04-11
 */}
