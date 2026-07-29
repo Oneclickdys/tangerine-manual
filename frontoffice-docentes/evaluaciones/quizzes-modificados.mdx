@@ -1,0 +1,155 @@
+---
+title: "Quizzes modificados por la editorial"
+description: "Cómo ves los avisos de cambios editoriales en un quiz con entregas y cómo decides qué hacer con tus estudiantes"
+icon: "bell"
+---
+
+## Descripción
+
+Cuando una editorial modifica un quiz que tus estudiantes ya han entregado (por ejemplo, corrige una respuesta correcta o ajusta una pregunta), el sistema te avisa para que decidas cómo afecta a las calificaciones que ya calculaste. El cambio editorial **no sobrescribe** las entregas existentes de forma automática: tú mantienes el control sobre el libro de calificaciones.
+
+El docente es siempre dueño del libro de calificaciones. El sistema solo te alerta y te ofrece dos caminos: **conservar lo que ya había** o **enviar la nueva versión** para que los estudiantes la rehagan.
+
+<Info>
+  **Rol requerido:** Docente
+
+  **Cuándo se activa:** Solo si la editorial ha enviado una comunicación y al menos uno de tus estudiantes tiene un intento entregado del quiz.
+</Info>
+
+## Dónde aparecen los avisos
+
+Los avisos se muestran en tres puntos de la interfaz, siempre acompañados del icono de alerta en color rojo. Están diseñados para que no pasen desapercibidos sin bloquear tu trabajo.
+
+### En la Home
+
+Al entrar en la plataforma, la tarjeta del curso en el que hay quizzes modificados muestra un aviso de contenidos actualizados. Solo aparece en los cursos donde tienes estudiantes con entregas del quiz afectado; el mismo curso en un grupo distinto sin entregas no mostrará el aviso.
+
+### En la vista del programa del curso
+
+Al entrar en un curso con quizzes modificados, aparece un banner **Contenidos actualizados en "{{nombre del módulo}}"** encima del listado de módulos. El banner incluye el subtítulo *"Se han realizado modificaciones que requieren su revisión"* y un botón **Ver cambios** que te lleva directamente a los resultados del quiz afectado.
+
+Si hay varios módulos con cambios pendientes, se muestra un banner por cada módulo. Cada banner es independiente y desaparece cuando resuelves el quiz correspondiente.
+
+### En la vista de resultados del quiz
+
+Al abrir los resultados del quiz afectado, encontrarás:
+
+- Un **aviso en la cabecera** con las acciones **Conservar resultados** y **Enviar nueva versión**.
+- El **icono de alerta roja** junto a cada estudiante cuyo intento quedó sujeto a la versión anterior del quiz (entregas con corrección pendiente o ya publicadas antes del cambio).
+- Un acceso para **ver el mensaje de la editorial** (texto libre que escribió el editor explicando el cambio).
+
+## Consultar el mensaje de la editorial
+
+Antes de decidir cómo actuar, conviene leer exactamente qué ha cambiado. El mensaje lo redacta el editor al enviar la comunicación y es el único texto explicativo disponible.
+
+Desde la vista de resultados, abre la opción **Ver cambios**. Se muestra un diálogo con la lista de todas las comunicaciones que has recibido sobre ese quiz, ordenadas cronológicamente. Si la editorial envió varios cambios en distintos momentos, se acumulan todos en el mismo diálogo.
+
+<Tip>
+  Usa el mensaje como referencia para decidir. Si el editor dice "se corrigió la respuesta correcta de la pregunta 3", probablemente te interese revisar manualmente quiénes respondieron esa pregunta antes de conservar las notas actuales.
+</Tip>
+
+## Resolver la discrepancia
+
+El docente debe marcar explícitamente una acción para retirar los avisos. Mientras no elijas una opción, el aviso persiste en la Home, en el curso y en los resultados.
+
+Tienes dos vías principales:
+
+<Tabs>
+  <Tab title="Conservar resultados">
+    Mantiene todas las entregas tal como están y retira los avisos del curso. Úsalo cuando el cambio editorial no afecta a la justicia de la calificación (por ejemplo, una errata tipográfica o una corrección que confirma lo que tus estudiantes ya habían respondido).
+
+    Al pulsar **Conservar resultados** se abre un diálogo con el título **Conservar los resultados** que detalla el impacto por estado del estudiante:
+
+    - **Corregido**: mantendrán la calificación y seguirán viendo la versión antigua del quiz.
+    - **Pendiente** (de corrección): seguirán igual, a la espera de la calificación que consideres. Seguirán viendo la versión antigua del quiz.
+    - **No entregado**: tendrán disponible la nueva versión del quiz.
+
+    Al confirmar, todos los avisos (Home, banner del módulo, cabecera de resultados) desaparecen del curso.
+  </Tab>
+  <Tab title="Enviar nueva versión">
+    Reasigna el quiz con la versión actualizada a los estudiantes afectados. Los estudiantes recibirán una notificación y podrán volver a realizarlo con las modificaciones editoriales aplicadas. Úsalo cuando la corrección es sustancial (cambio de respuesta correcta, pregunta añadida o eliminada, imagen errónea sustituida).
+
+    Al pulsar **Enviar nueva versión** se abre un diálogo con el listado de estudiantes afectados (nombre, avatar y nota actual) y un campo opcional de **comentario privado** para añadir contexto a la reasignación.
+
+    Al confirmar, *"La nueva versión del quiz se enviará tanto a los estudiantes que ya recibieron su corrección como a los que están pendientes de corregir"*. Los avisos desaparecen y los estudiantes verán el quiz reasignado en su home.
+  </Tab>
+</Tabs>
+
+## Acciones individuales y en bloque
+
+La vista de resultados admite resolver la discrepancia de dos formas, según tu caso concreto:
+
+| Alcance | Cuándo usarlo |
+|---------|---------------|
+| **En bloque (curso)** | Cuando quieres aplicar la misma decisión a todos los estudiantes afectados del curso. Es el flujo por defecto desde la cabecera de la vista de resultados. |
+| **Individual (estudiante)** | Cuando tienes un caso mixto: por ejemplo, conservar nota a los que aprobaron con holgura y reasignar solo a los que habían respondido la pregunta corregida. |
+
+En ambos casos el sistema registra la decisión tomada, con lo que retira los avisos una vez resuelto.
+
+## Cómo lo ve el estudiante
+
+<AccordionGroup>
+  <Accordion title="Si eliges Conservar resultados">
+    El estudiante no recibe notificación. Si accede al quiz desde su listado de tareas o desde el curso, sigue viendo la **versión exacta con la que respondió** y la calificación que tenía. La versión editorial nueva no se le muestra salvo que decidas reasignarla después.
+  </Accordion>
+  <Accordion title="Si eliges Enviar nueva versión">
+    El estudiante recibe una notificación de quiz reasignado. Al abrir el quiz desde el curso accede a la versión actualizada y puede responderlo de nuevo. La entrega previa queda archivada y la nota del nuevo intento se calcula con la versión actual del quiz.
+  </Accordion>
+  <Accordion title="Si el estudiante no había entregado todavía">
+    Los estudiantes que no habían realizado el quiz cuando llegó el cambio editorial siempre ven la versión actualizada. Aplicar **Conservar resultados** o **Enviar nueva versión** no cambia su experiencia: ellos responderán directamente la versión corregida.
+  </Accordion>
+</AccordionGroup>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Varios cambios editoriales en el mismo quiz">
+    Si la editorial envía más de una comunicación, todas se acumulan en el diálogo **Ver cambios** con su fecha y mensaje. Al resolver, la decisión (conservar o reasignar) aplica sobre el estado actual del quiz, no por cada comunicación: retirará todos los avisos pendientes de ese quiz en el curso.
+  </Accordion>
+  <Accordion title="Alumnos mixtos: algunos corregidos, otros pendientes">
+    El aviso aparece en todos los estudiantes afectados, independientemente de su estado (corregido o pendiente). Conservar resultados mantiene la lógica de cada estado (ver la tabla en "Conservar resultados"); enviar nueva versión reasigna a todos por igual.
+  </Accordion>
+  <Accordion title="¿Puedo ignorar el aviso?">
+    No. Los avisos permanecen hasta que eliges una de las dos acciones (aunque sea "Conservar resultados"). Esto genera una traza de que fuiste informado del cambio editorial y qué decisión tomaste, útil para auditoría y soporte.
+  </Accordion>
+  <Accordion title="No veo avisos aunque sé que la editorial hizo un cambio">
+    Los avisos solo se activan si tienes al menos un estudiante con intento entregado del quiz en el curso. Si ningún alumno había respondido cuando llegó el cambio, los estudiantes verán la versión nueva al entrar y no se genera aviso.
+  </Accordion>
+  <Accordion title="Alcance: solo quizzes estándar de la plataforma">
+    Esta funcionalidad cubre los quizzes estándar de Tangerine. No aplica a tareas manuales, videolecciones ni a los quizzes propios de editoriales con interfaz diferenciada. En esos casos, los cambios editoriales siguen el flujo tradicional de soporte.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Ver resultados de evaluación" icon="chart-bar" href="/frontoffice-docentes/evaluaciones/resultados-evaluacion">
+    Flujo general para revisar entregas, calificar y publicar notas de una evaluación.
+  </Card>
+  <Card title="Libro de calificaciones" icon="book" href="/frontoffice-docentes/libro-calificaciones/vista-general">
+    Gestiona la calificación global del curso tras reasignar un quiz.
+  </Card>
+  <Card title="Comunicar cambios (editor)" icon="megaphone" href="/backoffice/contenidos/comunicar-cambios-quiz">
+    Cómo envía la editorial el aviso que llega a esta vista.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-docentes
+  - Sección UI: Home del docente, Vista del programa del curso, Vista de resultados de evaluación
+  - Archivos de código relacionados:
+    - frontend: tangerine-frontoffice/src/core/lite/views/ProgramView/ProgramUpdatedContentBanner/
+    - frontend: tangerine-frontoffice/src/app/modules/views/AssessmentResultsView/components/ViewChangesDialog/
+    - frontend: tangerine-frontoffice/src/app/modules/views/CustomAssessmentResultsView/CustomAssessmentResultsViewOverview.js
+    - frontend: tangerine-frontoffice/src/core/modules/components/dialogs/DialogKeepResults/
+    - frontend: tangerine-frontoffice/src/core/modules/components/dialogs/DialogSendNewVersion/
+    - frontend: tangerine-frontoffice/src/app/modules/views/AssessmentResultsView/useLessonItemNotifications.ts
+    - frontend: tangerine-frontoffice/src/core/crud/notifications.crud.js
+  - Endpoints:
+    - GET /v3/cms/course-notifications/{courseId}/item/{itemId}/unresolved
+    - POST /front/cms/notifications-to-resolve
+    - GET /v3/cms/course-notifications/{courseId}
+  - Última revisión: 2026-04-17
+*/}

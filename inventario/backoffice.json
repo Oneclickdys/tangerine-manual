@@ -306,6 +306,30 @@
       "lastDocumented": "2026-03-31",
       "notes": "Documentado con 4 pestanas, gestion de archivos multimedia (subtitulos, audiodescripciones, transcripciones), editores Lemonade y VideoLesson, variantes por tipo de contenido."
     },
+    "quiz/notify-changes": {
+      "name": "Comunicar cambios en quizzes",
+      "description": "Enviar notificaciones a los docentes cuando se modifica un quiz con entregas",
+      "section": "Contenidos",
+      "route": "Editor de quiz dentro del programa digital",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "simple-form",
+      "docFile": "backoffice/contenidos/comunicar-cambios-quiz.mdx",
+      "codeFiles": {
+        "frontend": [
+          "src/app/modules/programs/ProgramForm/ProgramFormContents/dialogs/DialogTaskEdit/DialogNotifyChanges.jsx",
+          "src/app/modules/programs/ProgramForm/ProgramFormContents/dialogs/DialogTaskEdit/DialogNotificationHistory.jsx",
+          "src/app/modules/programs/ProgramForm/ProgramFormContents/dialogs/DialogTaskEdit/useQuizNotifications.js",
+          "src/app/crud/contentNotifications.crud.js"
+        ],
+        "backend": ["tangerine-api-v3/apps/backoffice/editorial/CmsContentNotification/"]
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["contents/detail", "authoring/lemonade"],
+      "lastDocumented": "2026-04-17",
+      "notes": "Boton 'Comunicar cambios' + historial de comunicaciones en el editor de quiz dentro del programa. Solo para contenidos CTTY_09 (quiz). Envia a docentes con estudiantes con entregas (status != pending). Endpoints: GET/POST /v3/cms/content/{contentGuid}/notifications. Documentado con 5 screenshots reales. Complemento docente: frontoffice-teacher/quiz/modifications."
+    },
     "programs/list": {
       "name": "Listar programas",
       "description": "Ver listado de programas digitales",

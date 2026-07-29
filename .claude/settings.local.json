@@ -62,7 +62,9 @@
       "mcp__be945bec-a22b-43da-823e-366a0456869b__list_teams",
       "mcp__be945bec-a22b-43da-823e-366a0456869b__list_project_labels",
       "mcp__be945bec-a22b-43da-823e-366a0456869b__list_projects",
-      "mcp__be945bec-a22b-43da-823e-366a0456869b__get_project"
+      "mcp__be945bec-a22b-43da-823e-366a0456869b__get_project",
+      "mcp__plugin_oneclick_linear__get_document",
+      "mcp__plugin_oneclick_linear__list_issues"
     ]
   }
 }

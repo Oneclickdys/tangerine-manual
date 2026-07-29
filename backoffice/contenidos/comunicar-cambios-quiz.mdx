@@ -1,0 +1,151 @@
+---
+title: "Comunicar cambios en quizzes"
+description: "Notifica a los docentes cuando modificas un quiz con estudiantes que ya lo han entregado"
+icon: "megaphone"
+---
+
+## Descripción
+
+Cuando una editorial detecta una errata o necesita ajustar una pregunta de un quiz que **ya tiene entregas de estudiantes**, el cambio debe llegar al docente con contexto. Sin este aviso, el docente podría mantener calificaciones calculadas con una respuesta correcta errónea o perderse correcciones relevantes.
+
+La funcionalidad **Comunicar cambios** permite al administrador editorial enviar un mensaje explicativo dirigido a todos los docentes que tengan al menos un estudiante con intento entregado en ese quiz. La comunicación queda archivada en el histórico del quiz y el docente decide qué hacer con las entregas afectadas desde su propia vista de resultados.
+
+<Info>
+  **Rol requerido:** Administrador Editorial
+
+  **Alcance:** Solo aplica a contenidos de tipo **Quiz**. Las tareas manuales, las videolecciones y los quizzes propios de editoriales con interfaz diferenciada quedan fuera del circuito.
+</Info>
+
+## Cómo acceder
+
+<Steps>
+  <Step title="Abre el programa digital que contiene el quiz">
+    Desde el menú **Contenidos** > **Programas digitales**, busca y entra al programa. Cambia a la pestaña **Contenidos** para ver la jerarquía de módulos y submódulos.
+  </Step>
+  <Step title="Localiza el quiz dentro de un submódulo">
+    Expande el trimestre, módulo y submódulo hasta encontrar la tarjeta del quiz. La tarjeta se identifica por el badge **Quiz evaluativo** o **Quiz formativo**.
+  </Step>
+  <Step title="Edita el quiz">
+    Haz clic sobre el icono de la tarjeta y elige **Editar**. Se abre el editor a pantalla completa con la lista de preguntas del quiz.
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/cambios-quizzes/01-editar-quiz-con-boton-comunicar.png" alt="Editor de quiz con el botón Comunicar cambios en la cabecera" />
+    </Frame>
+  </Step>
+</Steps>
+
+El botón **Comunicar cambios** está siempre disponible en la cabecera del editor del quiz, junto al nombre de la actividad. No es necesario haber realizado un cambio previo para pulsarlo; el administrador decide cuándo el cambio realizado merece aviso.
+
+## Enviar una comunicación
+
+<Steps>
+  <Step title="Pulsa Comunicar cambios">
+    Se abre un diálogo con el título **Comunicación de cambios** y un campo de texto libre.
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/cambios-quizzes/02-dialogo-comunicar-cambios.png" alt="Diálogo Comunicación de cambios vacío con el área Comunicación a docentes" />
+    </Frame>
+  </Step>
+  <Step title="Describe qué ha cambiado">
+    Escribe un mensaje concreto para los docentes. La audiencia es un profesor que tiene estudiantes con entregas hechas y necesita saber qué se ha modificado y, si procede, por qué.
+
+    Ejemplos útiles:
+
+    - "Se ha corregido la respuesta correcta de la pregunta 3 sobre divisibilidad entre 6."
+    - "La pregunta 7 contenía una imagen errónea; se ha sustituido por la versión correcta."
+    - "Se ha añadido una nueva pregunta al final del quiz."
+
+    <Frame>
+      <img src="/assets/screenshots/backoffice/cambios-quizzes/03-dialogo-comunicar-cambios-con-mensaje.png" alt="Diálogo con un mensaje descriptivo escrito y el botón Enviar comunicación habilitado" />
+    </Frame>
+  </Step>
+  <Step title="Envía la comunicación">
+    Pulsa **Enviar comunicación**. El sistema identifica a los docentes con entregas de estudiantes en el quiz y les notifica. Cada docente recibe la comunicación **una vez por curso afectado**, así se respetan los distintos contextos donde enseña.
+  </Step>
+</Steps>
+
+<Tip>
+  El texto del mensaje es lo único que el docente verá. Evita tecnicismos internos ("bug del render de LaTeX") y escribe el mensaje como si lo leyera un profesor sin más contexto.
+</Tip>
+
+## Cuándo comunicar y cuándo no
+
+La comunicación es manual y bajo demanda. El editor decide en cada cambio si merece aviso al docente, sin automatismos.
+
+<AccordionGroup>
+  <Accordion title="Sí comunicar">
+    - Se corrige la respuesta correcta de una pregunta (cambia la nota de estudiantes que ya respondieron).
+    - Se sustituye una imagen, un enunciado o una opción por motivos que afectan la interpretación.
+    - Se añade o elimina una pregunta del quiz.
+    - Se cambia la distribución de puntos de una pregunta.
+  </Accordion>
+  <Accordion title="No es necesario comunicar">
+    - Erratas tipográficas menores (comas, tildes, mayúsculas) que no alteran la respuesta correcta.
+    - Ajustes de maquetación o estilo.
+    - Cambios en actividades que aún nadie ha respondido (el docente verá la versión nueva automáticamente y sin aviso).
+  </Accordion>
+</AccordionGroup>
+
+Si no hay ninguna entrega de estudiante en el quiz, la comunicación no llega a ningún docente aunque se envíe. El cambio se aplica de forma silenciosa porque nadie está expuesto todavía a la versión antigua.
+
+## Historial de comunicaciones
+
+Cada comunicación enviada se archiva en el histórico del quiz. Junto a la primera comunicación enviada aparece un nuevo icono de **Historial de comunicaciones** en la cabecera del editor.
+
+<Frame>
+  <img src="/assets/screenshots/backoffice/cambios-quizzes/04-editor-quiz-con-iconos-historial.png" alt="Cabecera del editor con los iconos de historial de comunicaciones y configuración del quiz" />
+</Frame>
+
+Al abrirlo se muestra la lista cronológica de todas las comunicaciones del quiz. Cada entrada incluye el número de comunicación, la fecha y el mensaje que se envió. Al final del listado siempre aparece **Creación de actividad** como hito inicial del quiz.
+
+<Frame>
+  <img src="/assets/screenshots/backoffice/cambios-quizzes/05-historial-comunicaciones.png" alt="Diálogo Historial de comunicaciones mostrando una comunicación enviada y el hito de creación" />
+</Frame>
+
+El historial es común a todo el tenant: si un mismo quiz se usa en varios cursos, el registro de comunicaciones es único y acumulativo. Cada docente verá únicamente las comunicaciones que recibió cuando ya tenía entregas, pero el histórico completo del editor lista todas.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede deshacer una comunicación enviada?">
+    No hay acción directa de borrado desde la interfaz. Si la comunicación se envió por error o el mensaje es incorrecto, lo habitual es enviar una segunda comunicación aclarando el contenido real del cambio. Ambas quedarán en el historial y los docentes podrán verlas por orden cronológico.
+  </Accordion>
+  <Accordion title="¿El docente recibe la comunicación siempre que se envía?">
+    Solo la reciben los docentes que tienen al menos un estudiante con un intento entregado del quiz en el período activo. Si un docente nunca ha usado el quiz con entregas, no recibirá la comunicación y tampoco aparecerá ningún aviso en su interfaz.
+  </Accordion>
+  <Accordion title="¿Qué pasa si el quiz se añade o elimina a un programa ya en uso?">
+    El flujo de comunicación es el mismo, pero el mensaje debe explicar explícitamente el cambio estructural ("se ha añadido una nueva pregunta al final del quiz" o "se ha eliminado la pregunta 4"). El docente tendrá que decidir si reasigna la nueva versión a sus estudiantes.
+  </Accordion>
+  <Accordion title="¿Es reversible para el estudiante?">
+    Los estudiantes que ya entregaron mantienen guardada la versión exacta del quiz con la que respondieron (no se altera su entrega). Solo si el docente elige **Enviar nueva versión** desde su vista de resultados, el estudiante recibe el quiz actualizado para rehacerlo.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Detalle de contenido" icon="file-pen" href="/backoffice/contenidos/detalle-contenido">
+    Edita las propiedades y las preguntas del contenido de tipo quiz desde la ficha individual.
+  </Card>
+  <Card title="Editor Lemonade" icon="pencil" href="/backoffice/herramientas-autor/editor-lemonade">
+    Modifica las preguntas y opciones del quiz antes de comunicar los cambios.
+  </Card>
+  <Card title="Quizzes modificados (docente)" icon="bell" href="/frontoffice-docentes/evaluaciones/quizzes-modificados">
+    Cómo aparece la comunicación al docente y qué acciones puede tomar sobre las entregas.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: backoffice
+  - Sección UI: Contenidos > Programas digitales > Editor de quiz (DialogLessonItemEdit)
+  - Archivos de código relacionados:
+    - frontend: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormContents/dialogs/DialogTaskEdit/DialogNotifyChanges.jsx
+    - frontend: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormContents/dialogs/DialogTaskEdit/DialogNotificationHistory.jsx
+    - frontend: tangerine-backoffice/src/app/modules/programs/ProgramForm/ProgramFormContents/dialogs/DialogTaskEdit/useQuizNotifications.js
+    - frontend: tangerine-backoffice/src/app/crud/contentNotifications.crud.js
+    - backend: tangerine-api-v3/apps/backoffice/editorial/CmsContentNotification/
+  - Endpoints: GET y POST /v3/cms/content/{contentGuid}/notifications
+  - Última revisión: 2026-04-17
+*/}

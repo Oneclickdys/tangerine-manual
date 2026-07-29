@@ -47,7 +47,8 @@
             "pages": [
               "backoffice/contenidos/gestion-contenidos",
               "backoffice/contenidos/crear-contenido",
-              "backoffice/contenidos/detalle-contenido"
+              "backoffice/contenidos/detalle-contenido",
+              "backoffice/contenidos/comunicar-cambios-quiz"
             ]
           },
           {
@@ -127,7 +128,8 @@
             "group": "Evaluaciones",
             "pages": [
               "frontoffice-docentes/evaluaciones/crear-evaluacion",
-              "frontoffice-docentes/evaluaciones/resultados-evaluacion"
+              "frontoffice-docentes/evaluaciones/resultados-evaluacion",
+              "frontoffice-docentes/evaluaciones/quizzes-modificados"
             ]
           },
           {

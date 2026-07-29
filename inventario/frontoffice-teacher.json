@@ -207,9 +207,36 @@
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": ["assessment/create"],
+      "relatedFeatures": ["assessment/create", "quiz/modifications"],
       "lastDocumented": "2025-12-27",
       "notes": "Incluye revision individual de entregas, publicacion de notas en lote, integracion con Google Classroom y MS Teams."
+    },
+    "quiz/modifications": {
+      "name": "Quizzes modificados por la editorial",
+      "description": "Avisos y resolucion de discrepancias cuando la editorial modifica un quiz con entregas",
+      "section": "Evaluaciones",
+      "route": "Home + Vista del programa + Vista de resultados",
+      "priority": "P1",
+      "status": "documented",
+      "complexity": "complex-workflow",
+      "docFile": "frontoffice-docentes/evaluaciones/quizzes-modificados.mdx",
+      "codeFiles": {
+        "frontend": [
+          "src/core/lite/views/ProgramView/ProgramUpdatedContentBanner/",
+          "src/app/modules/views/AssessmentResultsView/components/ViewChangesDialog/",
+          "src/app/modules/views/CustomAssessmentResultsView/CustomAssessmentResultsViewOverview.js",
+          "src/core/modules/components/dialogs/DialogKeepResults/",
+          "src/core/modules/components/dialogs/DialogSendNewVersion/",
+          "src/app/modules/views/AssessmentResultsView/useLessonItemNotifications.ts",
+          "src/core/crud/notifications.crud.js"
+        ],
+        "backend": []
+      },
+      "tenantVariations": [],
+      "featureFlags": [],
+      "relatedFeatures": ["assessment/results", "gradebook/main"],
+      "lastDocumented": "2026-04-17",
+      "notes": "Avisos en 3 sitios: tarjeta del curso en Home, banner 'Contenidos actualizados en X' en vista del programa, y cabecera + indicadores por alumno en resultados. Dos acciones principales: DialogKeepResults (conservar resultados por estado) y DialogSendNewVersion (reasignar quiz a todos o selectivamente). Ver cambios muestra mensajes acumulados del editor. Endpoints: GET /v3/cms/course-notifications/{courseId}/item/{itemId}/unresolved, POST /front/cms/notifications-to-resolve, GET /v3/cms/course-notifications/{courseId}. Documentado basandose en codigo + QA validations; screenshots de alertas pendientes de capturar cuando se reproduzca escenario completo."
     },
     "gradebook/main": {
       "name": "Libro de calificaciones",
