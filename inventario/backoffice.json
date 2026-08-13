@@ -1,6 +1,6 @@
 {
   "app": "backoffice",
-  "lastUpdated": "2026-04-01",
+  "lastUpdated": "2026-08-13",
   "features": {
     "users/list": {
       "name": "Listar usuarios",
@@ -598,7 +598,7 @@
     },
     "settings/general": {
       "name": "Configuracion general",
-      "description": "Permisos de docentes y configuracion de lenguas/versiones",
+      "description": "Permisos de docentes, idiomas de la interfaz y versiones de contenido",
       "section": "Configuracion del Sistema",
       "route": "/settings",
       "priority": "P2",
@@ -606,14 +606,40 @@
       "complexity": "simple-form",
       "docFile": "backoffice/configuracion/configuracion-general.mdx",
       "codeFiles": {
-        "frontend": ["src/app/pages/settings/SettingsGeneralPage/"],
-        "backend": []
+        "frontend": ["src/app/pages/settings/SettingsGeneralPage/", "src/app/modules/settings/general/"],
+        "backend": ["i2c_v2/api/controllers/app.js"]
       },
       "tenantVariations": [],
       "featureFlags": [],
-      "relatedFeatures": ["settings/periods", "settings/countries"],
-      "lastDocumented": "2026-03-31",
-      "notes": "Incluye toggles de permisos docente (administrar clase, personalizar programas) y gestion de lenguas."
+      "relatedFeatures": ["settings/ui-languages", "settings/periods", "settings/countries"],
+      "lastDocumented": "2026-08-13",
+      "notes": "Incluye toggles de permisos docente (administrar clase, personalizar programas) y el bloque Lenguas - Versiones. El bloque de lenguas se rediseño en dos grupos (TAN-9235/TAN-9239) y se documenta en detalle en settings/ui-languages. Los permisos y las lenguas se guardan en operaciones separadas con un solo boton Guardar."
+    },
+    "settings/ui-languages": {
+      "name": "Idiomas de la interfaz",
+      "description": "Configuración de los idiomas en que la editorial permite ver la plataforma, con auto-ocultado del selector en los frontales cuando queda uno",
+      "section": "Configuracion del Sistema",
+      "route": "/settings",
+      "priority": "P2",
+      "status": "documented",
+      "complexity": "simple-form",
+      "docFile": "backoffice/configuracion/idiomas-interfaz.mdx",
+      "codeFiles": {
+        "frontend": [
+          "src/app/modules/settings/general/General.jsx",
+          "src/app/pages/settings/SettingsGeneralPage/useSettingsGeneralPage.js",
+          "src/app/utils/lang.js",
+          "src/app/services/langs.service.js"
+        ],
+        "backend": ["i2c_v2/api/models/langs.js", "i2c_v2/api/controllers/langs.js"]
+      },
+      "tenantVariations": [
+        "Instalaciones antiguas con idioma forzado internamente por instalación: el forzado tiene precedencia sobre esta configuración (retirada planificada en TAN-9292)"
+      ],
+      "featureFlags": [],
+      "relatedFeatures": ["settings/general", "settings/tenant-params"],
+      "lastDocumented": "2026-08-13",
+      "notes": "Proyecto Linear 'Idiomas de interfaz configurables por la editorial' (TAN-9231 y subissues TAN-9235, TAN-9239, TAN-9242 en backoffice; TAN-9245, TAN-9248 en i2c_v2). Vive dentro de la pantalla Configuración > General, en el bloque Lenguas - Versiones, no en Parámetros de Tenant. Dos grupos: 'Idiomas de la interfaz' (switch is_for_ui, nombre traducido por código y no editable, orden alfabético) y 'Versiones de contenido' (nombre editable, nota 'Sin interfaz disponible', las crea el botón Añadir +). Solo se pueden activar los idiomas con bundle de traducción: es, en, pt, ca, eu, gl, mx, vl. El grupo de interfaz se oculta si el catálogo del tenant no tiene ninguno; los ids fuera de la whitelist que ya tuvieran is_for_ui=1 (dato heredado del DEFAULT 1 de 2022) se agrupan como idiomas de interfaz para poder desactivarlos, pero no se pueden reactivar. Al quedar un solo activo su switch se bloquea con aviso. Guardado bloqueado si hay una versión de contenido sin nombre o si no queda ningún idioma de interfaz activo. Efectos verificados en frontales: el frontoffice oculta la pestaña Preferencias del perfil (solo contiene el selector) cuando queda un idioma y corrige el idioma guardado del usuario si ya no está disponible; admin-school oculta el selector de la barra lateral. Errores del servidor mapeados en la UI: LANG_NOT_AVAILABLE_FOR_UI e INVALID_LANG_VALUE. PATCH /langs/{id} exige rol de administrador editorial."
     },
     "settings/countries": {
       "name": "Paises",

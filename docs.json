@@ -99,6 +99,7 @@
             "group": "Configuración",
             "pages": [
               "backoffice/configuracion/configuracion-general",
+              "backoffice/configuracion/idiomas-interfaz",
               "backoffice/configuracion/paises",
               "backoffice/configuracion/escalas-calificacion",
               "backoffice/configuracion/categorias-evaluables",

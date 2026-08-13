@@ -1,12 +1,12 @@
 ---
 title: "Configuración General"
-description: "Permisos de docentes y gestión de lenguas del sistema"
+description: "Permisos de docentes, idiomas de la interfaz y versiones de contenido"
 icon: "sliders"
 ---
 
 ## Descripción
 
-La sección de **Configuración General** permite definir los permisos globales que se aplican a todos los docentes del sistema, así como gestionar las lenguas o versiones idiomáticas disponibles para los contenidos.
+La sección de **Configuración General** permite definir los permisos globales que se aplican a todos los docentes del sistema, decidir en qué idiomas puede verse la plataforma y gestionar las versiones idiomáticas disponibles para clasificar los contenidos.
 
 <Info>
   **Rol requerido:** Administrador del backoffice (no disponible para usuarios con rol Publisher ni integraciones de terceros).
@@ -37,30 +37,24 @@ Esta sección contiene dos toggles que controlan los permisos globales de todos 
 
 ## Lenguas y versiones
 
-La sección **Lenguas - Versiones** gestiona los idiomas disponibles para la clasificación de contenidos en el sistema. Cada contenido puede asociarse a una lengua, lo que permite organizar materiales por idioma.
+La sección **Lenguas - Versiones** agrupa dos catálogos con propósitos distintos:
 
-### Gestión de lenguas
+- **Idiomas de la interfaz** — los idiomas en que la editorial permite ver la plataforma. Cada uno tiene un interruptor de activación y su nombre no es editable, porque se traduce automáticamente en cada frontal.
+- **Versiones de contenido** — idiomas que la editorial crea para clasificar su catálogo de contenidos. Su nombre es texto libre y llevan la nota "Sin interfaz disponible": no se ofrecen como idioma de la plataforma.
 
-- Cada lengua aparece como un campo de texto editable con su nombre actual
-- El botón **Añadir +** crea una nueva lengua vacía al final de la lista
-- El campo no permite guardar lenguas con nombre vacío
-
-### Operaciones disponibles
-
-| Acción | Procedimiento |
-|--------|--------------|
-| **Añadir lengua** | Hacer clic en **Añadir +**, escribir el nombre y pulsar **Guardar** |
-| **Editar lengua** | Modificar el texto del campo directamente y pulsar **Guardar** |
+El botón **Añadir +** crea versiones de contenido. El nombre es obligatorio: una fila en blanco bloquea el guardado.
 
 <Note>
-  El botón **Guardar** solo se habilita cuando hay cambios pendientes. Los cambios en permisos y lenguas se guardan de forma conjunta con un solo clic.
+  El botón **Guardar** solo se habilita cuando hay cambios pendientes. Los cambios en permisos, idiomas de la interfaz y versiones de contenido se guardan de forma conjunta con un solo clic.
 </Note>
+
+Los idiomas de la interfaz tienen implicaciones más allá de esta pantalla —qué ve cada usuario en su perfil, qué ocurre al reducir la lista a un solo idioma y cómo se corrige el idioma de quien tenía guardado uno ya desactivado— y se documentan en [Idiomas de la interfaz](/backoffice/configuracion/idiomas-interfaz).
 
 ## Situaciones especiales
 
 <AccordionGroup>
   <Accordion title="¿Qué ocurre si se elimina una lengua que ya está en uso?">
-    El sistema no permite eliminar lenguas directamente desde esta interfaz. Las lenguas creadas permanecen disponibles para ser asignadas a contenidos.
+    El sistema no permite eliminar lenguas desde esta pantalla. Un idioma de la interfaz se puede desactivar, lo que lo retira del perfil de los usuarios sin afectar a los contenidos asociados; las versiones de contenido permanecen siempre disponibles para clasificar materiales.
   </Accordion>
   <Accordion title="¿Los cambios en permisos son retroactivos?">
     No. Si se desactiva el permiso de administrar clase, las clases ya creadas por docentes siguen existiendo. El docente pierde la capacidad de crear nuevas clases, pero mantiene acceso a las existentes.
@@ -73,6 +67,9 @@ La sección **Lenguas - Versiones** gestiona los idiomas disponibles para la cla
 ## Relacionado
 
 <CardGroup cols={2}>
+  <Card title="Idiomas de la interfaz" icon="languages" href="/backoffice/configuracion/idiomas-interfaz">
+    Configuración de los idiomas en que la editorial permite ver la plataforma.
+  </Card>
   <Card title="Países" icon="globe" href="/backoffice/configuracion/paises">
     Configuración de países, niveles educativos y año escolar.
   </Card>
@@ -88,5 +85,6 @@ La sección **Lenguas - Versiones** gestiona los idiomas disponibles para la cla
   - Ruta: /settings
   - Archivos de código relacionados:
     - frontend: src/app/pages/settings/SettingsGeneralPage/
-  - Última revisión: 2026-03-31
+    - frontend: src/app/modules/settings/general/General.jsx
+  - Última revisión: 2026-08-13 (rediseño del bloque de lenguas en dos grupos, TAN-9235/TAN-9239)
 */}

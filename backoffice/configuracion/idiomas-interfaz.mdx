@@ -1,0 +1,150 @@
+---
+title: "Idiomas de la interfaz"
+description: "Configuración de los idiomas en los que la editorial permite ver la plataforma"
+icon: "languages"
+---
+
+## Descripción
+
+La editorial decide en qué idiomas puede verse la plataforma. Esta configuración vive en **Configuración > General**, dentro del bloque **Lenguas - Versiones**, y determina qué opciones encuentran docentes, estudiantes, administradores y coordinadores cuando quieren cambiar el idioma de la interfaz.
+
+El caso de uso más habitual es el opuesto a ofrecer variedad: una editorial que opera en un solo mercado quiere que su plataforma se vea **siempre** en un único idioma y que nadie pueda cambiarlo por error. Al dejar un solo idioma activo, el selector desaparece de los frontales automáticamente, sin necesidad de ninguna intervención técnica.
+
+<Info>
+  **Rol requerido:** Administrador editorial. Los usuarios con rol Publisher y los de integraciones de terceros no acceden a esta pantalla, y el sistema tampoco acepta el cambio si llega desde otro perfil.
+</Info>
+
+## Dos catálogos distintos en la misma pantalla
+
+El bloque **Lenguas - Versiones** agrupa dos cosas que se parecen pero no cumplen la misma función. Distinguirlas es la clave para entender la pantalla.
+
+| | **Idiomas de la interfaz** | **Versiones de contenido** |
+|---|---|---|
+| Para qué sirven | Idioma en que se muestran los menús, botones y mensajes de la plataforma | Clasificar contenidos por idioma dentro del catálogo editorial |
+| Quién los crea | Ya están dados de alta en el catálogo de la editorial | Los crea la editorial con **Añadir +** |
+| Control disponible | Interruptor de activación | Campo de nombre editable |
+| Nombre | Fijo, traducido automáticamente al idioma de quien mira la pantalla | Texto libre que escribe la editorial |
+| Aparecen en el perfil del usuario | Sí, si están activos | No — se marcan con la nota "Sin interfaz disponible" |
+
+![Configuración de idiomas de la interfaz y versiones de contenido](/assets/screenshots/backoffice/configuracion/configuracion-general.png)
+
+<Note>
+  El nombre de un idioma de la interfaz no es editable porque es la etiqueta que se traduce en cada frontal: si la editorial lo reescribiera, la plataforma dejaría de reconocerlo y los usuarios verían un nombre incoherente con su idioma.
+</Note>
+
+### Idiomas con interfaz disponible
+
+La plataforma tiene interfaz traducida para castellano, inglés, portugués, catalán, euskera, gallego, valenciano y español de México. Solo estos idiomas pueden activarse como idioma de interfaz.
+
+El grupo **Idiomas de la interfaz** muestra los que están dados de alta en el catálogo de la editorial, ordenados alfabéticamente. Si un idioma con interfaz disponible no aparece en la lista, no está dado de alta en ese catálogo y su alta requiere intervención del equipo de OneClick: el botón **Añadir +** crea versiones de contenido, no idiomas de interfaz.
+
+## Activar y desactivar idiomas
+
+El administrador editorial activa o desactiva cada idioma con su interruptor y confirma con **Guardar**. Ese botón es el mismo para toda la pantalla: recoge a la vez los cambios de permisos de docentes, de idiomas de la interfaz y de versiones de contenido.
+
+El cambio surte efecto cuando el frontal vuelve a consultar la lista de idiomas, lo que ocurre al iniciar sesión o al recargar: un usuario con la sesión abierta puede seguir viendo la lista anterior durante un rato.
+
+<Warning>
+  Desactivar un idioma no lo elimina ni afecta a los contenidos asociados a él. Solo deja de ofrecerse como idioma de interfaz.
+</Warning>
+
+### Debe quedar al menos un idioma activo
+
+Una plataforma sin ningún idioma de interfaz no podría mostrarse, así que el sistema impide llegar a ese estado: cuando queda un único idioma activo, su interruptor se bloquea y la pantalla lo explica con el aviso **"Debe permanecer activo al menos un idioma de la interfaz"**.
+
+![Aviso y bloqueo del último idioma de interfaz activo](/assets/screenshots/backoffice/configuracion/idiomas-interfaz-ultimo-activo.png)
+
+Para reducir la lista a un solo idioma, el orden importa: primero se activa el idioma que va a quedar, y después se desactivan los demás.
+
+<Tip>
+  Ese aviso es también la señal de que la editorial ha alcanzado la configuración de un solo idioma: una vez guardada, los usuarios dejan de ver el selector en sus frontales.
+</Tip>
+
+### Nombre obligatorio en las versiones de contenido
+
+El botón **Añadir +** crea una versión de contenido vacía al final de la lista. Mientras su nombre esté en blanco, la pantalla marca el campo y bloquea el guardado con el mensaje **"Escribe un nombre para la versión de contenido marcada"** junto al botón **Guardar**. El botón **Cancelar** descarta la fila y el resto de cambios pendientes.
+
+![Versión de contenido sin nombre bloqueando el guardado](/assets/screenshots/backoffice/configuracion/version-contenido-nombre-obligatorio.png)
+
+## Qué cambia para los usuarios
+
+La configuración se aplica en los tres frontales de la plataforma, cada uno con su propio punto de cambio de idioma.
+
+<Tabs>
+  <Tab title="Docentes y estudiantes">
+    El idioma se cambia en la pestaña **Preferencias** del perfil, que contiene únicamente ese selector. La pestaña muestra los idiomas activos y **desaparece del perfil** cuando la editorial deja un solo idioma: no queda una pestaña vacía ni un selector con una única opción.
+  </Tab>
+  <Tab title="Administradores y coordinadores">
+    Acceden por la aplicación de Administración de escuela, donde el idioma se cambia desde el selector de la barra lateral. El selector ofrece los mismos idiomas activos y **se oculta** cuando solo queda uno.
+  </Tab>
+</Tabs>
+
+### Usuarios que tenían guardado un idioma que ya no está disponible
+
+Un usuario puede tener guardado en su perfil un idioma que la editorial acaba de desactivar. En ese caso la plataforma no lo deja atrapado en un idioma que ya no puede cambiar: al entrar, resuelve el idioma más adecuado entre los disponibles.
+
+El orden de preferencia es:
+
+1. El idioma guardado, si sigue disponible.
+2. El único idioma activo, si la editorial dejó solo uno.
+3. El idioma por defecto configurado para la editorial, si está activo.
+4. El castellano, si está activo.
+5. El primero de los idiomas activos, por orden alfabético de su código.
+
+<Note>
+  La corrección afecta a cómo se muestra la plataforma, no al valor guardado en el perfil del usuario. Si el idioma vuelve a activarse más adelante, el usuario recupera su preferencia original.
+</Note>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="¿Se puede convertir una versión de contenido en idioma de la interfaz?">
+    No. Las versiones de contenido no tienen interfaz traducida, y activarlas dejaría a los usuarios con una plataforma en un idioma que no existe. El sistema lo rechaza incluso si la petición llega por otra vía, con el mensaje "No se pudo guardar: ese idioma no está disponible como idioma de la interfaz".
+  </Accordion>
+  <Accordion title="Una versión de contenido aparece en el grupo de idiomas de la interfaz">
+    Puede ocurrir en catálogos antiguos. Durante años el sistema marcaba por defecto como disponibles para la interfaz todas las lenguas nuevas, así que algunas versiones de contenido creadas en el pasado pueden estar activas y llegar a mostrarse en el perfil de los usuarios.
+
+    La pantalla las agrupa con los idiomas de la interfaz precisamente para hacerlas visibles y permitir desactivarlas. Una vez desactivadas pasan al grupo de versiones de contenido y no pueden volver a activarse.
+
+    Conviene revisar este punto al implantar la configuración en una editorial existente: es la causa habitual de que los usuarios vean en su perfil idiomas que la editorial no ofrece.
+  </Accordion>
+  <Accordion title="¿Se puede fijar un idioma distinto por país, escuela o usuario?">
+    No. La configuración se aplica a toda la editorial. Lo que sí es individual es la preferencia de cada usuario dentro de los idiomas que la editorial deja activos.
+  </Accordion>
+  <Accordion title="Los usuarios siguen viendo un idioma que la editorial desactivó">
+    Las causas habituales, en orden de probabilidad: la sesión abierta no ha recargado todavía; el idioma sigue activo en el catálogo aunque se creara como versión de contenido; o la instalación es de las que arrastran un idioma fijado internamente, por debajo de esta configuración. Ese último caso es una limitación conocida de algunas instalaciones antiguas y su retirada está planificada.
+  </Accordion>
+  <Accordion title="El guardado falla y aparece un mensaje de error">
+    La pantalla guarda los permisos de docentes y los idiomas en operaciones separadas, así que un fallo en los idiomas no revierte los permisos ya guardados. Cuando algún cambio se ha llegado a aplicar, la pantalla recarga el catálogo para mostrar el estado real; si no se aplicó ninguno, conserva lo editado para poder reintentar.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Configuración general" icon="sliders" href="/backoffice/configuracion/configuracion-general">
+    Permisos globales de docentes y acceso al bloque de lenguas y versiones.
+  </Card>
+  <Card title="Gestión de contenidos" icon="file-text" href="/backoffice/contenidos/gestion-contenidos">
+    Uso de las versiones de contenido en la clasificación del catálogo editorial.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+  - Aplicación: backoffice
+  - Sección UI: Configuración > General > Lenguas - Versiones
+  - Ruta: /settings
+  - Proyecto Linear: Idiomas de interfaz configurables por la editorial (TAN-9231, TAN-9235, TAN-9239, TAN-9242, TAN-9245, TAN-9248)
+  - Archivos de código relacionados:
+    - frontend: tangerine-backoffice/src/app/modules/settings/general/General.jsx
+    - frontend: tangerine-backoffice/src/app/pages/settings/SettingsGeneralPage/
+    - frontend: tangerine-backoffice/src/app/utils/lang.js (idiomas con interfaz disponible)
+    - backend: i2c_v2/api/models/langs.js, i2c_v2/api/controllers/langs.js
+  - Efectos verificados en frontales:
+    - tangerine-frontoffice/src/core/lite/views/ProfileView/ProfileView.js (pestaña Preferencias)
+    - tangerine-frontoffice/src/core/utils/utils.js (corrección del idioma guardado)
+    - tangerine-admin-school/src/app/hooks/useUiLangs.js (selector de la barra lateral)
+  - Limitación pendiente: forzado de idioma por instalación en getForcedLanguageByTenant (TAN-9292, en backlog)
+  - Última revisión: 2026-08-13
+*/}

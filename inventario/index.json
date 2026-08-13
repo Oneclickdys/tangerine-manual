@@ -1,7 +1,7 @@
 {
   "$schema": "./schema.json",
   "version": "1.0.0",
-  "lastUpdated": "2026-04-17",
+  "lastUpdated": "2026-08-13",
   "description": "Inventario de funcionalidades de Tangerine LMS para documentación de producto",
   "config": {
     "currentPhase": 1,
@@ -65,27 +65,27 @@
     }
   },
   "stats": {
-    "total": 89,
+    "total": 94,
     "byApp": {
-      "backoffice": 44,
-      "frontoffice-teacher": 17,
+      "backoffice": 45,
+      "frontoffice-teacher": 21,
       "frontoffice-student": 9,
       "admin-school": 19
     },
     "byPriority": {
       "P1": 37,
-      "P2": 41,
+      "P2": 46,
       "P3": 11,
       "P4": 0
     },
     "byStatus": {
-      "documented": 79,
-      "pending": 10,
+      "documented": 82,
+      "pending": 12,
       "in_progress": 0,
       "needs_review": 0,
       "blocked": 0
     },
-    "lastCalculated": "2026-04-17"
+    "lastCalculated": "2026-08-13"
   },
   "knownTenants": [
     {
