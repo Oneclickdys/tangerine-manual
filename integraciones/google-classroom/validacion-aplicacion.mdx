@@ -1,0 +1,190 @@
+---
+title: "Validación de la aplicación en Google Classroom"
+sidebarTitle: "Validación de la aplicación"
+description: "Procedimiento y requisitos del lado de la editorial para que Google apruebe la integración de la plataforma con Google Classroom"
+icon: "google"
+---
+
+## Descripción
+
+Tangerine permite integrar la plataforma con Google Classroom para importar las clases y el alumnado directamente desde Google. Para habilitar esta integración, Google exige que la aplicación supere un proceso de validación, ya que los permisos de Classroom están clasificados como **sensibles**.
+
+Esta validación la revisa manualmente el equipo de Google y se realiza **sobre la marca y el dominio de la editorial, no sobre Tangerine**: los usuarios finales verán el nombre y el logotipo de la editorial al conceder los permisos.
+
+<Info>
+  **Audiencia:** equipo de implantación y responsables técnicos de la editorial. Este procedimiento no se ejecuta en el Backoffice, sino en Google Cloud Console, Google Search Console y la web corporativa de la editorial.
+</Info>
+
+<Warning>
+  La validación completa suele tardar entre **4 y 8 semanas**. Conviene iniciarla cuanto antes, en paralelo al resto de la implantación, y no como último paso antes del lanzamiento.
+</Warning>
+
+## Requisitos previos
+
+La editorial necesita tener resueltos estos cuatro puntos antes de iniciar el trámite:
+
+<CardGroup cols={2}>
+  <Card title="Inicio de sesión con Google operativo" icon="right-to-bracket">
+    El acceso con cuenta de Google debe estar ya activo en la plataforma. Si todavía no lo está, el gestor de OneClick habilita este paso previo, que es rápido.
+  </Card>
+  <Card title="Dominio propio" icon="globe">
+    El dominio donde opera la plataforma, con capacidad de añadir un registro DNS. Lo realiza el proveedor de dominio o el equipo web de la editorial en pocos minutos.
+  </Card>
+  <Card title="Web corporativa editable" icon="pen-to-square">
+    Google revisa el contenido de la web de la editorial como parte de la validación, por lo que deben poder modificarse sus textos y páginas legales.
+  </Card>
+  <Card title="Email de soporte" icon="envelope">
+    Una dirección visible para los usuarios (por ejemplo, `soporte@sueditorial.com`), que se mostrará en la pantalla de consentimiento de Google.
+  </Card>
+</CardGroup>
+
+## Modelos de gestión
+
+Existen dos formas de tramitar la validación. El resultado final es el mismo; cambia quién administra el proyecto en Google.
+
+| | **Modelo A — Gestionado por OneClick** | **Modelo B — Autogestionado por la editorial** |
+|---|---|---|
+| **Quién tramita** | OneClick crea y administra el proyecto de Google Cloud en nombre de la editorial y tramita la validación ante Google. | La editorial crea y administra su propio proyecto de Google Cloud y tramita la validación directamente. |
+| **Qué aporta la editorial** | Un registro DNS, contenidos en su web (descripción de la plataforma, privacidad, términos) y un email de soporte. | Requiere un perfil técnico con acceso a Google Cloud Console y Google Search Console. |
+| **Cuándo elegirlo** | Opción habitual cuando la editorial prefiere delegar la gestión técnica y las renovaciones. | Opción habitual cuando la editorial quiere administrar sus propias credenciales o ya gestiona otros proyectos de Google. |
+
+<Note>
+  Las condiciones asociadas al Modelo A se consultan con el gestor de proyecto de OneClick.
+</Note>
+
+<Tabs>
+  <Tab title="Modelo A — Gestionado por OneClick">
+    OneClick se encarga de toda la configuración técnica en Google Cloud y del envío y seguimiento de la validación. La editorial únicamente completa estos pasos:
+
+    <Steps>
+      <Step title="Verificar la propiedad del dominio">
+        OneClick facilita un registro DNS de tipo **TXT** que el equipo web o el proveedor de dominio debe añadir. Es un cambio inocuo que no afecta ni a la web ni al correo.
+      </Step>
+      <Step title="Adecuar la página principal">
+        La web de la editorial (o la página de su plataforma) debe describir con claridad qué hace la plataforma y mencionar que se integra con Google Classroom. El nombre y el logotipo deben coincidir con los que verán los usuarios al iniciar sesión. OneClick facilita un texto modelo.
+      </Step>
+      <Step title="Publicar o actualizar la política de privacidad">
+        Debe estar alojada en el propio dominio, enlazada desde la página principal, y declarar cómo se accede, usa, almacena y comparte la información obtenida de Google. OneClick facilita una plantilla con las cláusulas que Google exige.
+      </Step>
+      <Step title="Publicar las condiciones del servicio">
+        Los términos de uso, también en el dominio de la editorial y enlazados desde la página principal.
+      </Step>
+      <Step title="Designar un email de soporte">
+        Se mostrará a los usuarios en la pantalla de consentimiento de Google.
+      </Step>
+      <Step title="Responder con agilidad durante la revisión">
+        Google puede solicitar ajustes en la web o en la política de privacidad. OneClick canaliza estas peticiones; la rapidez al aplicarlas determina el plazo total.
+      </Step>
+    </Steps>
+
+    Todo lo demás —creación del proyecto, configuración de permisos, vídeo demostrativo y comunicación con Google— **lo realiza OneClick**.
+  </Tab>
+  <Tab title="Modelo B — Autogestionado por la editorial">
+    Si la editorial prefiere administrar sus propias credenciales, los pasos son los siguientes. OneClick proporciona los datos técnicos exactos (direcciones de retorno, lista de permisos) y asiste en cualquier punto:
+
+    <Steps>
+      <Step title="Crear un proyecto en Google Cloud Console">
+        En [console.cloud.google.com](https://console.cloud.google.com), un proyecto dedicado a la plataforma, con una cuenta corporativa de la editorial.
+      </Step>
+      <Step title="Configurar la pantalla de consentimiento">
+        En **Google Auth Platform → Información de la marca**: nombre de la plataforma, logotipo, email de soporte, página principal y enlaces a la política de privacidad y a las condiciones del servicio. Todos los enlaces deben estar en el dominio de la editorial.
+      </Step>
+      <Step title="Verificar el dominio en Google Search Console">
+        En [search.google.com/search-console](https://search.google.com/search-console), con la misma cuenta, mediante un registro DNS TXT. Después se añade como dominio autorizado del proyecto.
+      </Step>
+      <Step title="Crear una credencial OAuth">
+        De tipo **Aplicación web**, introduciendo las direcciones de retorno (*redirect URIs*) que facilita OneClick.
+      </Step>
+      <Step title="Añadir los permisos de Google Classroom">
+        Según la lista exacta que facilita OneClick. **No deben añadirse permisos adicionales**: cuantos más permisos, más exigente es la revisión.
+      </Step>
+      <Step title="Entregar a OneClick el identificador de cliente y el secreto">
+        Por un canal seguro, **nunca por email sin cifrar**. OneClick los configura en la plataforma y graba el vídeo demostrativo del flujo que Google exige.
+      </Step>
+      <Step title="Enviar la solicitud de validación">
+        Desde el Centro de verificación del proyecto, atendiendo después los emails del equipo de revisión de Google hasta su aprobación. OneClick puede revisar las respuestas antes de enviarlas.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Autorización en los centros educativos
+
+Una vez validada la aplicación, cada centro que use Google Workspace for Education debe autorizarla para sus usuarios. Es un requisito de Google, **obligatorio cuando hay menores de 18 años**.
+
+El administrador de Google Workspace del centro debe:
+
+<Steps>
+  <Step title="Acceder al control de acceso de aplicaciones">
+    En [admin.google.com](https://admin.google.com) → **Seguridad** → **Controles de API** → **Control de acceso de aplicaciones**.
+  </Step>
+  <Step title="Buscar la aplicación">
+    Por el identificador de cliente (*client ID*) que facilita OneClick.
+  </Step>
+  <Step title="Marcarla como «De confianza»">
+    Para las unidades organizativas que corresponda.
+  </Step>
+</Steps>
+
+<Tip>
+  OneClick entrega una ficha de una página con estas instrucciones, lista para reenviar a los centros educativos.
+</Tip>
+
+## Fases y plazos
+
+| Fase | Descripción | Duración orientativa |
+|---|---|---|
+| **Preparación** | Adecuación de la web de la editorial (descripción, privacidad, términos) y verificación del dominio. | 1–2 semanas |
+| **Solicitud** | Configuración de los permisos de Classroom y envío de la solicitud de validación a Google, incluyendo el vídeo demostrativo. | 2–3 días |
+| **Revisión de Google** | El equipo de revisión de Google evalúa la solicitud. Puede pedir cambios o aclaraciones por email; conviene responder con agilidad. | 4–8 semanas |
+| **Activación** | Con la validación aprobada, se activa la integración en la plataforma y se informa a los centros educativos. | 1 semana |
+
+<Warning>
+  Mientras la validación no esté aprobada, Google limita el acceso a un máximo de **100 usuarios**. Es suficiente para un piloto con uno o dos grupos, pero no para un despliegue real. El lanzamiento de Classroom debe planificarse para después de la aprobación.
+</Warning>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Por qué no se puede usar directamente la credencial de Tangerine?">
+    Google exige que la marca que ve el usuario al conceder permisos corresponda a la aplicación real que utiliza. Al validar la integración con la marca y el dominio de la editorial, sus usuarios confían en lo que ven, los centros autorizan una aplicación que reconocen y el servicio no depende de credenciales compartidas con terceros.
+  </Accordion>
+  <Accordion title="¿Qué verán los usuarios?">
+    Al conectar Classroom por primera vez, una pantalla de Google con el nombre y el logotipo de la editorial solicitando los permisos necesarios. Solo se pide una vez por usuario.
+  </Accordion>
+  <Accordion title="¿La validación caduca?">
+    Google puede requerir revisiones periódicas y, en ciertos casos, una reverificación anual. También revisa de nuevo la aplicación si cambian los permisos, el dominio o la marca. En el Modelo A, OneClick gestiona estas renovaciones.
+  </Accordion>
+  <Accordion title="¿Qué datos de Google trata la plataforma?">
+    Únicamente los necesarios para la integración: identidad del usuario y las clases y alumnado que se importan desde Google Classroom. El detalle figura en la política de privacidad de la plataforma y su uso está sujeto a la política de datos de usuario de los servicios API de Google.
+  </Accordion>
+  <Accordion title="¿Y si la editorial cambia de dominio o renueva la marca?">
+    Debe avisarse con antelación: será necesario actualizar la verificación del dominio y, en su caso, pasar de nuevo por la revisión de marca de Google.
+  </Accordion>
+</AccordionGroup>
+
+## Contacto
+
+Para iniciar el proceso o resolver cualquier duda, la editorial contacta con su gestor de proyecto en OneClick o escribe a `producto@oneclick.es`, indicando el nombre de la editorial y el modelo de gestión elegido (A o B).
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear un grupo" icon="users-gear" href="/frontoffice-docentes/gestion-grupo/crear-grupo">
+    Importación de estudiantes desde Google Classroom al crear una clase, una vez activada la integración.
+  </Card>
+  <Card title="Ver mis grupos" icon="chalkboard-user" href="/frontoffice-docentes/mis-grupos/ver-mis-grupos">
+    Sincronización de la lista de estudiantes de una clase de Google desde el panel de integrantes.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+  - Alcance: proceso externo a las aplicaciones de Tangerine (Google Cloud Console, Google Search Console, admin.google.com, web corporativa de la editorial)
+  - Fuente: Manual_Validacion_Google_Classroom_Tangerine.pdf — «Validación de Google Classroom para su plataforma», v1.0, agosto 2026
+  - Decisiones editoriales acordadas con el usuario:
+    - Ubicación: tab propio «Integraciones» (no dentro de Backoffice > Configuración)
+    - Se mantienen las referencias a OneClick y el contacto producto@oneclick.es (audiencia = equipo de implantación de la editorial)
+  - Pendiente: sin screenshots. El flujo ocurre en consolas de Google, no en la UI de Tangerine
+  - Última revisión: 2026-08-18
+*/}

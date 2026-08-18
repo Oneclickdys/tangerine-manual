@@ -322,6 +322,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Integraciones",
+        "groups": [
+          {
+            "group": "Google Classroom",
+            "pages": [
+              "integraciones/google-classroom/validacion-aplicacion"
+            ]
+          }
+        ]
       }
     ]
   },
