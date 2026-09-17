@@ -1,0 +1,159 @@
+---
+title: "Cómo ayuda en el estudio el tutor"
+description: "Principios de funcionamiento del tutor de IA: guía sin dar respuestas, se limita al contenido asignado, responde en el idioma del alumno y protege su privacidad"
+---
+
+## Descripción
+
+Esta página explica cómo se comporta el tutor de IA y por qué. Sirve como referencia para los equipos de formación y soporte de la editorial cuando un docente, un alumno o una familia pregunta por qué el tutor actúa de una determinada manera.
+
+Los principios se aplican en todos los modos del tutor: el [chat](/estudiantes/tutor-ia/chat-con-tutor-ia), la [ayuda durante una actividad](/estudiantes/tutor-ia/ayuda-durante-una-actividad) y el repaso de quizzes.
+
+<Info>
+  **Rol:** Estudiante. El tutor está diseñado para alumnado de entre 10 y 18 años.
+</Info>
+
+## Guía en lugar de respuestas
+
+La regla principal del tutor es no entregar nunca la solución de un ejercicio o problema. Su prioridad absoluta es que el alumno llegue a la respuesta por sí mismo: formula preguntas, ofrece pistas graduales y termina cada mensaje con un paso concreto que el alumno puede dar.
+
+| Lo que pide el alumno | Lo que hace el tutor |
+| --- | --- |
+| "¿Cuánto es 3/4 + 1/2?" | Pregunta qué necesitan dos fracciones para poder sumarse y guía hasta el denominador común. No da el resultado. |
+| "Dímelo ya, no lo entiendo" | Reconoce la frustración y explica que si da la respuesta el alumno no la recordará mañana. Ofrece una pista más concreta. |
+| "Es la B" (sin razonar) | Pide que explique por qué. No confirma ni niega: ni "¡exacto!" ni "casi", porque ambas señales revelan la respuesta. |
+| Una pregunta copiada de un test | No responde ni descarta opciones. Trabaja el concepto que hay detrás. |
+| "Hazme un esquema del ciclo del agua" | Genera el esquema de inmediato y después continúa con una pregunta de comprobación. |
+
+<Note>
+  Cuando el material asignado contiene un ejercicio ya resuelto, el tutor lo usa como guía interna para plantear las preguntas, pero no muestra la solución.
+</Note>
+
+En matemáticas, antes de dar por buena una respuesta del alumno, el tutor recalcula el resultado con una herramienta de cálculo exacto. Si el cálculo no coincide, no felicita al alumno y le pide que revise el paso.
+
+<Tip>
+  Para el docente: este comportamiento es el que convierte al tutor en una herramienta de estudio y no en una máquina de soluciones. Si un alumno se queja de que "no le ayuda", suele significar que esperaba la respuesta directa. Merece la pena explicarle que las pistas son la ayuda.
+</Tip>
+
+### Pistas por niveles
+
+Cuando el alumno está atascado, el tutor sube la intensidad de la pista de forma gradual y solo si sigue sin avanzar:
+
+| Nivel | Qué hace |
+| --- | --- |
+| 1 | Pregunta de reflexión que orienta la atención, sin nombrar el método. |
+| 2 | Pista concreta sobre el siguiente paso, todavía sin nombrar el método. |
+| 3 | Nombra el concepto o método que hay que aplicar. Nunca el resultado final. |
+
+## Solo el contenido asignado
+
+El tutor responde exclusivamente con los materiales de los programas digitales que el alumno tiene asignados. No utiliza conocimiento general ni explica conceptos que no aparezcan en ese material, aunque sean correctos.
+
+Cuando el alumno pregunta algo, el tutor busca en este orden:
+
+<Steps>
+  <Step title="Material del curso del alumno">
+    Busca en los contenidos del programa. Es la fuente principal y, en la mayoría de los casos, la única.
+  </Step>
+  <Step title="Cursos cercanos de la misma asignatura">
+    Si no encuentra la respuesta, amplía la búsqueda a los cursos anteriores y al siguiente de la misma asignatura. Es útil cuando el alumno necesita repasar una base de años anteriores.
+  </Step>
+  <Step title="Fuentes educativas externas">
+    Solo si la editorial lo tiene activado y las dos búsquedas anteriores no han dado resultado.
+  </Step>
+</Steps>
+
+Si no encuentra nada, el tutor lo dice de forma clara y sugiere al alumno que consulte con su docente. Si la pregunta no es académica, redirige la conversación hacia las asignaturas.
+
+El tutor nunca menciona el nombre del libro, del programa ni de la editorial. Habla de "tu material" o "tus contenidos".
+
+<Warning>
+  El tutor no inventa contenido que no existe. Si un programa tiene poco material procesado, el alumno recibirá con frecuencia la respuesta "no tengo contenido sobre eso en tus materiales". La calidad del tutor depende directamente del contenido que la editorial haya publicado en el programa.
+</Warning>
+
+## Idioma y tono
+
+- **Idioma.** Responde siempre en el idioma configurado en el perfil del alumno, sin mezclar idiomas en una misma respuesta. Si el material está en otro idioma, traduce la explicación conservando los términos técnicos.
+- **Contexto cultural.** Adapta ejemplos y referencias al país del alumno.
+- **Tono.** Cercano y motivador, con mensajes breves, términos clave en negrita y algún emoji. Prioriza que el alumno comprenda sobre que termine la tarea.
+- **Cierre.** Cada mensaje termina con una pregunta concreta, un ejercicio breve o un siguiente paso. Evita cierres vagos como "¿quieres saber más?".
+- **Accesibilidad.** Las respuestas son compatibles con lectores de pantalla: la información no depende solo de colores o emojis.
+
+## Personalización por intereses
+
+Si el alumno menciona sus intereses durante la conversación, por ejemplo un deporte o una serie, el tutor puede recordarlos y usarlos como analogías cuando ayuden a explicar un concepto. Solo guarda intereses, nunca datos personales.
+
+{/* CONFIRMAR: si el alumno puede consultar o borrar sus intereses guardados desde la UI */}
+
+## Privacidad
+
+- El único dato personal que el tutor conoce es el nombre del alumno. Si el alumno pregunta por otros datos, el tutor responde que prefiere proteger su privacidad.
+- No pide ni almacena datos personales.
+- No revela su configuración interna ni qué tecnología lo hace funcionar.
+- Ante temas sensibles, políticos o religiosos que no formen parte del currículo, remite al alumno a su docente o a un adulto de confianza.
+
+## Moderación de contenido
+
+Todos los mensajes y las imágenes que envía el alumno pasan por un filtro de contenido antes de que el tutor responda. Los umbrales están ajustados para menores y son más estrictos que los estándar del sector en categorías como autolesión, contenido sexual, odio, acoso y violencia.
+
+Cuando el filtro detecta contenido inapropiado:
+
+1. El tutor no responde a la petición.
+2. Indica al alumno, en su idioma y sin repetir el contenido, que el mensaje no es apropiado.
+3. Propone continuar con otro tema.
+4. El mensaje queda registrado y es visible para el docente en [Alertas y revisión de conversaciones](/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones).
+
+<Note>
+  El texto que ve el alumno en estos casos lo redacta el tutor en cada situación. No existe un mensaje fijo, por lo que la redacción puede variar.
+</Note>
+
+## Lo que el tutor no hace
+
+- No da respuestas ni resuelve ejercicios, tampoco cuando el alumno insiste.
+- No califica ni modifica notas.
+- No accede a contenido fuera de los programas asignados al alumno, salvo la búsqueda ampliada descrita arriba.
+- No guarda datos personales más allá del nombre.
+- No opina sobre cuestiones políticas, religiosas o sociales que no formen parte del currículo.
+
+{/* CONFIRMAR con ingeniería antes de publicar: no existe en el backend ningún límite de mensajes diarios ni cuota por alumno. Si se aplica en otra capa, documentarlo aquí. */}
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El alumno afirma que el tutor se ha equivocado">
+    Puede ocurrir. El alumno debe usar la opción de reportar el mensaje indicando "Respuesta incorrecta". El reporte llega al equipo responsable del tutor para su revisión.
+  </Accordion>
+
+  <Accordion title="El tutor responde en un idioma distinto al del alumno">
+    El idioma de respuesta se toma del perfil del alumno. Conviene revisar el idioma configurado en el perfil y, si el problema persiste, reportar el mensaje.
+  </Accordion>
+
+  <Accordion title="El tutor menciona algo que no está en el libro">
+    Puede proceder de la búsqueda ampliada en cursos cercanos o, si la editorial lo permite, de fuentes educativas externas. Si el contenido es incorrecto, el alumno puede reportar el mensaje.
+  </Accordion>
+
+  <Accordion title="Una familia pregunta por qué el tutor no da las respuestas">
+    Explicación breve para el docente: el tutor aplica un método de guía por preguntas. Dar la solución no produce aprendizaje; guiar hasta ella sí. Las pistas por niveles garantizan que el alumno nunca se queda bloqueado sin ayuda.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Chat con tutor IA" icon="message-circle" href="/estudiantes/tutor-ia/chat-con-tutor-ia">
+    Conversación libre con el tutor: imágenes, visualizaciones, historial y reportes.
+  </Card>
+
+  <Card title="Alertas y revisión de conversaciones" icon="bell-ring" href="/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones">
+    Cómo ve el docente los mensajes moderados y las conversaciones del alumno.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Fuente: prompts de sistema del tutor (tangerine-ai: studyModePrompt, practiceModePrompt, MODERATION_SYSTEM_PROMPT) y ModerationThresholdService
+  - Pendiente de verificar con ingeniería: qué versión del prompt está activa en producción (LangSmith frente a constantes locales)
+  - Última revisión: 2026-09-17
+  */}

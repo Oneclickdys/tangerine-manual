@@ -1,0 +1,123 @@
+---
+title: "Prácticas"
+description: "Sesiones de actividades generadas por el tutor de IA: recomendaciones, prácticas elegidas por el alumno, refuerzo de conceptos que se resisten y repaso"
+---
+
+## Descripción
+
+Las prácticas son sesiones cortas de actividades que el tutor de IA genera a partir de los conceptos del curso que el alumno aún no domina. El sistema sigue el progreso del alumno concepto a concepto y decide qué conviene practicar en cada momento.
+
+Cada respuesta del alumno actualiza su nivel de dominio de los conceptos implicados. Cuando un concepto falla, el tutor incorpora sus prerrequisitos a la práctica para que el alumno los repase antes de volver a intentarlo.
+
+<Info>
+  **Rol requerido:** Estudiante con Tangerine AI activo. Solo está disponible en cursos preparados para la práctica con IA, es decir, con conceptos configurados en sus contenidos.
+</Info>
+
+## Tipos de práctica
+
+{/* CONFIRMAR UI: nombres exactos de cada tipo en la interfaz. Capturas: /assets/screenshots/frontoffice-estudiante/tutor-ia/practicas-recomendaciones.png, practicas-crear.png, practicas-sesion.png */}
+
+| Tipo | Quién la crea | Dónde aparece | Qué incluye |
+| --- | --- | --- | --- |
+| **Recomendación del tutor** | El tutor, para un curso del alumno | En la caja de recomendaciones de la [pantalla de inicio](/estudiantes/mis-clases/ver-clases) | Los conceptos que el tutor considera prioritarios, incluidos sus prerrequisitos |
+| **Práctica elegida por el alumno** | El alumno, seleccionando lecciones o unidades de un curso | En la lista de prácticas | Exactamente los conceptos de las lecciones o unidades elegidas |
+| **Práctica de un concepto** | El alumno, desde un concepto que se le resiste | No aparece en la lista; se abre y se resuelve en el momento | Un único concepto |
+| **Repaso de una sesión** | El alumno, al terminar una sesión | Desde la sesión completada | Solo los conceptos de esa sesión que todavía necesitan refuerzo |
+
+### Recomendaciones del tutor
+
+La pantalla de inicio muestra la caja de recomendaciones cuando el alumno tiene sesiones disponibles. El botón **Generar más** pide al tutor una nueva sesión para un curso. Si ya existe una sesión activa para esa lección o unidad, el sistema reabre la existente en lugar de crear otra.
+
+### Práctica elegida por el alumno
+
+El alumno elige un curso y marca las lecciones o unidades que quiere trabajar. El tutor genera una sesión con los conceptos de esa selección, sin añadir prerrequisitos: practica exactamente lo que ha pedido.
+
+### Práctica de un concepto que se le resiste
+
+Desde un concepto marcado como pendiente de mejora, el alumno puede lanzar una práctica rápida de ese único concepto. Es una sesión de usar y tirar: no aparece en la lista de prácticas, se descarta si el alumno la abandona y, si vuelve a lanzar otra del mismo concepto, la nueva sustituye a la anterior. El progreso conseguido sí se conserva.
+
+### Repaso de una sesión completada
+
+Al terminar una sesión, el alumno puede generar un repaso con los conceptos que siguen sin consolidarse. Si todos los conceptos de la sesión están dominados, la opción de repaso no está disponible.
+
+## Resolver una sesión
+
+<Steps>
+  <Step title="Abrir la sesión">
+    La sesión muestra la asignatura, la lección de origen y el número de actividades previsto.
+  </Step>
+  <Step title="Responder actividad a actividad">
+    Cada actividad se resuelve en el visor de actividades de la plataforma. Al enviar la respuesta, el sistema la evalúa, actualiza el dominio de los conceptos implicados y presenta la siguiente actividad.
+  </Step>
+  <Step title="Pedir ayuda al tutor">
+    Durante cualquier actividad el alumno puede abrir el tutor, que conoce el enunciado y su respuesta. Ver [Ayuda durante una actividad](/estudiantes/tutor-ia/ayuda-durante-una-actividad).
+  </Step>
+  <Step title="Terminar y repasar">
+    Al completar la sesión, el alumno puede generar un repaso de los conceptos que aún necesita reforzar.
+  </Step>
+</Steps>
+
+<Tip>
+  Las prácticas funcionan mejor en sesiones cortas y frecuentes. Una recomendación al día produce más avance que una sesión larga a la semana, porque el tutor recalcula qué practicar tras cada respuesta.
+</Tip>
+
+## Descartar una sesión
+
+El alumno puede descartar las prácticas que ha creado él mismo, tanto las elegidas por lecciones como las de un concepto. Las recomendaciones del tutor no se pueden descartar. El progreso conseguido en las actividades ya respondidas se conserva en todos los casos.
+
+## Reportar un error en una actividad
+
+Si una actividad tiene un error, por ejemplo una respuesta correcta marcada como incorrecta o un enunciado ilegible, el alumno puede reportarlo indicando el tipo de error y una descripción. El sistema adjunta una captura de la actividad y envía el aviso al equipo responsable.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No aparece la caja de recomendaciones">
+    La caja solo se muestra a alumnos con Tangerine AI activo que ya hayan tenido alguna sesión. Un alumno nuevo la verá cuando el tutor genere su primera recomendación. Si el curso no tiene conceptos configurados, no habrá recomendaciones para ese curso.
+  </Accordion>
+
+  <Accordion title="El alumno cambia de grupo o deja un curso">
+    Las sesiones de un curso en el que el alumno ya no está matriculado dejan de mostrarse, pero se conservan. Si vuelve a matricularse, reaparecen.
+  </Accordion>
+
+  <Accordion title="El alumno pide una sesión y aparece una que ya tenía">
+    Si ya existe una sesión activa para esa lección o unidad, el sistema la reabre en lugar de crear una nueva. Debe completarla o descartarla antes de generar otra.
+  </Accordion>
+
+  <Accordion title="Una práctica de un concepto ha desaparecido">
+    Es el comportamiento esperado: las prácticas de un único concepto no se guardan en la lista y se descartan al abandonarlas. El progreso realizado se mantiene.
+  </Accordion>
+
+  <Accordion title="El alumno quiere descartar una recomendación del tutor">
+    No es posible. Las recomendaciones forman parte del plan del tutor para el alumno. Puede dejarla pendiente y trabajar otras prácticas.
+  </Accordion>
+
+  <Accordion title="Un concepto que estaba dominado vuelve a aparecer">
+    El dominio no es definitivo. Si el alumno falla actividades posteriores relacionadas, el sistema puede volver a considerar el concepto como no dominado e incluirlo de nuevo en las prácticas.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Ver Mis Clases" icon="graduation-cap" href="/estudiantes/mis-clases/ver-clases">
+    Dónde aparece la caja de recomendaciones en la pantalla de inicio.
+  </Card>
+
+  <Card title="Ayuda durante una actividad" icon="life-buoy" href="/estudiantes/tutor-ia/ayuda-durante-una-actividad">
+    El tutor acompaña al alumno mientras resuelve cada actividad de la práctica.
+  </Card>
+
+  <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
+    Cómo ve el docente el dominio de conceptos y las sesiones del alumno.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Backend (tangerine-ai): GET /activities/sessions, GET /activities/sessions/check, POST /activities/session/:courseId, POST /activities/sessions/student-generated, POST /activities/sessions/kc, POST /activities/sessions/:sessionId/review, PATCH /activities/sessions/:sessionId/discard, POST /activities/:activityInstanceId, POST /activities/notify-error
+  - Tipos de sesión: NEW y PRACTICE (tutor), STUDENT (alumno), KC (concepto)
+  - Última revisión: 2026-09-17
+  */}
