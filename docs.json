@@ -136,7 +136,9 @@
           {
             "group": "Panel IA",
             "pages": [
-              "frontoffice-docentes/panel-ia/panel-ia"
+              "frontoffice-docentes/panel-ia/panel-ia",
+              "frontoffice-docentes/panel-ia/herramientas-de-ia",
+              "frontoffice-docentes/panel-ia/generar-actividades-con-ia"
             ]
           },
           {
