@@ -134,6 +134,17 @@
             ]
           },
           {
+            "group": "Panel IA",
+            "pages": [
+              "frontoffice-docentes/panel-ia/panel-ia",
+              "frontoffice-docentes/panel-ia/herramientas-de-ia",
+              "frontoffice-docentes/panel-ia/generar-actividades-con-ia",
+              "frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones",
+              "frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor",
+              "frontoffice-docentes/panel-ia/progreso-de-un-alumno"
+            ]
+          },
+          {
             "group": "Curso",
             "pages": [
               "frontoffice-docentes/curso/vista-curso",
@@ -213,6 +224,15 @@
               "estudiantes/evaluaciones/responder-evaluacion",
               "estudiantes/evaluaciones/responder-quiz",
               "estudiantes/evaluaciones/resultados-estudiante"
+            ]
+          },
+          {
+            "group": "Tutor IA",
+            "pages": [
+              "estudiantes/tutor-ia/chat-con-tutor-ia",
+              "estudiantes/tutor-ia/como-ayuda-en-el-estudio",
+              "estudiantes/tutor-ia/practicas",
+              "estudiantes/tutor-ia/ayuda-durante-una-actividad"
             ]
           },
           {

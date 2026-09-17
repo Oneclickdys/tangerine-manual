@@ -1,0 +1,103 @@
+---
+title: "Seguimiento del uso del tutor"
+description: "Estadísticas de uso del tutor de IA por curso o alumno: volumen de uso, temas más consultados, tipo de peticiones de los alumnos y diagnóstico de la clase"
+---
+
+## Descripción
+
+Las vistas de seguimiento muestran al docente cómo usan sus alumnos el tutor de IA: cuánto lo usan, sobre qué temas preguntan, qué tipo de ayuda piden y en qué lecciones la clase muestra dificultades. Sirven para detectar contenidos que generan dudas, alumnos que usan el tutor para obtener respuestas en lugar de aprender, y lecciones que conviene reforzar en el aula.
+
+<Info>
+  **Rol requerido:** Docente, administrador de escuela o administrador de la editorial.
+</Info>
+
+## Cómo acceder
+
+{/* CONFIRMAR UI: nombre de la sección y de cada vista. Capturas: /assets/screenshots/frontoffice-docente/panel-ia/seguimiento-uso.png, seguimiento-temas.png, seguimiento-intenciones.png, seguimiento-diagnostico.png */}
+
+Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), en la sección de seguimiento.
+
+## Filtros comunes
+
+Todas las vistas se consultan acotadas a uno o varios cursos, o a uno o varios alumnos, y a un rango de fechas. El rango de fechas es obligatorio.
+
+## Vistas disponibles
+
+### Uso
+
+Volumen de interacciones de los alumnos con el tutor en el periodo seleccionado.
+
+{/* CONFIRMAR: métricas exactas que muestra la vista (interacciones, alumnos activos, sesiones) */}
+
+### Temas más consultados
+
+Ranking de los temas sobre los que los alumnos han preguntado al tutor, ordenados por frecuencia. Al abrir un tema, el docente ve qué alumnos han preguntado sobre él y cuántas veces el tutor tuvo que ampliar la búsqueda fuera del curso para responder.
+
+<Tip>
+  Un tema con muchas búsquedas ampliadas indica que el material del curso no cubre bien esa duda. Es una señal útil tanto para reforzarlo en clase como para trasladarlo a la editorial.
+</Tip>
+
+### Tipo de peticiones
+
+Clasificación de los mensajes de cada alumno según lo que pide al tutor, representada en un gráfico de cuadrantes con una puntuación de calidad por alumno.
+
+| Intención | Qué significa |
+| --- | --- |
+| Petición de respuesta directa | El alumno pide la solución sin intentar razonar |
+| Petición de explicación | Quiere entender un concepto |
+| Petición de ayuda | Está atascado en un paso concreto |
+| Verificación | Pide comprobar si su razonamiento o resultado es correcto |
+| Exploración por curiosidad | Pregunta más allá de lo estrictamente necesario |
+| Fuera de tema académico | Pregunta sobre otra materia o contenido no asignado |
+| Fuera de tema | Conversación no relacionada con el estudio |
+| Queja | Expresa malestar con el tutor o la tarea |
+| Inadecuado | Mensaje detectado como inapropiado |
+| Conversacional | Saludos y mensajes sin contenido académico |
+
+<Tip>
+  Un alumno con muchas peticiones de respuesta directa y pocas de explicación está usando el tutor como atajo. Como el tutor no da respuestas, esa pauta suele traducirse en frustración; conviene explicarle cómo sacar partido a las pistas.
+</Tip>
+
+### Diagnóstico de la clase
+
+Informe por lección con las alertas de rendimiento del grupo:
+
+| Alerta | Criterio |
+| --- | --- |
+| Bajo dominio | Más del 25 % de los alumnos tienen un dominio por debajo del 80 % en los conceptos de la lección |
+| Fallos repetidos | Más del 25 % de los alumnos han fallado tres o más veces en al menos dos actividades de la lección |
+
+{/* CONFIRMAR con ingeniería: si estos umbrales son configurables por editorial o fijos */}
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Las vistas no muestran datos">
+    No hay actividad de los alumnos seleccionados en el rango de fechas, o los alumnos no tienen Tangerine AI activo.
+  </Accordion>
+
+  <Accordion title="Faltan alumnos en el desglose">
+    Solo aparecen los alumnos registrados en Tangerine AI. Un alumno del grupo sin la funcionalidad activa no aparece en ninguna vista.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Alertas y revisión de conversaciones" icon="bell-ring" href="/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones">
+    Mensajes marcados y alumnos atascados en un concepto.
+  </Card>
+
+  <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
+    Detalle individual de dominio, actividades y tiempo.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-docente
+  - Backend (tangerine-ai): GET /stats/use, GET /stats/topic-ranking, GET /stats/topic-detail, GET /stats/intent-distribution, GET /stats/teacher/students-by-courses, GET /class-diagnostics/report
+  - Umbrales por defecto: LOW_MASTERY_STUDENT_PERCENTAGE 0.25, MASTERED_KNOWLEDGE_THRESHOLD 0.8, REPEATED_FAILURE_COUNT 3, REPEATED_FAILURE_ACTIVITY_COUNT 2
+  - Última revisión: 2026-09-17
+  */}

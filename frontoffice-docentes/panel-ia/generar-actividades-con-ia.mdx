@@ -1,0 +1,126 @@
+---
+title: "Generar actividades con IA"
+description: "Creación de una actividad evaluable a medida a partir de un texto, una lección o contenidos del programa, con tipo, dificultad y criterios elegidos por el docente"
+---
+
+## Descripción
+
+El docente puede pedir a la IA que genere una actividad evaluable a partir de un contenido del programa o de un texto propio, eligiendo el tipo de actividad, la dificultad y los criterios que debe trabajar. La actividad se crea en el formato del editor de actividades de la plataforma, de modo que el docente puede revisarla y ajustarla antes de usarla en una evaluación.
+
+<Info>
+  **Rol requerido:** Docente con las funciones de IA habilitadas en su institución.
+</Info>
+
+## Cómo acceder
+
+{/* CONFIRMAR UI: punto de entrada exacto. El inventario indica que la creación de evaluaciones soporta generación de preguntas con IA bajo feature flag, y la vista de Recursos muestra un indicador de IA en las evaluaciones generadas. Captura: /assets/screenshots/frontoffice-docente/panel-ia/generar-actividad-formulario.png */}
+
+La generación de actividades con IA se ofrece dentro del flujo de [creación de evaluaciones](/frontoffice-docentes/evaluaciones/crear-evaluacion).
+
+## Guía de uso
+
+<Steps>
+  <Step title="Elegir la fuente del contenido">
+    El docente indica de dónde debe partir la actividad. Solo puede elegir una de las tres opciones:
+
+    - **Texto propio**: pega o escribe el contenido.
+    - **Una lección** del programa.
+    - **Uno o varios contenidos** del programa.
+  </Step>
+  <Step title="Indicar curso y asignatura">
+    El curso y nivel, por ejemplo "3.º de Primaria", y la asignatura a la que pertenece la actividad.
+  </Step>
+  <Step title="Elegir el tipo de actividad">
+    Ver la tabla de tipos disponibles más abajo.
+  </Step>
+  <Step title="Ajustar la actividad (opcional)">
+    | Campo | Descripción |
+    | --- | --- |
+    | Criterios de evaluación | Criterios curriculares que la actividad debe trabajar |
+    | Necesidades especiales | Adaptaciones a tener en cuenta en enunciado y opciones |
+    | Dificultad | Nivel de exigencia deseado |
+    | Otras indicaciones | Cualquier matiz adicional para la IA |
+  </Step>
+  <Step title="Generar y revisar">
+    La IA devuelve la actividad lista para abrirse en el editor de actividades, donde el docente la revisa y la ajusta antes de asignarla.
+  </Step>
+</Steps>
+
+<Warning>
+  Una actividad generada con IA debe revisarse siempre antes de asignarla a los alumnos: enunciado, opciones y respuesta correcta.
+</Warning>
+
+## Tipos de actividad
+
+{/* CONFIRMAR UI: nombres exactos de cada tipo tal y como aparecen en el selector. Los siguientes son los tipos que admite el generador. */}
+
+| Tipo | Descripción |
+| --- | --- |
+| Opción múltiple, respuesta única | Varias opciones con una sola correcta |
+| Opción múltiple, varias respuestas | Varias opciones con más de una correcta |
+| Ordenar | Colocar elementos en la secuencia correcta |
+| Clasificar | Agrupar elementos en categorías |
+| Matriz de opciones | Varias afirmaciones con una opción por fila |
+| Respuesta corta | Texto breve escrito por el alumno |
+| Completar texto | Rellenar huecos escribiendo |
+| Completar asociando | Rellenar huecos arrastrando las opciones |
+| Completar con desplegables | Rellenar huecos eligiendo en listas |
+| Asociación | Emparejar elementos de dos columnas |
+| Unir con líneas | Emparejar elementos trazando líneas |
+| Ensayo | Respuesta larga de texto libre |
+| Subir archivo | El alumno entrega un archivo |
+| Grabación de audio | El alumno graba una respuesta hablada |
+
+<Tip>
+  Los tipos de respuesta cerrada, como opción múltiple, ordenar o completar, suelen corregirse automáticamente. Ensayo, subir archivo y grabación de audio requieren corrección manual del docente.
+</Tip>
+
+## Evitar actividades repetidas
+
+Cuando el docente genera varias actividades sobre el mismo contenido, el sistema tiene en cuenta las ya generadas para no repetir enunciados ni enfoques.
+
+## Identificación de las actividades generadas
+
+Las evaluaciones creadas con ayuda de la IA muestran un indicador de IA en la vista de [Recursos del curso](/frontoffice-docentes/curso/recursos), de modo que el docente distingue el material generado del editorial o propio.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="La actividad generada no encaja con lo que buscaba el docente">
+    Puede generar otra ajustando la dificultad, los criterios o las indicaciones adicionales. Las nuevas generaciones evitan repetir la anterior.
+  </Accordion>
+
+  <Accordion title="La fuente elegida es un vídeo o un recurso sin texto">
+    El generador trabaja a partir del texto del contenido. Si el contenido no tiene texto procesado, conviene usar la opción de texto propio.
+
+    {/* CONFIRMAR: comportamiento exacto con contenidos sin texto */}
+  </Accordion>
+
+  <Accordion title="El tipo de actividad que necesito no aparece">
+    El generador admite los tipos de la tabla anterior. Para otros tipos, el docente puede crear la actividad manualmente en el [editor de actividades](/backoffice/herramientas-autor/editor-lemonade).
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Crear Evaluación" icon="clipboard-check" href="/frontoffice-docentes/evaluaciones/crear-evaluacion">
+    Flujo completo de creación de evaluaciones y tareas.
+  </Card>
+
+  <Card title="Editor Lemonade" icon="puzzle-piece" href="/backoffice/herramientas-autor/editor-lemonade">
+    Editor donde se revisa y ajusta la actividad generada.
+  </Card>
+
+  <Card title="Herramientas de IA" icon="wand-sparkles" href="/frontoffice-docentes/panel-ia/herramientas-de-ia">
+    Asistente para preparar materiales de clase.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-docente
+  - Backend (tangerine-ai): POST /ai-activities/generate-one-activity (rol TEACHER). Campos: educationYearAndLevel, disciplineId, text | lessonId | contentIds, activityType, evaluationCriteria, specialNeeds, otherIndications, difficulty, previousActivities
+  - Última revisión: 2026-09-17
+  */}

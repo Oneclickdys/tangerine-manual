@@ -1,0 +1,86 @@
+---
+title: "Progreso de un alumno"
+description: "Ficha individual del alumno en el tutor de IA: cursos, mapa de conceptos con nivel de dominio, actividades realizadas y tiempo dedicado"
+---
+
+## Descripción
+
+La ficha de progreso muestra, para un alumno concreto, cómo avanza en los conceptos de cada curso según las prácticas que ha realizado con el tutor de IA. El docente ve qué conceptos domina, cuáles se le resisten, qué actividades ha respondido y cuánto tiempo ha dedicado.
+
+El nivel de dominio de cada concepto se calcula a partir de las respuestas del alumno en las actividades y se expresa como un porcentaje. Un concepto se considera dominado cuando supera el 80 %.
+
+<Info>
+  **Rol requerido:** Docente, administrador de escuela o administrador de la editorial.
+</Info>
+
+## Cómo acceder
+
+{/* CONFIRMAR UI: ruta de acceso (lista de alumnos por curso dentro del Panel IA). Capturas: /assets/screenshots/frontoffice-docente/panel-ia/progreso-alumnos.png, progreso-mapa.png, progreso-concepto.png */}
+
+Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), el docente elige un curso, ve la lista de sus alumnos con Tangerine AI activo y abre la ficha de uno de ellos.
+
+## Contenido de la ficha
+
+### Cursos del alumno
+
+Lista de los cursos que el alumno comparte con el docente, con una señal de aprendizaje por curso y el número de conceptos que se le resisten en cada uno.
+
+### Mapa del curso
+
+Índice del curso organizado en unidades, lecciones y conceptos. Cada concepto muestra su nivel de dominio y un estado visual. Los enunciados de los conceptos se muestran en el idioma del docente.
+
+<Tip>
+  El mapa permite localizar de un vistazo en qué lección se concentran las dificultades del alumno, y decidir si conviene una intervención individual o revisar la lección con todo el grupo.
+</Tip>
+
+### Detalle de un concepto
+
+Al abrir un concepto, el docente ve la evolución del dominio del alumno y, si existe, la alerta de aprendizaje asociada.
+
+### Actividades del concepto
+
+Actividades que el alumno ha respondido sobre ese concepto, agrupadas por día, con la respuesta dada, el resultado y el tiempo empleado. El docente puede abrir cualquier actividad para ver el enunciado completo y la respuesta del alumno.
+
+### Sesiones de práctica
+
+Sesiones que el alumno ha realizado en el curso, con la fecha y el tiempo dedicado. El tiempo por actividad se limita a 30 minutos en el cómputo, para que una actividad dejada abierta no distorsione el total.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El alumno no aparece en la lista">
+    Solo se muestran los alumnos con Tangerine AI activo y matriculados en el curso. Un alumno sin la funcionalidad no tiene ficha.
+  </Accordion>
+
+  <Accordion title="Un concepto que estaba dominado ha bajado">
+    El dominio no es definitivo. Si el alumno falla actividades posteriores relacionadas, el sistema vuelve a considerar el concepto como no dominado y lo incluye de nuevo en sus prácticas.
+  </Accordion>
+
+  <Accordion title="El curso no muestra conceptos">
+    El mapa solo incluye cursos con conceptos configurados en sus contenidos. Sin ellos no hay prácticas ni progreso que mostrar.
+  </Accordion>
+
+  <Accordion title="Los nombres de los conceptos están en otro idioma">
+    Los conceptos se muestran en el idioma del docente. Si aparecen en otro idioma, conviene revisar el idioma configurado en el perfil.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Prácticas" icon="dumbbell" href="/estudiantes/tutor-ia/practicas">
+    Cómo genera el tutor las sesiones de actividades que alimentan esta ficha.
+  </Card>
+
+  <Card title="Alertas y revisión de conversaciones" icon="bell-ring" href="/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones">
+    Alertas de aprendizaje del alumno y del grupo.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-docente
+  - Backend (tangerine-ai): GET /stats/teacher/students-by-courses, GET /stats/users/:userId/courses, GET /stats/users/:userId/courses/:courseId/toc, GET /stats/users/:userId/kcs/:kcId/progress, GET /stats/users/:userId/kcs/:kcId/activities, GET /stats/users/:userId/courses/:courseId/sessions, GET /stats/activity-instances/:id
+  - Última revisión: 2026-09-17
+  */}

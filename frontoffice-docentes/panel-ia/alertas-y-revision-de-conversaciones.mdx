@@ -1,0 +1,108 @@
+---
+title: "Alertas y revisión de conversaciones"
+description: "Bandeja de alertas del tutor de IA: mensajes moderados, alumnos atascados en un concepto y alertas de grupo, con gestión de estados y acceso a la conversación del alumno"
+---
+
+## Descripción
+
+La bandeja de alertas reúne en un solo lugar las señales que el tutor de IA genera sobre los alumnos del docente: mensajes detectados por el filtro de contenido, alumnos que se han quedado atascados en un concepto y conceptos en los que una parte significativa del grupo tiene dificultades. Desde cada alerta el docente puede revisar el detalle, anotar su decisión y, en el caso de los mensajes, leer la conversación completa del alumno con el tutor.
+
+<Info>
+  **Rol requerido:** Docente, administrador de escuela o administrador de la editorial.
+</Info>
+
+## Cómo acceder
+
+{/* CONFIRMAR UI: nombre de la sección dentro del Panel IA. Capturas: /assets/screenshots/frontoffice-docente/panel-ia/alertas-bandeja.png, alertas-detalle.png, alertas-conversacion.png */}
+
+Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), en la sección de alertas.
+
+## Tipos de alerta
+
+| Tipo | Qué la genera | Cómo se resuelve |
+| --- | --- | --- |
+| **Mensaje marcado** | El filtro de contenido ha detectado un mensaje o una imagen inapropiados de un alumno en cualquier modo del tutor. Se clasifica por categoría: autolesión, odio, contenido sexual, violencia o acoso. | El docente la revisa o la descarta. |
+| **Alerta de aprendizaje** | Un alumno necesita muchos más intentos de lo habitual para un concepto o vuelve a fallar un concepto que ya tenía encaminado. | Se resuelve sola cuando el alumno domina el concepto. El docente también puede marcarla como revisada o descartarla. |
+| **Alerta de grupo** | Más del 15 % de los alumnos matriculados en el curso tienen una alerta de aprendizaje activa sobre el mismo concepto. | Se actualiza y se resuelve automáticamente según evoluciona el grupo. Si el grupo vuelve a superar el umbral, se reactiva. |
+
+{/* CONFIRMAR con ingeniería el criterio exacto de la alerta de aprendizaje (intentos respecto a la media del concepto y estado de retroceso). Existe además un tipo "patrón de comportamiento" en el modelo de datos cuyo flujo de creación no se ha localizado; no se documenta hasta confirmar que está activo. */}
+
+Los mensajes marcados se ordenan por gravedad de la categoría y, dentro de cada categoría, por la puntuación del filtro. Las alertas se ordenan por estado: primero las pendientes.
+
+<Note>
+  Los mensajes marcados por el filtro son distintos de los mensajes que el propio alumno reporta desde el chat. Los reportes del alumno llegan al equipo responsable del tutor, no a esta bandeja.
+</Note>
+
+## Filtrar la bandeja
+
+La bandeja se consulta siempre acotada a uno o varios cursos o a uno o varios alumnos, y a un rango de fechas. Además puede filtrarse por tipo de alerta, por estado y, en los mensajes marcados, por categoría.
+
+## Gestionar una alerta
+
+| Estado | Significado |
+| --- | --- |
+| **Pendiente** | Requiere atención del docente. Es el estado inicial. |
+| **Revisada** | El docente la ha visto y ha tomado una decisión. |
+| **Descartada** | El docente considera que no requiere acción, por ejemplo un falso positivo del filtro. |
+| **Resuelta** | Estado automático de las alertas de aprendizaje y de grupo cuando la situación desaparece. |
+
+Al cambiar el estado, el docente puede añadir una nota con el contexto de su decisión. Abrir una alerta la marca como vista para ese docente, de modo que el equipo docente sabe qué alertas ya ha visto alguien.
+
+## Revisar la conversación del alumno
+
+Desde una alerta de mensaje marcado, el docente puede abrir la conversación completa del alumno con el tutor, en modo lectura, para entender el contexto del mensaje antes de decidir.
+
+<Warning>
+  Las conversaciones con el tutor son del alumno. El acceso del docente existe para su acompañamiento y seguridad. Conviene que el centro acuerde con las familias cómo se usa esta información.
+</Warning>
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Un mensaje marcado es un falso positivo">
+    El filtro está ajustado para menores y es deliberadamente estricto. El docente puede descartar la alerta y anotar el motivo. El mensaje del alumno no se elimina.
+  </Accordion>
+
+  <Accordion title="Una alerta de aprendizaje ha desaparecido de la lista de pendientes">
+    El alumno ha dominado el concepto y la alerta se ha resuelto automáticamente. Sigue siendo consultable filtrando por el estado Resuelta.
+  </Accordion>
+
+  <Accordion title="Un alumno acumula varios mensajes marcados">
+    Cada mensaje genera su propia alerta. El docente puede filtrar por ese alumno para ver el conjunto y revisar las conversaciones correspondientes.
+  </Accordion>
+
+  <Accordion title="La bandeja está vacía">
+    No hay alertas para los cursos, alumnos y fechas seleccionados. También ocurre si los alumnos del docente no tienen Tangerine AI activo.
+  </Accordion>
+
+  <Accordion title="¿El alumno sabe que su mensaje ha sido marcado?">
+    El alumno recibe del tutor una indicación de que su mensaje no era apropiado y una propuesta para continuar con otro tema.
+
+    {/* CONFIRMAR UI: si el alumno recibe algún aviso adicional en la interfaz */}
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Cómo ayuda en el estudio el tutor" icon="compass" href="/estudiantes/tutor-ia/como-ayuda-en-el-estudio">
+    Cómo funciona el filtro de contenido desde el punto de vista del alumno.
+  </Card>
+
+  <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
+    Ficha del alumno con el detalle de los conceptos que se le resisten.
+  </Card>
+
+  <Card title="Seguimiento del uso del tutor" icon="chart-line" href="/frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor">
+    Diagnóstico de la clase por lección.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-docente
+  - Backend (tangerine-ai): GET /stats/annotations, GET /stats/annotations/:id, POST /stats/annotations/views, PATCH /stats/annotations/:id, GET /stats/flagged-messages, GET /stats/flagged-messages/types, GET /chat/teacher-review/conversations/:conversationId
+  - Umbral de alerta de grupo: 15 % de alumnos matriculados con alerta activa en el mismo concepto
+  - Última revisión: 2026-09-17
+  */}

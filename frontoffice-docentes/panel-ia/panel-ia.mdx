@@ -1,0 +1,89 @@
+---
+title: "Panel IA"
+description: "Punto de acceso del docente a las funciones de inteligencia artificial: herramientas para preparar clases, generación de actividades, alertas y seguimiento del tutor"
+---
+
+## Descripción
+
+El Panel IA agrupa las funciones de inteligencia artificial disponibles para el docente. Tiene dos vertientes: un asistente que le ayuda a preparar materiales y clases, y un conjunto de vistas de seguimiento sobre cómo usan sus alumnos el tutor de IA.
+
+<Info>
+  **Rol requerido:** Docente. Las vistas de seguimiento y alertas también están disponibles para el administrador de escuela y el administrador de la editorial.
+</Info>
+
+## Cómo acceder
+
+El botón flotante **Panel IA** aparece en la parte inferior de la [pantalla de inicio del docente](/frontoffice-docentes/mis-grupos/ver-mis-grupos) cuando la institución tiene habilitadas las funciones de IA.
+
+{/* CONFIRMAR UI: estructura interna del panel (pestañas o menú lateral) y nombres de cada sección. Captura: /assets/screenshots/frontoffice-docente/panel-ia/panel-ia-acceso.png */}
+
+## Qué incluye
+
+<CardGroup cols={2}>
+  <Card title="Herramientas de IA" icon="wand-sparkles" href="/frontoffice-docentes/panel-ia/herramientas-de-ia">
+    Adaptar y traducir textos, extraer vocabulario, generar planes de clase, rúbricas, dinámicas y feedback, y conectar los contenidos con el mundo real.
+  </Card>
+
+  <Card title="Generar actividades con IA" icon="list-plus" href="/frontoffice-docentes/panel-ia/generar-actividades-con-ia">
+    Crear una actividad evaluable a medida a partir de un texto, una lección o contenidos del programa.
+  </Card>
+
+  <Card title="Alertas y revisión de conversaciones" icon="bell-ring" href="/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones">
+    Mensajes moderados, alumnos atascados en un concepto y alertas de grupo, con acceso a la conversación del alumno.
+  </Card>
+
+  <Card title="Seguimiento del uso del tutor" icon="chart-line" href="/frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor">
+    Volumen de uso, temas más consultados, tipo de peticiones de los alumnos y diagnóstico de la clase.
+  </Card>
+
+  <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
+    Ficha individual con el mapa de conceptos, el nivel de dominio, las actividades realizadas y el tiempo dedicado.
+  </Card>
+</CardGroup>
+
+## Configuración y variantes
+
+<Note>
+  Las funciones de IA se activan por institución. Además, cada programa digital debe tener marcada la opción **Activar Tangerine AI** en el Backoffice para que sus alumnos dispongan del tutor. Ver [Crear Programa Digital](/backoffice/programas-digitales/crear-programa).
+</Note>
+
+| Función | Depende de |
+| --- | --- |
+| Herramientas de IA y generación de actividades | Que la institución tenga IA habilitada. No requieren que los alumnos usen el tutor. |
+| Alertas, seguimiento y progreso | Que los alumnos tengan Tangerine AI activo y hayan usado el tutor o las prácticas. Sin actividad de los alumnos, estas vistas aparecen vacías. |
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="No aparece el botón Panel IA">
+    La institución no tiene habilitadas las funciones de IA. La activación depende de la editorial.
+  </Accordion>
+
+  <Accordion title="El panel se abre pero las vistas de seguimiento están vacías">
+    Los alumnos del docente no tienen Tangerine AI activo, o no han usado el tutor en el periodo seleccionado. Las herramientas de IA para el docente funcionan igualmente.
+  </Accordion>
+
+  <Accordion title="Las herramientas generan el resultado en un idioma distinto">
+    El asistente responde en el idioma del texto que el docente aporta. Si el texto de partida está en inglés, el resultado estará en inglés, salvo en el traductor, donde el docente elige el idioma de destino.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Ver mis grupos" icon="house" href="/frontoffice-docentes/mis-grupos/ver-mis-grupos">
+    Pantalla de inicio del docente, donde se encuentra el botón Panel IA.
+  </Card>
+
+  <Card title="Cómo ayuda en el estudio el tutor" icon="compass" href="/estudiantes/tutor-ia/como-ayuda-en-el-estudio">
+    Principios de funcionamiento del tutor que usan los alumnos.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-docente
+  - Sección UI: botón flotante Panel IA en Home (flag de tenant isIaEnable; inventario ai/panel)
+  - Última revisión: 2026-09-17
+  */}
