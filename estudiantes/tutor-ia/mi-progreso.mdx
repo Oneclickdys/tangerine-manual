@@ -1,0 +1,134 @@
+---
+title: "Mi progreso"
+description: "Pantalla Mi progreso del alumno: dominio por asignatura, unidades y lecciones que se le resisten, estado de cada lección y práctica directa de lo que falla"
+icon: "trending-up"
+---
+
+## Descripción
+
+Mi progreso es la segunda pantalla de **Mi espacio**. Muestra al alumno cómo avanza en cada asignatura con Tangerine AI según las prácticas que ha hecho con el tutor: qué porcentaje domina, qué unidades y lecciones se le resisten y cuáles tiene sin empezar. Desde el detalle de una asignatura puede lanzar una práctica sobre cualquier lección que se le resista.
+
+El dominio se calcula habilidad a habilidad a partir de las respuestas del alumno en las prácticas. Una habilidad cuenta como dominada cuando supera el 80 %, y el porcentaje de una asignatura es el de habilidades dominadas sobre el total.
+
+<Info>
+  **Rol requerido:** Estudiante con Tangerine AI activo y al menos un curso con Tangerine AI. La pantalla se abre desde Mi espacio, que aparece cuando el tutor ya ha preparado alguna práctica.
+</Info>
+
+## Cómo acceder
+
+Desde el menú lateral de **Mi espacio**, entrada **Mi progreso**. El alumno también llega aquí al salir de una práctica de Áreas de mejora. Cómo se abre Mi espacio está en [Prácticas](/estudiantes/tutor-ia/practicas).
+
+{/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/mi-progreso.png y mi-progreso-asignatura.png */}
+
+## Vista general por asignatura
+
+Bajo el título **Mi progreso** y el lema "Visión general de mi aprendizaje.", la sección **Mis asignaturas** muestra una tarjeta por asignatura con Tangerine AI. Cada tarjeta tiene un medidor con el porcentaje de dominio, o la etiqueta **Sin empezar**, y un texto que depende de la situación del alumno:
+
+| Situación | Qué muestra la tarjeta |
+| --- | --- |
+| Sin ninguna práctica | "¡Todo por descubrir! Tienes la asignatura entera por delante." |
+| Con unidades que se le resisten | El bloque **Se resiste:** o **Se resisten:** con hasta tres unidades y, si hay más, un enlace para ver las demás |
+| Todo dominado | "¡Lo dominas todo! No te queda ni una unidad pendiente en esta asignatura. Buen trabajo." |
+| En camino, sin nada atascado | Una frase de ánimo según el tramo de dominio |
+
+Las frases de ánimo cambian con el tramo:
+
+| Dominio | Frase |
+| --- | --- |
+| Hasta el 5 % | "Estás empezando y sin nada atascado. ¡Cada lección que domines es tuya!" |
+| Hasta el 20 % | "Tus primeras lecciones ya son tuyas. ¡Vas tomando impulso!" |
+| Hasta el 50 % | "Ya tienes una buena parte dominada. ¡Se te está dando bien!" |
+| Hasta el 75 % | "Más de la mitad de la asignatura ya es tuya. ¡Cada vez te queda menos!" |
+| Más del 75 % | "Esta asignatura ya la tienes controlada. ¡Y sin nada atascado!" |
+
+Al pulsar una tarjeta se abre el detalle de la asignatura.
+
+## Detalle de una asignatura
+
+La pantalla lleva la ruta **Mi progreso › Mis asignaturas** y una pestaña por asignatura. Cada pestaña indica cuántas lecciones se le resisten al alumno en esa asignatura. Debajo, el rótulo **Tu dominio** muestra el porcentaje, o **Sin empezar**.
+
+El programa aparece por unidades, **U1**, **U2** y siguientes, cada una con su medidor de habilidades dominadas y sus lecciones plegadas. La primera unidad con alguna lección que se le resiste se abre desplegada. Una unidad sin ninguna práctica muestra un guion y la etiqueta **Sin empezar**. Las unidades cuyo contenido no está dividido en lecciones aparecen como una sola fila con su propio estado.
+
+### Estado de cada lección
+
+| Estado | Qué significa |
+| --- | --- |
+| 🎯 **Lo dominas** | El alumno ha superado el nivel de dominio en las habilidades de la lección. Las lecciones que le toca repasar para afianzarlas se muestran también aquí |
+| 💪 **Estás en ello** | Ha practicado la lección pero aún no domina todas sus habilidades |
+| ⚠️ **Se te resiste** | Alguna habilidad de la lección está bloqueada. El alumno necesita muchos más intentos de lo habitual o ha vuelto a fallar algo que tenía encaminado. Es el mismo bloqueo que el docente ve en Radar |
+| 🆕 **Sin empezar** | Ninguna actividad respondida sobre esa lección |
+
+## Practicar lo que se resiste
+
+Solo las lecciones y unidades en estado **Se te resiste** muestran el botón **Practicar**. Al pulsarlo, el tutor crea una práctica con las habilidades de esa lección o unidad y la abre. Esa práctica queda después en el grupo **Mis prácticas** de la pantalla Hoy, como una práctica creada por el alumno, y se puede borrar o guardar para luego.
+
+Si la generación falla, aparece el diálogo "No hemos podido preparar la práctica" con la indicación de volver a intentarlo en unos minutos.
+
+<Tip>
+  La tarjeta **Áreas de mejora** de la pantalla Hoy y el botón **Practicar** de Mi progreso atacan lo mismo desde dos sitios. La tarjeta trabaja una única habilidad bloqueada y no se guarda al salir. El botón Practicar trabaja toda la lección y sí se guarda. Para un repaso rápido, la tarjeta. Para asentar una lección completa, el botón.
+</Tip>
+
+## Cómo cambia el estado
+
+- Cada respuesta en una práctica actualiza el dominio de las habilidades de esa actividad, y con él el porcentaje de la asignatura y el estado de la lección.
+- Una lección pasa a **Lo dominas** cuando sus habilidades superan el nivel de dominio. No basta con responder muchas actividades. Hace falta acertar de forma sostenida.
+- El dominio puede bajar. Si el alumno falla actividades posteriores sobre una habilidad que dominaba, el sistema la vuelve a considerar en práctica y la lección puede volver a **Estás en ello** o a **Se te resiste**.
+- Un bloqueo se resuelve solo cuando el alumno domina la habilidad. Entonces la lección deja de resistirse y desaparece la tarjeta Áreas de mejora de Hoy.
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="Falta una asignatura en Mis asignaturas">
+    Solo aparecen las asignaturas de cursos con Tangerine AI y con habilidades configuradas en sus contenidos. Un curso sin habilidades no genera prácticas ni progreso.
+  </Accordion>
+
+  <Accordion title="El porcentaje no sube después de una práctica">
+    El porcentaje cuenta habilidades dominadas, no actividades hechas. Una práctica puede mejorar el dominio de una habilidad sin llegar al nivel que la marca como dominada. Tras varias prácticas acertadas sobre la misma lección, el porcentaje sube.
+  </Accordion>
+
+  <Accordion title="Una lección que dominaba vuelve a marcarse como Se te resiste">
+    El dominio no es definitivo. Si el alumno falla actividades posteriores relacionadas, el sistema vuelve a considerar la habilidad como no dominada e incluye la lección de nuevo en las prácticas.
+  </Accordion>
+
+  <Accordion title="No hemos encontrado esta asignatura">
+    El alumno ya no está matriculado en ese curso, por ejemplo tras un cambio de grupo. El mensaje "Puede que ya no la tengas asignada." lo indica. Si vuelve a matricularse, su progreso reaparece.
+  </Accordion>
+
+  <Accordion title="Todavía no hay programa">
+    La asignatura no tiene unidades con habilidades que mostrar. Depende de cómo haya preparado la editorial los contenidos del programa.
+  </Accordion>
+
+  <Accordion title="No hemos podido cargar tu progreso">
+    Error temporal al cargar los datos. Basta con volver a intentarlo más tarde.
+  </Accordion>
+
+  <Accordion title="El docente ve algo distinto">
+    El docente ve el progreso del alumno habilidad a habilidad, con los estados Dominada, En práctica, Por repasar, Bloqueada y Sin empezar. El alumno lo ve resumido por lección. Son los mismos datos con dos niveles de detalle. Ver [Progreso de un alumno](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Prácticas" icon="dumbbell" href="/estudiantes/tutor-ia/practicas">
+    Mi espacio, la pantalla Hoy y cómo se resuelven las prácticas.
+  </Card>
+
+  <Card title="Ayuda durante una actividad" icon="life-buoy" href="/estudiantes/tutor-ia/ayuda-durante-una-actividad">
+    El tutor acompaña al alumno mientras practica una lección que se le resiste.
+  </Card>
+
+  <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
+    Cómo ve el docente el mismo progreso, habilidad a habilidad.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Rutas: /my-progress (MyProgressView) y /my-progress/:courseId (SubjectDetailView)
+  - UI: tramos de las frases de ánimo en getMasteryTier (5, 20, 50, 75); estados de lección en lessonStatusReading (IN_REVIEW se muestra como Lo dominas); Practicar solo en estado bloqueado (useSubjectProgram); la primera unidad con lecciones bloqueadas se abre desplegada
+  - Backend (tangerine-ai): GET /stats/user/courses/progress, GET /stats/user/courses, GET /stats/user/courses/:courseId/toc, POST /activities/sessions/student-generated. Umbral de dominio: MASTERED_KNOWLEDGE_THRESHOLD 0.8
+  - Última revisión: 2026-09-17
+  */}

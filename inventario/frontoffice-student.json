@@ -248,6 +248,44 @@
       "relatedFeatures": ["ai/practice-sessions", "ai/chat"],
       "lastDocumented": null,
       "notes": "Modo PRACTICE_MODE. El chat se abre solo tras una respuesta incorrecta (mensaje automático) o al pulsar No lo sé. Pendiente: screenshots."
+    },
+    "ai/my-progress": {
+      "name": "Mi progreso",
+      "description": "Dominio por asignatura, unidades y lecciones que se le resisten, estado de cada lección y botón Practicar sobre lo bloqueado",
+      "section": "Tutor IA",
+      "route": "/my-progress y /my-progress/:courseId",
+      "priority": "P2",
+      "status": "in_progress",
+      "complexity": "interactive-view",
+      "docFile": "estudiantes/tutor-ia/mi-progreso.mdx",
+      "codeFiles": {
+        "frontend": ["src/core/chatbot/views/MyProgressView/", "src/core/chatbot/views/SubjectDetailView/"],
+        "backend": ["tangerine-ai/apps/StatsService/Controller/Stats.controller.ts"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["is_tangerine_ai"],
+      "relatedFeatures": ["ai/practice-sessions", "ai/activity-help"],
+      "lastDocumented": null,
+      "notes": "Extraída de ai/practice-sessions a petición del PM. Tramos de las frases de ánimo 5/20/50/75; IN_REVIEW se muestra como Lo dominas; Practicar solo en lecciones bloqueadas. Pendiente: screenshots."
+    },
+    "ai/quiz-revision": {
+      "name": "Resultados de un quiz",
+      "description": "Repaso de un quiz evaluado con el tutor: bolitas por pregunta, feedback inicial generado por el tutor y conversación por pregunta",
+      "section": "Tutor IA",
+      "route": "/results-assesment-individual/course/:courseGuid/:assessmentGuid/user/:userGuid y .../question/:questionGuid",
+      "priority": "P2",
+      "status": "in_progress",
+      "complexity": "complex-workflow",
+      "docFile": "estudiantes/tutor-ia/resultados-de-un-quiz.mdx",
+      "codeFiles": {
+        "frontend": ["src/app/pages/AssessmentResultIndividual.js", "src/app/pages/AssessmentResultIndividualQuestion/", "src/core/chatbot/hooks/useQuizRevisionConversations.js"],
+        "backend": ["tangerine-ai/apps/AIChatService/Controller/QuizRevision.controller.ts"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["is_tangerine_ai", "course.has_tangerine_ai"],
+      "relatedFeatures": ["ai/chat", "assessment/answer"],
+      "lastDocumented": null,
+      "notes": "Extraída de ai/chat a petición del PM. Se crea una conversación por pregunta respondida (las omitidas no); Ver mis resultados abre la primera no revisada. Sin UI para regenerar. Pendiente: screenshots."
     }
   }
 }

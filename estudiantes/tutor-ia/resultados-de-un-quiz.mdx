@@ -1,0 +1,118 @@
+---
+title: "Resultados de un quiz"
+description: "Repaso de un quiz con el tutor de IA: resultados por pregunta, feedback sobre cada respuesta y conversación para entender los errores"
+icon: "clipboard-check"
+---
+
+## Descripción
+
+Cuando el docente evalúa un quiz de un curso con Tangerine AI, el alumno recibe algo más que la nota. Al abrir sus resultados, el tutor prepara un repaso de cada pregunta respondida. Explica por qué la respuesta era o no correcta y queda disponible para seguir conversando sobre ella. Es el modo repaso del tutor, distinto del chat general y de la ayuda durante una práctica.
+
+<Info>
+  **Rol requerido:** Estudiante con Tangerine AI activo, en un curso con Tangerine AI, con un quiz de actividades de la plataforma ya evaluado por el docente.
+</Info>
+
+## Cómo acceder
+
+El alumno abre los resultados del quiz desde la lección o desde sus tareas entregadas, como en cualquier evaluación. Ver [Ver Resultados](/estudiantes/evaluaciones/resultados-estudiante). En los cursos con Tangerine AI la pantalla cambia. En lugar de la lista clásica de preguntas muestra el bloque **Mis respuestas:** con una bolita numerada por pregunta y el botón **Ver mis resultados**.
+
+{/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/quiz-resultados-bolitas.png y quiz-pregunta-con-tutor.png */}
+
+<Note>
+  El repaso solo aparece cuando el quiz está evaluado. Mientras el docente no lo evalúe, la pantalla de resultados es la clásica, sin tutor.
+</Note>
+
+## Guía de uso
+
+<Steps>
+  <Step title="Leer el resumen de respuestas">
+    El bloque **Mis respuestas:** muestra una bolita por pregunta, numerada y coloreada. Verde si la respuesta fue correcta y roja si no. Las preguntas que el alumno ya ha abierto se distinguen de las que aún no ha revisado.
+  </Step>
+  <Step title="Esperar a que el tutor prepare el repaso">
+    Al entrar en los resultados, el tutor genera en segundo plano un repaso para cada pregunta respondida. Si el alumno pulsa una pregunta antes de que termine, aparece la mascota a pantalla completa con mensajes como "Analizando tus resultados..." o "Revisando tus respuestas una por una...". Dura unos segundos y después se abre la pregunta.
+  </Step>
+  <Step title="Abrir una pregunta">
+    El botón **Ver mis resultados** abre la primera pregunta que el alumno aún no ha revisado. También puede pulsar cualquier bolita para ir a esa pregunta.
+  </Step>
+  <Step title="Leer el repaso del tutor">
+    La pantalla muestra la pregunta, la respuesta que dio el alumno y la solución. El chat del tutor se abre solo con un mensaje de repaso sobre esa pregunta: qué se preguntaba, qué respondió y por qué era o no correcto. Si la pregunta tenía imágenes, el tutor las ha tenido en cuenta.
+  </Step>
+  <Step title="Seguir preguntando">
+    El alumno responde al tutor en el mismo chat para aclarar dudas sobre esa pregunta, adjuntar una imagen o pedir un esquema. El tutor sigue las mismas reglas que siempre. Guía con preguntas y no repite la solución sin más. Ver [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
+  </Step>
+  <Step title="Pasar a la siguiente pregunta">
+    El paginador de la pantalla recorre las preguntas en orden. Al cambiar de pregunta, el chat se cierra y se abre con la conversación de la nueva. Cada pregunta tiene su propia conversación.
+  </Step>
+</Steps>
+
+<Tip>
+  El repaso rinde más en las preguntas falladas. Un buen hábito es abrir primero las bolitas rojas y preguntar al tutor "¿por qué esta era la correcta?" antes de leer la solución con detalle.
+</Tip>
+
+## Qué hace el tutor en este modo
+
+| Aspecto | Comportamiento |
+| --- | --- |
+| Contexto | Conoce el enunciado, las opciones, la respuesta del alumno y la solución de esa pregunta. Si la pregunta incluye imágenes, también las ve |
+| Primer mensaje | Lo genera el tutor al abrir la pregunta por primera vez, sin que el alumno escriba nada |
+| Material | Busca en los contenidos del curso para explicar el concepto que hay detrás de la pregunta |
+| Cabecera del chat | Solo el botón de cerrar. No hay **Nuevo chat** ni **Recientes** |
+| Historial | La conversación queda ligada a la pregunta y no aparece en **Recientes** |
+| Botón flotante | En esta pantalla no se muestra, porque el chat se abre solo |
+
+El tutor anota, sin decírselo al alumno, si ha entendido la pregunta, si está en ello o si necesita refuerzo. El docente ve ese estado agregado por pregunta en el bloque **Uso del Tutor IA** de los resultados del quiz. Ver [Seguimiento del uso del tutor](/frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor).
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El docente pide rehacer el quiz">
+    La entrega anterior deja de estar evaluada y el repaso del tutor desaparece con ella. Cuando el alumno vuelve a entregar y el docente evalúa, el tutor prepara un repaso nuevo sobre las nuevas respuestas.
+  </Accordion>
+
+  <Accordion title="No aparecen las bolitas ni el tutor">
+    El curso no tiene Tangerine AI, el alumno no lo tiene activo en su cuenta, el quiz aún no está evaluado o no es un quiz de actividades de la plataforma. En esos casos la pantalla de resultados es la clásica.
+  </Accordion>
+
+  <Accordion title="Una pregunta no tiene repaso">
+    Las preguntas que el alumno dejó sin responder no generan repaso. El resto sí, incluidas las acertadas.
+  </Accordion>
+
+  <Accordion title="El repaso tarda en aparecer">
+    El tutor genera un repaso por pregunta y en quizzes largos puede tardar unos segundos. La pantalla de espera con la mascota se cierra sola al terminar.
+  </Accordion>
+
+  <Accordion title="El alumno quiere volver a generar el repaso">
+    No existe esa opción en la interfaz. El repaso se genera una vez por entrega. El alumno puede seguir conversando con el tutor en la misma pregunta para profundizar.
+  </Accordion>
+
+  <Accordion title="El tutor se equivoca en el repaso">
+    El alumno puede reportar el mensaje con **Reportar mensaje** y el motivo "La respuesta contiene información incorrecta", igual que en el chat general.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Ver Resultados" icon="chart-simple" href="/estudiantes/evaluaciones/resultados-estudiante">
+    La pantalla de resultados de una evaluación sin tutor.
+  </Card>
+
+  <Card title="Chat con tutor IA" icon="message-circle" href="/estudiantes/tutor-ia/chat-con-tutor-ia">
+    El chat general y las acciones sobre cada respuesta del tutor.
+  </Card>
+
+  <Card title="Seguimiento del uso del tutor" icon="chart-line" href="/frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor">
+    Cómo ve el docente el uso del repaso en los resultados del quiz.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Rutas: /results-assesment-individual/course/:courseGuid/:assessmentGuid/user/:userGuid (bolitas) y .../question/:questionGuid (pregunta con chat en modo revisión)
+  - UI: AssessmentResultIndividual con QuizzResultsBullets y AIRevisionLoading; AssessmentResultIndividualQuestion abre el chat en CONVERSATION_MODES.REVISION. Gate: isAIEnabled, rol estudiante, course.has_tangerine_ai, job.status EVALUATED, test Lemonade
+  - Backend (tangerine-ai): POST /chat/revision/conversations (una por pregunta respondida, genera el feedback inicial), POST /chat/revision/:conversationId, GET /chat/revision/jobs/:quizJobGuid/questions/:questionReferenceId/conversation. Estado de progreso asignado por el agente y oculto al alumno
+  - Sin UI: POST /chat/revision/regenerate
+  - Última revisión: 2026-09-17
+  */}

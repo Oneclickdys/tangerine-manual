@@ -6,7 +6,7 @@ icon: "bell-ring"
 
 ## Descripción
 
-La sección **Radar** del Panel IA reúne, "en un vistazo", lo que merece la atención del docente: alumnos que se han quedado bloqueados en una habilidad, habilidades en las que una parte significativa del grupo tiene dificultades y mensajes al tutor detectados por el filtro de contenido. Desde cada alerta el docente revisa el detalle, decide si la atiende o la descarta y, en el caso de los mensajes, lee la conversación completa del alumno con el tutor.
+La sección **Radar** del Panel IA reúne lo que merece la atención del docente: alumnos bloqueados en una habilidad, habilidades en las que una parte significativa del grupo tiene dificultades y mensajes al tutor detectados por el filtro de contenido. Desde cada alerta el docente revisa el detalle y decide si la atiende o la descarta. En las alertas de mensajes lee también la conversación completa del alumno con el tutor.
 
 <Info>
   **Rol requerido:** Docente con Tangerine AI activo, con el radar habilitado por la editorial y al menos un grupo con un curso con Tangerine AI.
@@ -20,12 +20,12 @@ Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Radar**
 
 ## Tipos de alerta
 
-El selector de categoría permite ver **Todas las categorías** o filtrar por una:
+El selector de categoría muestra **Todas las categorías** o filtra por una:
 
 | Categoría | Qué la genera | Cómo se resuelve |
 | --- | --- | --- |
 | **Bloqueos del aprendizaje** | Un alumno necesita muchos más intentos de lo habitual para una habilidad o vuelve a fallar una habilidad que ya tenía encaminada. La tarjeta indica la habilidad y el número de intentos. | Se resuelve sola cuando el alumno domina la habilidad. El docente también puede marcarla como atendida o descartarla. |
-| **Bloqueos del grupo** | Más del 15 % de los alumnos matriculados en el curso tienen un bloqueo activo en la misma habilidad. La tarjeta indica el grupo y cuántos alumnos están afectados. | Se actualiza y se resuelve automáticamente según evoluciona el grupo. Si el grupo vuelve a superar el umbral, se reactiva. |
+| **Bloqueos del grupo** | Más del 15 % de los alumnos matriculados en el curso tienen un bloqueo activo en la misma habilidad. La tarjeta indica el grupo y cuántos alumnos están afectados. | Se actualiza y se resuelve sola según evoluciona el grupo. Si el grupo vuelve a superar el umbral, se reactiva. |
 | **Uso inapropiado del tutor** | El filtro de contenido ha detectado un mensaje o una imagen inapropiados de un alumno en cualquier modo del tutor. La tarjeta muestra el mensaje y su categoría. | El docente la revisa o la descarta. |
 
 {/* CONFIRMAR con ingeniería el criterio exacto del bloqueo del aprendizaje individual (intentos respecto a la media de la habilidad y estado de retroceso). */}
@@ -39,7 +39,7 @@ Las categorías de un mensaje marcado son las del filtro de contenido: Autolesio
 ## La lista de alertas
 
 - **Filtros**: grupos, con "Seleccionar grupos" o **Todas las clases**, y categoría.
-- **Pestañas**, con el número de alertas entre paréntesis: **Sin atender**, **Atendidas**, que incluye las resueltas automáticamente, y **Descartadas**.
+- **Pestañas**, con el número de alertas entre paréntesis: **Sin atender**, **Atendidas**, que incluye las que se han resuelto solas, y **Descartadas**.
 - **Orden**: **Ordenar por relevancia**, **Ordenar por fecha: nuevos primero** u **Ordenar por fecha: antiguos primero**.
 - **Marcar todo como leído**: quita la marca de no leído a todas las alertas visibles. Abrir una alerta también la marca como leída para ese docente.
 
@@ -49,7 +49,7 @@ Estados vacíos: "¡Estás al día! No tienes alertas pendientes de revisar.", "
 
 ## Revisar una alerta
 
-Al pulsar una tarjeta se abre el cajón de detalle, con botones **Anterior** y **Siguiente** para recorrer la lista sin cerrarlo. La cabecera muestra al alumno; al pulsar su nombre se abre su [ficha de progreso](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
+Al pulsar una tarjeta se abre el cajón de detalle, con botones **Anterior** y **Siguiente** para recorrer la lista sin cerrarlo. La cabecera muestra al alumno. Al pulsar su nombre se abre su [ficha de progreso](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
 
 ### Bloqueo del aprendizaje
 
@@ -62,36 +62,36 @@ El detalle explica que "El estudiante presenta dificultades persistentes y ha ne
 
 ### Bloqueo del grupo
 
-Indica que "El grupo presenta dificultades persistentes en la misma habilidad.", el porcentaje de estudiantes bloqueados y la lista de **Alumnos afectados** con sus actividades correctas.
+Indica que "El grupo presenta dificultades persistentes en la misma habilidad.", el porcentaje de alumnos bloqueados y la lista de **Alumnos afectados** con sus actividades correctas.
 
 ### Uso inapropiado del tutor
 
-El cuerpo del cajón es la **conversación completa** del alumno con el tutor, en modo lectura. El cajón se desplaza automáticamente hasta el mensaje marcado, que aparece resaltado con sus categorías, para que el docente entienda el contexto antes de decidir.
+El cuerpo del cajón es la conversación completa del alumno con el tutor, en modo lectura. El cajón se desplaza solo hasta el mensaje marcado, que aparece resaltado con sus categorías, para que el docente entienda el contexto antes de decidir.
 
 <Warning>
-  Las conversaciones con el tutor son del alumno. El acceso del docente existe para su acompañamiento y seguridad. Conviene que el centro acuerde con las familias cómo se usa esta información.
+  Las conversaciones con el tutor son del alumno. El acceso del docente existe para su acompañamiento y seguridad. El centro debería acordar con las familias cómo se usa esta información.
 </Warning>
 
 ## Atender o descartar
 
-Mientras la alerta está **Sin atender**, el pie del cajón ofrece dos acciones:
+Mientras la alerta está **Sin atender**, el pie del cajón tiene dos acciones:
 
 | Acción | Efecto |
 | --- | --- |
 | **Marcar como atendido** | La alerta pasa a la pestaña Atendidas con la indicación **Atendido por** y el nombre del docente |
 | **Descartar** | La alerta pasa a Descartadas con **Descartada por**. Útil para falsos positivos del filtro |
 
-Las alertas de bloqueo que se cierran solas muestran "Esta alerta fue resuelta automáticamente por el estudiante" con la etiqueta **Resuelta**, y se listan también en Atendidas. No hay campo de notas: la decisión se registra solo con el estado y quién lo cambió.
+Las alertas de bloqueo que se cierran solas muestran "Esta alerta fue resuelta automáticamente por el estudiante" con la etiqueta **Resuelta**, y se listan también en Atendidas. No hay campo de notas. La decisión queda registrada solo con el estado y con quién lo cambió.
 
 ## Situaciones especiales
 
 <AccordionGroup>
   <Accordion title="Un mensaje marcado es un falso positivo">
-    El filtro está ajustado para menores y es deliberadamente estricto. El docente puede **Descartar** la alerta. El mensaje del alumno no se elimina ni se modifica.
+    El filtro está ajustado para menores y es estricto por diseño. El docente puede **Descartar** la alerta. El mensaje del alumno no se elimina ni se modifica.
   </Accordion>
 
   <Accordion title="Un bloqueo ha desaparecido de Sin atender">
-    El alumno ha dominado la habilidad y la alerta se ha resuelto automáticamente. Sigue siendo consultable en la pestaña Atendidas, con la etiqueta Resuelta.
+    El alumno ha dominado la habilidad y la alerta se ha resuelto sola. Sigue siendo consultable en la pestaña Atendidas, con la etiqueta Resuelta.
   </Accordion>
 
   <Accordion title="Un alumno acumula varios mensajes marcados">
@@ -99,7 +99,7 @@ Las alertas de bloqueo que se cierran solas muestran "Esta alerta fue resuelta a
   </Accordion>
 
   <Accordion title="El Radar está vacío o muestra datos extraños">
-    Si no hay alertas para los grupos y la categoría elegidos, aparece "¡Estás al día!". Si los datos no corresponden a los alumnos del docente, conviene comprobar que el interruptor **Datos de prueba** del pie del menú lateral está desactivado.
+    Si no hay alertas para los grupos y la categoría elegidos, aparece "¡Estás al día!". Si los datos no corresponden a los alumnos del docente, el primer paso es comprobar que el interruptor **Datos de prueba** del pie del menú lateral está desactivado.
   </Accordion>
 
   <Accordion title="No aparece la sección Radar">

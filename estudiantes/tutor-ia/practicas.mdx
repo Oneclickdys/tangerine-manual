@@ -1,14 +1,14 @@
 ---
 title: "Prácticas"
-description: "Mi espacio del alumno: la pantalla Hoy con las recomendaciones del tutor y las prácticas propias, cómo se resuelven las sesiones de actividades y la pantalla Mi progreso"
+description: "Mi espacio del alumno: la pantalla Hoy con las recomendaciones del tutor y las prácticas propias, y cómo se resuelven las sesiones de actividades"
 icon: "dumbbell"
 ---
 
 ## Descripción
 
-Las prácticas son sesiones cortas de actividades que el tutor de IA genera a partir de las habilidades del curso que el alumno aún no domina. El sistema sigue el progreso del alumno habilidad a habilidad y decide qué conviene practicar en cada momento. Cada respuesta actualiza el nivel de dominio de las habilidades implicadas; cuando una falla, el tutor incorpora las habilidades previas para que el alumno las repase antes de volver a intentarlo.
+Las prácticas son sesiones cortas de actividades que el tutor de IA genera a partir de las habilidades del curso que el alumno aún no domina. El sistema sigue el progreso del alumno habilidad a habilidad y decide qué practicar en cada momento. Cada respuesta actualiza el nivel de dominio de las habilidades implicadas. Cuando una falla, el tutor añade las habilidades previas para que el alumno las repase antes de volver a intentarlo.
 
-Todo ello vive en **Mi espacio**, el área del alumno dentro de la plataforma, con dos pantallas: **Hoy**, donde están las prácticas, y **Mi progreso**, donde ve cómo avanza por asignatura.
+Todo ello está en **Mi espacio**, el área del alumno dentro de la plataforma, con dos pantallas: **Hoy**, donde están las prácticas, y **Mi progreso**, donde ve cómo avanza por asignatura.
 
 <Info>
   **Rol requerido:** Estudiante con Tangerine AI activo y al menos un curso con Tangerine AI. Solo los cursos preparados para la práctica con IA, con habilidades configuradas en sus contenidos, generan prácticas.
@@ -63,10 +63,10 @@ Toda la tarjeta es un botón que abre la práctica. Contiene:
 | --- | --- | --- | --- |
 | El tutor la genera por su cuenta | El tutor, según el dominio del alumno | Recomendaciones del tutor | Incluye las habilidades previas cuando hace falta. No se puede borrar: al salir queda pausada |
 | **Sugiéreme prácticas nuevas** | El tutor, para la asignatura que el alumno elige | Recomendaciones del tutor | Si ya hay sesiones sin terminar, el tutor invita a completarlas primero |
-| **Crear práctica** | El alumno, marcando lecciones o unidades | Mis prácticas | Practica exactamente lo elegido. Se puede borrar o guardar para luego |
-| Tarjeta **Áreas de mejora** | Una única habilidad que se le resiste | Recomendaciones del tutor, siempre en primer lugar | Práctica de usar y tirar: no se guarda al salir |
+| **Crear práctica** | El alumno, marcando lecciones o unidades | Mis prácticas | Practica solo lo elegido. Se puede borrar o guardar para luego |
+| Tarjeta **Áreas de mejora** | Una única habilidad que se le resiste | Recomendaciones del tutor, siempre en primer lugar | No se guarda al salir |
 | Botón **Practicar** en Mi progreso | Una lección o unidad que se le resiste | Mis prácticas | Equivale a una práctica creada por el alumno con esa lección |
-| **Repasar** al final de una sesión | Las habilidades de esa sesión que siguen sin consolidarse | Recomendaciones del tutor | Solo se ofrece cuando el resultado de la sesión ha sido bajo |
+| **Repasar** al final de una sesión | Las habilidades de esa sesión que siguen sin consolidarse | Recomendaciones del tutor | Solo aparece cuando el resultado de la sesión ha sido bajo |
 
 ### Sugiéreme prácticas nuevas
 
@@ -75,7 +75,7 @@ Toda la tarjeta es un botón que abre la práctica. Contiene:
     El diálogo **¿Qué asignatura quieres repasar?** lista las asignaturas del alumno preparadas para practicar, con la nota "Preparamos la práctica a tu medida, según lo que ya dominas y lo que se te resiste." El botón **Generar** lanza la generación.
   </Step>
   <Step title="Esperar la generación">
-    Aparece el diálogo **Generando...** con la mascota. Al terminar, la nueva sesión se abre directamente.
+    Aparece el diálogo **Generando...** con la mascota. Al terminar, la nueva sesión se abre.
   </Step>
   <Step title="Si ya había sesiones pendientes">
     En lugar de crear otra, el tutor muestra "Vaya... Aún te quedan sesiones por terminar. ¿Las completamos?" con el botón **¡Llévame!**, que devuelve a la pantalla Hoy.
@@ -96,7 +96,7 @@ Toda la tarjeta es un botón que abre la práctica. Contiene:
     {/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/practicas-crear-temario.png */}
   </Step>
   <Step title="Generar la sesión">
-    El botón **Generar sesión** crea la práctica con exactamente las lecciones marcadas, sin añadir habilidades previas, y la abre.
+    El botón **Generar sesión** crea la práctica solo con las lecciones marcadas, sin añadir habilidades previas, y la abre.
   </Step>
 </Steps>
 
@@ -113,7 +113,7 @@ Toda la tarjeta es un botón que abre la práctica. Contiene:
     La cabecera muestra el origen de la práctica, su tipo de reto y una barra de progreso. La actividad se resuelve en el visor de la plataforma. Junto al título hay un botón de bandera para [informar de un problema](#informar-de-un-problema-en-una-actividad).
   </Step>
   <Step title="Responder">
-    Antes de responder, el alumno dispone de **No lo sé**, que abre el tutor para pedir ayuda, y de **Comprobar**, que se activa al interactuar con la actividad. Tras comprobar, puede alternar **Ver solución** y **Ver mi respuesta**, y pasar a la siguiente con **Siguiente**.
+    Antes de responder, el alumno tiene dos botones. **No lo sé** abre el tutor para pedir ayuda y **Comprobar** se activa al interactuar con la actividad. Tras comprobar, puede alternar **Ver solución** y **Ver mi respuesta**, y pasar a la siguiente con **Siguiente**.
   </Step>
   <Step title="Pedir ayuda al tutor">
     Si la respuesta es incorrecta, el chat del tutor se abre solo con el contexto de la actividad. Ver [Ayuda durante una actividad](/estudiantes/tutor-ia/ayuda-durante-una-actividad).
@@ -139,7 +139,7 @@ Debajo, **Tus respuestas:** muestra un círculo por actividad, verde o rojo. Sol
 
 | Tipo de práctica | Qué ocurre al pulsar la X |
 | --- | --- |
-| Recomendación del tutor | Sale directamente a Hoy. La sesión queda pausada y se retoma desde la tarjeta. No se puede borrar |
+| Recomendación del tutor | Sale a Hoy. La sesión queda pausada y se retoma desde la tarjeta. No se puede borrar |
 | Creada por el alumno | El diálogo **¿Qué quieres hacer?** explica que puede borrarla o guardarla para continuar más tarde, con los botones **Borrar** y **Guardar para luego** |
 | Áreas de mejora | El diálogo **¿Seguro que quieres salir?** avisa: "Guardamos tu progreso en esta habilidad, pero esta práctica no se guarda: la próxima vez empezarás una nueva." El botón **Salir** lleva a Mi progreso |
 
@@ -160,14 +160,7 @@ El alumno puede añadir detalles en "Escribe aquí para dar detalles de tu probl
 
 ## La pantalla Mi progreso
 
-{/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/mi-progreso.png y mi-progreso-asignatura.png */}
-
-Con el lema "Visión general de mi aprendizaje.", la sección **Mis asignaturas** muestra una tarjeta por asignatura con Tangerine AI:
-
-- Un medidor con el **porcentaje de dominio**, o **Sin empezar** si no ha practicado.
-- Un texto según la situación: si hay unidades que se le resisten, el bloque **Se resiste:** o **Se resisten:** con hasta tres unidades y un enlace para ver el resto; si lo domina todo, "¡Lo dominas todo! No te queda ni una unidad pendiente en esta asignatura. Buen trabajo."; en otro caso, una frase de ánimo acorde a su avance.
-
-Al pulsar una tarjeta se abre el **detalle de la asignatura**, con una pestaña por asignatura que indica cuántas lecciones se le resisten, el rótulo **Tu dominio** con el porcentaje, y el programa desplegado por unidades. Cada lección lleva su estado: 🎯 **Lo dominas**, 💪 **Estás en ello**, ⚠️ **Se te resiste** o 🆕 **Sin empezar**. Solo las lecciones y unidades marcadas como **Se te resiste** muestran el botón **Practicar**, que genera una práctica con ese contenido.
+La segunda pantalla de Mi espacio muestra el dominio del alumno por asignatura, las lecciones que se le resisten y el botón **Practicar** sobre ellas. Se explica en [Mi progreso](/estudiantes/tutor-ia/mi-progreso).
 
 ## Situaciones especiales
 
@@ -189,7 +182,7 @@ Al pulsar una tarjeta se abre el **detalle de la asignatura**, con una pestaña 
   </Accordion>
 
   <Accordion title="Una práctica de Áreas de mejora ha desaparecido">
-    Es el comportamiento esperado: esa práctica no se guarda al salir. El progreso en la habilidad sí se mantiene, y la tarjeta volverá a aparecer en Hoy mientras la habilidad siga bloqueada.
+    Es el comportamiento esperado. Esa práctica no se guarda al salir. El progreso en la habilidad sí se mantiene, y la tarjeta volverá a aparecer en Hoy mientras la habilidad siga bloqueada.
   </Accordion>
 
   <Accordion title="El alumno quiere borrar una recomendación del tutor">
@@ -201,7 +194,7 @@ Al pulsar una tarjeta se abre el **detalle de la asignatura**, con una pestaña 
   </Accordion>
 
   <Accordion title="Falla la generación de una práctica">
-    El diálogo "No hemos podido preparar la práctica" invita a volver a intentarlo en unos minutos. Si persiste, conviene que el alumno lo comunique con **Dar feedback**.
+    El diálogo "No hemos podido preparar la práctica" invita a volver a intentarlo en unos minutos. Si persiste, el alumno puede comunicarlo con **Dar feedback**.
   </Accordion>
 </AccordionGroup>
 
@@ -216,8 +209,8 @@ Al pulsar una tarjeta se abre el **detalle de la asignatura**, con una pestaña 
     El tutor acompaña al alumno mientras resuelve cada actividad de la práctica.
   </Card>
 
-  <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
-    Cómo ve el docente el dominio de habilidades y las sesiones del alumno.
+  <Card title="Mi progreso" icon="trending-up" href="/estudiantes/tutor-ia/mi-progreso">
+    Dominio por asignatura, lecciones que se resisten y el botón Practicar.
   </Card>
 </CardGroup>
 
