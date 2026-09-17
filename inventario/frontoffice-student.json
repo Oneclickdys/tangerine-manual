@@ -1,6 +1,6 @@
 {
   "app": "frontoffice-student",
-  "lastUpdated": "2026-03-30",
+  "lastUpdated": "2026-09-17",
   "features": {
     "home/classrooms": {
       "name": "Ver mis clases",
@@ -172,6 +172,82 @@
       "relatedFeatures": [],
       "lastDocumented": "2026-03-30",
       "notes": "4 pestanas: Detalles personales (avatar, nombre, apellidos, rol, colegio), Cuenta (email read-only, cambio contrasena), Licencias (listado + anadir), Idiomas (selector). Editabilidad de campos depende de tenantConfig (canEditProfileInfo, canChangeAvatar, showPersonalizeAvatar). Pestana Cuenta depende de showAccountTab. Pestana Licencias depende de canCreateGroup."
+    },
+    "ai/chat": {
+      "name": "Chat con tutor IA",
+      "description": "Conversación libre con el tutor de IA sobre los contenidos asignados: imágenes, visualizaciones, audio, historial, reportes y feedback",
+      "section": "Tutor IA",
+      "route": "Acceso al tutor de IA (por confirmar)",
+      "priority": "P1",
+      "status": "in_progress",
+      "complexity": "interactive-view",
+      "docFile": "estudiantes/tutor-ia/chat-con-tutor-ia.mdx",
+      "codeFiles": {
+        "frontend": [],
+        "backend": ["tangerine-ai/apps/AIChatService/Controller/AIChatService.controller.ts", "tangerine-ai/apps/AIChatService/Controller/Feedback.controller.ts"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["is_tangerine_ai", "tool.* (visualizaciones y búsqueda ampliada activables por tenant)"],
+      "relatedFeatures": ["ai/tutor-pedagogy", "ai/practice-sessions", "ai/activity-help"],
+      "lastDocumented": null,
+      "notes": "Borrador redactado a partir del backend tangerine-ai (modo STUDY_MODE). Pendiente: nombres y ubicación en la UI del frontoffice, screenshots, y confirmar con ingeniería el prompt efectivo en producción."
+    },
+    "ai/tutor-pedagogy": {
+      "name": "Cómo ayuda en el estudio el tutor",
+      "description": "Principios de funcionamiento del tutor: método socrático, solo contenido asignado, idioma, privacidad y moderación",
+      "section": "Tutor IA",
+      "route": "Transversal a todos los modos del tutor",
+      "priority": "P1",
+      "status": "in_progress",
+      "complexity": "interactive-view",
+      "docFile": "estudiantes/tutor-ia/como-ayuda-en-el-estudio.mdx",
+      "codeFiles": {
+        "frontend": [],
+        "backend": ["tangerine-ai/src/AIChatService/Domain/Constants/studyModePrompt.ts", "tangerine-ai/src/AIChatService/Domain/Constants/practiceModePrompt.ts", "tangerine-ai/src/AIChatService/Domain/Service/ModerationThresholdService.ts"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["tool.web_search", "tool.extended_content_retrieval"],
+      "relatedFeatures": ["ai/chat", "ai/activity-help"],
+      "lastDocumented": null,
+      "notes": "Página de referencia para formación y Service Desk. Pendiente: confirmar con ingeniería la versión del prompt activa en producción (LangSmith) y si existe algún límite de uso por alumno en otra capa."
+    },
+    "ai/practice-sessions": {
+      "name": "Prácticas",
+      "description": "Sesiones de actividades generadas por el tutor: recomendaciones, prácticas elegidas por el alumno, práctica de un concepto, repaso y descarte",
+      "section": "Tutor IA",
+      "route": "/home (caja de recomendaciones) y área de prácticas (por confirmar)",
+      "priority": "P1",
+      "status": "in_progress",
+      "complexity": "complex-workflow",
+      "docFile": "estudiantes/tutor-ia/practicas.mdx",
+      "codeFiles": {
+        "frontend": [],
+        "backend": ["tangerine-ai/apps/ActivityService/Controller/ActivityController.ts", "tangerine-ai/src/Shared/Domain/ValueObject/ActivitySession/ActivitySessionType.ts"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["is_tangerine_ai"],
+      "relatedFeatures": ["home/classrooms", "ai/activity-help"],
+      "lastDocumented": null,
+      "notes": "Tipos de sesión: NEW y PRACTICE (tutor), STUDENT (alumno), KC (concepto volátil). La sección Recomendaciones de ver-clases.mdx enlaza a esta página. Pendiente: nombres en UI y screenshots."
+    },
+    "ai/activity-help": {
+      "name": "Ayuda durante una actividad",
+      "description": "Tutor en modo práctica dentro de una actividad: conoce enunciado y respuesta del alumno, pistas en tres niveles, sin historial",
+      "section": "Tutor IA",
+      "route": "Visor de actividades (por confirmar)",
+      "priority": "P2",
+      "status": "in_progress",
+      "complexity": "interactive-view",
+      "docFile": "estudiantes/tutor-ia/ayuda-durante-una-actividad.mdx",
+      "codeFiles": {
+        "frontend": [],
+        "backend": ["tangerine-ai/apps/AIChatService/Controller/AIChatService.controller.ts", "tangerine-ai/src/AIChatService/Domain/Constants/practiceModePrompt.ts"]
+      },
+      "tenantVariations": [],
+      "featureFlags": ["is_tangerine_ai"],
+      "relatedFeatures": ["ai/practice-sessions", "ai/chat"],
+      "lastDocumented": null,
+      "notes": "Modo PRACTICE_MODE. Pendiente: confirmar cuándo se disparan los mensajes automáticos del tutor y capturar screenshots."
     }
   }
 }
