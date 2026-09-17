@@ -356,115 +356,115 @@
       "name": "Panel IA",
       "description": "Punto de acceso del docente a las funciones de IA: herramientas, generación de actividades, alertas, seguimiento y progreso",
       "section": "Panel IA",
-      "route": "/home (botón flotante Panel IA)",
+      "route": "Botón Panel IA en la cabecera; abre /radar, /teacher-tools o /analytics",
       "priority": "P1",
       "status": "in_progress",
       "complexity": "interactive-view",
       "docFile": "frontoffice-docentes/panel-ia/panel-ia.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/AIToolsView/"],
+        "frontend": ["src/core/modules/components/headers/components/HeaderButtonsRight/HeaderButtonsRight.js", "src/core/chatbot/components/layouts/TeacherLayoutWrapper/"],
         "backend": []
       },
       "tenantVariations": [],
-      "featureFlags": ["organization.tenant.isIaEnable"],
+      "featureFlags": ["user.is_tangerine_ai", "feature.teacher_radar", "feature.teacher_analytics_panel", "feature.teacher_ai_tools"],
       "relatedFeatures": ["ai/tools", "ai/generate-activity", "ai/alerts", "ai/usage-stats", "ai/student-progress"],
       "lastDocumented": null,
-      "notes": "Sustituye a la antigua entrada ai/tools (P3, pending). Pendiente: estructura interna del panel y nombres de secciones en UI, screenshots."
+      "notes": "Sustituye a la antigua entrada ai/tools (P3, pending). Menú lateral Tutor IA: Radar, Estudiantes, Panel de analítica, Herramientas IA, Historial de creaciones. Pendiente: screenshots."
     },
     "ai/tools": {
       "name": "Herramientas de IA",
       "description": "Asistente con canvas y chat: conexión con el mundo real, adaptación de nivel, vocabulario, traducción, plan de clase, dinámicas, rúbricas y feedback",
       "section": "Panel IA",
-      "route": "/ai/tools",
+      "route": "/teacher-tools",
       "priority": "P1",
       "status": "in_progress",
       "complexity": "editor",
       "docFile": "frontoffice-docentes/panel-ia/herramientas-de-ia.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/AIToolsView/"],
+        "frontend": ["src/core/chatbot/views/TeacherToolsView/", "src/core/chatbot/components/tools/GenericToolSetup/", "src/core/chatbot/views/ToolInstanceChatView/", "src/core/chatbot/views/TeacherToolsHistoryView/"],
         "backend": ["tangerine-ai/apps/AIChatService/Controller/TeacherTools.controller.ts", "tangerine-ai/src/AIChatService/Domain/ValueObject/ConversationMode.ts"]
       },
       "tenantVariations": [],
-      "featureFlags": ["organization.tenant.isIaEnable"],
+      "featureFlags": ["feature.teacher_ai_tools"],
       "relatedFeatures": ["ai/panel", "ai/generate-activity", "lesson/view"],
       "lastDocumented": null,
-      "notes": "Flujo común y catálogo de las 8 herramientas unificados en una sola página. Dividir en una página por herramienta cuando la UI enlace ayuda por herramienta o la página supere ~400 líneas. Pendiente: nombres comerciales en UI, screenshots, opciones de exportar el canvas. Hallazgo: los endpoints de herramientas no comprueban rol docente en backend."
+      "notes": "9 tarjetas: 8 con canvas más el Generador de preguntas. Flujo común y catálogo en una sola página; dividir cuando la UI enlace ayuda por herramienta o la página supere ~400 líneas. Canvas: Copiar contenido y Exportar como PDF. Pendiente: screenshots. Hallazgo: los endpoints de herramientas no comprueban rol docente en backend."
     },
     "ai/generate-activity": {
       "name": "Generar actividades con IA",
       "description": "Generación de una actividad Lemonade a medida a partir de texto, lección o contenidos, con tipo, dificultad y criterios",
       "section": "Panel IA",
-      "route": "Flujo de creación de evaluaciones (por confirmar)",
+      "route": "/course/:courseGuid/lesson/:lessonGuid/add/TEST (Complementar quiz con IA); editor del quiz (Nueva actividad con IA); Generador de preguntas en /teacher-tools",
       "priority": "P2",
       "status": "in_progress",
       "complexity": "simple-form",
       "docFile": "frontoffice-docentes/panel-ia/generar-actividades-con-ia.mdx",
       "codeFiles": {
-        "frontend": ["src/core/lite/views/NewAssessmentView/"],
+        "frontend": ["src/core/lite/views/NewActivity/", "src/core/chatbot/components/compositions/AIQuizSection/", "src/core/lite/views/NewAssessmentView/NewAssessmentViewQuestions/", "src/core/chatbot/components/compositions/QuizLocationDialog/"],
         "backend": ["tangerine-ai/apps/DataManagerService/Controller/AiActivityController.ts", "tangerine-ai/apps/DataManagerService/Controller/DTOs/GenerateOneActivityRequest.dto.ts"]
       },
       "tenantVariations": [],
-      "featureFlags": ["organization.tenant.isIaEnable"],
+      "featureFlags": ["course.has_tangerine_ai", "features.teacher-plan"],
       "relatedFeatures": ["assessment/create", "course/resources", "ai/tools"],
       "lastDocumented": null,
-      "notes": "Único endpoint de IA con rol TEACHER explícito. 14 tipos de actividad. Pendiente: punto de entrada exacto en UI, nombres de los tipos en el selector, comportamiento con contenidos sin texto."
+      "notes": "Único endpoint de IA con rol TEACHER explícito. El FE soporta 11 tipos de actividad (essay, uploadfile y audiorecorder no). Sin selector de dificultad. No existe indicador de IA en Recursos del curso; la etiqueta Generada con IA está en el editor del quiz. Pendiente: screenshots."
     },
     "ai/alerts": {
       "name": "Alertas y revisión de conversaciones",
       "description": "Bandeja de anotaciones: mensajes moderados, alertas de aprendizaje y de grupo, estados, notas y lectura de la conversación del alumno",
       "section": "Panel IA",
-      "route": "Panel IA > alertas (por confirmar)",
+      "route": "/radar",
       "priority": "P1",
       "status": "in_progress",
       "complexity": "interactive-view",
       "docFile": "frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones.mdx",
       "codeFiles": {
-        "frontend": [],
+        "frontend": ["src/core/chatbot/views/RadarView/"],
         "backend": ["tangerine-ai/apps/StatsService/Controller/Stats.controller.ts", "tangerine-ai/apps/AIChatService/Controller/TeacherReview.controller.ts", "tangerine-ai/src/Shared/Domain/Model/Annotation.ts"]
       },
       "tenantVariations": [],
-      "featureFlags": ["organization.tenant.isIaEnable"],
+      "featureFlags": ["feature.teacher_radar"],
       "relatedFeatures": ["ai/student-progress", "ai/usage-stats"],
       "lastDocumented": null,
-      "notes": "Umbral de alerta de grupo: 15 %. Pendiente: confirmar criterio exacto de la alerta de aprendizaje individual y si el tipo BEHAVIOR_PATTERN está activo; screenshots."
+      "notes": "Sección Radar. Categorías: Bloqueos del aprendizaje, Bloqueos del grupo, Uso inapropiado del tutor. Pestañas Sin atender, Atendidas (REVIEWED o RESOLVED) y Descartadas. Sin campo de notas ni BEHAVIOR_PATTERN en la UI. Umbral de grupo 15 %. Pendiente: criterio exacto del bloqueo individual y screenshots."
     },
     "ai/usage-stats": {
       "name": "Seguimiento del uso del tutor",
       "description": "Uso, ranking de temas consultados, distribución de intenciones por alumno y diagnóstico de la clase por lección",
       "section": "Panel IA",
-      "route": "Panel IA > seguimiento (por confirmar)",
+      "route": "/analytics",
       "priority": "P2",
       "status": "in_progress",
       "complexity": "dashboard",
       "docFile": "frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor.mdx",
       "codeFiles": {
-        "frontend": [],
-        "backend": ["tangerine-ai/apps/StatsService/Controller/Stats.controller.ts", "tangerine-ai/apps/ActivityService/Controller/ClassDiagnosticsController.ts", "tangerine-ai/src/AIChatService/Domain/Constants/messageAnalysisIntents.ts"]
+        "frontend": ["src/core/chatbot/views/TeacherAIAnalyticsPanelView/", "src/core/chatbot/components/compositions/TutorUsageStats/"],
+        "backend": ["tangerine-ai/apps/StatsService/Controller/Stats.controller.ts", "tangerine-ai/src/AIChatService/Domain/Constants/messageAnalysisIntents.ts"]
       },
       "tenantVariations": [],
-      "featureFlags": ["organization.tenant.isIaEnable"],
+      "featureFlags": ["feature.teacher_analytics_panel"],
       "relatedFeatures": ["ai/alerts", "ai/student-progress"],
       "lastDocumented": null,
-      "notes": "Umbrales de diagnóstico por defecto: 25 % de alumnos con dominio inferior al 80 %, o 3+ fallos en 2+ actividades. Pendiente: métricas exactas de la vista Uso y si los umbrales son configurables; screenshots."
+      "notes": "Sección Panel de analítica: pestañas Uso del tutor, Consultas y Rendimiento (Rayos X: Ética de Trabajo). El diagnóstico de clase del backend no tiene UI activa. Incluye el bloque Uso del Tutor IA de los resultados de quiz. Pendiente: screenshots."
     },
     "ai/student-progress": {
       "name": "Progreso de un alumno",
       "description": "Ficha individual: cursos, mapa de conceptos con dominio, detalle por concepto, actividades por día y sesiones con tiempo dedicado",
       "section": "Panel IA",
-      "route": "Panel IA > alumnos > ficha (por confirmar)",
+      "route": "/students, /radar/students/:userId y /radar/students/:userId/kcs/:kcId",
       "priority": "P2",
       "status": "in_progress",
       "complexity": "interactive-view",
       "docFile": "frontoffice-docentes/panel-ia/progreso-de-un-alumno.mdx",
       "codeFiles": {
-        "frontend": [],
+        "frontend": ["src/core/chatbot/views/TeacherAnalyticsStudentsListView/", "src/core/chatbot/views/StudentSkillsProgressView/", "src/core/chatbot/views/StudentKcProgressView/"],
         "backend": ["tangerine-ai/apps/StatsService/Controller/Stats.controller.ts"]
       },
       "tenantVariations": [],
-      "featureFlags": ["organization.tenant.isIaEnable"],
+      "featureFlags": ["feature.teacher_radar"],
       "relatedFeatures": ["ai/alerts", "ai/practice-sessions"],
       "lastDocumented": null,
-      "notes": "Umbral de dominio: 80 %. Tiempo por actividad limitado a 1.800 s en el cómputo. Pendiente: ruta de acceso en UI y screenshots."
+      "notes": "Sección Estudiantes más ficha del alumno y detalle de habilidad. Umbral de dominio 80 %. Tiempo por actividad limitado a 1.800 s en el cómputo. Pendiente: screenshots."
     },
     "library/general": {
       "name": "Biblioteca general",

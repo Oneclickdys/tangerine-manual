@@ -1,83 +1,105 @@
 ---
 title: "Seguimiento del uso del tutor"
-description: "Estadísticas de uso del tutor de IA por curso o alumno: volumen de uso, temas más consultados, tipo de peticiones de los alumnos y diagnóstico de la clase"
+description: "Panel de analítica del tutor de IA: uso por clase y periodo, conceptos más consultados y análisis de la calidad de uso de cada alumno, más el bloque de uso del tutor en los resultados de un quiz"
+icon: "chart-line"
 ---
 
 ## Descripción
 
-Las vistas de seguimiento muestran al docente cómo usan sus alumnos el tutor de IA: cuánto lo usan, sobre qué temas preguntan, qué tipo de ayuda piden y en qué lecciones la clase muestra dificultades. Sirven para detectar contenidos que generan dudas, alumnos que usan el tutor para obtener respuestas en lugar de aprender, y lecciones que conviene reforzar en el aula.
+La sección **Panel de analítica** del Panel IA permite al docente "monitorear el uso y efectividad de la asistencia del tutor IA": cuánto lo usan sus alumnos, sobre qué conceptos preguntan y con qué intención lo hacen. Sirve para detectar contenidos que generan dudas, alumnos que usan el tutor como atajo para obtener respuestas, y grupos que aprovechan bien la ayuda.
 
 <Info>
-  **Rol requerido:** Docente, administrador de escuela o administrador de la editorial.
+  **Rol requerido:** Docente con Tangerine AI activo, con la analítica habilitada por la editorial y al menos un grupo con un curso con Tangerine AI.
 </Info>
 
 ## Cómo acceder
 
-{/* CONFIRMAR UI: nombre de la sección y de cada vista. Capturas: /assets/screenshots/frontoffice-docente/panel-ia/seguimiento-uso.png, seguimiento-temas.png, seguimiento-intenciones.png, seguimiento-diagnostico.png */}
+Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Panel de analítica**.
 
-Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), en la sección de seguimiento.
+{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/analitica-uso.png, analitica-consultas.png y analitica-rendimiento.png */}
 
 ## Filtros comunes
 
-Todas las vistas se consultan acotadas a uno o varios cursos, o a uno o varios alumnos, y a un rango de fechas. El rango de fechas es obligatorio.
+En la parte superior, dos filtros afectan a todas las pestañas: la clase, con "Seleccionar clase" o **Todas las clases**, y el periodo, con **Última semana**, **Último mes**, **Últimos 3 meses** o **Todo el periodo**.
 
-## Vistas disponibles
+## Pestaña Uso del tutor
 
-### Uso
+El bloque **Uso en tiempo real** muestra tres indicadores, cada uno con su tendencia respecto al periodo anterior:
 
-Volumen de interacciones de los alumnos con el tutor en el periodo seleccionado.
+| Indicador | Qué muestra |
+| --- | --- |
+| **Alumnos activos** | Cuántos alumnos han usado el tutor sobre el total, y el porcentaje de la clase |
+| **Interacciones totales** | Número de mensajes enviados al tutor y el promedio por alumno |
+| **Uso del modo estudio** | Porcentaje de interacciones en modo estudio frente al modo práctica. "El modo estudio permite resolver dudas y obtener explicaciones detalladas sobre el contenido editorial" |
 
-{/* CONFIRMAR: métricas exactas que muestra la vista (interacciones, alumnos activos, sesiones) */}
+Debajo, el gráfico **Actividad en la última semana**, en el último mes o en los últimos 3 meses según el periodo, representa el "Uso total del chat, en el modo elegido, dividido entre interacciones generales y preguntas de los alumnos." Se puede filtrar por **Todos los modos**, **Modo estudio**, **Modo práctica** o **Modo revisión**.
 
-### Temas más consultados
+## Pestaña Consultas
 
-Ranking de los temas sobre los que los alumnos han preguntado al tutor, ordenados por frecuencia. Al abrir un tema, el docente ve qué alumnos han preguntado sobre él y cuántas veces el tutor tuvo que ampliar la búsqueda fuera del curso para responder.
+El bloque **Conceptos más consultados** analiza las dudas del periodo: "En esta sección se analiza la interacción de tus alumnos con el tutor IA, para que puedas identificar tanto sus intereses como las áreas donde encuentran mayor dificultad."
+
+El ranking se ordena por frecuencia y puede filtrarse por **Asignatura** o verse para **Todas tus asignaturas**. El botón **Cargar más conceptos** amplía la lista. Al abrir un concepto, el detalle indica cuántos estudiantes únicos han preguntado, cuántas consultas totales ha recibido y en cuántas de ellas el tutor tuvo que usar la búsqueda extendida fuera del curso, con una tabla **Alumno** y **Consultas**.
 
 <Tip>
-  Un tema con muchas búsquedas ampliadas indica que el material del curso no cubre bien esa duda. Es una señal útil tanto para reforzarlo en clase como para trasladarlo a la editorial.
+  Un concepto con muchas consultas de búsqueda extendida indica que el material del curso no cubre bien esa duda. Es una señal útil tanto para reforzarlo en clase como para trasladarlo a la editorial.
 </Tip>
 
-### Tipo de peticiones
+## Pestaña Rendimiento
 
-Clasificación de los mensajes de cada alumno según lo que pide al tutor, representada en un gráfico de cuadrantes con una puntuación de calidad por alumno.
+El bloque **Rayos X: Ética de Trabajo** "analiza el comportamiento de uso del tutor IA por parte de tus alumnos. Cruzamos volumen y calidad de uso para identificar desde posibles malos usos hasta interacciones eficientes y motivadas."
+
+Es un gráfico de cuadrantes con el eje vertical **CALIDAD DE USO** y el horizontal **VOLUMEN DE MENSAJES**. Cada alumno es un punto en uno de los cuatro cuadrantes:
+
+| | Pocos mensajes | Muchos mensajes |
+| --- | --- | --- |
+| **Alta calidad** | **Uso eficiente** | **Estudiante motivado** |
+| **Baja calidad** | **Poco compromiso** | **Mal uso** |
+
+Al pulsar un alumno se abre su detalle con el **Volumen** en mensajes, la **Calidad de uso** y la **Distribución de intenciones** de sus mensajes:
 
 | Intención | Qué significa |
 | --- | --- |
-| Petición de respuesta directa | El alumno pide la solución sin intentar razonar |
-| Petición de explicación | Quiere entender un concepto |
-| Petición de ayuda | Está atascado en un paso concreto |
+| Solicitud de respuesta directa | Pide la solución sin intentar razonar |
+| Solicitud de explicación | Quiere entender un concepto |
+| Solicitud de ayuda | Está atascado en un paso concreto |
 | Verificación | Pide comprobar si su razonamiento o resultado es correcto |
-| Exploración por curiosidad | Pregunta más allá de lo estrictamente necesario |
-| Fuera de tema académico | Pregunta sobre otra materia o contenido no asignado |
+| Exploración curiosa | Pregunta más allá de lo estrictamente necesario |
+| Fuera de tema (académico) | Pregunta sobre otra materia o contenido no asignado |
 | Fuera de tema | Conversación no relacionada con el estudio |
 | Queja | Expresa malestar con el tutor o la tarea |
 | Inadecuado | Mensaje detectado como inapropiado |
 | Conversacional | Saludos y mensajes sin contenido académico |
+| Sin clasificar | El sistema no ha podido clasificar el mensaje |
 
 <Tip>
-  Un alumno con muchas peticiones de respuesta directa y pocas de explicación está usando el tutor como atajo. Como el tutor no da respuestas, esa pauta suele traducirse en frustración; conviene explicarle cómo sacar partido a las pistas.
+  Un alumno en **Mal uso**, con muchas solicitudes de respuesta directa y pocas de explicación, está usando el tutor como atajo. Como el tutor no da respuestas, esa pauta suele traducirse en frustración; conviene explicarle cómo sacar partido a las pistas.
 </Tip>
 
-### Diagnóstico de la clase
+## El uso del tutor en los resultados de un quiz
 
-Informe por lección con las alertas de rendimiento del grupo:
+Fuera del Panel IA, en la pestaña de resumen de los [resultados de una evaluación](/frontoffice-docentes/evaluaciones/resultados-evaluacion) de un curso con Tangerine AI, el bloque **Uso del Tutor IA** muestra la **Tasa de uso del Tutor**, cuántos errores han revisado los alumnos con el tutor sobre el total, y el **Estado de comprensión por actividad**: una barra por pregunta que distribuye a los **Estudiantes que lo han entendido**, **en progreso de entenderlo**, **que necesitan refuerzo** y **que no han revisado**, con el botón **Ver actividad**.
 
-| Alerta | Criterio |
-| --- | --- |
-| Bajo dominio | Más del 25 % de los alumnos tienen un dominio por debajo del 80 % en los conceptos de la lección |
-| Fallos repetidos | Más del 25 % de los alumnos han fallado tres o más veces en al menos dos actividades de la lección |
-
-{/* CONFIRMAR con ingeniería: si estos umbrales son configurables por editorial o fijos */}
+<Note>
+  Si el docente pide **Rehacer** el quiz a un alumno, el repaso con el tutor de su entrega anterior se retira para que no vuelva a mostrarse ni cuente en estas estadísticas.
+</Note>
 
 ## Situaciones especiales
 
 <AccordionGroup>
-  <Accordion title="Las vistas no muestran datos">
-    No hay actividad de los alumnos seleccionados en el rango de fechas, o los alumnos no tienen Tangerine AI activo.
+  <Accordion title="Las pestañas no muestran datos">
+    No hay actividad de los alumnos de la clase en el periodo, o los alumnos no tienen Tangerine AI activo. En Consultas aparece "No hay datos de consultas para el período seleccionado." y en Rendimiento "No hay datos disponibles para los filtros seleccionados."
   </Accordion>
 
   <Accordion title="Faltan alumnos en el desglose">
     Solo aparecen los alumnos registrados en Tangerine AI. Un alumno del grupo sin la funcionalidad activa no aparece en ninguna vista.
+  </Accordion>
+
+  <Accordion title="Los datos no corresponden a mis alumnos">
+    Conviene comprobar que el interruptor **Datos de prueba** del pie del menú lateral está desactivado. Activado, sustituye los datos reales por datos ficticios de demostración.
+  </Accordion>
+
+  <Accordion title="No aparece la sección Panel de analítica">
+    La editorial no tiene habilitada la analítica, o el docente no tiene ningún grupo con un curso con Tangerine AI.
   </Accordion>
 </AccordionGroup>
 
@@ -85,11 +107,15 @@ Informe por lección con las alertas de rendimiento del grupo:
 
 <CardGroup cols={2}>
   <Card title="Alertas y revisión de conversaciones" icon="bell-ring" href="/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones">
-    Mensajes marcados y alumnos atascados en un concepto.
+    Mensajes marcados y alumnos bloqueados en una habilidad.
   </Card>
 
   <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
     Detalle individual de dominio, actividades y tiempo.
+  </Card>
+
+  <Card title="Ver Resultados de Evaluación" icon="chart-bar" href="/frontoffice-docentes/evaluaciones/resultados-evaluacion">
+    Donde aparece el bloque Uso del Tutor IA.
   </Card>
 </CardGroup>
 
@@ -97,7 +123,8 @@ Informe por lección con las alertas de rendimiento del grupo:
   METADATOS INTERNOS
 
   - Aplicación: frontoffice-docente
-  - Backend (tangerine-ai): GET /stats/use, GET /stats/topic-ranking, GET /stats/topic-detail, GET /stats/intent-distribution, GET /stats/teacher/students-by-courses, GET /class-diagnostics/report
-  - Umbrales por defecto: LOW_MASTERY_STUDENT_PERCENTAGE 0.25, MASTERED_KNOWLEDGE_THRESHOLD 0.8, REPEATED_FAILURE_COUNT 3, REPEATED_FAILURE_ACTIVITY_COUNT 2
+  - Ruta: /analytics (TeacherAIAnalyticsPanelView), pestañas Uso del tutor, Consultas y Rendimiento; bloque TutorUsageStats en CustomAssessmentResultsView
+  - Backend (tangerine-ai): GET /stats/use, GET /stats/topic-ranking, GET /stats/topic-detail, GET /stats/intent-distribution, GET /chat/revision/conversations?quizJobGuids=, POST /chat/revision/jobs/:quizJobGuid/invalidate
+  - Sin UI activa: GET /class-diagnostics/report (la vista de diagnóstico está desenrutada), la métrica Tasa de resolución y el orden por popularidad o número de alumnos en Consultas
   - Última revisión: 2026-09-17
   */}

@@ -1,41 +1,56 @@
 ---
 title: "Chat con tutor IA"
-description: "Conversación libre con el tutor de IA sobre los contenidos asignados: dudas, explicaciones, diagramas, imágenes e historial"
+description: "Conversación con el tutor de IA desde cualquier pantalla: dudas sobre los contenidos asignados, imágenes, diagramas e interactivos, lectura en voz alta, historial y reporte de respuestas"
+icon: "message-circle"
 ---
 
 ## Descripción
 
 El chat es la vía principal de acceso al tutor de IA. El estudiante pregunta lo que necesita sobre las materias que tiene asignadas y el tutor responde apoyándose únicamente en esos contenidos, guiándole para que llegue a la respuesta por sí mismo en lugar de dársela hecha.
 
-El tutor está pensado para estudiantes de entre 10 y 18 años: responde en el idioma del alumno, con un tono cercano y mensajes breves, y cierra cada respuesta con un siguiente paso concreto.
+El tutor está pensado para estudiantes de entre 10 y 18 años: responde en el idioma del alumno, con un tono cercano y mensajes breves, y cierra cada respuesta con un siguiente paso concreto. Cómo razona y qué límites tiene se explica en [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
 
 <Info>
-  **Rol requerido:** Estudiante con Tangerine AI activo en su cuenta y matriculado en al menos un programa con Tangerine AI habilitado.
+  **Rol requerido:** Estudiante con Tangerine AI activo en su cuenta y matriculado en al menos un curso con Tangerine AI habilitado. El chat es exclusivo del alumnado: el docente no lo ve.
 </Info>
 
 ## Cómo acceder
 
-{/* CONFIRMAR UI: ubicación exacta del acceso al chat (home, curso, lección) y nombre del botón. Captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/chat-acceso.png */}
+El tutor se abre desde el **botón flotante con la mascota** que aparece en la esquina de cualquier pantalla de la plataforma: inicio, curso, lección, visor de contenidos, Hoy o Mi progreso. El botón no lleva texto; su nombre accesible es "Abrir asistente de chat".
 
-El estudiante abre el tutor desde el acceso de Tangerine AI de la plataforma. El chat puede iniciarse de forma general o desde el contexto de un curso o una unidad; en ese caso el tutor tiene en cuenta ese contexto para orientar sus respuestas.
+Al pulsarlo se despliega un **panel lateral derecho** sobre la pantalla actual, que el alumno puede ensanchar arrastrando su borde. El panel se cierra con el botón **Cerrar** de la cabecera.
+
+{/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/chat-boton-flotante.png y chat-panel-abierto.png */}
+
+<Note>
+  Si el alumno abre el chat dentro de un curso o de una lección, el tutor recibe ese curso como contexto y prioriza sus contenidos. Desde la pantalla de inicio, Hoy o Mi progreso, la conversación no está ligada a ningún curso concreto.
+</Note>
+
+El botón no aparece en las pantallas de acceso y legales ni en la pantalla de resumen de una práctica. En los resultados de un quiz el chat se abre solo, en modo repaso.
 
 ## Guía de uso
 
 ### Iniciar una conversación
 
 <Steps>
-  <Step title="Escribir la pregunta">
-    El estudiante escribe su duda con sus propias palabras, por ejemplo "no entiendo cómo se suman fracciones con distinto denominador". Cuanto más concreta es la pregunta, más precisa es la ayuda. Si la pregunta es vaga, el tutor pide una aclaración antes de buscar en el material.
-  </Step>
-  <Step title="Leer la respuesta en directo">
-    La respuesta aparece a medida que se genera. El tutor no resuelve el ejercicio: explica el concepto, propone una pista o formula una pregunta para que el alumno dé el siguiente paso.
+  <Step title="Leer la bienvenida y escribir">
+    El tutor saluda con "¡Hola! cuenta conmigo para ayudarte en lo que necesites ¿Con qué empezamos?". El alumno escribe su duda en la caja **Escribe...** y la envía con el botón **Enviar mensaje**.
 
-    {/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/chat-conversacion.png */}
+    Cuanto más concreta es la pregunta, más precisa es la ayuda. Si la pregunta es vaga, el tutor pide una aclaración antes de buscar en el material.
   </Step>
-  <Step title="Continuar el diálogo">
-    Cada conversación recibe automáticamente un título a partir de su contenido y queda guardada en el historial para retomarla más tarde.
+  <Step title="Seguir la respuesta en directo">
+    Mientras el tutor trabaja aparecen indicadores como "Buscando en los materiales del curso...", "Generando diagrama..." o "Creando interactivo...". La respuesta se escribe a medida que se genera. El tutor no resuelve el ejercicio: explica el concepto, propone una pista o formula una pregunta para que el alumno dé el siguiente paso.
+
+    Cuando la respuesta se apoya en material, muestra el bloque **Fuentes:** con los chips **Curso** o **Web**, que indican de dónde procede la información.
+
+    {/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/chat-respuesta-fuentes.png */}
+  </Step>
+  <Step title="Empezar otra conversación o retomar una anterior">
+    El botón **Nuevo chat** de la cabecera abre una conversación vacía. El botón **Recientes** despliega el historial.
   </Step>
 </Steps>
+
+Debajo de la caja de texto, siempre visible, el tutor recuerda su naturaleza: **"Soy una IA y a veces me equivoco. ¡Revísalo!"**
 
 <Tip>
   El tutor funciona mejor cuando el alumno le cuenta qué ha intentado ya. "He probado a multiplicar los denominadores y me sale 12, ¿voy bien?" produce una ayuda mucho más útil que "¿cuánto da?".
@@ -43,80 +58,97 @@ El estudiante abre el tutor desde el acceso de Tangerine AI de la plataforma. El
 
 ### Adjuntar una imagen
 
-El estudiante puede enviar una fotografía junto con su mensaje: un ejercicio del libro, una página de su cuaderno o un esquema. El tutor interpreta la imagen y la usa para orientar la ayuda.
+El botón **Adjuntar imagen** de la caja de texto, o arrastrar un archivo sobre el panel, permite enviar una fotografía junto con el mensaje: un ejercicio del libro, una página del cuaderno o un esquema. Con una imagen adjunta la caja pasa a decir **Escribe para poder enviar...**: hace falta escribir algo para enviarla.
 
 | Aspecto | Detalle |
 | --- | --- |
 | Imágenes por mensaje | Una |
 | Formatos aceptados | JPG, PNG, WebP y HEIC |
-| Tamaño máximo | 5 MB |
+| Tamaño máximo | 5 MB. Si se supera aparece el aviso "La imagen no puede superar los 5MB" |
 
 <Note>
-  Las imágenes pasan por el mismo filtro de contenido que los mensajes de texto. Ver [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
+  Las imágenes pasan por el mismo filtro de contenido que los mensajes de texto.
 </Note>
 
-### Pedir diagramas y visualizaciones
+### Escribir fórmulas y dictar por voz
 
-Cuando el estudiante lo pide de forma explícita, el tutor puede generar apoyos visuales dentro de la conversación:
+- **Teclado científico**: abre un editor de fórmulas para escribir expresiones matemáticas e insertarlas en el mensaje con **Insertar fórmula**.
+- **Grabar mensaje de voz**: dicta el mensaje con el micrófono del dispositivo. El texto reconocido se escribe en la caja y el alumno lo revisa antes de enviarlo. El dictado se detiene solo a los dos minutos y requiere conexión y permiso de micrófono en el navegador.
 
-| Tipo | Ejemplos |
-| --- | --- |
-| Esquemas y mapas mentales | Diagramas de flujo, mapas conceptuales, líneas de tiempo, gráficos de sectores |
-| Gráficas y geometría | Representación de funciones, construcciones geométricas |
-| Visualizaciones interactivas | Recta numérica, probabilidad, series temporales |
-| Modelos 3D | Órbitas planetarias, fases lunares, estaciones del año, ondas |
+### Pedir diagramas e interactivos
+
+Cuando el alumno lo pide de forma explícita, el tutor genera apoyos visuales dentro de la conversación:
+
+| Tipo | Cómo aparece | Ejemplos |
+| --- | --- | --- |
+| **Diagrama** | Tarjeta con el botón **Ver**, que abre el esquema a pantalla completa con la opción **Descargar imagen** | Diagramas de flujo, mapas conceptuales, líneas de tiempo, gráficos de sectores |
+| **Interactivo** | Tarjeta con el botón **Ver**, que abre una visualización manipulable | Recta numérica, probabilidad, gráficas de funciones, construcciones geométricas, modelos 3D como órbitas o fases lunares |
 
 Una vez generado el apoyo visual, el tutor retoma la guía con una pregunta para comprobar la comprensión.
 
 <Note>
-  Cada tipo de visualización puede activarse o desactivarse por la editorial. Si un tipo no está disponible, el tutor no lo ofrece.
+  Cada tipo de diagrama o interactivo puede activarse o desactivarse por la editorial. Si un tipo no está disponible, el tutor no lo ofrece.
 </Note>
 
-### Escuchar la respuesta
+### Acciones sobre cada respuesta
 
-{/* CONFIRMAR UI: nombre e icono del control de audio */}
+Bajo cada respuesta del tutor aparecen estas acciones:
 
-El estudiante puede reproducir en voz cualquier respuesta del tutor. Esta opción resulta útil para alumnado con dificultades lectoras o para repasar sin leer.
+| Acción | Qué hace |
+| --- | --- |
+| **Copiar mensaje** | Copia el texto de la respuesta y confirma con "¡Copiado!" |
+| **Leer en voz alta** | Reproduce la respuesta en audio. Mientras suena, el botón pasa a **Pausar audio**. Útil para alumnado con dificultades lectoras |
+| **Me ha sido útil** / **No me ha sido útil** | Valoración rápida de la respuesta, que el equipo del tutor usa para mejorarlo |
+| **Reportar mensaje** | Abre el formulario de reporte descrito a continuación |
+
+Estas acciones no aparecen en el mensaje de bienvenida ni mientras la respuesta se está generando.
+
+### Reportar una respuesta
+
+Si una respuesta es incorrecta, no funciona o resulta inadecuada, el alumno pulsa **Reportar mensaje** y se abre el diálogo **Reportar problema con la respuesta**, con un único motivo a elegir:
+
+- La respuesta contiene información incorrecta
+- El interactivo no funciona correctamente
+- Contenido inapropiado
+- Respuesta fuera de tema
+- Otro motivo
+
+Puede añadir un comentario en **Describe el problema (opcional)** y pulsar **Enviar reporte**. El sistema confirma con "¡Enviado! Muchas gracias por ayudarnos a mejorar" y el mensaje queda marcado como reportado. El reporte llega al equipo responsable del tutor junto con la identificación de la editorial.
 
 ### Consultar el historial
 
-El historial muestra las conversaciones anteriores del estudiante, ordenadas por la última actividad, con su título y fecha. Al abrir una conversación se recuperan todos los mensajes y las imágenes adjuntas, y el alumno puede continuar donde la dejó.
+El botón **Recientes** despliega las diez conversaciones más recientes del alumno, con su título y fecha. Al pulsar una se recuperan todos los mensajes y las imágenes adjuntas, y el alumno puede continuar donde la dejó. Si no hay ninguna, muestra "No hay conversaciones aún. ¡Comienza un nuevo chat para empezar!".
 
 <Note>
-  Solo el chat general se guarda en el historial. Las conversaciones de [ayuda durante una actividad](/estudiantes/tutor-ia/ayuda-durante-una-actividad) están ligadas a la actividad y no aparecen en esta lista.
+  Solo el chat general se guarda en el historial. Las conversaciones de [ayuda durante una actividad](/estudiantes/tutor-ia/ayuda-durante-una-actividad) y de repaso de quiz están ligadas a la actividad o a la pregunta y no aparecen en esta lista. Las conversaciones no se pueden borrar desde la interfaz.
 </Note>
 
-### Reportar un mensaje del tutor
+### Enviar sugerencias sobre el tutor
 
-Si una respuesta es incorrecta, no funciona o resulta inadecuada, el estudiante puede reportarla indicando el motivo y un comentario:
+El formulario de feedback no está en el chat, sino al pie del menú lateral de **Mi espacio**, en las pantallas Hoy y Mi progreso: el bloque "¿Echas algo en falta? Cuéntanoslo." con el botón **Dar feedback** abre el diálogo **Comparte tu feedback**, con la categoría **Sugerencia de mejora**, **Error** u **Otro** y el campo **Cuéntanos más**. Mi espacio se describe en [Prácticas](/estudiantes/tutor-ia/practicas).
 
-- Respuesta incorrecta
-- El contenido interactivo no funciona
-- Contenido inapropiado
-- Fuera de tema
-- Otro
+## El tutor en los resultados de un quiz
 
-El reporte llega al equipo responsable del tutor junto con la identificación de la editorial, para revisar el caso.
+Cuando el alumno abre los resultados de un quiz de un curso con Tangerine AI, la pantalla muestra **Mis respuestas:** con una bolita por pregunta, verde o roja, y el botón **Ver mis resultados**. Mientras el tutor prepara el repaso aparece la mascota con mensajes como "Revisando tus respuestas una por una...".
 
-### Enviar sugerencias
+Al entrar en una pregunta, el chat se abre solo en modo repaso con un feedback personalizado sobre esa respuesta, y el alumno puede seguir preguntando sobre ella. En este modo la cabecera del chat solo tiene el botón de cerrar y la conversación queda ligada a la pregunta.
 
-{/* CONFIRMAR UI: el modelo de datos indica que el formulario se abre desde la barra lateral del área de IA */}
-
-Desde el área de IA, el estudiante puede enviar una sugerencia, informar de un error o dejar cualquier otro comentario sobre el tutor.
+<Note>
+  Si el docente pide al alumno rehacer el quiz, el repaso anterior deja de estar disponible hasta que vuelva a entregarlo.
+</Note>
 
 ## Configuración y variantes
 
 <Note>
-  El tutor solo está disponible cuando la editorial ha activado Tangerine AI para el usuario y para el programa digital. La opción **Activar Tangerine AI** se configura al [crear el programa digital](/backoffice/programas-digitales/crear-programa) en el Backoffice.
+  El tutor solo está disponible cuando la editorial ha activado Tangerine AI para el alumno y para el programa digital. La opción **Activar Tangerine AI** se configura al [crear el programa digital](/backoffice/programas-digitales/crear-programa) en el Backoffice.
 </Note>
-
-Algunas capacidades del tutor dependen de la configuración de la editorial:
 
 | Capacidad | Comportamiento |
 | --- | --- |
 | Búsqueda ampliada | Si no encuentra la respuesta en el curso del alumno, el tutor puede buscar en los materiales de cursos cercanos de la misma asignatura. |
-| Fuentes educativas externas | Solo si la editorial lo permite. Se usa como último recurso, cuando el material propio no cubre la pregunta. |
-| Visualizaciones | Cada tipo de diagrama o visualización puede activarse o desactivarse de forma independiente. |
+| Fuentes web | Solo si la editorial lo permite, y como último recurso cuando el material propio no cubre la pregunta. Las respuestas que la usan lo indican con el chip **Web** en las fuentes. |
+| Diagramas e interactivos | Cada tipo puede activarse o desactivarse de forma independiente. |
+| Mascota | La imagen del botón flotante cambia según la marca de la editorial. |
 
 ## Situaciones especiales
 
@@ -129,20 +161,24 @@ Algunas capacidades del tutor dependen de la configuración de la editorial:
     El tutor solo responde con el material asignado al alumno. Si el tema no aparece en sus programas, lo indica y sugiere consultarlo con el docente. Si la pregunta no es académica, redirige la conversación hacia las asignaturas.
   </Accordion>
 
-  <Accordion title="El mensaje del alumno ha sido bloqueado">
-    Cuando el filtro de contenido detecta un mensaje o una imagen inapropiados, el tutor no responde a la petición: indica al alumno que no es apropiado y propone seguir con otro tema. El mensaje queda registrado y es visible para el docente en [Alertas y revisión de conversaciones](/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones).
+  <Accordion title="El mensaje del alumno ha sido bloqueado por el filtro de contenido">
+    La interfaz no muestra ningún aviso especial: es el propio tutor quien, en su respuesta, indica que el mensaje no es apropiado y propone seguir con otro tema. El mensaje queda registrado y es visible para el docente en [Alertas y revisión de conversaciones](/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones).
   </Accordion>
 
   <Accordion title="Aparece un error al generar la respuesta">
-    Si el servicio no puede completar la respuesta, el chat muestra un aviso de error e invita a intentarlo más tarde. La conversación no se pierde.
+    El chat muestra "Ha ocurrido un error al generar la respuesta. Inténtalo de nuevo en unos instantes." o "¡Vaya! Parece que ha ocurrido un error. ¿Quieres reintentarlo?", junto con la píldora **Sí, vuelve a intentarlo.** que reenvía el mensaje. La conversación no se pierde.
+  </Accordion>
+
+  <Accordion title="La imagen no se adjunta">
+    Solo se admite una imagen por mensaje, en formato JPG, PNG, WebP o HEIC y de hasta 5 MB. Al arrastrar un archivo que no es una imagen, el panel avisa con "Este archivo no es una imagen".
+  </Accordion>
+
+  <Accordion title="No aparece el botón flotante">
+    El alumno no tiene Tangerine AI activo en su cuenta o ninguno de sus cursos lo tiene habilitado. También se oculta, por diseño, en la pantalla de resumen de una práctica y en los resultados de un quiz, donde el chat se abre solo.
   </Accordion>
 
   <Accordion title="La conversación es muy larga">
     En conversaciones extensas el tutor mantiene el hilo mediante un resumen interno de los mensajes más antiguos. Puede no recordar detalles literales del inicio de la conversación.
-  </Accordion>
-
-  <Accordion title="No aparece el acceso al tutor">
-    El estudiante no tiene Tangerine AI activo en su cuenta, o ninguno de sus programas lo tiene habilitado. La activación depende de la editorial.
   </Accordion>
 </AccordionGroup>
 
@@ -154,7 +190,7 @@ Algunas capacidades del tutor dependen de la configuración de la editorial:
   </Card>
 
   <Card title="Prácticas" icon="dumbbell" href="/estudiantes/tutor-ia/practicas">
-    Sesiones de actividades que el tutor genera a partir de los conceptos que el alumno aún no domina.
+    Mi espacio, la pantalla Hoy y las sesiones de actividades que genera el tutor.
   </Card>
 
   <Card title="Ayuda durante una actividad" icon="life-buoy" href="/estudiantes/tutor-ia/ayuda-durante-una-actividad">
@@ -166,8 +202,9 @@ Algunas capacidades del tutor dependen de la configuración de la editorial:
   METADATOS INTERNOS
 
   - Aplicación: frontoffice-estudiante
-  - Sección UI: por confirmar (acceso al tutor de IA)
-  - Backend (tangerine-ai): POST /chat/study, POST /chat/study/:conversationId, GET /chat, GET /chat/:conversationId, POST /chat/tts, POST /chat/flag, POST /feedback
+  - UI: botón flotante ChatTriggerButton montado en toda la app (AIChat); panel ChatbotWidgetCore + Chatbot; literales en src/core/chatbot/i18n/es/chatbot.json
+  - Backend (tangerine-ai): POST /chat/study, POST /chat/study/:conversationId, GET /chat, GET /chat/:conversationId, POST /chat/tts, POST /chat/flag, POST /feedback; repaso de quiz POST /chat/revision/conversations y POST /chat/revision/:conversationId
+  - Visibilidad: user.is_tangerine_ai y al menos un curso con has_tangerine_ai; solo rol estudiante
   - Pendiente de verificar con ingeniería: prompt efectivo en producción (LangSmith) frente al del código
   - Última revisión: 2026-09-17
   */}

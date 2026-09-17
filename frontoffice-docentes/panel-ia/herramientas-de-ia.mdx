@@ -1,89 +1,91 @@
 ---
 title: "Herramientas de IA"
-description: "Asistente de IA para preparar clases: adapta y traduce textos, extrae vocabulario, genera planes de clase, rúbricas, dinámicas y feedback, y conecta los contenidos con el mundo real"
+description: "Asistente de IA para preparar clases: adapta y traduce textos, extrae vocabulario, genera planes de lección, rúbricas, dinámicas y feedback, conecta los contenidos con el mundo real y genera preguntas"
+icon: "wand-sparkles"
 ---
 
 ## Descripción
 
-Las herramientas de IA son un asistente pedagógico que genera materiales para el docente a partir de un texto de partida y unos pocos datos de contexto. El resultado se muestra en un documento editable, el canvas, que el docente puede refinar conversando con el asistente o editando directamente.
+Las **Herramientas IA** son un asistente pedagógico que genera materiales para el docente a partir de un texto de partida y unos pocos datos de contexto. El resultado se muestra en un documento editable, el canvas, que el docente refina conversando con el asistente o escribiendo directamente sobre él. Todo lo generado queda en el **Historial de creaciones**.
 
-Todas las herramientas comparten el mismo flujo de trabajo. Lo que cambia entre ellas es el tipo de material que producen y los campos específicos que piden.
+Ocho de las nueve herramientas comparten este flujo. La novena, el **Generador de preguntas**, crea un quiz en un curso y se describe en [Generar actividades con IA](/frontoffice-docentes/panel-ia/generar-actividades-con-ia).
 
 <Info>
-  **Rol requerido:** Docente con las funciones de IA habilitadas en su institución.
+  **Rol requerido:** Docente con Tangerine AI activo y con las herramientas de IA habilitadas por la editorial.
 </Info>
+
+## Cómo acceder
+
+Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Herramientas IA**. La pantalla se presenta con el texto "Apóyate en el tutor IA para crear actividades personalizadas, adaptar contenidos, fomentar la motivación y ofrecer un seguimiento efectivo a tus estudiantes." y una tarjeta por herramienta.
+
+{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/herramientas-tarjetas.png */}
 
 ## Flujo de trabajo
 
-{/* CONFIRMAR UI: nombres de los campos y botones. Capturas: /assets/screenshots/frontoffice-docente/panel-ia/herramientas-formulario.png, herramientas-canvas.png, herramientas-historial.png */}
-
 <Steps>
   <Step title="Elegir la herramienta">
-    Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), el docente selecciona la herramienta que necesita. El catálogo completo está más abajo.
+    El docente pulsa la tarjeta de la herramienta. Se abre su formulario, con la ruta **Herramientas IA › nombre de la herramienta** y una descripción de para qué sirve.
   </Step>
-  <Step title="Completar el contexto">
-    Todas las herramientas piden los mismos datos base:
+  <Step title="Completar el formulario">
+    Los campos marcados con asterisco son obligatorios. El texto de partida puede escribirse, pegarse o importarse desde el programa con **Elegir desde el libro**. Al final, el acordeón **Más detalles (opcionales)** agrupa los campos secundarios. El botón **Generar** se activa cuando el formulario es válido.
 
-    | Campo | Obligatorio | Descripción |
-    | --- | --- | --- |
-    | Curso | Sí | Año al que va dirigido el material, por ejemplo "1.º ESO" |
-    | Nivel educativo | Sí | Etapa, por ejemplo "Primaria" o "Secundaria" |
-    | Texto de partida | Sí | El contenido sobre el que trabaja la herramienta. Puede pegarse o importarse desde una lección o desde uno o varios contenidos del programa |
-    | Indicaciones adicionales | No | Cualquier matiz que el docente quiera dar al asistente |
-
-    Cada herramienta añade sus propios campos, que se detallan en el catálogo.
+    {/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/herramientas-formulario.png */}
   </Step>
-  <Step title="Generar el canvas">
-    El asistente redacta el material en el canvas, que se va completando en directo. No hace falta escribir ningún mensaje: el primer resultado se genera a partir del formulario.
+  <Step title="Ver el resultado en el canvas">
+    Se abre la pantalla **Resultados**: a la izquierda el canvas, que se redacta en directo; a la derecha el chat con el asistente. No hace falta escribir nada: el primer resultado se genera a partir del formulario. Arriba, el acordeón **Opciones seleccionadas** recuerda los datos introducidos.
+
+    {/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/herramientas-canvas.png */}
   </Step>
   <Step title="Refinar por chat">
-    En el chat lateral el docente pide cambios en lenguaje natural: "acorta la introducción", "añade un ejemplo con deportes", "usa un lenguaje más sencillo". El canvas se actualiza con cada petición.
+    En el chat el docente pide cambios en lenguaje natural: "acorta la introducción", "añade un ejemplo con deportes", "usa un lenguaje más sencillo". El canvas se actualiza con cada petición. Puede adjuntar una imagen, dictar por voz y usar el teclado científico, igual que en el chat del alumno.
   </Step>
   <Step title="Editar a mano">
-    El docente puede modificar directamente el texto del canvas y su título. Los cambios manuales se conservan.
+    El canvas es un editor de texto siempre activo: el docente escribe directamente sobre él, con negrita, cursiva, títulos, listas, tablas, enlaces y fórmulas. Los cambios se guardan solos; el indicador pasa de **Guardando...** a **Guardado**.
   </Step>
-  <Step title="Recuperar desde el historial">
-    Todos los canvas generados quedan guardados con su título, tipo de herramienta y fecha. El docente puede reabrir cualquiera y seguir trabajando en él.
+  <Step title="Copiar o exportar">
+    Sobre el canvas hay dos acciones: **Copiar contenido**, que copia el texto al portapapeles, y **Exportar como PDF**, que abre el diálogo de impresión del navegador para guardarlo como PDF.
   </Step>
 </Steps>
 
 <Note>
-  El asistente responde en el idioma del texto de partida. Un texto en catalán produce un canvas en catalán, salvo en el traductor, donde el docente indica el idioma de destino.
+  El asistente responde en el idioma del texto de partida. Un texto en catalán produce un canvas en catalán, salvo en el Traductor de textos, donde el docente indica el idioma de destino. Bajo el chat se mantiene el aviso "Soy una IA y a veces me equivoco. ¡Revísalo!".
 </Note>
 
 <Note>
-  El asistente trabaja con texto. No genera imágenes ni las incluye en el canvas.
+  El asistente trabaja con texto. No genera imágenes ni las incluye en el canvas. El canvas es un material de trabajo del docente: los alumnos no lo ven, y no existe una opción para publicarlo directamente en el curso.
 </Note>
 
+### Importar el texto desde el programa
+
+El botón **Elegir desde el libro** abre el diálogo **Elegir contenido desde el programa**: el docente elige **Asignatura**, **Unidad** y **Lección**, o busca con "Buscar unidad o lección...", marca una o varias lecciones con **Seleccionar todo** y **Limpiar**, y confirma con **Seleccionar**. Cada lección elegida aparece como tarjeta con su número de palabras y el botón **Añadir más lecciones** permite sumar otras. Un contador **Límite de palabras** indica cuánto texto admite la herramienta; al superarlo, el diálogo pide borrar contenido para continuar.
+
 <Tip>
-  Importar el texto desde una lección del programa evita copiar y pegar y garantiza que el asistente trabaja con el contenido exacto que verán los alumnos.
+  Importar desde el libro evita copiar y pegar y garantiza que el asistente trabaja con el contenido exacto que verán los alumnos.
 </Tip>
+
+### Campos comunes
+
+| Campo | Obligatorio | Descripción |
+| --- | --- | --- |
+| **Nivel** | Sí | Curso al que va dirigido el material, elegido en "Seleccionar nivel educativo" |
+| Texto de partida | Sí | El contenido sobre el que trabaja la herramienta. Su etiqueta cambia según la herramienta |
+| **Necesidades especiales** | No | Altas capacidades, TEA, TDAH, Dislexia, Disgrafía, Discalculia o Trastornos del lenguaje. El asistente adapta vocabulario, estructura y longitud |
+| **Criterios de evaluación** | No | Selector por **Región** y **Disciplina** con buscador, más la opción **Añadir criterios manualmente** |
+| **¿Quieres añadir algo más?** | No | Texto libre: "Algo destacable sobre tus estudiantes, un tema que les guste, su nivel en una asignatura..." |
 
 ## Catálogo de herramientas
 
-{/* CONFIRMAR UI: nombres comerciales exactos de cada herramienta. En el código solo existen etiquetas en inglés. */}
+En el orden en que aparecen en pantalla.
 
 <AccordionGroup>
-  <Accordion title="Conexión con el mundo real">
-    **Para qué sirve.** Conectar un contenido curricular con la vida cotidiana de los alumnos para motivar su estudio.
-
-    **Campos propios.** Ninguno, solo los datos base.
-
-    **Qué genera.** Un texto con aplicaciones cotidianas del tema, profesiones que lo utilizan, noticias o avances recientes, curiosidades y referencias de cultura popular. Se apoya en hechos verificables y no incluye preguntas, para que el docente decida cómo usarlo.
-
-    <Tip>
-      Funciona bien como apertura de unidad o como material para una lectura previa en casa.
-    </Tip>
+  <Accordion title="Generador de preguntas">
+    "Crea ejercicios personalizados al instante." No usa canvas: abre el diálogo **Seleccionar ubicación de la prueba** para elegir grupo o programa, unidad y lección, y crea un quiz en ese punto del curso. Se documenta en [Generar actividades con IA](/frontoffice-docentes/panel-ia/generar-actividades-con-ia).
   </Accordion>
 
-  <Accordion title="Adaptación del nivel del texto">
-    **Para qué sirve.** Hacer accesible un texto a alumnos con un nivel de lectura inferior al del material original o con necesidades específicas.
+  <Accordion title="Adaptar nivel de texto">
+    "Ajusta el contenido para que sea adecuado para tus estudiantes."
 
-    **Campos propios.**
-
-    | Campo | Obligatorio | Descripción |
-    | --- | --- | --- |
-    | Necesidades especiales | No | Por ejemplo TDAH, dislexia o TEA. El asistente ajusta vocabulario, estructura y longitud de frase |
+    **Campos:** Nivel · **Texto para adaptar** · Necesidades especiales · ¿Quieres añadir algo más?
 
     **Qué genera.** El mismo texto con vocabulario y complejidad adaptados al nivel indicado. Conserva toda la información: la herramienta adapta, no resume.
 
@@ -92,70 +94,30 @@ Todas las herramientas comparten el mismo flujo de trabajo. Lo que cambia entre 
     </Tip>
   </Accordion>
 
-  <Accordion title="Creador de vocabulario">
-    **Para qué sirve.** Extraer el vocabulario clave de un texto con definiciones adaptadas al nivel de los alumnos.
+  <Accordion title="Generador de planes de lección">
+    "Crea planes de estudio efectivos y adaptados."
 
-    **Campos propios.**
-
-    | Campo | Obligatorio | Descripción |
-    | --- | --- | --- |
-    | Número de palabras | Sí | Entre 1 y 50 términos |
-    | Necesidades especiales | No | Ajusta la redacción de las definiciones |
-
-    **Qué genera.** Una lista con exactamente el número de términos pedido. Cada término incluye una definición adaptada al nivel y una frase de ejemplo.
-  </Accordion>
-
-  <Accordion title="Traductor de textos">
-    **Para qué sirve.** Traducir un texto educativo a otro idioma manteniendo su función pedagógica.
-
-    **Campos propios.**
-
-    | Campo | Obligatorio | Descripción |
-    | --- | --- | --- |
-    | Idioma de destino | Sí | Idioma al que se traduce |
-    | Necesidades especiales | No | Ajusta la complejidad del texto traducido |
-
-    **Qué genera.** Una traducción educativa, no literal: adapta estructura y vocabulario al nivel indicado, con criterios distintos para Primaria y Secundaria.
-
-    <Tip>
-      Pensado para aulas plurilingües y alumnado de incorporación tardía que necesita acceder al contenido en su lengua mientras aprende la vehicular.
-    </Tip>
-  </Accordion>
-
-  <Accordion title="Generador de plan de clase">
-    **Para qué sirve.** Preparar una sesión o situación de aprendizaje completa a partir de un contenido.
-
-    **Campos propios.**
-
-    | Campo | Obligatorio | Descripción |
-    | --- | --- | --- |
-    | Duración | Sí | Tiempo disponible, por ejemplo "45 minutos" |
-    | Criterios de evaluación | No | Lista de criterios que la sesión debe trabajar |
-    | Necesidades especiales | No | Adaptaciones a incluir |
-    | Recursos disponibles | No | Por ejemplo "pizarra digital, proyector, tabletas" |
+    **Campos:** Nivel · **Texto para generar el plan de lección** · **Duración de la clase** en minutos, entre 15 y 180, con 45 por defecto · Más detalles: Criterios de evaluación, Necesidades especiales, **Recursos disponibles** ("Introduce aquí los recursos que tienes disponibles en clase para tenerlos en cuenta.") y ¿Quieres añadir algo más?
 
     **Qué genera.** Objetivos de aprendizaje, secuencia de actividades con tiempos, evaluación formativa y recursos necesarios. La prioridad del asistente es que la sesión quepa en la duración indicada.
   </Accordion>
 
-  <Accordion title="Dinamizar el aula">
-    **Para qué sirve.** Conseguir ideas rápidas para arrancar una clase o abrir un debate sobre un contenido.
+  <Accordion title="Conexión con el mundo real">
+    "Incorpora ejemplos prácticos para hacer el aprendizaje más significativo."
 
-    **Campos propios.** Ninguno, solo los datos base.
+    **Campos:** Nivel · **Texto para adaptar** · ¿Quieres añadir algo más?
 
-    **Qué genera.** Tres propuestas: un rompehielos de entre 1 y 5 minutos, una introducción impactante de entre 5 y 10 minutos y un disparador de debate.
+    **Qué genera.** Un texto con aplicaciones cotidianas del tema, profesiones que lo utilizan, noticias o avances recientes, curiosidades y referencias de cultura popular. Se apoya en hechos verificables y no incluye preguntas, para que el docente decida cómo usarlo.
+
+    <Tip>
+      Funciona bien como apertura de unidad o como lectura previa en casa.
+    </Tip>
   </Accordion>
 
   <Accordion title="Generador de rúbricas">
-    **Para qué sirve.** Crear una rúbrica de evaluación para una tarea o producto descrito en el texto de partida.
+    "Diseña criterios de evaluación claros y personalizados."
 
-    **Campos propios.**
-
-    | Campo | Obligatorio | Descripción |
-    | --- | --- | --- |
-    | Número de criterios | Sí | Entre 1 y 8 |
-    | Escala | Sí | 1 a 4, 1 a 6 o 1 a 10 |
-    | Criterios de evaluación | No | Criterios curriculares en los que basar la rúbrica |
-    | Necesidades especiales | No | Adaptaciones a contemplar en los descriptores |
+    **Campos:** Nivel · **¿Sobre qué quieres hacer la rúbrica?** · **Número de criterios**, entre 1 y 8, con 4 por defecto · **Escala**: "1-4 (Insuficiente a Sobresaliente)", "1-6 (Muy insuficiente a Sobresaliente)" o "1-10 (Muy insuficiente a Sobresaliente)" · Más detalles: Criterios de evaluación, Necesidades especiales y ¿Quieres añadir algo más?
 
     **Qué genera.** Una tabla con los criterios y un descriptor por cada nivel de la escala, redactados en lenguaje observable y constructivo.
 
@@ -164,44 +126,76 @@ Todas las herramientas comparten el mismo flujo de trabajo. Lo que cambia entre 
     </Tip>
   </Accordion>
 
-  <Accordion title="Feedback para el alumno">
-    **Para qué sirve.** Redactar una retroalimentación personalizada sobre el trabajo de un alumno.
+  <Accordion title="Creador de vocabulario">
+    "Genera listas de términos clave para reforzar el aprendizaje."
 
-    **Campos propios.** En esta herramienta el texto de partida es el trabajo del alumno.
+    **Campos:** Nivel · **¿Sobre qué te gustaría crear vocabulario?** · **Número de palabras de vocabulario**, entre 1 y 50, con 10 por defecto · Necesidades especiales · ¿Quieres añadir algo más?
 
-    | Campo | Obligatorio | Descripción |
-    | --- | --- | --- |
-    | Respuesta esperada | No | Solución o modelo con el que comparar el trabajo |
-    | Criterios de evaluación | No | Aspectos que debe valorar el feedback |
-    | Necesidades especiales | No | Ajusta el tono y la redacción |
+    **Qué genera.** Una lista con exactamente el número de términos pedido. Cada término incluye una definición adaptada al nivel y una frase de ejemplo.
+  </Accordion>
 
-    **Qué genera.** Un texto en dos bloques: puntos fuertes y áreas de mejora, con un tono constructivo dirigido al alumno.
+  <Accordion title="Traductor de textos">
+    "Apoya la diversidad lingüística en tu aula."
+
+    **Campos:** Nivel · **¿Qué texto quieres traducir?** · **Idioma de destino**: Castellano, Catalán, Valenciano, Euskera, Gallego, Inglés, Francés, Italiano, Chino, Árabe o Portugués (Brasil) · Necesidades especiales · ¿Quieres añadir algo más?
+
+    **Qué genera.** Una traducción educativa, no literal: adapta estructura y vocabulario al nivel indicado, con criterios distintos para Primaria y Secundaria.
+
+    <Tip>
+      Pensado para aulas plurilingües y alumnado de incorporación tardía que necesita acceder al contenido en su lengua mientras aprende la vehicular.
+    </Tip>
+  </Accordion>
+
+  <Accordion title="Dinamiza el aula">
+    "Propon dinámicas y actividades para motivar a tus estudiantes."
+
+    **Campos:** Nivel · **¿Con qué texto quieres trabajar?** · ¿Quieres añadir algo más?
+
+    **Qué genera.** Tres propuestas: un rompehielos de entre 1 y 5 minutos, una introducción impactante de entre 5 y 10 minutos y un disparador de debate.
+  </Accordion>
+
+  <Accordion title="Feedback para estudiantes">
+    "Crea informes y sugerencias sobre el progreso de tus alumnos."
+
+    **Campos:** Nivel · **Trabajo del estudiante**, que se pega directamente ("Pega aquí el trabajo del estudiante"); esta herramienta no importa desde el libro · **Respuesta esperada**, opcional ("Pega aquí la respuesta modelo o esperada") · Más detalles: Criterios de evaluación, Necesidades especiales y ¿Quieres añadir algo más?
+
+    **Qué genera.** Un texto en dos bloques, puntos fuertes y áreas de mejora, con un tono constructivo dirigido al alumno.
   </Accordion>
 </AccordionGroup>
+
+## Historial de creaciones
+
+La sección **Historial de creaciones** del menú lateral, "Consulta y organiza los recursos que has generado con el tutor IA. Retoma tus borradores o reutiliza materiales ya exportados para tu clase.", lista todos los canvas del docente en una tabla con **Título del recurso**, **Herramienta** y **Fecha creación**, de cinco en cinco. Al pulsar una fila, o su opción **Editar**, se reabre la pantalla de resultados para seguir trabajando.
+
+Si aún no hay nada: "¡No has creado ningún recurso aún! Puedes generar todo tipo de materiales desde las Herramientas docente."
+
+{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/herramientas-historial.png */}
 
 ## Situaciones especiales
 
 <AccordionGroup>
   <Accordion title="El resultado está en un idioma distinto al esperado">
-    El asistente sigue el idioma del texto de partida. Para obtener el resultado en otro idioma, el docente puede pedírselo en el chat o usar el traductor.
+    El asistente sigue el idioma del texto de partida. Para obtener el resultado en otro idioma, el docente puede pedírselo en el chat o usar el Traductor de textos.
   </Accordion>
 
-  <Accordion title="El texto de partida es muy largo">
-    Las herramientas admiten textos extensos, del orden de una unidad completa. Con textos muy largos la generación tarda más.
+  <Accordion title="El diálogo avisa de que se ha superado el límite de palabras">
+    El texto importado excede lo que admite la herramienta. Conviene quitar alguna lección de la selección o acotar el texto pegado. El contador **Límite de palabras** muestra el margen disponible.
+  </Accordion>
+
+  <Accordion title="El contenido no se ha podido cargar o está vacío">
+    La lección elegida no tiene texto procesado, por ejemplo porque solo contiene vídeo o imágenes. El diálogo sugiere elegir otro tema o escribir directamente en el campo de texto.
   </Accordion>
 
   <Accordion title="El docente quiere cambiar solo una parte del canvas">
-    Puede pedirlo en el chat, indicando la parte concreta, o editar directamente el texto en el canvas.
-  </Accordion>
-
-  <Accordion title="¿Los alumnos ven el canvas?">
-    No. El canvas es un material de trabajo del docente. Para usarlo con los alumnos debe llevarlo a sus propios materiales o recursos.
-
-    {/* CONFIRMAR UI: opciones de copiar, exportar o compartir el canvas */}
+    Puede pedirlo en el chat, indicando la parte concreta, o editar directamente ese fragmento en el canvas.
   </Accordion>
 
   <Accordion title="Se ha cerrado la ventana a mitad de trabajo">
-    El canvas generado y los cambios pedidos por chat quedan guardados en el historial, desde donde puede reabrirse.
+    El canvas se guarda solo. Está disponible en el Historial de creaciones para retomarlo.
+  </Accordion>
+
+  <Accordion title="¿Cómo se lleva el resultado a los alumnos?">
+    Con **Copiar contenido** para pegarlo en un material propio, o con **Exportar como PDF**. No existe una acción para publicar el canvas directamente en el curso ni para compartirlo con otros docentes.
   </Accordion>
 </AccordionGroup>
 
@@ -209,7 +203,7 @@ Todas las herramientas comparten el mismo flujo de trabajo. Lo que cambia entre 
 
 <CardGroup cols={2}>
   <Card title="Generar actividades con IA" icon="list-plus" href="/frontoffice-docentes/panel-ia/generar-actividades-con-ia">
-    Crear una actividad evaluable a medida a partir de un texto, una lección o contenidos.
+    El Generador de preguntas y la creación de quizzes con IA.
   </Card>
 
   <Card title="Vista de Lección" icon="book-open" href="/frontoffice-docentes/lecciones/vista-leccion">
@@ -221,7 +215,9 @@ Todas las herramientas comparten el mismo flujo de trabajo. Lo que cambia entre 
   METADATOS INTERNOS
 
   - Aplicación: frontoffice-docente
-  - Backend (tangerine-ai): POST /chat/teacher-tools/{real-world-connection|text-level-adaptation|vocabulary-creator|text-translator|lesson-plan-generator|classroom-dynamics|rubric-generator|student-feedback}, POST /chat/teacher-tools/:conversationId, GET /chat/teacher-tools/history, GET /chat/teacher-tools/conversations/:id, PATCH /chat/teacher-tools/conversations/:id/canvas, GET /chat/teacher-tools/lessons/:lessonId/content, POST /chat/teacher-tools/contents/content
+  - Rutas: /teacher-tools (tarjetas), /teacher-tools/setup/:toolId (formulario), /teacher-tools/instance/:toolInstanceId (canvas + chat), /teacher-tools/history
+  - UI: TeacherToolsView, teacherToolsConfig (lista estática de 9 herramientas), GenericToolSetup, TextInputOrLessonSelector, ToolInstanceChatView, AICanvas, TeacherToolsHistoryView
+  - Backend (tangerine-ai): POST /chat/teacher-tools/{real-world-connection|text-level-adaptation|vocabulary-creator|text-translator|lesson-plan-generator|classroom-dynamics|rubric-generator|student-feedback}, POST /chat/teacher-tools/:conversationId, GET /chat/teacher-tools/history, GET /chat/teacher-tools/conversations/:id, PATCH /chat/teacher-tools/conversations/:id/canvas, POST /chat/teacher-tools/contents/content
   - Pendiente de verificar: los endpoints de herramientas no comprueban el rol docente en el backend
   - Última revisión: 2026-09-17
   */}

@@ -1,67 +1,106 @@
 ---
 title: "Progreso de un alumno"
-description: "Ficha individual del alumno en el tutor de IA: cursos, mapa de conceptos con nivel de dominio, actividades realizadas y tiempo dedicado"
+description: "Listado de estudiantes del Panel IA y ficha individual: dominio global, tiempo de práctica, mapa del programa por habilidades, detalle de cada habilidad y actividades respondidas"
+icon: "user-check"
 ---
 
 ## Descripción
 
-La ficha de progreso muestra, para un alumno concreto, cómo avanza en los conceptos de cada curso según las prácticas que ha realizado con el tutor de IA. El docente ve qué conceptos domina, cuáles se le resisten, qué actividades ha respondido y cuánto tiempo ha dedicado.
+La sección **Estudiantes** del Panel IA lista a los alumnos del docente con un resumen de su relación con el tutor de IA, y desde ella se abre la **ficha de progreso** de cada alumno: cómo avanza en las habilidades de cada programa según las prácticas que ha realizado, qué habilidades domina, cuáles se le resisten, qué actividades ha respondido y cuánto tiempo ha dedicado.
 
-El nivel de dominio de cada concepto se calcula a partir de las respuestas del alumno en las actividades y se expresa como un porcentaje. Un concepto se considera dominado cuando supera el 80 %.
+El nivel de dominio de cada habilidad se calcula a partir de las respuestas del alumno en las actividades. Una habilidad se considera dominada cuando supera el 80 %.
 
 <Info>
-  **Rol requerido:** Docente, administrador de escuela o administrador de la editorial.
+  **Rol requerido:** Docente con Tangerine AI activo, con el radar habilitado por la editorial y al menos un grupo con un curso con Tangerine AI.
 </Info>
 
-## Cómo acceder
+## Listado de estudiantes
 
-{/* CONFIRMAR UI: ruta de acceso (lista de alumnos por curso dentro del Panel IA). Capturas: /assets/screenshots/frontoffice-docente/panel-ia/progreso-alumnos.png, progreso-mapa.png, progreso-concepto.png */}
+Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Estudiantes**. La tabla admite buscar con "Buscar alumno..." y filtrar por clase, con **Todas las clases** por defecto. Sus columnas:
 
-Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), el docente elige un curso, ve la lista de sus alumnos con Tangerine AI activo y abre la ficha de uno de ellos.
+| Columna | Qué muestra |
+| --- | --- |
+| **ESTUDIANTE** | Nombre y avatar |
+| **CHAT CON EL TUTOR** | Volumen de uso del chat |
+| **CALIDAD DE USO** | Banda según sus intenciones al preguntar: **Mejorable**, **Aceptable**, **Buena** o **Excelente**. Sin datos, **SIN INFORMACIÓN** |
+| **TIEMPO DE PRÁCTICA** | Tiempo dedicado a las prácticas del tutor |
+| **PROGRESO** | Avance en las habilidades de sus programas |
 
-## Contenido de la ficha
+{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/estudiantes-listado.png */}
 
-### Cursos del alumno
+Al pulsar una fila se abre la ficha del alumno. También se llega a ella desde una alerta del [Radar](/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones), pulsando el nombre del alumno.
 
-Lista de los cursos que el alumno comparte con el docente, con una señal de aprendizaje por curso y el número de conceptos que se le resisten en cada uno.
+<Note>
+  Mientras los alumnos de una clase no hayan hecho prácticas, la tabla avisa de que "El progreso y el tiempo de práctica aparecerán aquí cuando los estudiantes practiquen con el tutor IA."
+</Note>
 
-### Mapa del curso
+## Ficha del alumno
 
-Índice del curso organizado en unidades, lecciones y conceptos. Cada concepto muestra su nivel de dominio y un estado visual. Los enunciados de los conceptos se muestran en el idioma del docente.
+{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/progreso-ficha.png y progreso-habilidad.png */}
+
+La ficha muestra una **pestaña por programa** compartido con el alumno; cada pestaña indica cuántas habilidades tiene bloqueadas. Dentro:
+
+### Dominio global y tiempo de práctica
+
+**Dominio global**: porcentaje de habilidades dominadas sobre el total del programa. A su lado, el bloque **Últimos 14 días** resume las sesiones de práctica y el tiempo dedicado en minutos y segundos.
+
+<Note>
+  En el cómputo del tiempo, cada actividad cuenta como máximo 30 minutos, para que una actividad dejada abierta no distorsione el total.
+</Note>
+
+### Mapa del programa
+
+El índice del programa se despliega por unidades, con el número de lecciones y habilidades de cada una, hasta llegar a las habilidades. Se puede acotar con **Mostrar**, **Todas las habilidades**, **Todas las unidades** y el buscador. Cada habilidad lleva un chip con su estado:
+
+| Chip | Color | Significado |
+| --- | --- | --- |
+| **Dominada** | Verde | El alumno ya domina la habilidad |
+| **En práctica** | Azul | La está practicando y aún no la domina |
+| **Por repasar** | Amarillo | La domina y le toca repasar para afianzarla |
+| **Bloqueada** | Rojo | Se ha quedado bloqueado y necesita ayuda |
+| **Sin empezar** | Gris | Aún no la ha trabajado |
+
+Las barras de unidad y lección resumen sus habilidades en tres estados: sin empezar, en progreso y dominado. El botón **Ver detalles** de cada habilidad abre su análisis completo.
 
 <Tip>
   El mapa permite localizar de un vistazo en qué lección se concentran las dificultades del alumno, y decidir si conviene una intervención individual o revisar la lección con todo el grupo.
 </Tip>
 
-### Detalle de un concepto
+### Detalle de una habilidad
 
-Al abrir un concepto, el docente ve la evolución del dominio del alumno y, si existe, la alerta de aprendizaje asociada.
+La pantalla **Dominio del contenido** de una habilidad muestra:
 
-### Actividades del concepto
+- Su estado: **Bloqueado**, **Practicando**, **Dominado**, **Repasando**, **Por repasar** o **Reforzando habilidades anteriores**, con un mensaje como "Este alumno ha alcanzado el dominio de este contenido." o "Este alumno está repasando este contenido y aún no lo domina."
+- Las métricas **Dominio del contenido**, **Actividades correctas para esta habilidad**, **Tiempo total practicando** y **Habilidades relacionadas reforzadas**.
+- La línea de tiempo **Estados de la habilidad**, "Evolución de la habilidad, incluyendo momentos de progreso y posibles bloqueos en el aprendizaje.", con los hitos **Inicio de práctica**, **Retroceso**, **Retroceso resuelto**, **Reforzando** y **Dominio**. Si no ha habido retrocesos: "¡Sin retrocesos!"
+- Si la habilidad tiene una alerta pendiente, los botones **Marcar como atendido** y **Descartar**, los mismos del Radar.
+- El bloque **Detalle por día**, con los aciertos sobre el total de cada día y una fila por actividad con el botón **Ver**.
 
-Actividades que el alumno ha respondido sobre ese concepto, agrupadas por día, con la respuesta dada, el resultado y el tiempo empleado. El docente puede abrir cualquier actividad para ver el enunciado completo y la respuesta del alumno.
+### Detalle de una actividad
 
-### Sesiones de práctica
-
-Sesiones que el alumno ha realizado en el curso, con la fecha y el tiempo dedicado. El tiempo por actividad se limita a 30 minutos en el cómputo, para que una actividad dejada abierta no distorsione el total.
+Al pulsar **Ver**, el cajón **Detalle de actividad** muestra la **Puntuación**, la **Duración**, si la respuesta fue correcta o incorrecta, y el conmutador **Ver solución** / **Ver respuesta del alumno** para comparar lo que respondió con la solución.
 
 ## Situaciones especiales
 
 <AccordionGroup>
-  <Accordion title="El alumno no aparece en la lista">
-    Solo se muestran los alumnos con Tangerine AI activo y matriculados en el curso. Un alumno sin la funcionalidad no tiene ficha.
+  <Accordion title="El alumno no aparece en el listado">
+    Solo se muestran los alumnos con Tangerine AI activo y matriculados en un curso con Tangerine AI. Un alumno sin la funcionalidad no tiene ficha.
   </Accordion>
 
-  <Accordion title="Un concepto que estaba dominado ha bajado">
-    El dominio no es definitivo. Si el alumno falla actividades posteriores relacionadas, el sistema vuelve a considerar el concepto como no dominado y lo incluye de nuevo en sus prácticas.
+  <Accordion title="Una habilidad que estaba dominada ha bajado">
+    El dominio no es definitivo. Si el alumno falla actividades posteriores relacionadas, el sistema vuelve a considerar la habilidad como no dominada y la incluye de nuevo en sus prácticas. La línea de tiempo lo refleja como un retroceso.
   </Accordion>
 
-  <Accordion title="El curso no muestra conceptos">
-    El mapa solo incluye cursos con conceptos configurados en sus contenidos. Sin ellos no hay prácticas ni progreso que mostrar.
+  <Accordion title="El programa no muestra habilidades">
+    Aparece "Sin contenido todavía. Este programa aún no tiene unidades con habilidades para mostrar." El mapa solo incluye programas con habilidades configuradas en sus contenidos. Sin ellas no hay prácticas ni progreso que mostrar.
   </Accordion>
 
-  <Accordion title="Los nombres de los conceptos están en otro idioma">
-    Los conceptos se muestran en el idioma del docente. Si aparecen en otro idioma, conviene revisar el idioma configurado en el perfil.
+  <Accordion title="No compartes ningún programa con este estudiante">
+    El alumno está en un grupo del docente, pero ninguno de los cursos que comparten tiene Tangerine AI. La ficha no tiene datos que mostrar.
+  </Accordion>
+
+  <Accordion title="Los nombres de las habilidades están en otro idioma">
+    Las habilidades se muestran en el idioma del docente. Si aparecen en otro idioma, conviene revisar el idioma configurado en el perfil.
   </Accordion>
 </AccordionGroup>
 
@@ -69,11 +108,11 @@ Sesiones que el alumno ha realizado en el curso, con la fecha y el tiempo dedica
 
 <CardGroup cols={2}>
   <Card title="Prácticas" icon="dumbbell" href="/estudiantes/tutor-ia/practicas">
-    Cómo genera el tutor las sesiones de actividades que alimentan esta ficha.
+    Cómo genera el tutor las sesiones de actividades que alimentan esta ficha, y cómo ve el alumno su propio progreso.
   </Card>
 
   <Card title="Alertas y revisión de conversaciones" icon="bell-ring" href="/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones">
-    Alertas de aprendizaje del alumno y del grupo.
+    Bloqueos del aprendizaje y del grupo.
   </Card>
 </CardGroup>
 
@@ -81,6 +120,7 @@ Sesiones que el alumno ha realizado en el curso, con la fecha y el tiempo dedica
   METADATOS INTERNOS
 
   - Aplicación: frontoffice-docente
-  - Backend (tangerine-ai): GET /stats/teacher/students-by-courses, GET /stats/users/:userId/courses, GET /stats/users/:userId/courses/:courseId/toc, GET /stats/users/:userId/kcs/:kcId/progress, GET /stats/users/:userId/kcs/:kcId/activities, GET /stats/users/:userId/courses/:courseId/sessions, GET /stats/activity-instances/:id
+  - Rutas: /students (TeacherAnalyticsStudentsListView), /radar/students/:userId (StudentSkillsProgressView), /radar/students/:userId/kcs/:kcId (StudentKcProgressView)
+  - Backend (tangerine-ai): GET /stats/teacher/students-by-courses, GET /stats/users/:userId/courses, GET /stats/users/:userId/courses/:courseId/toc, GET /stats/users/:userId/courses/:courseId/sessions, GET /stats/users/:userId/kcs/:kcId/progress, GET /stats/users/:userId/kcs/:kcId/activities, GET /stats/activity-instances/:id
   - Última revisión: 2026-09-17
   */}
