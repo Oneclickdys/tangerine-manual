@@ -1,84 +1,113 @@
 ---
 title: "Alertas y revisión de conversaciones"
-description: "Bandeja de alertas del tutor de IA: mensajes moderados, alumnos atascados en un concepto y alertas de grupo, con gestión de estados y acceso a la conversación del alumno"
+description: "Radar del tutor de IA: bloqueos del aprendizaje, bloqueos del grupo y uso inapropiado del tutor, con gestión de estados y lectura de la conversación del alumno"
+icon: "bell-ring"
 ---
 
 ## Descripción
 
-La bandeja de alertas reúne en un solo lugar las señales que el tutor de IA genera sobre los alumnos del docente: mensajes detectados por el filtro de contenido, alumnos que se han quedado atascados en un concepto y conceptos en los que una parte significativa del grupo tiene dificultades. Desde cada alerta el docente puede revisar el detalle, anotar su decisión y, en el caso de los mensajes, leer la conversación completa del alumno con el tutor.
+La sección **Radar** del Panel IA reúne, "en un vistazo", lo que merece la atención del docente: alumnos que se han quedado bloqueados en una habilidad, habilidades en las que una parte significativa del grupo tiene dificultades y mensajes al tutor detectados por el filtro de contenido. Desde cada alerta el docente revisa el detalle, decide si la atiende o la descarta y, en el caso de los mensajes, lee la conversación completa del alumno con el tutor.
 
 <Info>
-  **Rol requerido:** Docente, administrador de escuela o administrador de la editorial.
+  **Rol requerido:** Docente con Tangerine AI activo, con el radar habilitado por la editorial y al menos un grupo con un curso con Tangerine AI.
 </Info>
 
 ## Cómo acceder
 
-{/* CONFIRMAR UI: nombre de la sección dentro del Panel IA. Capturas: /assets/screenshots/frontoffice-docente/panel-ia/alertas-bandeja.png, alertas-detalle.png, alertas-conversacion.png */}
+Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Radar**. Es la primera sección del menú lateral y la que se abre por defecto al pulsar el botón Panel IA.
 
-Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), en la sección de alertas.
+{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/radar-lista.png, radar-detalle-bloqueo.png y radar-detalle-conversacion.png */}
 
 ## Tipos de alerta
 
-| Tipo | Qué la genera | Cómo se resuelve |
+El selector de categoría permite ver **Todas las categorías** o filtrar por una:
+
+| Categoría | Qué la genera | Cómo se resuelve |
 | --- | --- | --- |
-| **Mensaje marcado** | El filtro de contenido ha detectado un mensaje o una imagen inapropiados de un alumno en cualquier modo del tutor. Se clasifica por categoría: autolesión, odio, contenido sexual, violencia o acoso. | El docente la revisa o la descarta. |
-| **Alerta de aprendizaje** | Un alumno necesita muchos más intentos de lo habitual para un concepto o vuelve a fallar un concepto que ya tenía encaminado. | Se resuelve sola cuando el alumno domina el concepto. El docente también puede marcarla como revisada o descartarla. |
-| **Alerta de grupo** | Más del 15 % de los alumnos matriculados en el curso tienen una alerta de aprendizaje activa sobre el mismo concepto. | Se actualiza y se resuelve automáticamente según evoluciona el grupo. Si el grupo vuelve a superar el umbral, se reactiva. |
+| **Bloqueos del aprendizaje** | Un alumno necesita muchos más intentos de lo habitual para una habilidad o vuelve a fallar una habilidad que ya tenía encaminada. La tarjeta indica la habilidad y el número de intentos. | Se resuelve sola cuando el alumno domina la habilidad. El docente también puede marcarla como atendida o descartarla. |
+| **Bloqueos del grupo** | Más del 15 % de los alumnos matriculados en el curso tienen un bloqueo activo en la misma habilidad. La tarjeta indica el grupo y cuántos alumnos están afectados. | Se actualiza y se resuelve automáticamente según evoluciona el grupo. Si el grupo vuelve a superar el umbral, se reactiva. |
+| **Uso inapropiado del tutor** | El filtro de contenido ha detectado un mensaje o una imagen inapropiados de un alumno en cualquier modo del tutor. La tarjeta muestra el mensaje y su categoría. | El docente la revisa o la descarta. |
 
-{/* CONFIRMAR con ingeniería el criterio exacto de la alerta de aprendizaje (intentos respecto a la media del concepto y estado de retroceso). Existe además un tipo "patrón de comportamiento" en el modelo de datos cuyo flujo de creación no se ha localizado; no se documenta hasta confirmar que está activo. */}
+{/* CONFIRMAR con ingeniería el criterio exacto del bloqueo del aprendizaje individual (intentos respecto a la media de la habilidad y estado de retroceso). */}
 
-Los mensajes marcados se ordenan por gravedad de la categoría y, dentro de cada categoría, por la puntuación del filtro. Las alertas se ordenan por estado: primero las pendientes.
+Las categorías de un mensaje marcado son las del filtro de contenido: Autolesiones, Intención de autolesión, Instrucciones de autolesión, Discurso de odio, Discurso de odio con amenazas, Acoso, Acoso con amenazas, Violencia, Violencia gráfica, Contenido sexual, Contenido sexual de menores, Contenido ilícito y Contenido ilícito violento.
 
 <Note>
-  Los mensajes marcados por el filtro son distintos de los mensajes que el propio alumno reporta desde el chat. Los reportes del alumno llegan al equipo responsable del tutor, no a esta bandeja.
+  Los mensajes marcados por el filtro son distintos de los que el propio alumno reporta desde el chat con **Reportar mensaje**. Los reportes del alumno llegan al equipo responsable del tutor, no al Radar.
 </Note>
 
-## Filtrar la bandeja
+## La lista de alertas
 
-La bandeja se consulta siempre acotada a uno o varios cursos o a uno o varios alumnos, y a un rango de fechas. Además puede filtrarse por tipo de alerta, por estado y, en los mensajes marcados, por categoría.
+- **Filtros**: grupos, con "Seleccionar grupos" o **Todas las clases**, y categoría.
+- **Pestañas**, con el número de alertas entre paréntesis: **Sin atender**, **Atendidas**, que incluye las resueltas automáticamente, y **Descartadas**.
+- **Orden**: **Ordenar por relevancia**, **Ordenar por fecha: nuevos primero** u **Ordenar por fecha: antiguos primero**.
+- **Marcar todo como leído**: quita la marca de no leído a todas las alertas visibles. Abrir una alerta también la marca como leída para ese docente.
 
-## Gestionar una alerta
+Cada tarjeta muestra el alumno o el grupo, el contenido con el prefijo **Mensaje:** o **Habilidad:**, la **Relevancia** Alta, Media o Baja, y en las atendidas o descartadas quién lo hizo, con **ATENDIDO POR** o **DESCARTADO POR**.
 
-| Estado | Significado |
-| --- | --- |
-| **Pendiente** | Requiere atención del docente. Es el estado inicial. |
-| **Revisada** | El docente la ha visto y ha tomado una decisión. |
-| **Descartada** | El docente considera que no requiere acción, por ejemplo un falso positivo del filtro. |
-| **Resuelta** | Estado automático de las alertas de aprendizaje y de grupo cuando la situación desaparece. |
+Estados vacíos: "¡Estás al día! No tienes alertas pendientes de revisar.", "Sin alertas atendidas. Aquí aparecerán las alertas que marques como atendidas." y "Sin alertas descartadas. Aquí aparecerán las alertas que descartes."
 
-Al cambiar el estado, el docente puede añadir una nota con el contexto de su decisión. Abrir una alerta la marca como vista para ese docente, de modo que el equipo docente sabe qué alertas ya ha visto alguien.
+## Revisar una alerta
 
-## Revisar la conversación del alumno
+Al pulsar una tarjeta se abre el cajón de detalle, con botones **Anterior** y **Siguiente** para recorrer la lista sin cerrarlo. La cabecera muestra al alumno; al pulsar su nombre se abre su [ficha de progreso](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
 
-Desde una alerta de mensaje marcado, el docente puede abrir la conversación completa del alumno con el tutor, en modo lectura, para entender el contexto del mensaje antes de decidir.
+### Bloqueo del aprendizaje
+
+El detalle explica que "El estudiante presenta dificultades persistentes y ha necesitado reforzar contenidos previos para poder avanzar." y muestra:
+
+- **Actividades correctas**, **Retrocesos** y **Dominio del contenido**. Los retrocesos son el "Número de veces que el tutor IA ha tenido que retroceder a contenidos previos para reforzar conceptos que el estudiante aún no domina."
+- El estado de las habilidades previas: **Dominado**, **Repasando**, **Necesita refuerzo**, **Resuelto** o **Sin datos**.
+- La línea de tiempo **Estados del contenido**, con los hitos **Retroceso**, **Retroceso resuelto**, **Necesita refuerzo** y **Dominado**, y la marca **HOY**.
+- El enlace **Ver análisis completo**, que abre el detalle de esa habilidad en la ficha del alumno.
+
+### Bloqueo del grupo
+
+Indica que "El grupo presenta dificultades persistentes en la misma habilidad.", el porcentaje de estudiantes bloqueados y la lista de **Alumnos afectados** con sus actividades correctas.
+
+### Uso inapropiado del tutor
+
+El cuerpo del cajón es la **conversación completa** del alumno con el tutor, en modo lectura. El cajón se desplaza automáticamente hasta el mensaje marcado, que aparece resaltado con sus categorías, para que el docente entienda el contexto antes de decidir.
 
 <Warning>
   Las conversaciones con el tutor son del alumno. El acceso del docente existe para su acompañamiento y seguridad. Conviene que el centro acuerde con las familias cómo se usa esta información.
 </Warning>
 
+## Atender o descartar
+
+Mientras la alerta está **Sin atender**, el pie del cajón ofrece dos acciones:
+
+| Acción | Efecto |
+| --- | --- |
+| **Marcar como atendido** | La alerta pasa a la pestaña Atendidas con la indicación **Atendido por** y el nombre del docente |
+| **Descartar** | La alerta pasa a Descartadas con **Descartada por**. Útil para falsos positivos del filtro |
+
+Las alertas de bloqueo que se cierran solas muestran "Esta alerta fue resuelta automáticamente por el estudiante" con la etiqueta **Resuelta**, y se listan también en Atendidas. No hay campo de notas: la decisión se registra solo con el estado y quién lo cambió.
+
 ## Situaciones especiales
 
 <AccordionGroup>
   <Accordion title="Un mensaje marcado es un falso positivo">
-    El filtro está ajustado para menores y es deliberadamente estricto. El docente puede descartar la alerta y anotar el motivo. El mensaje del alumno no se elimina.
+    El filtro está ajustado para menores y es deliberadamente estricto. El docente puede **Descartar** la alerta. El mensaje del alumno no se elimina ni se modifica.
   </Accordion>
 
-  <Accordion title="Una alerta de aprendizaje ha desaparecido de la lista de pendientes">
-    El alumno ha dominado el concepto y la alerta se ha resuelto automáticamente. Sigue siendo consultable filtrando por el estado Resuelta.
+  <Accordion title="Un bloqueo ha desaparecido de Sin atender">
+    El alumno ha dominado la habilidad y la alerta se ha resuelto automáticamente. Sigue siendo consultable en la pestaña Atendidas, con la etiqueta Resuelta.
   </Accordion>
 
   <Accordion title="Un alumno acumula varios mensajes marcados">
-    Cada mensaje genera su propia alerta. El docente puede filtrar por ese alumno para ver el conjunto y revisar las conversaciones correspondientes.
+    Cada mensaje genera su propia alerta. El docente puede filtrar por el grupo del alumno y recorrer sus alertas con Anterior y Siguiente, o abrir su ficha desde la cabecera del cajón.
   </Accordion>
 
-  <Accordion title="La bandeja está vacía">
-    No hay alertas para los cursos, alumnos y fechas seleccionados. También ocurre si los alumnos del docente no tienen Tangerine AI activo.
+  <Accordion title="El Radar está vacío o muestra datos extraños">
+    Si no hay alertas para los grupos y la categoría elegidos, aparece "¡Estás al día!". Si los datos no corresponden a los alumnos del docente, conviene comprobar que el interruptor **Datos de prueba** del pie del menú lateral está desactivado.
+  </Accordion>
+
+  <Accordion title="No aparece la sección Radar">
+    La editorial no tiene habilitado el radar, o el docente no tiene ningún grupo con un curso con Tangerine AI.
   </Accordion>
 
   <Accordion title="¿El alumno sabe que su mensaje ha sido marcado?">
-    El alumno recibe del tutor una indicación de que su mensaje no era apropiado y una propuesta para continuar con otro tema.
-
-    {/* CONFIRMAR UI: si el alumno recibe algún aviso adicional en la interfaz */}
+    El alumno solo recibe, del propio tutor, una respuesta que indica que su mensaje no era apropiado y propone seguir con otro tema. La interfaz no le muestra ninguna marca adicional.
   </Accordion>
 </AccordionGroup>
 
@@ -90,11 +119,11 @@ Desde una alerta de mensaje marcado, el docente puede abrir la conversación com
   </Card>
 
   <Card title="Progreso de un alumno" icon="user-check" href="/frontoffice-docentes/panel-ia/progreso-de-un-alumno">
-    Ficha del alumno con el detalle de los conceptos que se le resisten.
+    Ficha del alumno con el detalle de cada habilidad bloqueada.
   </Card>
 
   <Card title="Seguimiento del uso del tutor" icon="chart-line" href="/frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor">
-    Diagnóstico de la clase por lección.
+    Uso del tutor, conceptos consultados y calidad de uso.
   </Card>
 </CardGroup>
 
@@ -102,7 +131,9 @@ Desde una alerta de mensaje marcado, el docente puede abrir la conversación com
   METADATOS INTERNOS
 
   - Aplicación: frontoffice-docente
-  - Backend (tangerine-ai): GET /stats/annotations, GET /stats/annotations/:id, POST /stats/annotations/views, PATCH /stats/annotations/:id, GET /stats/flagged-messages, GET /stats/flagged-messages/types, GET /chat/teacher-review/conversations/:conversationId
-  - Umbral de alerta de grupo: 15 % de alumnos matriculados con alerta activa en el mismo concepto
+  - Ruta: /radar (RadarView, AlertDetailDrawer). Pestañas: Sin atender = PENDING; Atendidas = REVIEWED o RESOLVED; Descartadas = DISMISSED
+  - Backend (tangerine-ai): GET /stats/annotations, GET /stats/annotations/:id, POST /stats/annotations/views, PATCH /stats/annotations/:id (solo status; el campo notes no se expone en la UI), GET /chat/teacher-review/conversations/:conversationId
+  - No tienen UI: el tipo BEHAVIOR_PATTERN y los endpoints GET /stats/flagged-messages y /stats/flagged-messages/types
+  - Umbral de bloqueo de grupo: 15 % de alumnos matriculados con alerta activa en la misma habilidad
   - Última revisión: 2026-09-17
   */}

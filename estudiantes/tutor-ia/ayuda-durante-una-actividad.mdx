@@ -1,21 +1,30 @@
 ---
 title: "Ayuda durante una actividad"
-description: "El tutor acompaña al alumno mientras resuelve una actividad: conoce el enunciado y su respuesta, y le guía con pistas graduales sin resolverla"
+description: "El tutor acompaña al alumno mientras resuelve una actividad de práctica: se abre solo al fallar o al pulsar No lo sé, conoce el enunciado y la respuesta, y guía con pistas graduales sin resolverla"
+icon: "life-buoy"
 ---
 
 ## Descripción
 
-Mientras resuelve una actividad de una [práctica](/estudiantes/tutor-ia/practicas), el alumno puede abrir el tutor para pedir ayuda. A diferencia del chat general, en este modo el tutor conoce el enunciado de la actividad, los contenidos y conceptos que trabaja y la respuesta que el alumno ha escrito hasta ese momento. Con esa información le guía hacia la solución sin dársela.
+Mientras resuelve una actividad de una [práctica](/estudiantes/tutor-ia/practicas), el alumno cuenta con el tutor en modo práctica. A diferencia del chat general, en este modo el tutor conoce el enunciado de la actividad, los contenidos y habilidades que trabaja y la respuesta que el alumno ha dado. Con esa información le guía hacia la solución sin dársela.
 
 <Info>
   **Rol requerido:** Estudiante con Tangerine AI activo, dentro de una actividad de práctica.
 </Info>
 
-## Cómo acceder
+## Cómo se abre
 
-{/* CONFIRMAR UI: nombre y posición del acceso al tutor dentro del visor de actividades. Captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/actividad-ayuda.png */}
+No hay un botón específico del tutor en la actividad. El chat se abre de tres formas:
 
-El acceso al tutor está disponible dentro de la propia actividad. Cada actividad tiene su propia conversación, independiente del chat general.
+| Situación | Qué ocurre |
+| --- | --- |
+| El alumno pulsa **No lo sé** | El chat se abre y envía en su nombre el mensaje "No sé qué hacer. ¿Por dónde empiezo?" |
+| El alumno pulsa **Comprobar** y la respuesta es incorrecta | El chat se abre solo. En nombre del alumno aparece un mensaje como "Me equivoqué. ¿Puedes explicarme dónde está mi error?" y el tutor recibe la respuesta que ha dado |
+| El alumno pulsa el botón flotante de la mascota | El chat se abre vacío, en modo práctica, para preguntar lo que quiera sobre la actividad |
+
+{/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/actividad-ayuda-tras-fallo.png */}
+
+Mientras el tutor responde a un fallo, el botón **Siguiente** permanece deshabilitado para que el alumno lea la ayuda antes de avanzar. En este modo la cabecera del chat solo tiene el botón de cerrar: no hay **Nuevo chat** ni **Recientes**.
 
 ## Qué sabe el tutor en este modo
 
@@ -23,12 +32,8 @@ El acceso al tutor está disponible dentro de la propia actividad. Cada activida
 | --- | --- |
 | Enunciado de la actividad | Entiende qué se pide sin que el alumno tenga que copiarlo |
 | Contenidos relacionados | Busca la explicación en el material del que procede la actividad |
-| Conceptos que trabaja la actividad | Centra las pistas en el concepto concreto |
-| Respuesta actual del alumno | Detecta dónde está el error y orienta desde ahí |
-
-En algunos momentos de la actividad, el propio sistema puede iniciar la conversación con un mensaje del tutor sin que el alumno lo pida.
-
-{/* CONFIRMAR: en qué momentos se dispara el mensaje automático (por ejemplo tras un fallo) */}
+| Habilidades que trabaja la actividad | Centra las pistas en la habilidad concreta |
+| Respuesta del alumno, cuando ha fallado | Detecta dónde está el error y orienta desde ahí |
 
 ## Pistas graduales
 
@@ -48,33 +53,42 @@ El tutor nunca da el resultado. Sube la intensidad de la ayuda por niveles y sol
 
 Si el alumno responde sin razonar, por ejemplo "es la C", el tutor no confirma ni niega: le pide que explique por qué. Las reglas completas están en [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
 
+<Tip>
+  Tras un fallo, la combinación de **Ver solución** y la explicación del tutor es la más eficaz: la solución muestra el qué y el tutor ayuda a entender el por qué. Animar al alumno a preguntar "¿por qué esta es la correcta?" convierte cada error en aprendizaje.
+</Tip>
+
 ## Diferencias con el chat general
 
 | | Chat general | Ayuda durante una actividad |
 | --- | --- | --- |
 | Contexto | Los cursos del alumno | Una actividad concreta y su respuesta |
-| Búsqueda de contenido | Curso, cursos cercanos y, si la editorial lo permite, fuentes externas | Solo el material relacionado con la actividad |
-| Historial | Sí | No. La conversación queda ligada a la actividad |
+| Búsqueda de contenido | Curso, cursos cercanos y, si la editorial lo permite, fuentes web | Solo el material relacionado con la actividad |
+| Historial | Sí, en **Recientes** | No. La conversación queda ligada a la actividad |
+| Cabecera del chat | **Nuevo chat**, **Recientes** y **Cerrar** | Solo **Cerrar** |
 | Imágenes adjuntas | Sí | Sí |
-| Diagramas y visualizaciones | Sí | Sí |
+| Diagramas e interactivos | Sí | Sí |
 
 ## Situaciones especiales
 
 <AccordionGroup>
   <Accordion title="El alumno pide la respuesta directamente">
-    El tutor no la da, tampoco en el nivel 3 de pistas. Explica que el objetivo es entender, no acertar, y ofrece la siguiente pista.
+    El tutor no la da, tampoco en el nivel 3 de pistas. Explica que el objetivo es entender, no acertar, y ofrece la siguiente pista. El alumno siempre puede ver la solución con **Ver solución** después de comprobar.
   </Accordion>
 
-  <Accordion title="La conversación no aparece en el historial del chat">
+  <Accordion title="La conversación no aparece en Recientes">
     Es el comportamiento esperado. Las conversaciones de ayuda en actividades están ligadas a la actividad y no se listan en el historial del chat general.
   </Accordion>
 
-  <Accordion title="El alumno cambia de actividad">
-    Cada actividad tiene su propia conversación. Al pasar a la siguiente actividad, el tutor empieza de cero con el nuevo enunciado.
+  <Accordion title="El alumno pasa a la siguiente actividad">
+    El chat se cierra y la conversación se reinicia: cada actividad tiene su propio contexto y el tutor empieza de cero con el nuevo enunciado.
+  </Accordion>
+
+  <Accordion title="El botón No lo sé está deshabilitado">
+    El tutor no está disponible en ese momento, por ejemplo por un problema de conexión con el servicio. El alumno puede seguir resolviendo la actividad y comprobar la solución.
   </Accordion>
 
   <Accordion title="El tutor no encuentra contenido para ayudar">
-    En este modo el tutor solo busca en el material relacionado con la actividad. Si ese material es escaso, la ayuda se centra en el enunciado y en los conceptos de la actividad.
+    En este modo el tutor solo busca en el material relacionado con la actividad. Si ese material es escaso, la ayuda se centra en el enunciado y en las habilidades de la actividad.
   </Accordion>
 </AccordionGroup>
 
@@ -86,7 +100,7 @@ Si el alumno responde sin razonar, por ejemplo "es la C", el tutor no confirma n
   </Card>
 
   <Card title="Chat con tutor IA" icon="message-circle" href="/estudiantes/tutor-ia/chat-con-tutor-ia">
-    Conversación libre con el tutor fuera de una actividad.
+    Conversación con el tutor fuera de una actividad.
   </Card>
 </CardGroup>
 
@@ -94,6 +108,8 @@ Si el alumno responde sin razonar, por ejemplo "es la C", el tutor no confirma n
   METADATOS INTERNOS
 
   - Aplicación: frontoffice-estudiante
-  - Backend (tangerine-ai): POST /chat/practice, POST /chat/practice/:conversationId (modo PRACTICE_MODE)
+  - Ruta: /activities/sessions/:sessionId/activities/:activityInstanceId (el modo práctica se deriva de la URL)
+  - UI: ChatbotPracticeExercise y PracticeExerciseControls; el mensaje automático solo se envía tras una respuesta incorrecta; No lo sé envía un mensaje normal
+  - Backend (tangerine-ai): POST /chat/practice, POST /chat/practice/:conversationId (PRACTICE_MODE, campos studentResponse y automaticMessage)
   - Última revisión: 2026-09-17
   */}
