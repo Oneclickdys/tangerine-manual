@@ -190,7 +190,7 @@
       "featureFlags": ["is_tangerine_ai", "tool.* (visualizaciones y búsqueda ampliada activables por tenant)"],
       "relatedFeatures": ["ai/tutor-pedagogy", "ai/practice-sessions", "ai/activity-help"],
       "lastDocumented": null,
-      "notes": "Redactado a partir del backend tangerine-ai (STUDY_MODE) y verificado con la UI del frontoffice (literales de src/core/chatbot/i18n/es/chatbot.json). Incluye el repaso de quiz. Pendiente: screenshots y confirmar con ingeniería el prompt efectivo en producción."
+      "notes": "Redactado a partir del backend tangerine-ai (STUDY_MODE) y verificado con la UI del frontoffice (literales de src/core/chatbot/i18n/es/chatbot.json). El repaso de quiz tiene página propia (ai/quiz-revision). Screenshots incorporados desde el entorno latest. Pendiente: confirmar con ingeniería el prompt efectivo en producción."
     },
     "ai/tutor-pedagogy": {
       "name": "Cómo ayuda en el estudio el tutor",
@@ -217,7 +217,7 @@
       "section": "Tutor IA",
       "route": "/today y /my-progress (Mi espacio); banner del home y botón Mi espacio",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "complex-workflow",
       "docFile": "estudiantes/tutor-ia/practicas.mdx",
       "codeFiles": {
@@ -228,7 +228,7 @@
       "featureFlags": ["is_tangerine_ai"],
       "relatedFeatures": ["home/classrooms", "ai/activity-help"],
       "lastDocumented": null,
-      "notes": "Tipos de sesión: NEW y PRACTICE (tutor), STUDENT (alumno), KC (Áreas de mejora, volátil). Incluye la pantalla Mi progreso del alumno. La antigua caja Recomendaciones con Generar más ya no existe en el FE; ver-clases.mdx actualizado. Pendiente: screenshots."
+      "notes": "Tipos de sesión: NEW y PRACTICE (tutor), STUDENT (alumno), KC (Áreas de mejora, volátil). Mi progreso tiene página propia (ai/my-progress). La antigua caja Recomendaciones con Generar más ya no existe en el FE; ver-clases.mdx actualizado. Screenshots incorporados desde el entorno latest. Discrepancia de versión: el diálogo de temario en main renderiza Seleccionar todo y Limpiar, pero el entorno latest no los muestra; el texto evita mencionarlos hasta confirmar la versión objetivo."
     },
     "ai/activity-help": {
       "name": "Ayuda durante una actividad",
@@ -236,7 +236,7 @@
       "section": "Tutor IA",
       "route": "/activities/sessions/:sessionId/activities/:activityInstanceId",
       "priority": "P2",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "interactive-view",
       "docFile": "estudiantes/tutor-ia/ayuda-durante-una-actividad.mdx",
       "codeFiles": {
@@ -247,7 +247,7 @@
       "featureFlags": ["is_tangerine_ai"],
       "relatedFeatures": ["ai/practice-sessions", "ai/chat"],
       "lastDocumented": null,
-      "notes": "Modo PRACTICE_MODE. El chat se abre solo tras una respuesta incorrecta (mensaje automático) o al pulsar No lo sé. Pendiente: screenshots."
+      "notes": "Modo PRACTICE_MODE. El chat se abre solo tras una respuesta incorrecta (mensaje automático) o al pulsar No lo sé. Screenshots incorporados desde el entorno latest. Incidencia detectada en la captura: el tutor enumera las opciones correctas tras el fallo, en contra de las reglas del prompt (nunca revelar la respuesta); reportado al PM."
     },
     "ai/my-progress": {
       "name": "Mi progreso",
@@ -255,7 +255,7 @@
       "section": "Tutor IA",
       "route": "/my-progress y /my-progress/:courseId",
       "priority": "P2",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "interactive-view",
       "docFile": "estudiantes/tutor-ia/mi-progreso.mdx",
       "codeFiles": {
@@ -266,7 +266,7 @@
       "featureFlags": ["is_tangerine_ai"],
       "relatedFeatures": ["ai/practice-sessions", "ai/activity-help"],
       "lastDocumented": null,
-      "notes": "Extraída de ai/practice-sessions a petición del PM. Tramos de las frases de ánimo 5/20/50/75; IN_REVIEW se muestra como Lo dominas; Practicar solo en lecciones bloqueadas. Pendiente: screenshots."
+      "notes": "Extraída de ai/practice-sessions a petición del PM. Tramos de las frases de ánimo 5/20/50/75; IN_REVIEW se muestra como Lo dominas; Practicar solo en lecciones bloqueadas. Screenshots incorporados desde el entorno latest. Discrepancia de versión: las frases de ánimo del entorno latest no coinciden con las de main, por eso la página no las transcribe."
     },
     "ai/quiz-revision": {
       "name": "Resultados de un quiz",
