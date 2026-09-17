@@ -138,7 +138,9 @@
             "pages": [
               "frontoffice-docentes/panel-ia/panel-ia",
               "frontoffice-docentes/panel-ia/herramientas-de-ia",
-              "frontoffice-docentes/panel-ia/generar-actividades-con-ia"
+              "frontoffice-docentes/panel-ia/generar-actividades-con-ia",
+              "frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones",
+              "frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor"
             ]
           },
           {
