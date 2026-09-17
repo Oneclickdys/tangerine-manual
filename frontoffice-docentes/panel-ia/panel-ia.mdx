@@ -14,7 +14,7 @@ El Panel IA agrupa las funciones de inteligencia artificial disponibles para el 
 
 ## Cómo acceder
 
-El botón **Panel IA**, con icono de estrellas, aparece en la parte superior derecha de la cabecera, en cualquier pantalla de la plataforma. Al pulsarlo se abre el panel en la primera sección disponible para ese docente: Radar y, si no está activa, Herramientas IA o Panel de analítica.
+El botón **Panel IA**, con icono de estrellas, aparece en la parte superior derecha de la cabecera. Al pulsarlo se abre el panel en la primera sección disponible para ese docente: Radar, que se explica a continuación.
 
 {/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/panel-ia-boton-cabecera.png y panel-ia-menu-lateral.png */}
 
@@ -32,7 +32,7 @@ El botón de volver, en la parte superior del panel, devuelve a la pantalla de i
 
 ## Enviar feedback sobre el tutor
 
-Al pie del menú lateral, el bloque "¿Echas algo en falta? Cuéntanoslo." con el botón **Dar feedback** abre el diálogo **Comparte tu feedback**, con la categoría **Sugerencia de mejora**, **Error** u **Otro** y el campo **Cuéntanos más**. El envío llega al equipo responsable del tutor.
+Al pie del menú lateral, el bloque "¿Echas algo en falta? Cuéntanoslo." con el botón **Dar feedback** abre el diálogo **Comparte tu feedback**, con la categoría **Sugerencia de mejora**, **Error** u **Otro** y el campo **Cuéntanos más**. El envío llega al equipo de producto de Tangerine IA.
 
 ## Configuración y variantes
 
@@ -40,16 +40,35 @@ Al pie del menú lateral, el bloque "¿Echas algo en falta? Cuéntanoslo." con e
   Para que un docente vea el botón Panel IA se necesitan tres cosas: que su cuenta tenga Tangerine AI activo, que al menos una de las secciones esté habilitada para la editorial, y que el curso en el que está no pertenezca a un ciclo escolar ya cerrado.
 </Note>
 
-| Sección | Se muestra cuando |
-| --- | --- |
-| Radar y Estudiantes | La editorial tiene activado el radar y el docente tiene al menos un grupo con un curso con Tangerine AI |
-| Panel de analítica | La editorial tiene activada la analítica y el docente tiene al menos un grupo con un curso con Tangerine AI |
-| Herramientas IA e Historial de creaciones | La editorial tiene activadas las herramientas de IA. No dependen de que los alumnos usen el tutor |
-
-Los cursos disponen del tutor cuando su programa digital tiene marcada la opción **Activar Tangerine AI** en el Backoffice. Ver [Crear Programa Digital](/backoffice/programas-digitales/crear-programa).
+<table>
+  <colgroup>
+    <col width="324" />
+    <col width="325" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Sección</th>
+      <th>Se muestra cuando</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Radar y Estudiantes</td>
+      <td>La editorial tiene activado el radar y el docente tiene al menos un grupo con un programa con IA activada</td>
+    </tr>
+    <tr>
+      <td>Panel de analítica</td>
+      <td>La editorial tiene activada la analítica y el docente tiene al menos un grupo con un programa con IA activada</td>
+    </tr>
+    <tr>
+      <td>Herramientas IA e Historial de creaciones</td>
+      <td>La editorial tiene activadas las herramientas de IA. No dependen de que los alumnos usen el tutor</td>
+    </tr>
+  </tbody>
+</table>
 
 <Note>
-  El docente no tiene chat con el tutor: el botón flotante de la mascota es exclusivo del alumnado. Su único chat con la IA es el panel lateral de las Herramientas IA.
+  El docente no tiene chat con el tutor: el botón flotante del robot es exclusivo del alumnado. Su único chat con la IA es para iterar los documentos generados con las herramientas de IA.
 </Note>
 
 ## Situaciones especiales
@@ -60,7 +79,7 @@ Los cursos disponen del tutor cuando su programa digital tiene marcada la opció
   </Accordion>
 
   <Accordion title="Faltan secciones en el menú lateral">
-    Cada sección depende de su activación por la editorial. Radar, Estudiantes y Panel de analítica requieren además que el docente tenga algún grupo con un curso con Tangerine AI; si ninguno de sus grupos lo tiene, esas tres secciones no aparecen.
+    Cada sección depende de su activación por la editorial. Radar, Estudiantes y Panel de analítica requieren además que el docente tenga algún grupo con un programa con IA activa; si ninguno de sus grupos lo tiene, esas tres secciones no aparecen.
   </Accordion>
 
   <Accordion title="Los datos de Radar o del Panel de analítica no corresponden a mis alumnos">
