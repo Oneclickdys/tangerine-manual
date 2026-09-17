@@ -135,7 +135,9 @@
           },
           {
             "group": "Panel IA",
-            "pages": []
+            "pages": [
+              "frontoffice-docentes/panel-ia/panel-ia"
+            ]
           },
           {
             "group": "Curso",

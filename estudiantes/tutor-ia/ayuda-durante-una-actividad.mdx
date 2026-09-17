@@ -2,3 +2,98 @@
 title: "Ayuda durante una actividad"
 description: "El tutor acompaña al alumno mientras resuelve una actividad: conoce el enunciado y su respuesta, y le guía con pistas graduales sin resolverla"
 ---
+
+## Descripción
+
+Mientras resuelve una actividad de una [práctica](/estudiantes/tutor-ia/practicas), el alumno puede abrir el tutor para pedir ayuda. A diferencia del chat general, en este modo el tutor conoce el enunciado de la actividad, los contenidos y conceptos que trabaja y la respuesta que el alumno ha escrito hasta ese momento. Con esa información le guía hacia la solución sin dársela.
+
+<Info>
+  **Rol requerido:** Estudiante con Tangerine AI activo, dentro de una actividad de práctica.
+</Info>
+
+## Cómo acceder
+
+{/* CONFIRMAR UI: nombre y posición del acceso al tutor dentro del visor de actividades. Captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/actividad-ayuda.png */}
+
+El acceso al tutor está disponible dentro de la propia actividad. Cada actividad tiene su propia conversación, independiente del chat general.
+
+## Qué sabe el tutor en este modo
+
+| Información | Uso que le da |
+| --- | --- |
+| Enunciado de la actividad | Entiende qué se pide sin que el alumno tenga que copiarlo |
+| Contenidos relacionados | Busca la explicación en el material del que procede la actividad |
+| Conceptos que trabaja la actividad | Centra las pistas en el concepto concreto |
+| Respuesta actual del alumno | Detecta dónde está el error y orienta desde ahí |
+
+En algunos momentos de la actividad, el propio sistema puede iniciar la conversación con un mensaje del tutor sin que el alumno lo pida.
+
+{/* CONFIRMAR: en qué momentos se dispara el mensaje automático (por ejemplo tras un fallo) */}
+
+## Pistas graduales
+
+El tutor nunca da el resultado. Sube la intensidad de la ayuda por niveles y solo avanza al siguiente si el alumno sigue atascado:
+
+<Steps>
+  <Step title="Nivel 1: reflexión">
+    Una pregunta que dirige la atención al punto clave, sin nombrar el método. "¿Qué te dice el enunciado sobre las unidades?"
+  </Step>
+  <Step title="Nivel 2: pista concreta">
+    Una indicación sobre el siguiente paso, todavía sin nombrar el método. "Fíjate en que los dos denominadores son múltiplos de 4."
+  </Step>
+  <Step title="Nivel 3: el método">
+    Nombra el concepto o procedimiento que hay que aplicar, pero nunca el resultado final. "Aquí necesitas el mínimo común múltiplo. ¿Cuál sería?"
+  </Step>
+</Steps>
+
+Si el alumno responde sin razonar, por ejemplo "es la C", el tutor no confirma ni niega: le pide que explique por qué. Las reglas completas están en [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
+
+## Diferencias con el chat general
+
+| | Chat general | Ayuda durante una actividad |
+| --- | --- | --- |
+| Contexto | Los cursos del alumno | Una actividad concreta y su respuesta |
+| Búsqueda de contenido | Curso, cursos cercanos y, si la editorial lo permite, fuentes externas | Solo el material relacionado con la actividad |
+| Historial | Sí | No. La conversación queda ligada a la actividad |
+| Imágenes adjuntas | Sí | Sí |
+| Diagramas y visualizaciones | Sí | Sí |
+
+## Situaciones especiales
+
+<AccordionGroup>
+  <Accordion title="El alumno pide la respuesta directamente">
+    El tutor no la da, tampoco en el nivel 3 de pistas. Explica que el objetivo es entender, no acertar, y ofrece la siguiente pista.
+  </Accordion>
+
+  <Accordion title="La conversación no aparece en el historial del chat">
+    Es el comportamiento esperado. Las conversaciones de ayuda en actividades están ligadas a la actividad y no se listan en el historial del chat general.
+  </Accordion>
+
+  <Accordion title="El alumno cambia de actividad">
+    Cada actividad tiene su propia conversación. Al pasar a la siguiente actividad, el tutor empieza de cero con el nuevo enunciado.
+  </Accordion>
+
+  <Accordion title="El tutor no encuentra contenido para ayudar">
+    En este modo el tutor solo busca en el material relacionado con la actividad. Si ese material es escaso, la ayuda se centra en el enunciado y en los conceptos de la actividad.
+  </Accordion>
+</AccordionGroup>
+
+## Relacionado
+
+<CardGroup cols={2}>
+  <Card title="Prácticas" icon="dumbbell" href="/estudiantes/tutor-ia/practicas">
+    Cómo se generan y se resuelven las sesiones de actividades.
+  </Card>
+
+  <Card title="Chat con tutor IA" icon="message-circle" href="/estudiantes/tutor-ia/chat-con-tutor-ia">
+    Conversación libre con el tutor fuera de una actividad.
+  </Card>
+</CardGroup>
+
+{/*
+  METADATOS INTERNOS
+
+  - Aplicación: frontoffice-estudiante
+  - Backend (tangerine-ai): POST /chat/practice, POST /chat/practice/:conversationId (modo PRACTICE_MODE)
+  - Última revisión: 2026-09-17
+  */}
