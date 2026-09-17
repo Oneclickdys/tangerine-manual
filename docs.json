@@ -134,6 +134,10 @@
             ]
           },
           {
+            "group": "Panel IA",
+            "pages": []
+          },
+          {
             "group": "Curso",
             "pages": [
               "frontoffice-docentes/curso/vista-curso",
@@ -213,6 +217,12 @@
               "estudiantes/evaluaciones/responder-evaluacion",
               "estudiantes/evaluaciones/responder-quiz",
               "estudiantes/evaluaciones/resultados-estudiante"
+            ]
+          },
+          {
+            "group": "Tutor IA",
+            "pages": [
+              "estudiantes/tutor-ia/chat-con-tutor-ia"
             ]
           },
           {
