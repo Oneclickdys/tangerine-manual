@@ -16,7 +16,7 @@ La sección **Radar** del Panel IA reúne lo que merece la atención del docente
 
 Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Radar**. Es la primera sección del menú lateral y la que se abre por defecto al pulsar el botón Panel IA.
 
-{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/radar-lista.png, radar-detalle-bloqueo.png y radar-detalle-conversacion.png */}
+![Sección Radar con la lista de alertas sin atender, los filtros de clase y categoría y el orden por relevancia](/assets/screenshots/frontoffice-docente/panel-ia/radar-lista.png)
 
 ## Tipos de alerta
 
@@ -24,7 +24,7 @@ El selector de categoría muestra **Todas las categorías** o filtra por una:
 
 | Categoría | Qué la genera | Cómo se resuelve |
 | --- | --- | --- |
-| **Bloqueos del aprendizaje** | Un alumno necesita muchos más intentos de lo habitual para una habilidad o vuelve a fallar una habilidad que ya tenía encaminada. La tarjeta indica la habilidad y el número de intentos. | Se resuelve sola cuando el alumno domina la habilidad. El docente también puede marcarla como atendida o descartarla. |
+| **Bloqueos del aprendizaje** | Un alumno necesita muchos más intentos de lo habitual para una habilidad o vuelve a fallar una habilidad que ya tenía encaminada. La tarjeta indica la habilidad y su lugar en el programa. | Se resuelve sola cuando el alumno domina la habilidad. El docente también puede marcarla como atendida o descartarla. |
 | **Bloqueos del grupo** | Más del 15 % de los alumnos matriculados en el curso tienen un bloqueo activo en la misma habilidad. La tarjeta indica el grupo y cuántos alumnos están afectados. | Se actualiza y se resuelve sola según evoluciona el grupo. Si el grupo vuelve a superar el umbral, se reactiva. |
 | **Uso inapropiado del tutor** | El filtro de contenido ha detectado un mensaje o una imagen inapropiados de un alumno en cualquier modo del tutor. La tarjeta muestra el mensaje y su categoría. | El docente la revisa o la descarta. |
 
@@ -43,13 +43,13 @@ Las categorías de un mensaje marcado son las del filtro de contenido: Autolesio
 - **Orden**: **Ordenar por relevancia**, **Ordenar por fecha: nuevos primero** u **Ordenar por fecha: antiguos primero**.
 - **Marcar todo como leído**: quita la marca de no leído a todas las alertas visibles. Abrir una alerta también la marca como leída para ese docente.
 
-Cada tarjeta muestra el alumno o el grupo, el contenido con el prefijo **Mensaje:** o **Habilidad:**, la **Relevancia** Alta, Media o Baja, y en las atendidas o descartadas quién lo hizo, con **ATENDIDO POR** o **DESCARTADO POR**.
+Cada tarjeta muestra el alumno o el grupo, el contenido con el prefijo **Mensaje:** o **Habilidad:**, la **Relevancia** Alta, Media o Baja, la fecha y, en las atendidas o descartadas, quién lo hizo, con **ATENDIDO POR** o **DESCARTADO POR**. Los bloqueos individuales y de grupo llevan la etiqueta **Bloqueo de aprendizaje**; los mensajes marcados, la etiqueta **Uso inapropiado** seguida de su categoría.
 
 Estados vacíos: "¡Estás al día! No tienes alertas pendientes de revisar.", "Sin alertas atendidas. Aquí aparecerán las alertas que marques como atendidas." y "Sin alertas descartadas. Aquí aparecerán las alertas que descartes."
 
 ## Revisar una alerta
 
-Al pulsar una tarjeta se abre el cajón de detalle, con botones **Anterior** y **Siguiente** para recorrer la lista sin cerrarlo. La cabecera muestra al alumno. Al pulsar su nombre se abre su [ficha de progreso](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
+Al pulsar una tarjeta se abre el cajón de detalle, con un contador de posición y botones **Anterior** y **Siguiente** para recorrer la lista sin cerrarlo. La cabecera muestra al alumno, o al grupo en los bloqueos del grupo, y la fecha de la alerta. Al pulsar el nombre del alumno se abre su [ficha de progreso](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
 
 ### Bloqueo del aprendizaje
 
@@ -62,11 +62,15 @@ El detalle explica que "El estudiante presenta dificultades persistentes y ha ne
 
 ### Bloqueo del grupo
 
-Indica que "El grupo presenta dificultades persistentes en la misma habilidad.", el porcentaje de alumnos bloqueados y la lista de **Alumnos afectados** con sus actividades correctas.
+Muestra la habilidad y las lecciones en que se trabaja, el aviso con el porcentaje del grupo bloqueado, como "El 80% de los estudiantes están bloqueados", y el desplegable **Alumnos afectados** con el recuento sobre el total de alumnos.
+
+![Cajón de detalle de un bloqueo del grupo con el porcentaje de alumnos bloqueados, el desplegable Alumnos afectados y los botones Descartar y Marcar como atendido](/assets/screenshots/frontoffice-docente/panel-ia/radar-detalle-bloqueo.png)
 
 ### Uso inapropiado del tutor
 
 El cuerpo del cajón es la conversación completa del alumno con el tutor, en modo lectura. El cajón se desplaza solo hasta el mensaje marcado, que aparece resaltado con sus categorías, para que el docente entienda el contexto antes de decidir.
+
+![Cajón de detalle de un uso inapropiado con la conversación del alumno, el mensaje marcado resaltado con su categoría y la respuesta del tutor](/assets/screenshots/frontoffice-docente/panel-ia/radar-detalle-conversacion.png)
 
 <Warning>
   Las conversaciones con el tutor son del alumno. El acceso del docente existe para su acompañamiento y seguridad. El centro debería acordar con las familias cómo se usa esta información.
