@@ -1,7 +1,10 @@
 ---
 title: "Chat con tutor IA"
 description: "Conversación con el tutor de IA desde cualquier pantalla: dudas sobre los contenidos asignados, imágenes, diagramas e interactivos, lectura en voz alta, historial y reporte de respuestas"
-icon: "message-circle"
+icon:
+  name: "rocketchat"
+  style: "regular"
+  library: "fontawesome"
 ---
 
 ## Descripción
@@ -16,16 +19,14 @@ El tutor está pensado para alumnos de entre 10 y 18 años. Responde en el idiom
 
 ## Cómo acceder
 
-El tutor se abre desde el botón flotante con la mascota que aparece en la esquina de cualquier pantalla de la plataforma: inicio, curso, lección, visor de contenidos, Hoy o Mi progreso. El botón no lleva texto. Su nombre accesible es "Abrir asistente de chat". Dentro del visor de contenidos hay además un botón **Abrir chat** junto al título del recurso que abre el mismo panel.
+El tutor se abre desde el botón flotante con la mascota que aparece en la esquina de cualquier pantalla de la plataforma: inicio, curso, lección, visor de contenidos, Hoy o Mi progreso. El botón no lleva texto. Su nombre accesible es "Abrir asistente de chat".
 
 Al pulsarlo se despliega un panel lateral derecho sobre la pantalla actual, que el alumno puede ensanchar arrastrando su borde. El panel se cierra con el botón **Cerrar** de la cabecera.
 
-![Visor de contenidos con el botón Abrir chat junto al título y la mascota flotante en la esquina inferior derecha](/assets/screenshots/frontoffice-estudiante/tutor-ia/chat-boton-flotante.png)
-
-![Panel del tutor abierto a la derecha del visor con el mensaje de bienvenida y la caja para escribir](/assets/screenshots/frontoffice-estudiante/tutor-ia/chat-panel-abierto.png)
+{/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/chat-boton-flotante.png y chat-panel-abierto.png */}
 
 <Note>
-  Si el alumno abre el chat dentro de un curso o de una lección, el tutor recibe ese curso como contexto y prioriza sus contenidos. Desde la pantalla de inicio, Hoy o Mi progreso, la conversación no está ligada a ningún curso concreto.
+  Si el alumno abre el chat dentro de un curso o de una lección, el tutor recibe ese programa como contexto y prioriza sus contenidos. Desde la pantalla de inicio, Hoy o Mi progreso, la conversación no está ligada a ningún curso concreto.
 </Note>
 
 El botón no aparece en las pantallas de acceso y legales ni en la pantalla de resumen de una práctica. En los resultados de un quiz el chat se abre solo, en modo repaso.
@@ -36,16 +37,16 @@ El botón no aparece en las pantallas de acceso y legales ni en la pantalla de r
 
 <Steps>
   <Step title="Leer la bienvenida y escribir">
-    El tutor saluda con "¡Hola! cuenta conmigo para ayudarte en lo que necesites ¿Con qué empezamos?". El alumno escribe su duda en la caja **Escribe...** y la envía con el botón **Enviar mensaje**.
+    El tutor saluda con "¡Hola! Cuenta conmigo para ayudarte en lo que necesites. ¿Con qué empezamos?" El alumno escribe su duda en la caja **Escribe...** y la envía mediante el botón **Enviar mensaje**.
 
     Cuanto más concreta es la pregunta, más precisa es la ayuda. Si la pregunta es vaga, el tutor pide una aclaración antes de buscar en el material.
   </Step>
   <Step title="Seguir la respuesta en directo">
-    Mientras el tutor trabaja aparecen indicadores como "Buscando en los materiales del curso...", "Generando diagrama..." o "Creando interactivo...". La respuesta se escribe a medida que se genera. El tutor no resuelve el ejercicio. Explica el concepto, propone una pista o formula una pregunta para que el alumno dé el siguiente paso.
+    Mientras el tutor trabaja, aparecen indicadores como "Buscando en los materiales del curso...", "Generando diagrama..." o "Creando interactivo...". La respuesta se escribe a medida que se genera. El tutor no resuelve el ejercicio: explica el concepto, propone una pista o formula una pregunta para que el alumno dé el siguiente paso. Mientras el tutor trabaja aparecen indicadores como "Buscando en los materiales del curso...", "Generando diagrama..." o "Creando interactivo...". La respuesta se escribe a medida que se genera. El tutor no resuelve el ejercicio. Explica el concepto, propone una pista o formula una pregunta para que el alumno dé el siguiente paso.
 
-    Cuando la respuesta se apoya en material, muestra al pie el bloque **Fuente:**, que el alumno puede plegar con **Mostrar menos**. Bajo el rótulo **Curso:** enlaza los contenidos del curso en que se ha basado. Si ha recurrido a fuentes web, aparecen bajo el rótulo **Web**.
+    Cuando la respuesta se apoya en material, muestra el bloque **Fuentes:** con los chips **Libro** o **Web**, que indican de dónde procede la información.
 
-    ![Respuesta del tutor sobre la recta numérica con el bloque Fuente y el enlace al contenido del curso](/assets/screenshots/frontoffice-estudiante/tutor-ia/chat-respuesta-fuentes.png)
+    {/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/chat-respuesta-fuentes.png */}
   </Step>
   <Step title="Empezar otra conversación o retomar una anterior">
     El botón **Nuevo chat** de la cabecera abre una conversación vacía. El botón **Recientes** despliega el historial.
@@ -84,7 +85,7 @@ Cuando el alumno los pide, el tutor genera apoyos visuales dentro de la conversa
 | Tipo | Cómo aparece | Ejemplos |
 | --- | --- | --- |
 | **Diagrama** | Tarjeta con el botón **Ver**, que abre el esquema a pantalla completa con la opción **Descargar imagen** | Diagramas de flujo, mapas conceptuales, líneas de tiempo, gráficos de sectores |
-| **Interactivo** | Tarjeta con el botón **Ver**, que abre una visualización manipulable | Recta numérica, probabilidad, gráficas de funciones, construcciones geométricas, modelos 3D como órbitas o fases lunares |
+| **Interactivo**<br /><br />(Próximamente) | Tarjeta con el botón **Ver**, que abre una visualización manipulable | Recta numérica, probabilidad, gráficas de funciones, construcciones geométricas, modelos 3D como órbitas o fases lunares |
 
 Una vez generado el apoyo visual, el tutor retoma la guía con una pregunta para comprobar la comprensión.
 
@@ -103,7 +104,7 @@ Bajo cada respuesta del tutor aparecen estas acciones:
 | **Me ha sido útil** / **No me ha sido útil** | Valoración rápida de la respuesta. Se registra como dato de uso y no genera ningún aviso |
 | **Reportar mensaje** | Abre el formulario de reporte descrito a continuación |
 
-El mensaje de bienvenida solo ofrece **Copiar mensaje** y **Leer en voz alta**. Mientras una respuesta se está generando no aparece ninguna acción.
+Estas acciones no aparecen en el mensaje de bienvenida ni mientras la respuesta se está generando.
 
 ### Reportar una respuesta
 
@@ -119,7 +120,7 @@ Puede añadir un comentario en **Describe el problema (opcional)** y pulsar **En
 
 ### Consultar el historial
 
-El botón **Recientes** despliega las diez conversaciones más recientes del alumno, con su título y fecha. Al pulsar una se recuperan todos los mensajes y las imágenes adjuntas, y el alumno puede continuar donde la dejó. Si no hay ninguna, muestra "No hay conversaciones aún. ¡Comienza un nuevo chat para empezar!".
+El botón **Recientes** despliega las diez conversaciones más recientes del alumno, con su título y fecha. Al pulsar una vez, se recuperan todos los mensajes y las imágenes adjuntas, y el alumno puede continuar donde lo dejó. Si no hay ninguna, muestra "No hay conversaciones aún. ¡Comienza un nuevo chat para empezar!".
 
 <Note>
   Solo el chat general se guarda en el historial. Las conversaciones de [ayuda durante una actividad](/estudiantes/tutor-ia/ayuda-durante-una-actividad) y de repaso de quiz están ligadas a la actividad o a la pregunta y no aparecen en esta lista. Las conversaciones no se pueden borrar desde la interfaz.
@@ -142,7 +143,7 @@ En los cursos con Tangerine AI, al abrir los resultados de un quiz evaluado el c
 | Capacidad | Comportamiento |
 | --- | --- |
 | Búsqueda ampliada | Si no encuentra la respuesta en el curso del alumno, el tutor puede buscar en los materiales de cursos cercanos de la misma asignatura. |
-| Fuentes web | Solo si la editorial lo permite, y como último recurso cuando el material propio no cubre la pregunta. Las respuestas que la usan lo indican con el rótulo **Web** en el bloque de fuentes. |
+| Fuentes web | Solo si la editorial lo permite, y como último recurso cuando el material propio no cubre la pregunta. Las respuestas que la usan lo indican con el chip **Web** en las fuentes. |
 | Diagramas e interactivos | Cada tipo puede activarse o desactivarse por separado. |
 | Mascota | La imagen del botón flotante cambia según la marca de la editorial. |
 
