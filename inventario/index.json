@@ -79,9 +79,9 @@
       "P4": 0
     },
     "byStatus": {
-      "documented": 82,
+      "documented": 85,
       "pending": 11,
-      "in_progress": 12,
+      "in_progress": 9,
       "needs_review": 0,
       "blocked": 0
     },
