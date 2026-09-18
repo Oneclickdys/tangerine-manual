@@ -16,7 +16,9 @@ Cuando el docente evalúa un quiz de un curso con Tangerine AI, el alumno recibe
 
 El alumno abre los resultados del quiz desde la lección o desde sus tareas entregadas, como en cualquier evaluación. Ver [Ver Resultados](/estudiantes/evaluaciones/resultados-estudiante). En los cursos con Tangerine AI la pantalla cambia. En lugar de la lista clásica de preguntas muestra el bloque **Mis respuestas:** con una bolita numerada por pregunta y el botón **Ver mis resultados**.
 
-{/* TODO captura: /assets/screenshots/frontoffice-estudiante/tutor-ia/quiz-resultados-bolitas.png y quiz-pregunta-con-tutor.png */}
+Sobre las bolitas, la cabecera resume el quiz: nota, fecha de entrega, entrega tardía, duración y número de preguntas. Debajo pueden aparecer los comentarios de la evaluación, en los bloques **¿Qué tiene de bueno esta tarea?** y **Cosas que podrías mejorar**.
+
+![Resultados de un quiz con la nota, el bloque Mis respuestas con una bolita por pregunta y el botón Ver mis resultados](/assets/screenshots/frontoffice-estudiante/tutor-ia/quiz-resultados-bolitas.png)
 
 <Note>
   El repaso solo aparece cuando el quiz está evaluado. Mientras el docente no lo evalúe, la pantalla de resultados es la clásica, sin tutor.
@@ -35,10 +37,12 @@ El alumno abre los resultados del quiz desde la lección o desde sus tareas entr
     El botón **Ver mis resultados** abre la primera pregunta que el alumno aún no ha revisado. También puede pulsar cualquier bolita para ir a esa pregunta.
   </Step>
   <Step title="Leer el repaso del tutor">
-    La pantalla muestra la pregunta, la respuesta que dio el alumno y la solución. El chat del tutor se abre solo con un mensaje de repaso sobre esa pregunta: qué se preguntaba, qué respondió y por qué era o no correcto. Si la pregunta tenía imágenes, el tutor las ha tenido en cuenta.
+    La pantalla muestra la pregunta con la respuesta del alumno marcada, su puntuación y el botón **Ver solución**. El chat del tutor se abre solo, con la etiqueta **Modo revisión**, y muestra un mensaje de repaso sobre esa pregunta: qué se preguntaba, qué respondió y por qué era o no correcto. Si la pregunta tenía imágenes, el tutor las ha tenido en cuenta. Bajo el mensaje, el desplegable **Comentarios de tu tutor IA** amplía la explicación.
+
+    ![Pregunta fallada de un quiz con la respuesta del alumno marcada, el botón Ver solución y el chat del tutor en Modo revisión a la derecha](/assets/screenshots/frontoffice-estudiante/tutor-ia/quiz-pregunta-con-tutor.png)
   </Step>
   <Step title="Seguir preguntando">
-    El alumno responde al tutor en el mismo chat para aclarar dudas sobre esa pregunta, adjuntar una imagen o pedir un esquema. El tutor sigue las mismas reglas que siempre. Guía con preguntas y no repite la solución sin más. Ver [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
+    El alumno responde al tutor en el mismo chat para aclarar dudas sobre esa pregunta, adjuntar una imagen o pedir un esquema, o envía una de las preguntas de seguimiento que el tutor le propone, como "¿Puedes profundizar en esta explicación?". El tutor sigue las mismas reglas que siempre. Guía con preguntas y no repite la solución sin más. Ver [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
   </Step>
   <Step title="Pasar a la siguiente pregunta">
     El paginador de la pantalla recorre las preguntas en orden. Al cambiar de pregunta, el chat se cierra y se abre con la conversación de la nueva. Cada pregunta tiene su propia conversación.
@@ -56,7 +60,7 @@ El alumno abre los resultados del quiz desde la lección o desde sus tareas entr
 | Contexto | Conoce el enunciado, las opciones, la respuesta del alumno y la solución de esa pregunta. Si la pregunta incluye imágenes, también las ve |
 | Primer mensaje | Lo genera el tutor al abrir la pregunta por primera vez, sin que el alumno escriba nada |
 | Material | Busca en los contenidos del curso para explicar el concepto que hay detrás de la pregunta |
-| Cabecera del chat | Solo el botón de cerrar. No hay **Nuevo chat** ni **Recientes** |
+| Cabecera del chat | La etiqueta **Modo revisión** y el botón de cerrar. No hay **Nuevo chat** ni **Recientes** |
 | Historial | La conversación queda ligada a la pregunta y no aparece en **Recientes** |
 | Botón flotante | En esta pantalla no se muestra, porque el chat se abre solo |
 

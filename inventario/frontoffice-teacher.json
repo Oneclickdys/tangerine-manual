@@ -358,7 +358,7 @@
       "section": "Panel IA",
       "route": "Botón Panel IA en la cabecera; abre /radar, /teacher-tools o /analytics",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "interactive-view",
       "docFile": "frontoffice-docentes/panel-ia/panel-ia.mdx",
       "codeFiles": {
@@ -369,7 +369,7 @@
       "featureFlags": ["user.is_tangerine_ai", "feature.teacher_radar", "feature.teacher_analytics_panel", "feature.teacher_ai_tools"],
       "relatedFeatures": ["ai/tools", "ai/generate-activity", "ai/alerts", "ai/usage-stats", "ai/student-progress"],
       "lastDocumented": null,
-      "notes": "Sustituye a la antigua entrada ai/tools (P3, pending). Menú lateral Tutor IA: Radar, Estudiantes, Panel de analítica, Herramientas IA, Historial de creaciones. Pendiente: screenshots."
+      "notes": "Sustituye a la antigua entrada ai/tools (P3, pending). Menú lateral Tutor IA: Radar, Estudiantes, Panel de analítica, Herramientas IA, Historial de creaciones. Screenshots incorporados desde el entorno latest."
     },
     "ai/tools": {
       "name": "Herramientas de IA",
@@ -377,7 +377,7 @@
       "section": "Panel IA",
       "route": "/teacher-tools",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "editor",
       "docFile": "frontoffice-docentes/panel-ia/herramientas-de-ia.mdx",
       "codeFiles": {
@@ -388,7 +388,7 @@
       "featureFlags": ["feature.teacher_ai_tools"],
       "relatedFeatures": ["ai/panel", "ai/generate-activity", "lesson/view"],
       "lastDocumented": null,
-      "notes": "9 tarjetas: 8 con canvas más el Generador de preguntas. Flujo común y catálogo en una sola página; dividir cuando la UI enlace ayuda por herramienta o la página supere ~400 líneas. Canvas: Copiar contenido y Exportar como PDF. Pendiente: screenshots. Hallazgo: los endpoints de herramientas no comprueban rol docente en backend."
+      "notes": "9 tarjetas: 8 con canvas más el Generador de preguntas. Flujo común y catálogo en una sola página; dividir cuando la UI enlace ayuda por herramienta o la página supere ~400 líneas. Canvas: Copiar contenido y Exportar como PDF. Hallazgo: los endpoints de herramientas no comprueban rol docente en backend. Screenshots incorporados desde el entorno latest. El acordeón Más detalles (opcionales) solo aparece en las herramientas con varios campos opcionales."
     },
     "ai/generate-activity": {
       "name": "Generar actividades con IA",
@@ -396,7 +396,7 @@
       "section": "Panel IA",
       "route": "/course/:courseGuid/lesson/:lessonGuid/add/TEST (Complementar quiz con IA); editor del quiz (Nueva actividad con IA); Generador de preguntas en /teacher-tools",
       "priority": "P2",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "simple-form",
       "docFile": "frontoffice-docentes/panel-ia/generar-actividades-con-ia.mdx",
       "codeFiles": {
@@ -407,7 +407,7 @@
       "featureFlags": ["course.has_tangerine_ai", "features.teacher-plan"],
       "relatedFeatures": ["assessment/create", "course/resources", "ai/tools"],
       "lastDocumented": null,
-      "notes": "Único endpoint de IA con rol TEACHER explícito. El FE soporta 11 tipos de actividad (essay, uploadfile y audiorecorder no). Sin selector de dificultad. No existe indicador de IA en Recursos del curso; la etiqueta Generada con IA está en el editor del quiz. Pendiente: screenshots."
+      "notes": "Único endpoint de IA con rol TEACHER explícito. El FE soporta 11 tipos de actividad (essay, uploadfile y audiorecorder no). Sin selector de dificultad. No existe indicador de IA en Recursos del curso; la etiqueta Generada con IA está en el editor del quiz. Screenshots incorporados desde el entorno latest."
     },
     "ai/alerts": {
       "name": "Alertas y revisión de conversaciones",
@@ -415,7 +415,7 @@
       "section": "Panel IA",
       "route": "/radar",
       "priority": "P1",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "interactive-view",
       "docFile": "frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones.mdx",
       "codeFiles": {
@@ -426,7 +426,7 @@
       "featureFlags": ["feature.teacher_radar"],
       "relatedFeatures": ["ai/student-progress", "ai/usage-stats"],
       "lastDocumented": null,
-      "notes": "Sección Radar. Categorías: Bloqueos del aprendizaje, Bloqueos del grupo, Uso inapropiado del tutor. Pestañas Sin atender, Atendidas (REVIEWED o RESOLVED) y Descartadas. Sin campo de notas ni BEHAVIOR_PATTERN en la UI. Umbral de grupo 15 %. Pendiente: criterio exacto del bloqueo individual y screenshots."
+      "notes": "Sección Radar. Categorías: Bloqueos del aprendizaje, Bloqueos del grupo, Uso inapropiado del tutor. Pestañas Sin atender, Atendidas (REVIEWED o RESOLVED) y Descartadas. Sin campo de notas ni BEHAVIOR_PATTERN en la UI. Umbral de grupo 15 %. Pendiente: criterio exacto del bloqueo individual y screenshots. Screenshots incorporados desde el entorno latest con el interruptor Datos de prueba activado; la etiqueta de tarjeta es Bloqueo de aprendizaje tanto para bloqueos individuales como de grupo."
     },
     "ai/usage-stats": {
       "name": "Seguimiento del uso del tutor",
@@ -434,7 +434,7 @@
       "section": "Panel IA",
       "route": "/analytics",
       "priority": "P2",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "dashboard",
       "docFile": "frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor.mdx",
       "codeFiles": {
@@ -445,7 +445,7 @@
       "featureFlags": ["feature.teacher_analytics_panel"],
       "relatedFeatures": ["ai/alerts", "ai/student-progress"],
       "lastDocumented": null,
-      "notes": "Sección Panel de analítica: pestañas Uso del tutor, Consultas y Rendimiento (Rayos X: Ética de Trabajo). El diagnóstico de clase del backend no tiene UI activa. Incluye el bloque Uso del Tutor IA de los resultados de quiz. Pendiente: screenshots."
+      "notes": "Sección Panel de analítica: pestañas Uso del tutor, Consultas y Rendimiento (Rayos X: Ética de Trabajo). El diagnóstico de clase del backend no tiene UI activa. Incluye el bloque Uso del Tutor IA de los resultados de quiz. Screenshots incorporados desde el entorno latest con Datos de prueba activado. Corregidos los ejes del gráfico Rayos X: vertical volumen, horizontal calidad."
     },
     "ai/student-progress": {
       "name": "Progreso de un alumno",
@@ -453,7 +453,7 @@
       "section": "Panel IA",
       "route": "/students, /radar/students/:userId y /radar/students/:userId/kcs/:kcId",
       "priority": "P2",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "interactive-view",
       "docFile": "frontoffice-docentes/panel-ia/progreso-de-un-alumno.mdx",
       "codeFiles": {
@@ -464,7 +464,7 @@
       "featureFlags": ["feature.teacher_radar"],
       "relatedFeatures": ["ai/alerts", "ai/practice-sessions"],
       "lastDocumented": null,
-      "notes": "Sección Estudiantes más ficha del alumno y detalle de habilidad. Umbral de dominio 80 %. Tiempo por actividad limitado a 1.800 s en el cómputo. Pendiente: screenshots."
+      "notes": "Sección Estudiantes más ficha del alumno y detalle de habilidad. Umbral de dominio 80 %. Tiempo por actividad limitado a 1.800 s en el cómputo. Screenshots incorporados desde el entorno latest. La columna CHAT CON EL TUTOR muestra tiempo de conversación, no volumen."
     },
     "library/general": {
       "name": "Biblioteca general",

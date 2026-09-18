@@ -21,12 +21,14 @@ Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Estudia
 | Columna | Qué muestra |
 | --- | --- |
 | **ESTUDIANTE** | Nombre y avatar |
-| **CHAT CON EL TUTOR** | Volumen de uso del chat |
+| **CHAT CON EL TUTOR** | Tiempo de conversación con el tutor |
 | **CALIDAD DE USO** | Banda según sus intenciones al preguntar: **Mejorable**, **Aceptable**, **Buena** o **Excelente**. Sin datos, **SIN INFORMACIÓN** |
 | **TIEMPO DE PRÁCTICA** | Tiempo dedicado a las prácticas del tutor |
 | **PROGRESO** | Avance en las habilidades de sus programas |
 
-{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/estudiantes-listado.png */}
+Los alumnos aparecen agrupados por clase, con el número de programas y de estudiantes de cada una. Sin datos, una celda muestra un guion.
+
+![Sección Estudiantes con la tabla de alumnos de una clase y sus columnas de chat, calidad de uso, tiempo de práctica y progreso](/assets/screenshots/frontoffice-docente/panel-ia/estudiantes-listado.png)
 
 Al pulsar una fila se abre la ficha del alumno. También se llega a ella desde una alerta del [Radar](/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones), pulsando el nombre del alumno.
 
@@ -36,7 +38,7 @@ Al pulsar una fila se abre la ficha del alumno. También se llega a ella desde u
 
 ## Ficha del alumno
 
-{/* TODO captura: /assets/screenshots/frontoffice-docente/panel-ia/progreso-ficha.png y progreso-habilidad.png */}
+![Ficha de un alumno con Dominio global, Últimos 14 días y el mapa del programa desplegado hasta las habilidades con su estado](/assets/screenshots/frontoffice-docente/panel-ia/progreso-ficha.png)
 
 La ficha muestra una pestaña por programa compartido con el alumno, y cada pestaña indica cuántas habilidades tiene bloqueadas. Dentro:
 
@@ -60,7 +62,7 @@ El índice del programa se despliega por unidades, con el número de lecciones y
 | **Bloqueada** | Rojo | Se ha quedado bloqueado y necesita ayuda |
 | **Sin empezar** | Gris | Aún no la ha trabajado |
 
-Las barras de unidad y lección resumen sus habilidades en tres estados: sin empezar, en progreso y dominado. El botón **Ver detalles** de cada habilidad abre su análisis completo.
+Cada unidad y lección lleva una barra con su porcentaje de dominio, y una leyenda de colores sobre el mapa explica los estados. El botón **Ver detalles** de cada habilidad abre su análisis completo.
 
 <Tip>
   El mapa muestra en qué lección se concentran las dificultades del alumno. Con eso el docente decide si hace falta una intervención individual o revisar la lección con todo el grupo.
@@ -75,6 +77,8 @@ La pantalla **Dominio del contenido** de una habilidad muestra:
 - La línea de tiempo **Estados de la habilidad**, "Evolución de la habilidad, incluyendo momentos de progreso y posibles bloqueos en el aprendizaje.", con los hitos **Inicio de práctica**, **Retroceso**, **Retroceso resuelto**, **Reforzando** y **Dominio**. Si no ha habido retrocesos: "¡Sin retrocesos!"
 - Si la habilidad tiene una alerta pendiente, los botones **Marcar como atendido** y **Descartar**, los mismos del Radar.
 - El bloque **Detalle por día**, con los aciertos sobre el total de cada día y una fila por actividad con el botón **Ver**.
+
+![Detalle de una habilidad bloqueada con Dominio del contenido, actividades correctas, tiempo practicando, habilidades relacionadas reforzadas y la línea de tiempo Estados de la habilidad](/assets/screenshots/frontoffice-docente/panel-ia/progreso-habilidad.png)
 
 ### Detalle de una actividad
 
