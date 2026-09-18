@@ -396,7 +396,7 @@
       "section": "Panel IA",
       "route": "/course/:courseGuid/lesson/:lessonGuid/add/TEST (Complementar quiz con IA); editor del quiz (Nueva actividad con IA); Generador de preguntas en /teacher-tools",
       "priority": "P2",
-      "status": "in_progress",
+      "status": "documented",
       "complexity": "simple-form",
       "docFile": "frontoffice-docentes/panel-ia/generar-actividades-con-ia.mdx",
       "codeFiles": {
@@ -407,7 +407,7 @@
       "featureFlags": ["course.has_tangerine_ai", "features.teacher-plan"],
       "relatedFeatures": ["assessment/create", "course/resources", "ai/tools"],
       "lastDocumented": null,
-      "notes": "Único endpoint de IA con rol TEACHER explícito. El FE soporta 11 tipos de actividad (essay, uploadfile y audiorecorder no). Sin selector de dificultad. No existe indicador de IA en Recursos del curso; la etiqueta Generada con IA está en el editor del quiz. Screenshot del editor incorporado; falta generar-quiz-formulario.png (formulario de nuevo quiz con Complementar quiz con IA)."
+      "notes": "Único endpoint de IA con rol TEACHER explícito. El FE soporta 11 tipos de actividad (essay, uploadfile y audiorecorder no). Sin selector de dificultad. No existe indicador de IA en Recursos del curso; la etiqueta Generada con IA está en el editor del quiz. Screenshots incorporados desde el entorno latest."
     },
     "ai/alerts": {
       "name": "Alertas y revisión de conversaciones",
