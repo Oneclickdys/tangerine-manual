@@ -59,19 +59,64 @@ Es un gráfico de cuadrantes con el eje vertical **VOLUMEN DE MENSAJES** y el ho
 - **Volumen de mensajes**: cuántos mensajes ha enviado el alumno al tutor en la clase y el periodo elegidos, en cualquier modo.
 - **Calidad de uso**: para qué usa el tutor. El sistema clasifica cada mensaje por su intención y le da unos puntos. Preguntar el porqué, explorar o pedir ayuda vale mucho; pedir la respuesta directa, salirse del tema o quejarse vale poco; un mensaje inadecuado vale cero. La calidad del alumno es la media de esos puntos en el periodo, de 0 a 100.
 
-| Intención | Qué significa | Puntos |
-| --- | --- | --- |
-| Solicitud de explicación | Quiere entender un concepto. "¿Por qué se invierten las fracciones al dividir?" | 90 |
-| Exploración curiosa | Pregunta más allá de lo necesario para la tarea. "¿Y qué pasa si el número es negativo?" | 90 |
-| Solicitud de ayuda | Está atascado en un paso concreto. "No entiendo esto, ¿me ayudas?" | 80 |
-| Verificación | Pide comprobar si su razonamiento o resultado es correcto. "¿Está bien si pongo 42?" | 50 |
-| Solicitud de respuesta directa | Pide la solución sin intentar razonar. "Dame la respuesta del ejercicio 3" | 15 |
-| Fuera de tema (académico) | Pregunta sobre otra materia o contenido no asignado. Física cuántica en un curso de matemáticas básicas | 10 |
-| Fuera de tema | Conversación no relacionada con el estudio. "Cuéntame un chiste" | 10 |
-| Queja | Expresa malestar con el tutor o la tarea. "Esto es muy difícil" | 10 |
-| Inadecuado | Mensaje detectado por el filtro de contenido | 0 |
-| Conversacional | Saludos y mensajes sin contenido académico. "Hola", "gracias" | No cuenta |
-| Sin clasificar | El sistema no ha podido clasificar el mensaje | No cuenta |
+<table>
+  <colgroup>
+    <col width="242" />
+    <col width="517" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Intención</th>
+      <th>Qué significa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Solicitud de explicación</td>
+      <td>Quiere entender un concepto. "¿Por qué se invierten las fracciones al dividir?"</td>
+    </tr>
+    <tr>
+      <td>Exploración curiosa</td>
+      <td>Pregunta más allá de lo necesario para la tarea. "¿Y qué pasa si el número es negativo?"</td>
+    </tr>
+    <tr>
+      <td>Solicitud de ayuda</td>
+      <td>Está atascado en un paso concreto. "No entiendo esto, ¿me ayudas?"</td>
+    </tr>
+    <tr>
+      <td>Verificación</td>
+      <td>Pide comprobar si su razonamiento o resultado es correcto. "¿Está bien si pongo 42?"</td>
+    </tr>
+    <tr>
+      <td>Solicitud de respuesta directa</td>
+      <td>Pide la solución sin intentar razonar. "Dame la respuesta del ejercicio 3"</td>
+    </tr>
+    <tr>
+      <td>Fuera de tema (académico)</td>
+      <td>Pregunta sobre otra materia o contenido no asignado. Física cuántica en un curso de matemáticas básicas</td>
+    </tr>
+    <tr>
+      <td>Fuera de tema</td>
+      <td>Conversación no relacionada con el estudio. "Cuéntame un chiste"</td>
+    </tr>
+    <tr>
+      <td>Queja</td>
+      <td>Expresa malestar con el tutor o la tarea. "Esto es muy difícil"</td>
+    </tr>
+    <tr>
+      <td>Inadecuado</td>
+      <td>Mensaje detectado por el filtro de contenido</td>
+    </tr>
+    <tr>
+      <td>Conversacional</td>
+      <td>Saludos y mensajes sin contenido académico. "Hola", "gracias"</td>
+    </tr>
+    <tr>
+      <td>Sin clasificar</td>
+      <td>El sistema no ha podido clasificar el mensaje</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Dónde está el corte
 
@@ -103,10 +148,6 @@ Al pulsar un alumno se abre su detalle con el **Volumen** en mensajes, la **Cali
 <Note>
   La banda **CALIDAD DE USO** de la sección Estudiantes usa la misma escala y los mismos cortes, pero sobre todo el histórico del alumno y actualizada una vez al día. El gráfico usa solo el periodo elegido. Por eso pueden no coincidir. Ver [Progreso de un alumno](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
 </Note>
-
-<Tip>
-  Un alumno en **Mal uso**, con muchas solicitudes de respuesta directa y pocas de explicación, usa el tutor para conseguir respuestas sin razonar. Como el tutor no las da, esa pauta suele acabar en frustración. Merece la pena explicarle cómo sacar partido a las pistas.
-</Tip>
 
 ## El uso del tutor en los resultados de un quiz
 
