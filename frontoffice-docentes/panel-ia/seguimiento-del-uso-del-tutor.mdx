@@ -57,27 +57,29 @@ Es un gráfico de cuadrantes con el eje vertical **VOLUMEN DE MENSAJES** y el ho
 ### Qué mide cada eje
 
 - **Volumen de mensajes**: cuántos mensajes ha enviado el alumno al tutor en la clase y el periodo elegidos, en cualquier modo.
-- **Calidad de uso**: para qué usa el tutor. El sistema clasifica cada mensaje por su intención y le asigna un peso. Preguntar el porqué, explorar o pedir ayuda suma mucho; pedir la respuesta directa, salirse del tema o quejarse suma poco; un mensaje inadecuado no suma nada. La puntuación del alumno es la suma de los pesos de todos sus mensajes del periodo.
+- **Calidad de uso**: para qué usa el tutor. El sistema clasifica cada mensaje por su intención y le da unos puntos. Preguntar el porqué, explorar o pedir ayuda vale mucho; pedir la respuesta directa, salirse del tema o quejarse vale poco; un mensaje inadecuado vale cero. La calidad del alumno es la media de esos puntos en el periodo, de 0 a 100.
 
-| Intención | Qué significa | Peso |
+| Intención | Qué significa | Puntos |
 | --- | --- | --- |
-| Solicitud de explicación | Quiere entender un concepto. "¿Por qué se invierten las fracciones al dividir?" | 0,9 |
-| Exploración curiosa | Pregunta más allá de lo necesario para la tarea. "¿Y qué pasa si el número es negativo?" | 0,9 |
-| Solicitud de ayuda | Está atascado en un paso concreto. "No entiendo esto, ¿me ayudas?" | 0,8 |
-| Verificación | Pide comprobar si su razonamiento o resultado es correcto. "¿Está bien si pongo 42?" | 0,5 |
-| Solicitud de respuesta directa | Pide la solución sin intentar razonar. "Dame la respuesta del ejercicio 3" | 0,15 |
-| Fuera de tema (académico) | Pregunta sobre otra materia o contenido no asignado. Física cuántica en un curso de matemáticas básicas | 0,1 |
-| Fuera de tema | Conversación no relacionada con el estudio. "Cuéntame un chiste" | 0,1 |
-| Queja | Expresa malestar con el tutor o la tarea. "Esto es muy difícil" | 0,1 |
+| Solicitud de explicación | Quiere entender un concepto. "¿Por qué se invierten las fracciones al dividir?" | 90 |
+| Exploración curiosa | Pregunta más allá de lo necesario para la tarea. "¿Y qué pasa si el número es negativo?" | 90 |
+| Solicitud de ayuda | Está atascado en un paso concreto. "No entiendo esto, ¿me ayudas?" | 80 |
+| Verificación | Pide comprobar si su razonamiento o resultado es correcto. "¿Está bien si pongo 42?" | 50 |
+| Solicitud de respuesta directa | Pide la solución sin intentar razonar. "Dame la respuesta del ejercicio 3" | 15 |
+| Fuera de tema (académico) | Pregunta sobre otra materia o contenido no asignado. Física cuántica en un curso de matemáticas básicas | 10 |
+| Fuera de tema | Conversación no relacionada con el estudio. "Cuéntame un chiste" | 10 |
+| Queja | Expresa malestar con el tutor o la tarea. "Esto es muy difícil" | 10 |
 | Inadecuado | Mensaje detectado por el filtro de contenido | 0 |
-| Conversacional | Saludos y mensajes sin contenido académico. "Hola", "gracias" | No puntúa |
-| Sin clasificar | El sistema no ha podido clasificar el mensaje | No puntúa |
+| Conversacional | Saludos y mensajes sin contenido académico. "Hola", "gracias" | No cuenta |
+| Sin clasificar | El sistema no ha podido clasificar el mensaje | No cuenta |
 
 ### Dónde está el corte
 
-Los ejes se cruzan en el centro del gráfico, y ese centro no es un valor fijo. Cada eje va de cero al valor más alto de la clase en el periodo elegido. Un alumno queda en la mitad superior si ha enviado más de la mitad de los mensajes que el que más ha escrito, y en la mitad derecha si su puntuación supera la mitad de la más alta de la clase. Cuando unos pocos alumnos disparan los valores, el gráfico comprime la escala para que el resto no se amontone en una esquina.
+El eje horizontal va de 0 a 100 y se cruza en 50. A partir de 50 el alumno queda en la mitad derecha, la de calidad alta, sea cual sea la clase o el periodo.
 
-Dos consecuencias para leerlo bien. La posición de un alumno cambia al cambiar de clase o de periodo, aunque él no haya hecho nada distinto. Y como la puntuación de calidad suma, un alumno con pocos mensajes tiende a quedar en la mitad izquierda aunque todos hayan sido buenos.
+El eje vertical no tiene un valor fijo. Va de cero al alumno que más mensajes ha enviado en la clase y el periodo elegidos, y el corte está en la mitad. Cuando unos pocos alumnos disparan el volumen, el gráfico comprime la escala para que el resto no se amontone abajo. Por eso un alumno puede subir o bajar al cambiar de clase o de periodo, pero no se mueve a izquierda o derecha si no cambia cómo pregunta.
+
+Los alumnos cuyos mensajes del periodo son solo saludos o no se han podido clasificar no aparecen en el gráfico.
 
 ### Cómo leer cada cuadrante
 
@@ -92,14 +94,14 @@ Dos consecuencias para leerlo bien. La posición de un alumno cambia al cambiar 
 
 Una clase de 1.º ESO, con el periodo **Último mes**:
 
-- Lucía ha enviado 40 mensajes: 30 solicitudes de explicación, 6 de ayuda y 4 verificaciones. Su puntuación es 33,8, la más alta de la clase. Aparece arriba a la derecha, en **Estudiante motivado**.
-- Marcos ha enviado 36 mensajes: 30 solicitudes de respuesta directa, 4 fuera de tema y 2 de explicación. Su puntuación es 6,7. Muchos mensajes y poca puntuación: arriba a la izquierda, en **Mal uso**. En su detalle, la intención dominante es Solicitud de respuesta directa.
-- Sofía ha enviado 6 mensajes: 5 solicitudes de explicación y 1 verificación. Su puntuación es 5. Queda por debajo de la mitad en los dos ejes y aparece abajo a la izquierda, en **Poco compromiso**, aunque cada mensaje haya sido bueno. Con más mensajes de ese tipo subiría hacia **Estudiante motivado**.
+- Lucía ha enviado 40 mensajes: 30 solicitudes de explicación, 6 de ayuda y 4 verificaciones. Su calidad es 85. Muchos mensajes y calidad alta: arriba a la derecha, en **Estudiante motivado**.
+- Marcos ha enviado 36 mensajes: 30 solicitudes de respuesta directa, 4 fuera de tema y 2 de explicación. Su calidad es 19. Muchos mensajes y calidad baja: arriba a la izquierda, en **Mal uso**. En su detalle, la intención dominante es Solicitud de respuesta directa.
+- Sofía ha enviado 6 mensajes: 5 solicitudes de explicación y 1 verificación. Su calidad es 83. Pocos mensajes y calidad alta: abajo a la derecha, en **Uso eficiente**.
 
-Al pulsar un alumno se abre su detalle con el **Volumen** en mensajes, la **Calidad de uso** como porcentaje respecto al alumno con más puntuación de la clase, y la **Distribución de intenciones**, que reparte su puntuación entre las intenciones de sus mensajes.
+Al pulsar un alumno se abre su detalle con el **Volumen** en mensajes, la **Calidad de uso** de 0 a 100 con su banda, **Mejorable**, **Aceptable**, **Buena** o **Excelente**, una frase que resume su cuadrante y la **Distribución de intenciones**, que reparte sus mensajes por intención.
 
 <Note>
-  La banda **CALIDAD DE USO** de la sección Estudiantes usa la misma clasificación de intenciones, pero como media por mensaje de todo el histórico del alumno, de 0 a 100, actualizada una vez al día. Por eso un alumno puede tener banda **Buena** y aparecer en **Poco compromiso** en el periodo elegido. Ver [Progreso de un alumno](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
+  La banda **CALIDAD DE USO** de la sección Estudiantes usa la misma escala y los mismos cortes, pero sobre todo el histórico del alumno y actualizada una vez al día. El gráfico usa solo el periodo elegido. Por eso pueden no coincidir. Ver [Progreso de un alumno](/frontoffice-docentes/panel-ia/progreso-de-un-alumno).
 </Note>
 
 <Tip>
@@ -155,8 +157,9 @@ Fuera del Panel IA, en la pestaña de resumen de los [resultados de una evaluaci
 
   - Aplicación: frontoffice-docente
   - Ruta: /analytics (TeacherAIAnalyticsPanelView), pestañas Uso del tutor, Consultas y Rendimiento; bloque TutorUsageStats en CustomAssessmentResultsView
-  - Rayos X: volumen = mensajes del periodo (GET /stats/intent-distribution); calidad = suma de count x peso por intención (Intent.INTENT_SCORES); ejes normalizados por el máximo de la clase, escala log si hay valores extremos (useQuadrantPositions, scaleUtils); el cajón muestra la puntuación relativa al máximo. La banda de Estudiantes sale de la vista materializada UserUsageQuality (media ponderada 0-100, refresco diario 05:30, bandas FE 40/60/80)
+  - Rayos X: volumen = mensajes del periodo (GET /stats/intent-distribution), eje normalizado por el máximo de la clase con escala log si hay valores extremos (useQuadrantPositions, scaleUtils); calidad = media 0-100 de Intent.INTENT_SCORES x 100 con corte fijo en 50 y bandas 40/60/80 (getUsageQualityBand). La banda de Estudiantes sale de la vista materializada UserUsageQuality (histórico, refresco diario 05:30)
   - Backend (tangerine-ai): GET /stats/use, GET /stats/topic-ranking, GET /stats/topic-detail, GET /stats/intent-distribution, GET /chat/revision/conversations?quizJobGuids=, POST /chat/revision/jobs/:quizJobGuid/invalidate
   - Sin UI activa: GET /class-diagnostics/report (la vista de diagnóstico está desenrutada), la métrica Tasa de resolución y el orden por popularidad o número de alumnos en Consultas
-  - Última revisión: 2026-09-17
+  - Pendiente de despliegue: la sección Rendimiento describe el comportamiento objetivo de TANAI-2541 (calidad como media 0-100 con corte en 50, cajón con banda y frase por cuadrante). Hasta entonces el gráfico usa la suma de pesos normalizada por el máximo de la clase
+  - Última revisión: 2026-09-28
   */}
