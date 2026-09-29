@@ -178,9 +178,11 @@ Desde el canvas, el docente lleva el documento generado a una lección de su cur
   </Step>
   <Step title="Revisar en el editor">
     Se abre el formulario de **Página HTML** de esa lección **ya relleno**: el documento llega convertido en bloques del editor, con sus títulos, párrafos, listas, tablas, citas y fórmulas. El nombre de la página toma el título del canvas.
+
+    ![Formulario de Página HTML con el contenido del canvas convertido en títulos y párrafos, y el panel izquierdo con los campos Asignado a y Sección](/assets/screenshots/frontoffice-docente/panel-ia/herramientas-anadir-leccion-formulario.png)
   </Step>
   <Step title="Ajustar y guardar">
-    El docente revisa el resultado, edita lo que necesite, elige en qué sección de la lección se coloca y su [estado de publicación](/frontoffice-docentes/lecciones/gestion-contenidos) — Publicado, Borrador o Programado — y guarda.
+    El panel izquierdo pide **Sección**, obligatoria, donde el docente elige una existente o crea una nueva, y **Asignado a**, con "Todos los estudiantes" por defecto. El docente revisa el contenido, edita lo que necesite y guarda. El [estado de publicación](/frontoffice-docentes/lecciones/gestion-contenidos) se gestiona después desde la lección, como en cualquier otro contenido.
   </Step>
 </Steps>
 
@@ -206,15 +208,16 @@ Desde el canvas, el docente lleva el documento generado a una lección de su cur
 
 - La conversión es **directa**: el documento se traslada tal cual, sin que el asistente lo reescriba ni lo enriquezca.
 - **El canvas y la página quedan desligados.** Desde que se guarda son dos cosas independientes: editar después el canvas no actualiza la página, ni al revés.
-- Nada impide añadir dos veces el mismo canvas a la misma lección. 
+- Nada impide añadir dos veces el mismo canvas a la misma lección. No hay aviso de duplicados. 
 - El canvas no contiene imágenes, así que la página tampoco las lleva.
+- La acción no comprueba licencias de contenido: si el docente puede crear páginas en esa lección, puede añadir el documento.
 
 <Info>
   No requiere activación aparte. Va con las herramientas de IA del docente: donde estas están habilitadas, la acción aparece.
 </Info>
 
 <Tip>
-  Para material que el docente quiere tener a mano en clase pero no publicar todavía, conviene guardarlo en estado **Borrador** y cambiarlo a **Publicado** el día de la sesión.
+  Para material que el docente quiere tener preparado pero no mostrar todavía, conviene dejar la página en estado **Borrador** desde la lección y pasarla a **Publicado** el día de la sesión.
 </Tip>
 
 ## Historial de creaciones
@@ -300,8 +303,16 @@ Si aún no hay nada: "¡No has creado ningún recurso aún! Puedes generar todo 
   - ⚠️ PENDIENTE DE RELEASE al documentar. Proyecto Linear "Documentos del Tutor AI a Mint"
     (TANAI-2525): desarrollo en curso (TANAI-2526/2527/2528) y QA + salida a producción
     (TANAI-2529) sin empezar. Redactado desde la especificación, no desde la UI ni desde
-    código en producción. NO publicar hasta que TANAI-2529 esté cerrado, y verificar
-    entonces textos exactos de botón y diálogo, y capturar screenshots.
+    código en producción, salvo los dos screenshots incorporados. NO publicar hasta que
+    TANAI-2529 esté cerrado.
+  - Verificado contra capturas de tenant 1 (2026-09-29): la acción es un ICONO en la barra
+    del canvas, el mismo glifo que la Página HTML, sin etiqueta de texto visible; el
+    formulario precargado pide "Sección" (obligatoria, admite crear una nueva) y
+    "Asignado a" (por defecto "Todos los estudiantes"). NO se observa selector de estado
+    de publicación en el formulario: la documentación remite a la lección para eso, pero
+    conviene confirmar qué hay tras el desplegable del botón Guardar.
+  - Pendiente de verificar contra la UI: texto exacto del tooltip del icono y del diálogo
+    de ubicación (curso / unidad / lección).
   - Todo el cambio es de tangerine-frontoffice; no toca tangerine-ai, i2c_v2, api-v3 ni mint-components
   - UI: AICanvas (botón), QuizLocationDialog parametrizado con target 'quiz' | 'mint',
     NewMintPageView precargado, conversor canvasMarkdownToMintPosts
@@ -310,5 +321,6 @@ Si aún no hay nada: "¡No has creado ningún recurso aún! Puedes generar todo 
   - is_teacher_only para plan de lección y rúbrica; "Feedback para estudiantes" excluido por privacidad
   - Solo lecciones power; sin comprobación de licencia Mint; sin aviso de duplicados;
     sin trazabilidad canvas ↔ página; sin imágenes
-  - Screenshots pendientes: botón en el canvas, diálogo de ubicación, formulario precargado
+  - Screenshots: icono en el canvas y formulario precargado, incorporados. Pendiente, si se
+    quiere, el diálogo de ubicación (Irene lo dio por no necesario el 2026-09-29).
   */}
