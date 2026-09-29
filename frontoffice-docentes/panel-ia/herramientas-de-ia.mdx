@@ -42,8 +42,8 @@ Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Herrami
   <Step title="Editar a mano">
     El canvas es un editor de texto siempre activo. El docente escribe sobre él, con negrita, cursiva, títulos, listas, tablas, enlaces y fórmulas. Los cambios se guardan solos y el indicador pasa de **Guardando...** a **Guardado**.
   </Step>
-  <Step title="Copiar o exportar">
-    Sobre el canvas hay dos acciones: **Copiar contenido**, que copia el texto al portapapeles, y **Exportar como PDF**, que abre el diálogo de impresión del navegador para guardarlo como PDF.
+  <Step title="Copiar, exportar o llevar el documento a una lección">
+    Sobre el canvas hay tres acciones: **Copiar contenido**, que copia el texto al portapapeles; **Exportar como PDF**, que abre el diálogo de impresión del navegador para guardarlo como PDF; y **Añadir a una lección**, que incorpora el documento al curso como una página más, descrita en el apartado siguiente.
   </Step>
 </Steps>
 
@@ -52,7 +52,7 @@ Desde el [Panel IA](/frontoffice-docentes/panel-ia/panel-ia), sección **Herrami
 </Note>
 
 <Note>
-  El asistente trabaja con texto. No genera imágenes ni las incluye en el canvas. El canvas es un material de trabajo del docente. Los alumnos no lo ven y no existe una opción para publicarlo en el curso.
+  El asistente trabaja con texto. No genera imágenes ni las incluye en el canvas. El canvas nace como material de trabajo del docente y los alumnos no lo ven mientras siga siendo un canvas. Para que llegue al curso, el docente lo añade a una lección como página, y aun así dos herramientas se guardan como material exclusivo del docente.
 </Note>
 
 ### Importar el texto desde el programa
@@ -163,6 +163,63 @@ En el orden en que aparecen en pantalla.
   </Accordion>
 </AccordionGroup>
 
+## Añadir el documento a una lección
+
+Desde el canvas, el docente lleva el documento generado a una lección de su curso como una **página HTML**, sin tener que rehacerlo a mano. La página queda como contenido propio del docente, visible solo en sus clases, junto al resto de contenidos de la lección.
+
+<Steps>
+  <Step title="Pulsar Añadir a una lección">
+    En la barra del canvas, junto al indicador de guardado, hay tres iconos: copiar contenido, exportar como PDF y añadir a una lección, este último con el mismo icono que identifica a las páginas HTML. El documento se guarda en ese momento, de modo que la página recoge la última versión aunque el docente acabe de escribir sobre el canvas.
+
+    ![Barra del canvas con el indicador Guardado y los iconos de copiar contenido, exportar como PDF y añadir a una lección](/assets/screenshots/frontoffice-docente/panel-ia/herramientas-anadir-leccion-boton.png)
+  </Step>
+  <Step title="Elegir dónde">
+    Un diálogo pide **curso**, **unidad** y **lección**. Solo se ofrecen las lecciones con [Vista Power](/frontoffice-docentes/lecciones/vista-power), las únicas en las que el docente puede crear páginas propias.
+  </Step>
+  <Step title="Revisar en el editor">
+    Se abre el formulario de **Página HTML** de esa lección **ya relleno**: el documento llega convertido en bloques del editor, con sus títulos, párrafos, listas, tablas, citas y fórmulas. El nombre de la página toma el título del canvas.
+
+    ![Formulario de Página HTML con el contenido del canvas convertido en títulos y párrafos, y el panel izquierdo con los campos Asignado a y Sección](/assets/screenshots/frontoffice-docente/panel-ia/herramientas-anadir-leccion-formulario.png)
+  </Step>
+  <Step title="Ajustar y guardar">
+    El panel izquierdo pide **Sección**, obligatoria, donde el docente elige una existente o crea una nueva, y **Asignado a**, con "Todos los estudiantes" por defecto. El docente revisa el contenido, edita lo que necesite y guarda. El [estado de publicación](/frontoffice-docentes/lecciones/gestion-contenidos) se gestiona después desde la lección, como en cualquier otro contenido.
+  </Step>
+</Steps>
+
+### Qué herramientas pueden añadirse y quién ve el resultado
+
+| Herramienta | Se puede añadir | Lo ve el alumno |
+| --- | --- | --- |
+| Adaptar nivel de texto | Sí | Sí |
+| Conexión con el mundo real | Sí | Sí |
+| Creador de vocabulario | Sí | Sí |
+| Traductor de textos | Sí | Sí |
+| Dinamiza el aula | Sí | Sí |
+| Generador de planes de lección | Sí | No — solo docente |
+| Generador de rúbricas | Sí | No — solo docente |
+| Feedback para estudiantes | No | — |
+| Generador de preguntas | No aplica | — |
+
+<Note>
+  Los planes de lección y las rúbricas se añaden marcados como material exclusivo del docente: aparecen en la lección para él, pero no para los alumnos. **Feedback para estudiantes** queda fuera por privacidad, porque su contenido se refiere a un alumno concreto. El **Generador de preguntas** no genera canvas: crea el quiz directamente en el curso, como se explica en [Generar actividades con IA](/frontoffice-docentes/panel-ia/generar-actividades-con-ia).
+</Note>
+
+### Qué conviene saber
+
+- La conversión es **directa**: el documento se traslada tal cual, sin que el asistente lo reescriba ni lo enriquezca.
+- **El canvas y la página quedan desligados.** Desde que se guarda son dos cosas independientes: editar después el canvas no actualiza la página, ni al revés.
+- Nada impide añadir dos veces el mismo canvas a la misma lección. No hay aviso de duplicados. 
+- El canvas no contiene imágenes, así que la página tampoco las lleva.
+- La acción no comprueba licencias de contenido: si el docente puede crear páginas en esa lección, puede añadir el documento.
+
+<Info>
+  No requiere activación aparte. Va con las herramientas de IA del docente: donde estas están habilitadas, la acción aparece.
+</Info>
+
+<Tip>
+  Para material que el docente quiere tener preparado pero no mostrar todavía, conviene dejar la página en estado **Borrador** desde la lección y pasarla a **Publicado** el día de la sesión.
+</Tip>
+
 ## Historial de creaciones
 
 La sección **Historial de creaciones** del menú lateral, "Consulta y organiza los recursos que has generado con el tutor IA. Retoma tus borradores o reutiliza materiales ya exportados para tu clase.", lista todos los canvas del docente en una tabla con **Título del recurso**, **Herramienta** y **Fecha creación**, de cinco en cinco. Al pulsar una fila, o su opción **Editar**, se reabre la pantalla de resultados para seguir trabajando.
@@ -195,7 +252,23 @@ Si aún no hay nada: "¡No has creado ningún recurso aún! Puedes generar todo 
   </Accordion>
 
   <Accordion title="¿Cómo se lleva el resultado a los alumnos?">
-    Con **Copiar contenido** para pegarlo en un material propio, o con **Exportar como PDF**. No existe una acción para publicar el canvas en el curso ni para compartirlo con otros docentes.
+    Con **Añadir a una lección**, que lo incorpora al curso como página y es la vía para que lo vean los alumnos. También con **Copiar contenido**, para pegarlo en un material propio, o con **Exportar como PDF**. No existe una acción para compartir el canvas con otros docentes.
+  </Accordion>
+
+  <Accordion title="El botón Añadir a una lección no aparece">
+    La acción va con las herramientas de IA del docente. Si estas están disponibles pero el botón no, conviene revisar que se esté sobre el canvas de una herramienta que lo admita: **Feedback para estudiantes** no lo tiene, y el **Generador de preguntas** no llega a generar canvas.
+  </Accordion>
+
+  <Accordion title="La lección a la que quiere añadirlo no aparece en el diálogo">
+    El diálogo solo lista lecciones con Vista Power, que son las únicas donde el docente puede crear páginas propias. Si la lección es clásica, no aparece como destino.
+  </Accordion>
+
+  <Accordion title="Ha editado el canvas después de añadirlo y la página no ha cambiado">
+    Es el comportamiento esperado: la página es una copia del documento en el momento de añadirlo, no un reflejo del canvas. Para llevar los cambios hay que editar la página en la lección, o añadir el documento de nuevo y borrar la anterior.
+  </Accordion>
+
+  <Accordion title="Los alumnos no ven la página que ha añadido">
+    Hay dos motivos posibles. Si viene de un plan de lección o de una rúbrica, se guarda como material exclusivo del docente y no llega al alumno por diseño. Si viene de otra herramienta, conviene comprobar su estado de publicación en la lección: en **Borrador** o **Programado** el alumno no la ve.
   </Accordion>
 </AccordionGroup>
 
@@ -209,6 +282,10 @@ Si aún no hay nada: "¡No has creado ningún recurso aún! Puedes generar todo 
   <Card title="Vista de Lección" icon="book-open" href="/frontoffice-docentes/lecciones/vista-leccion">
     Las lecciones desde las que puede importarse el texto de partida.
   </Card>
+
+  <Card title="Gestión de contenidos" icon="sliders" href="/frontoffice-docentes/lecciones/gestion-contenidos">
+    Estados de publicación y visibilidad de las páginas añadidas a una lección.
+  </Card>
 </CardGroup>
 
 {/*
@@ -219,5 +296,31 @@ Si aún no hay nada: "¡No has creado ningún recurso aún! Puedes generar todo 
   - UI: TeacherToolsView, teacherToolsConfig (lista estática de 9 herramientas), GenericToolSetup, TextInputOrLessonSelector, ToolInstanceChatView, AICanvas, TeacherToolsHistoryView
   - Backend (tangerine-ai): POST /chat/teacher-tools/{real-world-connection|text-level-adaptation|vocabulary-creator|text-translator|lesson-plan-generator|classroom-dynamics|rubric-generator|student-feedback}, POST /chat/teacher-tools/:conversationId, GET /chat/teacher-tools/history, GET /chat/teacher-tools/conversations/:id, PATCH /chat/teacher-tools/conversations/:id/canvas, POST /chat/teacher-tools/contents/content
   - Pendiente de verificar: los endpoints de herramientas no comprueban el rol docente en el backend
-  - Última revisión: 2026-09-17
+  - Última revisión: 2026-09-29
+
+  AÑADIR A UNA LECCIÓN (documentado el 2026-09-29)
+
+  - ⚠️ PENDIENTE DE RELEASE al documentar. Proyecto Linear "Documentos del Tutor AI a Mint"
+    (TANAI-2525): desarrollo en curso (TANAI-2526/2527/2528) y QA + salida a producción
+    (TANAI-2529) sin empezar. Redactado desde la especificación, no desde la UI ni desde
+    código en producción, salvo los dos screenshots incorporados. NO publicar hasta que
+    TANAI-2529 esté cerrado.
+  - Verificado contra capturas de tenant 1 (2026-09-29): la acción es un ICONO en la barra
+    del canvas, el mismo glifo que la Página HTML, sin etiqueta de texto visible; el
+    formulario precargado pide "Sección" (obligatoria, admite crear una nueva) y
+    "Asignado a" (por defecto "Todos los estudiantes"). NO se observa selector de estado
+    de publicación en el formulario: la documentación remite a la lección para eso, pero
+    conviene confirmar qué hay tras el desplegable del botón Guardar.
+  - Pendiente de verificar contra la UI: texto exacto del tooltip del icono y del diálogo
+    de ubicación (curso / unidad / lección).
+  - Todo el cambio es de tangerine-frontoffice; no toca tangerine-ai, i2c_v2, api-v3 ni mint-components
+  - UI: AICanvas (botón), QuizLocationDialog parametrizado con target 'quiz' | 'mint',
+    NewMintPageView precargado, conversor canvasMarkdownToMintPosts
+  - Deep link: /course/:c/lesson/:l?addMintPage=<conversationId>
+  - Flag: sin flag propio, va con feature.teacher_ai_tools
+  - is_teacher_only para plan de lección y rúbrica; "Feedback para estudiantes" excluido por privacidad
+  - Solo lecciones power; sin comprobación de licencia Mint; sin aviso de duplicados;
+    sin trazabilidad canvas ↔ página; sin imágenes
+  - Screenshots: icono en el canvas y formulario precargado, incorporados. Pendiente, si se
+    quiere, el diálogo de ubicación (Irene lo dio por no necesario el 2026-09-29).
   */}
