@@ -202,5 +202,6 @@ Cuando una funcionalidad se comporta diferente según estas variantes, documenta
 - **No asumas comportamientos** — verifica en el código o en la UI
 - **Nombres reales** en español para usuarios de prueba
 - **Siempre actualiza `.test-scenarios.json`** después de crear usuarios, licencias o escenarios
+- **Nunca nombres clientes** (editoriales, tenants, pilotos) en las páginas publicadas — describe las variaciones por la configuración que las activa
 - **No commitees** archivos con credenciales (`.credentials.json`, `.test-scenarios.json`)
 - Lee `_guidelines/AGENT_GUIDELINES.md` antes de generar documentación

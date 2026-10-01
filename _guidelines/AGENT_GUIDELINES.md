@@ -570,21 +570,25 @@ Recomendamos guardar como borrador primero si es tu primera evaluación.
 
 Si la feature tiene variaciones por tenant:
 
+<Warning>
+**Nunca menciones nombres de clientes** (editoriales, tenants, instancias piloto, países asociados a un cliente) en la documentación publicada. Describe la variación por la **configuración** que la activa (setting, feature flag o tipo de tenant), no por el cliente que la usa. Los `tenantVariations` del inventario pueden contener nombres de cliente como referencia interna: tradúcelos siempre a una descripción genérica.
+</Warning>
+
 ```markdown
 <Note>
-Esta funcionalidad puede variar según tu institución.
+Esta funcionalidad puede variar según la configuración de la plataforma.
 </Note>
 
 ## Flujo estándar
 [Documentar el comportamiento por defecto]
 
-## Variaciones por institución
+## Variaciones por configuración
 
-<Accordion title="UNOi">
-En lugar de Stream, verás un Panel con [descripción de diferencias].
+<Accordion title="Panel en lugar de Stream">
+En algunos tenants, el Stream se muestra como Panel, con [descripción de diferencias].
 </Accordion>
 
-<Accordion title="Richmond">
+<Accordion title="Con el setting `nombreDelSetting` activado">
 [Descripción de variación específica]
 </Accordion>
 ```
@@ -631,6 +635,7 @@ Antes de considerar una página completa, verifica:
 - [ ] ¿Hay contexto pedagógico en funcionalidades clave?
 - [ ] ¿Los enlaces son contextuales, no genéricos?
 - [ ] ¿Se mencionan las variaciones de tenant si aplican?
+- [ ] ¿La página está libre de nombres de clientes (editoriales, tenants, pilotos)?
 - [ ] ¿Se indica si la feature puede no estar disponible (feature flags)?
 
 ### Calidad

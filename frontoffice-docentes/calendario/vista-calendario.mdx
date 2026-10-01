@@ -69,7 +69,7 @@ El calendario presenta diferentes modos de visualizacion segun la configuracion 
 
 <Tabs>
   <Tab title="Calendario avanzado con horas">
-    Esta es la variante principal, usada por la mayoria de los tenants (excepto Santillana Piloto y tenants con calendario legacy activado).
+    Esta es la variante principal, usada por la mayoria de los tenants (excepto los que tienen configurado el calendario semanal sin horas o el calendario legacy).
 
     Muestra una **vista semanal con franjas horarias** (de 7:00 a 19:00). Utiliza la libreria `react-big-calendar` con soporte para eventos en posiciones temporales precisas.
 
@@ -93,7 +93,7 @@ El calendario presenta diferentes modos de visualizacion segun la configuracion 
   </Tab>
 
   <Tab title="Calendario semanal sin horas">
-    Variante especifica para **Mexico (Santillana Piloto)**. Muestra una vista semanal pero sin franjas horarias, organizando las sesiones como tarjetas apiladas dentro de cada dia.
+    Variante disponible solo en tenants con una configuracion especifica. Muestra una vista semanal pero sin franjas horarias, organizando las sesiones como tarjetas apiladas dentro de cada dia.
 
     Utiliza un componente personalizado con soporte para **drag & drop** (arrastrar y soltar) mediante la libreria `@dnd-kit`, permitiendo al docente mover sesiones entre dias.
 
