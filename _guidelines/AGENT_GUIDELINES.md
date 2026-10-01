@@ -571,7 +571,7 @@ Recomendamos guardar como borrador primero si es tu primera evaluación.
 Si la feature tiene variaciones por tenant:
 
 <Warning>
-**Nunca menciones nombres de clientes** (editoriales, tenants, instancias piloto, países asociados a un cliente) en la documentación publicada. Describe la variación por la **configuración** que la activa (setting, feature flag o tipo de tenant), no por el cliente que la usa. Los `tenantVariations` del inventario pueden contener nombres de cliente como referencia interna: tradúcelos siempre a una descripción genérica.
+**Nunca menciones nombres de clientes** (editoriales, tenants, instancias piloto, países asociados a un cliente) en la documentación publicada. Describe la variación por la **configuración** que la activa (setting, feature flag o tipo de tenant), no por el cliente que la usa. Lo mismo aplica al inventario: los `tenantVariations` y las `notes` se redactan sin nombres de cliente. Si el código condiciona por un cliente concreto (p. ej. `CLIENT.X` o `isX()`), descríbelo como «tenants con configuración específica».
 </Warning>
 
 ```markdown

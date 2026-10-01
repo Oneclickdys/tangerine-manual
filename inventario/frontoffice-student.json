@@ -19,7 +19,7 @@
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
       "lastDocumented": "2026-03-30",
-      "notes": "Misma vista que docentes pero con funcionalidades reducidas. Usa MyClassroomsView (Tangerine standard) o StudentClassroomsView (Edelvives). Documentados: recomendaciones IA, programas sueltos, diálogo añadir código."
+      "notes": "Misma vista que docentes pero con funcionalidades reducidas. Usa MyClassroomsView (estándar) o StudentClassroomsView (variante específica de algunos tenants). Documentados: recomendaciones IA, programas sueltos, diálogo añadir código."
     },
     "course/view": {
       "name": "Vista del curso",
@@ -34,7 +34,7 @@
         "frontend": ["src/core/lite/views/CourseView/"],
         "backend": []
       },
-      "tenantVariations": ["UNOi tiene Panel en lugar de Stream"],
+      "tenantVariations": ["Algunos tenants muestran Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/stream", "course/grades"],
       "lastDocumented": "2026-03-30",
@@ -53,7 +53,7 @@
         "frontend": ["src/core/lite/views/CourseView/Stream/"],
         "backend": []
       },
-      "tenantVariations": ["UNOi usa Panel en lugar de Stream"],
+      "tenantVariations": ["Algunos tenants usan Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
       "lastDocumented": "2026-03-30",

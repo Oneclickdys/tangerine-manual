@@ -86,22 +86,5 @@
       "blocked": 0
     },
     "lastCalculated": "2026-09-17"
-  },
-  "knownTenants": [
-    {
-      "id": "unoi-mx",
-      "name": "UNOi Mexico",
-      "notes": "Usa Panel en lugar de Stream, tiene configuraciones especiales"
-    },
-    {
-      "id": "richmond",
-      "name": "Richmond",
-      "notes": "Permisos especiales en gradebook"
-    },
-    {
-      "id": "santillana",
-      "name": "Santillana",
-      "notes": "Configuracion estandar"
-    }
-  ]
+  }
 }

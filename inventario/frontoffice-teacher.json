@@ -15,7 +15,7 @@
         "frontend": ["src/app/pages/HomePage/", "src/core/lite/views/MyClassroomsView/"],
         "backend": []
       },
-      "tenantVariations": ["UNOi usa isReferenced=0 en lugar de 1"],
+      "tenantVariations": ["Algunos tenants usan isReferenced=0 en lugar de 1"],
       "featureFlags": ["tenantConfig.canCreateGroup", "tenantConfig.canCreateCourse"],
       "relatedFeatures": ["classroom/create", "students/list"],
       "lastDocumented": "2025-12-21",
@@ -53,7 +53,7 @@
         "frontend": ["src/core/lite/views/CourseView/"],
         "backend": []
       },
-      "tenantVariations": ["UNOi tiene Panel en lugar de Stream"],
+      "tenantVariations": ["Algunos tenants muestran Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/stream", "course/program", "course/grades"],
       "lastDocumented": "2025-12-21",
@@ -72,7 +72,7 @@
         "frontend": ["src/core/lite/views/CourseView/Stream/"],
         "backend": []
       },
-      "tenantVariations": ["UNOi usa Panel en lugar de Stream"],
+      "tenantVariations": ["Algunos tenants usan Panel en lugar de Stream"],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
       "lastDocumented": "2025-12-22",
@@ -110,7 +110,7 @@
         "frontend": ["src/core/lite/views/CourseView/Resources/"],
         "backend": []
       },
-      "tenantVariations": ["Edelvives filtra recursos por comunidad autonoma del colegio del docente"],
+      "tenantVariations": ["Algunos tenants filtran recursos por comunidad autonoma del colegio del docente"],
       "featureFlags": [],
       "relatedFeatures": ["course/view"],
       "lastDocumented": "2026-03-29",
@@ -251,7 +251,7 @@
         "frontend": ["src/core/lite/views/CourseView/Grades/", "src/core/lite/views/CourseView/GradesPeriods/", "src/core/lite/views/CrossGradebookView/"],
         "backend": ["src/core/crud/gradebook.crud.js"]
       },
-      "tenantVariations": ["Richmond tiene configuracion especial de permisos"],
+      "tenantVariations": [],
       "featureFlags": ["enableEvaluationModel"],
       "relatedFeatures": ["course/grades"],
       "lastDocumented": "2026-03-30",
@@ -308,11 +308,11 @@
         "frontend": ["src/core/lite/views/CalendarView/"],
         "backend": []
       },
-      "tenantVariations": ["Santillana Piloto usa calendario semanal sin horas", "Tenants con isLegacyCalendar usan calendario legacy con vistas mes/semana"],
+      "tenantVariations": ["Tenants con configuracion especifica usan calendario semanal sin horas", "Tenants con isLegacyCalendar usan calendario legacy con vistas mes/semana"],
       "featureFlags": ["isLegacyCalendar", "allowMoveCalendarSessions", "enableTeacherConfigCourse", "enableAdvancedProgramming"],
       "relatedFeatures": ["course/view", "course/program"],
       "lastDocumented": "2026-03-29",
-      "notes": "Tres variantes de calendario segun configuracion del tenant: avanzado con horas (por defecto), semanal sin horas (MX/Santillana Piloto), legacy (isLegacyCalendar). Drag & drop de sesiones disponible en variantes semanal sin horas y legacy."
+      "notes": "Tres variantes de calendario segun configuracion del tenant: avanzado con horas (por defecto), semanal sin horas (tenants con configuracion especifica), legacy (isLegacyCalendar). Drag & drop de sesiones disponible en variantes semanal sin horas y legacy."
     },
     "course/configure": {
       "name": "Configurar curso",
@@ -327,11 +327,11 @@
         "frontend": ["src/core/lite/views/ConfigureCourseAdvancedView/", "src/core/modules/components/dialogs/DialogConfigureCourseAdvanced/", "src/core/modules/components/cards/CourseCard/CourseCard.js"],
         "backend": ["v3/front/course/{guid}/config/periods"]
       },
-      "tenantVariations": ["Santillana Piloto usa ConfigureCourseView estandar en lugar de ConfigureCourseAdvancedView"],
+      "tenantVariations": ["Tenants con configuracion especifica usan ConfigureCourseView estandar en lugar de ConfigureCourseAdvancedView"],
       "featureFlags": ["enableTeacherConfigCourse"],
       "relatedFeatures": ["calendar/view", "course/program", "home/classrooms"],
       "lastDocumented": "2026-04-01",
-      "notes": "Dos versiones: Advanced (por defecto, usa API v3) y Standard (legacy, para Santillana Piloto y tenants con isLegacyCalendar). El boton directo 'Configurar curso' solo aparece en cursos sin configuracion (hasTimetable=false). Periodos segun evaluation_period del curso: anual (1), semestral (2), trimestral (3), bimestral (4). Al guardar, las sesiones existentes se recalculan."
+      "notes": "Dos versiones: Advanced (por defecto, usa API v3) y Standard (legacy, para tenants con configuracion especifica y tenants con isLegacyCalendar). El boton directo 'Configurar curso' solo aparece en cursos sin configuracion (hasTimetable=false). Periodos segun evaluation_period del curso: anual (1), semestral (2), trimestral (3), bimestral (4). Al guardar, las sesiones existentes se recalculan."
     },
     "tasks/list": {
       "name": "Gestor de tareas",
