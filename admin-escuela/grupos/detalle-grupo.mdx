@@ -148,7 +148,7 @@ Cada contenido se muestra como una tarjeta con:
 
 ### Configurar contenidos (modelo de evaluacion)
 
-Cuando el feature flag **enableEvaluationModel** esta activo, los contenidos editoriales muestran opciones adicionales de configuracion:
+Cuando la plataforma ha adquirido y configurado el **cuaderno de evaluación**, los contenidos editoriales muestran opciones adicionales de configuracion:
 
 - **Boton de configuracion** (icono de engranaje) en cada tarjeta de contenido: navega a la [configuracion de contenido individual](/admin-escuela/grupos/configuracion-contenido)
 - **Boton "+ Configurar en lote"** por periodo de evaluacion: permite configurar todos los contenidos de un periodo de evaluacion de forma simultanea
@@ -185,10 +185,10 @@ Al hacer clic en la tarjeta de un contenido (cuando la configuracion esta habili
     Cuando un estudiante o docente no tiene una licencia valida que cubra los contenidos del grupo, el sistema muestra un dialogo de error indicando que usuarios no pudieron ser asignados. El administrador debe asignar las licencias necesarias desde el [detalle del usuario](/admin-escuela/usuarios/detalle-usuario) o contactar al publisher para obtener mas licencias.
   </Accordion>
   <Accordion title="No veo el boton de configuracion en los contenidos">
-    Los botones de configuracion (engranaje e icono de configurar en lote) solo aparecen cuando el feature flag `enableEvaluationModel` esta activo. Sin este flag, los contenidos se muestran sin opciones de configuracion de evaluacion.
+    Los botones de configuracion (engranaje e icono de configurar en lote) solo aparecen si la plataforma ha adquirido y configurado el cuaderno de evaluación. Con el cuaderno de calificaciones, que es la opción por defecto, los contenidos se muestran sin opciones de configuración de evaluación.
   </Accordion>
   <Accordion title="No puedo anadir contenidos al grupo">
-    Si el boton **+** no aparece en la pestana de cursos, puede deberse a que el administrador no tiene el permiso `contentCreate`, o a que el flag `enableAdvancedProgramming` esta activo (en cuyo caso la gestion de contenidos se realiza de forma diferente). Tambien desaparece cuando `enableEvaluationModel` esta activo ya que la asignacion de contenidos puede estar gestionada de otra forma.
+    Si el boton **+** no aparece en la pestana de cursos, puede deberse a que el administrador no tiene el permiso `contentCreate`, o a que el flag `enableAdvancedProgramming` esta activo (en cuyo caso la gestion de contenidos se realiza de forma diferente). También desaparece cuando la plataforma tiene configurado el cuaderno de evaluación, ya que la asignacion de contenidos puede estar gestionada de otra forma.
   </Accordion>
   <Accordion title="Los contenidos muestran un borde rojo con icono de alerta">
     Esto indica que el contenido no tiene configurada la evaluacion (escala, periodos y modelo). El administrador debe acceder a la [configuracion del contenido](/admin-escuela/grupos/configuracion-contenido) para completar la configuracion antes del inicio del periodo escolar.

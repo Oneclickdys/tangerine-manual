@@ -31,7 +31,7 @@ La tabla de grupos muestra las siguientes columnas:
 | **Estado** | Icono de alerta que indica si el grupo tiene contenidos sin configurar (solo visible cuando el modelo de evaluacion esta habilitado) |
 
 <Note>
-  La columna de estado con icono de alerta solo aparece cuando el feature flag **enableEvaluationModel** esta activo. En ese caso, los grupos que tienen contenidos sin configuracion de evaluacion muestran un icono de advertencia con el tooltip "Sin configurar contenido".
+  La columna de estado con icono de alerta solo aparece si la plataforma ha adquirido y configurado el cuaderno de evaluación. En ese caso, los grupos que tienen contenidos sin configuracion de evaluacion muestran un icono de advertencia con el tooltip "Sin configurar contenido".
 </Note>
 
 Cada fila del grupo enlaza al [detalle del grupo](/admin-escuela/grupos/detalle-grupo) al hacer clic sobre el nombre, siempre que el administrador tenga permisos de lectura de detalle.
@@ -118,7 +118,7 @@ La opcion **Eliminar** del menu contextual muestra un dialogo de confirmacion co
     El boton solo se muestra si el administrador tiene el permiso `importCodes`. En escuelas con permisos restringidos o integracion de terceros, este boton puede no estar disponible.
   </Accordion>
   <Accordion title="La columna de estado no aparece en la tabla">
-    La columna de estado (con icono de alerta) solo se muestra cuando el feature flag `enableEvaluationModel` esta activo en la configuracion del tenant. Sin este flag, la tabla solo muestra las columnas de nombre y codigo.
+    La columna de estado (con icono de alerta) solo se muestra si la plataforma ha adquirido y configurado el cuaderno de evaluación. Con el cuaderno de calificaciones, que es la opción por defecto, la tabla solo muestra las columnas de nombre y codigo.
   </Accordion>
   <Accordion title="No puedo crear grupos porque no tengo ano escolar seleccionado">
     El boton de creacion se deshabilita si no hay un ano escolar activo seleccionado. El administrador debe verificar que exista un ano escolar configurado para la escuela. Los anos escolares se gestionan desde el Backoffice.
