@@ -141,7 +141,8 @@
               "frontoffice-docentes/panel-ia/generar-actividades-con-ia",
               "frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones",
               "frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor",
-              "frontoffice-docentes/panel-ia/progreso-de-un-alumno"
+              "frontoffice-docentes/panel-ia/progreso-de-un-alumno",
+              "frontoffice-docentes/panel-ia/marco-regulatorio"
             ]
           },
           {
@@ -234,7 +235,8 @@
               "estudiantes/tutor-ia/practicas",
               "estudiantes/tutor-ia/ayuda-durante-una-actividad",
               "estudiantes/tutor-ia/mi-progreso",
-              "estudiantes/tutor-ia/resultados-de-un-quiz"
+              "estudiantes/tutor-ia/resultados-de-un-quiz",
+              "estudiantes/tutor-ia/marco-regulatorio"
             ]
           },
           {

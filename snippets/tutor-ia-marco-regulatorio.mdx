@@ -1,0 +1,246 @@
+## Descripción
+
+Esta página es la referencia para responder a editoriales, centros y equipos legales sobre el marco regulatorio y los estándares que aplican al uso de la IA en el tutor de Tangerine AI. Describe el producto estándar, no la configuración de un despliegue concreto.
+
+La editorial puede enlazarla o adjuntarla como respuesta base y completar solo lo específico de cada cliente: contrato, idioma, país e integración.
+
+<Info>
+  Este contenido no es asesoramiento jurídico ni sustituye la evaluación propia que cada editorial o centro haga como responsable del despliegue. Se revisa cuando cambia la normativa, el uso previsto del producto o una funcionalidad relevante.
+</Info>
+
+## Qué es el tutor de IA
+
+El tutor es un asistente educativo con IA generativa que vive dentro de la plataforma de la editorial y trabaja exclusivamente sobre el contenido que la editorial ha creado y asignado al alumno. No es una IA de propósito general: su ámbito de conocimiento está delimitado por diseño.
+
+| Componente | Qué hace | Usuario |
+| --- | --- | --- |
+| [Chat con el tutor](/estudiantes/tutor-ia/chat-con-tutor-ia) | Resuelve dudas y explica el contenido editorial del curso | Alumno |
+| [Prácticas](/estudiantes/tutor-ia/practicas) | Ejercicios vinculados a habilidades, con guía socrática en tres niveles de pista. Nunca da la respuesta directa | Alumno |
+| [Repaso de quizzes](/estudiantes/tutor-ia/resultados-de-un-quiz) | Repaso del trabajo realizado | Alumno |
+| [Panel de analítica y Estudiantes](/frontoffice-docentes/panel-ia/seguimiento-del-uso-del-tutor) | Uso del tutor, conceptos más consultados, rendimiento por habilidades y calidad de uso | Docente |
+| [Radar](/frontoffice-docentes/panel-ia/alertas-y-revision-de-conversaciones) | Alertas priorizadas: bloqueos de aprendizaje, uso inapropiado y dificultades del grupo. El docente las atiende o descarta | Docente |
+| [Herramientas IA](/frontoffice-docentes/panel-ia/herramientas-de-ia) | Generación y adaptación de material, por ejemplo cuestionarios | Docente |
+
+Rasgos de diseño relevantes a efectos regulatorios:
+
+- **Entorno cerrado:** antes de responder, el tutor recupera información del material del curso mediante búsqueda semántica (RAG). Las reglas metodológicas de cada curso son configurables por la editorial.
+- **Sin evaluación académica:** el tutor no califica, no promociona ni da acceso a niveles o centros. Las notas las pone el docente.
+- **Diagnóstico para recomendar práctica:** las prácticas estiman qué domina el alumno en cada habilidad solo para recomendarle la siguiente práctica (repaso espaciado). Ese diagnóstico no es una evaluación académica ni llega al expediente.
+- **Activación modular:** el centro o la editorial decide qué módulos y roles tienen la IA activada.
+
+## Marco regulatorio aplicable
+
+La norma central es el Reglamento Europeo de IA (RIA). Sus obligaciones de transparencia aplican desde el 2 de agosto de 2026 y las de alto riesgo, desde el 2 de diciembre de 2027, tras el aplazamiento del Digital Omnibus. La protección de datos, la protección del menor y la accesibilidad añaden requisitos propios.
+
+| Norma | Qué exige en lo relevante para el tutor | Estado a octubre de 2026 |
+| --- | --- | --- |
+| [Reglamento (UE) 2024/1689 de IA (RIA)](https://artificialintelligenceact.eu/annex/3/) | Prácticas prohibidas (art. 5), alfabetización en IA (art. 4), transparencia (art. 50) y, si el sistema es de alto riesgo (anexo III, punto 3, educación), gestión de riesgos, datos, documentación técnica, registros, supervisión humana y registro en la base de datos de la UE | En vigor. Prohibiciones y alfabetización desde 2/2/2025; transparencia desde 2/8/2026 |
+| [Digital Omnibus sobre IA, Reglamento (UE) 2026/1744](https://www.praxikon.com/en/posts/digital-omnibus-high-risk-postponement-december-2027) | Aplaza el alto riesgo del anexo III al 2/12/2027; da hasta el 2/12/2026 para el marcado legible por máquina (art. 50.2) a sistemas ya comercializados; suaviza el art. 4 a «apoyar» la alfabetización | En vigor desde 27/7/2026 |
+| RGPD (UE 2016/679) | Base jurídica, minimización, contrato de encargo (art. 28), EIPD (art. 35), límites a decisiones automatizadas (art. 22) y derechos de los interesados | En vigor |
+| LOPDGDD (Ley Orgánica 3/2018) | Edad de consentimiento digital de 14 años (art. 7); derechos digitales en el ámbito educativo | En vigor |
+| [Proyecto de LO de protección de menores en entornos digitales](https://ejaso.com/conocimiento/aprobado-el-proyecto-de-ley-para-la-proteccion-de-menores-en-entornos-digitales) | Eleva la edad de consentimiento de 14 a 16 años; obliga a los centros a tener políticas de uso responsable de la tecnología | En tramitación en el Congreso; [aprobación prevista en otoño de 2026](https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/juventud-e-infancia/paginas/2026/220626-rego-ley-entornos-digitales.aspx) |
+| [Proyecto de LO para el buen uso y la gobernanza de la IA](https://finreg360.com/alerta/el-congreso-inicia-el-tramite-del-proyecto-de-ley-organica-para-el-buen-uso-y-la-gobernanza-de-la-inteligencia-artificial/) | Desarrolla en España la supervisión del RIA (AESIA) y el régimen sancionador | En tramitación desde junio de 2026 |
+| Ley Europea de Accesibilidad (Directiva 2019/882) y EN 301 549 / WCAG 2.1 AA | Accesibilidad de productos y servicios digitales | Aplicable desde 28/6/2025 |
+| Latinoamérica | Cada país aplica su ley de datos (LGPD en Brasil, LFPDPPP en México, Ley 1581 en Colombia). El [PL 2338/2023 de IA de Brasil](https://casrai.org/guides/brazil-ai-bill-pl-2338-status) está aprobado en el Senado y pendiente en la Cámara | Revisar por país de despliegue |
+
+Cuando un cliente opera fuera de la UE, el RIA sirve igualmente como estándar de referencia: es el marco más exigente y la mayoría de leyes en tramitación siguen su enfoque por niveles de riesgo.
+
+### Calendario de aplicación del RIA
+
+| Fecha | Hito |
+| --- | --- |
+| 2 de febrero de 2025 | Prácticas prohibidas y alfabetización en IA |
+| 2 de agosto de 2025 | Obligaciones de los modelos de IA de uso general (GPAI) |
+| 2 de agosto de 2026 | Transparencia (art. 50) |
+| 2 de diciembre de 2026 | Marcado del contenido generado (art. 50.2) para sistemas ya comercializados |
+| 2 de diciembre de 2027 | **Alto riesgo, anexo III** |
+
+La transparencia ya es exigible; el marcado del contenido generado vence el 2 de diciembre de 2026 y el alto riesgo, un año después.
+
+## Clasificación bajo el Reglamento de IA
+
+El tutor es un sistema de IA de **riesgo limitado**: interactúa con personas y genera contenido, por lo que le aplican las obligaciones de transparencia del art. 50. No es de alto riesgo conforme al anexo III.
+
+El anexo III, punto 3, recoge como alto riesgo en educación los sistemas destinados a decidir el acceso o la admisión, evaluar resultados del aprendizaje, determinar el nivel educativo de una persona o vigilar exámenes ([anexo III](https://artificialintelligenceact.eu/annex/3/)). El tutor no está destinado a ninguna de esas finalidades:
+
+- No determina el acceso a la educación ni la evaluación formal del alumnado.
+- No toma decisiones que afecten al expediente académico.
+- Las prácticas diagnostican el conocimiento solo para recomendar qué practicar. No producen notas ni condicionan la promoción, el nivel o los agrupamientos.
+- Las respuestas y diagnósticos se presentan como orientaciones, nunca como evaluaciones vinculantes. Las decisiones las toma siempre el docente.
+
+<Warning>
+  **Uso previsto.** El uso previsto excluye utilizar los diagnósticos o las métricas del Panel IA como calificación, o para decidir acceso, nivel o agrupamientos. Un uso así por parte de un cliente cambiaría la clasificación y debe comunicarse a OneClick. Este análisis es la evaluación documentada de OneClick a efectos del [art. 6.4](https://artificialintelligenceact.eu/article/6/) y se revisa si cambia el uso previsto.
+</Warning>
+
+| Función | Encaje en el RIA | Motivo |
+| --- | --- | --- |
+| Chat con el tutor | Riesgo limitado | Interactúa con personas y genera texto (art. 50). No evalúa ni decide |
+| Prácticas | Riesgo limitado | Diagnostica el conocimiento para recomendar práctica; no califica ni tiene efectos académicos |
+| Herramientas IA (generar material) | Riesgo limitado | Genera contenido que el docente revisa antes de usar |
+| Panel de analítica, Estudiantes y Radar | Riesgo limitado | Información orientativa para el docente, que decide; no califica ni decide sobre el alumno |
+| Prácticas prohibidas (art. 5) | No aplica | Sin reconocimiento de emociones por datos biométricos, sin manipulación, sin puntuación social. El tutor analiza solo texto |
+| Control de exámenes (anexo III, 3.d) | No aplica | El tutor no vigila pruebas ni detecta conductas prohibidas en exámenes |
+
+### Roles
+
+- **OneClick:** proveedor del sistema de IA, ofrecido en modalidad SaaS.
+- **Editorial:** responsable del despliegue (implantador) en su plataforma. Si comercializa el tutor con su marca, el contrato fija el reparto de obligaciones.
+- **Centro educativo:** responsable del despliegue en el aula: supervisión humana, información a alumnos y familias y alfabetización del profesorado.
+- **Proveedores de modelos de IA de uso general:** tienen obligaciones propias de documentación y transparencia (art. 53). OneClick no entrena ni modifica los modelos base; los usa como servicio externo.
+
+### Obligaciones que aplica OneClick
+
+OneClick cumple las obligaciones de un sistema de riesgo limitado: ausencia de prácticas prohibidas (art. 5), apoyo a la alfabetización en IA (art. 4) y transparencia (art. 50). Además aplica de forma voluntaria medidas propias del alto riesgo: supervisión humana, gobernanza de datos, registro de eventos con trazabilidad, documentación de capacidades y limitaciones, y seguimiento continuo tras la comercialización.
+
+## Transparencia ante los usuarios
+
+El usuario siempre sabe que habla con una IA: el tutor se presenta como tal y todo lo que genera aparece dentro de su propio panel, nunca mezclado con el contenido editorial. Esto cubre el art. 50.1 del RIA, aplicable desde el 2 de agosto de 2026.
+
+- **Identificación:** desde que el alumno accede, el tutor se presenta como asistente de IA y nunca simula ser una persona. No hay interacción automatizada oculta.
+- **Contenido generado:** las respuestas, pistas, diagramas y materiales del docente se muestran dentro de la interfaz del tutor, donde el contexto deja claro que los genera la IA. El material que crea el docente queda en su **Historial de creaciones** y lo revisa antes de usarlo.
+- **Carácter orientativo:** las respuestas se presentan como orientaciones o guías, nunca como respuestas únicas o definitivas, con notas que explican su alcance y limitaciones.
+- **Trazabilidad:** cada interacción queda registrada en el sistema con la versión y el resultado generado.
+- **Lenguaje claro:** la información se adapta a la edad del alumnado.
+- **Política de transparencia:** su publicación corresponde a quien despliega el sistema. OneClick facilita una plantilla que cada editorial adapta a su marca: naturaleza del sistema, fuentes, finalidad, lógica básica, limitaciones, supervisión humana, sesgos, uso de los datos y canal de contacto.
+
+## Supervisión humana y papel del docente
+
+El tutor complementa al docente y nunca le sustituye: no califica, no decide promoción ni agrupamientos, y toda alerta o recomendación sobre un alumno la revisa y la decide una persona.
+
+- **Pedagogía que evita la dependencia:** método socrático con pistas escalonadas (reflexión, pista concreta, concepto clave). El tutor no entrega la solución. Ver [Cómo ayuda en el estudio el tutor](/estudiantes/tutor-ia/como-ayuda-en-el-estudio).
+- **Visibilidad del docente:** el Panel IA muestra quién usa el tutor, sobre qué conceptos pregunta, sus interacciones y cómo lo usa (para aprender o para pedir respuestas).
+- **Decisión humana en las alertas:** el Radar propone; el docente marca cada alerta como atendida o descartada. Sin acción del docente, la alerta no tiene efectos sobre el alumno.
+- **Control de activación:** el centro decide si habilita la IA, y para qué módulos y roles.
+- **Revisión editorial:** el contenido base y las reglas metodológicas de cada curso los define y revisa el equipo pedagógico de la editorial.
+- **Alfabetización en IA (art. 4):** OneClick facilita guías funcionales para docentes y documentación sobre capacidades, limitaciones y buenas prácticas de uso en el aula.
+
+## Protección de datos y privacidad
+
+OneClick actúa como encargado del tratamiento; el responsable es la editorial o el centro, según el contrato. Los datos se almacenan en la UE, al modelo no se envían datos identificativos y ningún dato de usuario se usa para entrenar modelos.
+
+| Tema | Posición de OneClick |
+| --- | --- |
+| Roles RGPD | OneClick, encargado (art. 28); editorial o centro, responsable; proveedores de infraestructura y de modelos, subencargados. Se formaliza en el contrato de encargo con cada cliente |
+| Ubicación de los datos | Aplicación, bases de datos, base vectorial y copias de seguridad en la UE (AWS, región de Fráncfort; base vectorial en región UE) |
+| Modelos de IA | Modelos de uso general de proveedores líderes, consumidos por API con DPA y cláusulas contractuales tipo. Los proveedores no usan esos datos para entrenar sus modelos. La consulta puede procesarse fuera del EEE con esas garantías |
+| Qué se envía al modelo | El texto de la consulta, fragmentos del contenido editorial e instrucciones del sistema (nivel, formato). Nunca nombre, email ni otros identificadores. El sistema no pide datos personales; si un alumno los escribe por iniciativa propia, no se filtran automáticamente |
+| Entrenamiento | Ningún dato de usuario se usa para entrenar, reentrenar ni ajustar modelos. Las pruebas se hacen con datos sintéticos |
+| Qué se almacena | Textos del alumno, respuestas generadas, metadatos (fecha, unidad, modo) y progreso, asociados al identificador de usuario de la plataforma |
+| Categorías especiales | No se tratan |
+| Conservación | Mientras el servicio esté activo. Los datos de cada curso escolar se conservan 12 meses tras su fin. Al terminar el contrato se borran en un máximo de 3 meses, con bloqueo previo. Los agregados anonimizados pueden conservarse sin límite |
+| Supresión | A petición del interesado, a través del responsable: OneClick la ejecuta en un máximo de 30 días, incluida la base vectorial. Las copias de seguridad se eliminan por rotación |
+| Brechas de seguridad | Notificación al responsable en un máximo de 48 horas, para que pueda notificar a la autoridad en 72 horas |
+| Acceso del docente | El docente ve el progreso, las interacciones y las alertas de sus clases con fines pedagógicos y de protección; el responsable informa de ello a familias y alumnos |
+| Decisiones automatizadas (art. 22 RGPD) | No hay decisiones con efectos jurídicos o significativos: diagnósticos y alertas solo informan al docente |
+| Menores y base jurídica | El tratamiento se enmarca en el servicio educativo contratado por el centro; el alta y el consentimiento los gestiona el responsable. En España la edad de consentimiento digital es 14 años (16 si se aprueba el proyecto de ley de menores) |
+| Evaluación de impacto (EIPD) | Corresponde al responsable; OneClick aporta la información técnica necesaria |
+| Seguridad | Autenticación a través de la plataforma, roles diferenciados, aislamiento de datos por usuario, registro de actividad, acceso a producción con credenciales individuales, copias diarias cifradas en la UE y monitorización continua. Infraestructura cloud con SOC 2 e ISO/IEC 27001 |
+
+## Seguridad, moderación y protección del menor
+
+El tutor solo responde sobre el contenido asignado al alumno, modera automáticamente todas las interacciones y avisa al docente de cualquier situación sensible por orden de gravedad.
+
+- **Límites de dominio:** fuera del contenido del curso, el tutor no responde y redirige al alumno. No es una IA general con un filtro encima.
+- **Moderación automática:** cada mensaje se analiza para detectar lenguaje ofensivo, discurso de odio, contenido inapropiado e intentos de desvío del uso educativo. Lo detectado genera una alerta de prioridad alta en el Radar, con el mensaje exacto, su clasificación y el contexto.
+- **Detección de desviación:** el porcentaje de interacciones no académicas aparece en la ficha del alumno.
+- **Gestión de casos:** una única bandeja donde el docente cambia el estado de cada aviso hasta cerrarlo.
+- **Casos sensibles:** el Radar los eleva al docente con prioridad alta. La gestión del caso sigue el protocolo de protección y bienestar del centro (en España, a través del coordinador de bienestar y protección que exige la LOPIVI). El tutor aporta la detección y el contexto; no sustituye ese protocolo.
+- **Incidencias:** los centros reportan a la editorial, que escala a OneClick cuando se requiere intervención técnica. Cada incidencia se registra con impacto, causa raíz y acción correctiva.
+- **Reporte de errores:** el alumno puede reportar erratas o soluciones incorrectas en cada ejercicio; la editorial recibe esos avisos.
+
+## Sesgos, calidad y mejora continua
+
+El riesgo de sesgo es bajo porque el tutor responde sobre contenido editorial revisado y no sobre fuentes abiertas, pero OneClick lo trata como un proceso continuo, no como un problema resuelto.
+
+- **Sesgo del modelo base:** los modelos de uso general pueden arrastrar sesgos de su entrenamiento. Se mitiga fundamentando las respuestas en el contenido editorial (RAG) y no en el conocimiento general del modelo.
+- **Sesgo de contenido:** las respuestas siguen la perspectiva del material editorial. Es intencional y coherente con el objetivo del sistema.
+- **Sesgo lingüístico:** el sistema opera en los idiomas configurados para cada despliegue.
+- **Evaluación continua:** revisiones técnicas periódicas del rendimiento y la precisión de las respuestas, pruebas automatizadas en cada despliegue y monitorización funcional de las respuestas fuera de ámbito.
+- **Canal de reporte:** alumnos y docentes pueden reportar errores; cada editorial publica un canal de contacto para errores, sesgos o discriminación.
+- **Métricas del docente:** la clasificación de la calidad de uso y de las intenciones del alumno es orientativa y no debe usarse como evaluación ni sanción.
+
+## Estándares y marcos de referencia
+
+El tutor se diseña siguiendo los marcos internacionales de IA en educación. OneClick no tiene certificaciones propias de IA; su infraestructura cloud cuenta con SOC 2 e ISO/IEC 27001.
+
+| Marco | Qué es | Cómo se alinea el tutor |
+| --- | --- | --- |
+| UNESCO, Guía para la IA generativa en educación e investigación (2023) | Recomendaciones para un uso centrado en las personas: supervisión humana, validación de herramientas, privacidad y edad mínima de uso | Entorno cerrado, docente en el centro del proceso, contenido editorial validado |
+| UNESCO, marcos de competencias en IA para docentes y alumnos (2024) | Qué deben saber docentes y alumnos para usar la IA con criterio | Pedagogía socrática; formación a docentes |
+| Comisión Europea, Directrices éticas sobre IA y datos en la enseñanza (2022) | Preguntas guía para docentes: agencia humana, transparencia, equidad, bienestar y privacidad | Las respuestas de esta página siguen esa estructura |
+| Principios de IA de la OCDE | Crecimiento inclusivo, derechos humanos, transparencia, robustez y rendición de cuentas | Principios aplicados por diseño |
+| ISO/IEC 42001:2023 | Sistema de gestión de la IA certificable | Marco de referencia, sin certificación |
+| ISO/IEC 23894:2023 | Gestión de riesgos de la IA | Base para el sistema de gestión de riesgos que exigiría el alto riesgo |
+| WCAG 2.1 AA / EN 301 549 | Accesibilidad digital | Plan de cumplimiento WCAG 2.1 AA de la plataforma en curso |
+| Interoperabilidad 1EdTech (LTI, QTI, OneRoster) y CASE | Estándares de integración de contenidos, usuarios y objetivos de aprendizaje | QTI y CASE en integración con clientes; OneRoster en roadmap |
+
+## Reparto de responsabilidades
+
+OneClick responde del sistema; la editorial, del contenido y de su despliegue comercial; el centro, del uso en el aula. El contrato con cada editorial debe recoger este reparto, sobre todo en marca blanca.
+
+| Obligación | OneClick | Editorial | Centro |
+| --- | --- | --- | --- |
+| Diseño, documentación técnica y gestión de riesgos del sistema | Responsable | Colabora | — |
+| Contenido base y reglas metodológicas | Integra | Responsable | — |
+| Transparencia ante el usuario en el producto | Responsable | Publica su política de IA | Informa a alumnos y familias |
+| Moderación y alertas | Responsable técnico | — | Atiende las alertas |
+| Supervisión humana en el aula | Da las herramientas | — | Responsable |
+| Protección de datos | Encargado | Responsable o corresponsable | Responsable según el modelo |
+| EIPD | Aporta información técnica | Según contrato | Según contrato |
+| Alfabetización en IA | Formación y guías | Plan para su equipo | Plan para su profesorado |
+| Activación de módulos y roles | Configura | Decide | Decide |
+| Canal de reporte de errores y sesgos | Gestiona y corrige | Publica el canal | Lo comunica |
+
+## Preguntas frecuentes
+
+Respuestas cortas para reutilizar con clientes; cada una remite a la sección con el detalle.
+
+<AccordionGroup>
+  <Accordion title="¿Cumple el tutor el Reglamento Europeo de IA?">
+    Sí. Es un sistema de riesgo limitado y cumple las obligaciones que le aplican: ausencia de prácticas prohibidas, alfabetización y transparencia. Ver la sección Clasificación bajo el Reglamento de IA.
+  </Accordion>
+
+  <Accordion title="¿Es un sistema de alto riesgo?">
+    No. No decide acceso ni nivel, no evalúa académicamente y no vigila exámenes. Las prácticas diagnostican el conocimiento solo para recomendar qué practicar.
+  </Accordion>
+
+  <Accordion title="¿Se entrena la IA con los datos de los alumnos?">
+    No. Ningún dato de usuario se usa para entrenar ni ajustar modelos.
+  </Accordion>
+
+  <Accordion title="¿Puede responder sobre cualquier tema?">
+    No. Solo sobre el contenido asignado al alumno.
+  </Accordion>
+
+  <Accordion title="¿Da las respuestas a los alumnos?">
+    No. Guía con preguntas y pistas escalonadas.
+  </Accordion>
+
+  <Accordion title="¿Toma decisiones sobre los alumnos?">
+    No. No califica ni decide; informa al docente, que es quien decide.
+  </Accordion>
+
+  <Accordion title="¿Sabe el alumno que habla con una IA?">
+    Sí, siempre.
+  </Accordion>
+
+  <Accordion title="¿Qué pasa si un alumno escribe algo preocupante?">
+    Se genera una alerta de prioridad alta para el docente y el caso sigue el protocolo de protección del centro. Ver la sección Seguridad, moderación y protección del menor.
+  </Accordion>
+
+  <Accordion title="¿Dónde están los datos?">
+    En la UE. Al modelo solo llegan la consulta y el contenido editorial, sin datos identificativos, con DPA y cláusulas contractuales tipo. Ver la sección Protección de datos y privacidad.
+  </Accordion>
+
+  <Accordion title="¿Qué modelo de IA se usa?">
+    Modelos de IA de uso general de proveedores líderes. Los subencargados se identifican al responsable del tratamiento en el contrato de encargo.
+  </Accordion>
+
+  <Accordion title="¿Cuánto tiempo se guardan las conversaciones?">
+    Mientras el servicio esté activo; 12 meses tras el fin de cada curso escolar; borrado en un máximo de 3 meses tras el fin del contrato.
+  </Accordion>
+
+  <Accordion title="¿Hay certificaciones?">
+    OneClick no tiene certificaciones propias de IA; la infraestructura cloud cuenta con SOC 2 e ISO/IEC 27001. Ver la sección Estándares y marcos de referencia.
+  </Accordion>
+</AccordionGroup>
